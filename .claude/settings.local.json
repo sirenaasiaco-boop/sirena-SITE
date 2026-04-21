@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmd //c \"python --version 2>&1\")",
+      "Bash(cmd //c \"python3 --version 2>&1\")",
+      "Bash(cmd //c \"py --version 2>&1\")"
+    ]
+  }
+}

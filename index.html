@@ -1,0 +1,2832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sirena Asia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,400&family=Outfit:wght@300;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,400&family=Outfit:wght@300;500&display=swap" rel="stylesheet" /></noscript>
+
+  <style>
+    :root {
+      --navy:      #0d1f45;
+      --navy-deep: #030d1f;
+      --navy-mid:  #081428;
+      --cyan:      #22d3ee;
+      --cyan-glow: #a5f3fc;
+      --coral:     #fb7185;
+      --mist:      #e0f7fa;
+      --hero-teal: #2CA0BC;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 100%; overflow-x: hidden; }
+    body { background: var(--navy-deep); color: var(--mist); font-family: 'Outfit', sans-serif; }
+
+    /* Subtle noise grain — lighter touch */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 1000; pointer-events: none; opacity: 0.07;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+
+
+    /* ════════════════════════════════════════
+       LOADING SCREEN
+       Style ref: bluemarinefoundation.com
+    ════════════════════════════════════════ */
+    /* ════════════════════════════════════════
+       NAV
+    ════════════════════════════════════════ */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.1rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: linear-gradient(180deg, rgba(6,8,15,0.6) 0%, transparent 100%);
+      transition: background 0.5s ease, backdrop-filter 0.5s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(6, 8, 15, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 rgba(34,211,238,0.08);
+    }
+    .nav-logo { height: 48px; width: auto; object-fit: contain; filter: drop-shadow(0 0 8px rgba(34,211,238,0.55)) drop-shadow(0 0 18px rgba(34,211,238,0.25)); transition: filter 0.3s ease; }
+    .nav-logo:hover { filter: drop-shadow(0 0 12px rgba(34,211,238,0.8)) drop-shadow(0 0 28px rgba(34,211,238,0.4)); }
+    .nav-link {
+      font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(224,247,250,0.55); text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .nav-link:hover { color: var(--cyan-glow); }
+    .btn-book {
+      font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.6rem 1.6rem; background: var(--coral); color: #fff;
+      border: none; cursor: pointer; text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 20px rgba(251,113,133,0.35);
+    }
+    .btn-book:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(251,113,133,0.5); }
+    #burger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px; z-index: 101;
+    }
+    .bl { display: block; width: 22px; height: 1.5px; background: #fff; transition: transform 0.25s, opacity 0.25s; }
+    #mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 99;
+      background: rgba(6,8,15,0.97); backdrop-filter: blur(20px);
+      flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem;
+    }
+    #mobile-menu.open { display: flex; }
+    .mob-link {
+      font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 700;
+      letter-spacing: -0.01em;
+      color: rgba(224,247,250,0.85); text-decoration: none; transition: color 0.2s ease;
+    }
+    .mob-link:hover { color: var(--cyan); }
+    @media (max-width: 768px) {
+      #navbar { padding: 1.2rem 1.5rem; }
+      #nav-links { display: none !important; }
+      #burger { display: flex; }
+    }
+
+
+    /* ════════════════════════════════════════
+       HERO — normal flow, full viewport height
+    ════════════════════════════════════════ */
+    #hero {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      z-index: 1;
+      overflow: hidden;
+      background: var(--hero-teal);
+    }
+
+    #video-wrap, #video-wrap2 {
+      position: absolute; inset: -5%;
+      will-change: transform;
+    }
+    #hero-video, #hero-video2 {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: opacity 1.4s ease;
+    }
+    #hero-video2 {
+      opacity: 0;
+    }
+
+    /* Light shimmer */
+    .water-shimmer {
+      position: absolute; inset: 0; pointer-events: none; z-index: 2;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 30%),
+        radial-gradient(ellipse 80% 40% at 50% 0%, rgba(255,255,255,0.07) 0%, transparent 60%);
+    }
+
+    /* Particles + light rays */
+    #hero-particles { position: absolute; inset: 0; pointer-events: none; z-index: 3; }
+    .bp {
+      position: absolute; border-radius: 50%;
+      animation: bpFloat linear infinite;
+    }
+    @keyframes bpFloat {
+      0%   { transform: translateY(108vh) scale(0); opacity: 0; }
+      8%   { opacity: 0.85; }
+      90%  { opacity: 0.35; }
+      100% { transform: translateY(-8vh) translateX(var(--drift, 12px)) scale(1); opacity: 0; }
+    }
+    /* Light rays streaming down through water */
+    .light-ray {
+      position: absolute; top: 0; pointer-events: none;
+      width: 2px; height: 60%;
+      background: linear-gradient(180deg, rgba(165,243,252,0.18) 0%, rgba(165,243,252,0.06) 60%, transparent 100%);
+      transform-origin: top center;
+      animation: rayPulse ease-in-out infinite;
+      filter: blur(1.5px);
+    }
+    @keyframes rayPulse {
+      0%,100% { opacity:0.3; transform:scaleX(1) rotate(var(--r,4deg)); }
+      50%     { opacity:0.7; transform:scaleX(2.5) rotate(var(--r,4deg)); }
+    }
+
+    /* Logo overlay — lives inside hero, scrolls with it */
+    .hero-content {
+      position: absolute; inset: 0; z-index: 4;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      perspective: 800px;
+      pointer-events: none;
+    }
+
+    .sirena-stack {
+      position: relative;
+      width: clamp(280px, 42vw, 580px);
+      height: auto;
+      will-change: transform;
+    }
+
+    .sirena-stack img {
+      display: block;
+      width: 100%; height: auto;
+      position: absolute; top: 0; left: 0;
+      will-change: opacity;
+    }
+    .sirena-stack::after {
+      content: ''; display: block;
+      width: 100%; padding-bottom: 44%;
+    }
+
+    #img1 { opacity: 1; }
+
+    /* Enter button cue */
+    .scroll-cue {
+      position: absolute; bottom: 48px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0;
+      opacity: 0; transition: opacity 0.6s ease;
+      pointer-events: auto; cursor: pointer;
+      z-index: 6;
+    }
+    .scroll-cue.show { opacity: 1; }
+    .scroll-cue.lit .s-text {
+      color: var(--cyan);
+      text-shadow: 0 0 10px rgba(34,211,238,0.9), 0 0 22px rgba(34,211,238,0.5), 0 0 40px rgba(34,211,238,0.25);
+      transition: color 0.8s ease, text-shadow 0.8s ease;
+    }
+    .scroll-cue.lit .s-line {
+      background: linear-gradient(180deg, rgba(34,211,238,0.95), rgba(34,211,238,0.1));
+      box-shadow: 0 0 8px rgba(34,211,238,0.7), 0 0 18px rgba(34,211,238,0.35);
+      transition: background 0.8s ease, box-shadow 0.8s ease;
+    }
+    @keyframes scrollGlowPulse {
+      0%, 100% { opacity: 0.7; transform: scaleY(1); }
+      50%       { opacity: 1;   transform: scaleY(0.6); }
+    }
+    .scroll-cue.lit .s-line { animation: scrollGlowPulse 1.8s ease-in-out infinite; }
+    #framer-enter-btn { pointer-events: auto; }
+
+    /* Bottom edge of hero fades seamlessly into page-2 */
+    .hero-bottom-fade {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 280px; z-index: 5; pointer-events: none;
+      background: linear-gradient(180deg,
+        transparent 0%,
+        rgba(10, 35, 58, 0.3) 35%,
+        rgba(5, 18, 38, 0.75) 65%,
+        var(--navy-deep) 100%
+      );
+    }
+
+    /* ════════════════════════════════════════
+       PAGE BODY — normal flow after hero
+    ════════════════════════════════════════ */
+    #page-body {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ════════════════════════════════════════
+       UNDERWATER ANIMATIONS
+    ════════════════════════════════════════ */
+
+    /* Caustic dancing light blobs */
+    .caustic-layer {
+      position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    }
+    .caustic-layer::before,
+    .caustic-layer::after {
+      content: '';
+      position: absolute; inset: 0;
+    }
+    .caustic-layer::before {
+      background:
+        radial-gradient(ellipse 18% 12% at 25% 35%, rgba(150,235,255,0.2) 0%, transparent 60%),
+        radial-gradient(ellipse 14% 20% at 70% 22%, rgba(100,220,245,0.16) 0%, transparent 60%),
+        radial-gradient(ellipse 22% 14% at 55% 68%, rgba(80,210,230,0.14) 0%, transparent 60%),
+        radial-gradient(ellipse 10% 16% at 85% 48%, rgba(120,235,255,0.12) 0%, transparent 60%);
+      animation: causticA 7s ease-in-out infinite alternate;
+    }
+    .caustic-layer::after {
+      background:
+        radial-gradient(ellipse 16% 10% at 42% 52%, rgba(150,240,255,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 20% 16% at 12% 72%, rgba(80,200,225,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 12% 18% at 88% 28%, rgba(120,235,250,0.16) 0%, transparent 60%);
+      animation: causticB 9s ease-in-out infinite alternate;
+    }
+    @keyframes causticA {
+      0%   { transform: translate(0, 0) scale(1);      opacity: 0.6; }
+      50%  { transform: translate(-22px, 16px) scale(1.05); opacity: 1; }
+      100% { transform: translate(16px, -12px) scale(0.96); opacity: 0.7; }
+    }
+    @keyframes causticB {
+      0%   { transform: translate(0, 0) scale(1);       opacity: 0.5; }
+      50%  { transform: translate(26px, -20px) scale(0.95); opacity: 0.9; }
+      100% { transform: translate(-14px, 22px) scale(1.04); opacity: 0.7; }
+    }
+
+    /* God rays — light slanting down from the surface */
+    .god-rays {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background:
+        linear-gradient(165deg, rgba(100,225,250,0.08) 0%, transparent 42%),
+        linear-gradient(172deg, rgba(80,210,240,0.06) 5%, transparent 50%),
+        linear-gradient(158deg, rgba(130,235,255,0.07) 0%, transparent 38%),
+        linear-gradient(178deg, rgba(60,200,230,0.05) 10%, transparent 55%);
+      animation: raysBreath 14s ease-in-out infinite alternate;
+    }
+    @keyframes raysBreath {
+      from { opacity: 0.4; transform: skewX(-1.5deg) scaleX(0.97); }
+      to   { opacity: 1;   transform: skewX(1.5deg)  scaleX(1.03); }
+    }
+
+    /* ════════════════════════════════════════
+       PAGE BODY WRAPPER
+    ════════════════════════════════════════ */
+    #page-2 {
+      background: var(--navy-deep);
+      position: relative;
+      overflow-x: clip;
+      overflow-y: visible;
+    }
+    /* Top fade: matches hero-bottom-fade so the seam is invisible */
+    .p2-top-fade {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 200px;
+      z-index: 1; pointer-events: none;
+      background: linear-gradient(180deg,
+        var(--navy-deep) 0%,
+        transparent 100%
+      );
+    }
+    /* Ambient deep glow */
+    #page-2::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 55% 25% at 20% 30%, rgba(0,188,212,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 45% 35% at 80% 60%, rgba(255,107,157,0.04) 0%, transparent 70%);
+    }
+
+    /* ════════════════════════════════════════
+       SHARED SECTION ELEMENTS
+    ════════════════════════════════════════ */
+    .sec-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--cyan); opacity: 0.75;
+      margin-bottom: 1.2rem;
+    }
+    .sec-heading {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: #fff;
+    }
+    .sec-heading em {
+      font-style: italic;
+      color: var(--cyan);
+      text-shadow: 0 0 60px rgba(34,211,238,0.3);
+    }
+    .sec-body {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: clamp(1rem, 1.8vw, 1.25rem);
+      line-height: 1.8;
+      color: rgba(224,247,250,0.55);
+    }
+    .sec-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(34,211,238,0.18), transparent);
+      margin: 0;
+    }
+
+    /* Scroll reveal */
+    .rv {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.85s cubic-bezier(0.22,1,0.36,1),
+                  transform 0.85s cubic-bezier(0.22,1,0.36,1);
+    }
+    .rv.in { opacity: 1; transform: translateY(0); }
+    .rv-l { opacity: 0; transform: translateX(-32px);
+      transition: opacity 0.85s cubic-bezier(0.22,1,0.36,1),
+                  transform 0.85s cubic-bezier(0.22,1,0.36,1); }
+    .rv-l.in { opacity: 1; transform: translateX(0); }
+    .rv-r { opacity: 0; transform: translateX(32px);
+      transition: opacity 0.85s cubic-bezier(0.22,1,0.36,1),
+                  transform 0.85s cubic-bezier(0.22,1,0.36,1); }
+    .rv-r.in { opacity: 1; transform: translateX(0); }
+    .d1 { transition-delay: 0s; }
+    .d2 { transition-delay: 0.1s; }
+    .d3 { transition-delay: 0.2s; }
+    .d4 { transition-delay: 0.32s; }
+    .d5 { transition-delay: 0.44s; }
+
+    /* ════════════════════════════════════════
+       001 / THE COLLECTIVE
+    ════════════════════════════════════════ */
+    #s-collective {
+      position: relative; z-index: 2;
+      padding: clamp(5rem, 10vw, 9rem) 0 0;
+    }
+    .collective-header {
+      padding: 0 clamp(1.5rem, 5vw, 5rem);
+      margin-bottom: 3.5rem;
+    }
+
+    /* Elite Carousel */
+    .carousel-wrap {
+      position: relative;
+      overflow-x: clip;
+      overflow-y: visible;
+      padding-top: 36px;
+      padding-bottom: 36px;
+      margin-top: -36px;
+      margin-bottom: -36px;
+    }
+    .carousel-track {
+      display: flex;
+      gap: 1.2rem;
+      padding: 0 clamp(1.5rem, 5vw, 5rem) 2rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      cursor: grab;
+      -webkit-overflow-scrolling: touch;
+    }
+    .carousel-track:active { cursor: grabbing; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .carousel-track { scrollbar-width: none; }
+
+    /* Left/right fade edges */
+    .carousel-wrap::before,
+    .carousel-wrap::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 3; pointer-events: none;
+    }
+    .carousel-wrap::before {
+      left: 0;
+      background: linear-gradient(90deg, var(--navy-deep), transparent);
+    }
+    .carousel-wrap::after {
+      right: 0;
+      background: linear-gradient(-90deg, var(--navy-deep), transparent);
+    }
+
+    /* Elite card */
+    .elite-card {
+      flex: 0 0 280px;
+      scroll-snap-align: start;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0,188,212,0.12);
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.3s, transform 0.3s cubic-bezier(0.22,1,0.36,1);
+    }
+    @media (min-width: 768px) { .elite-card { flex: 0 0 320px; } }
+    .elite-card:hover {
+      border-color: rgba(0,229,255,0.45);
+      transform: translateY(-6px);
+    }
+    .elite-card img {
+      width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block;
+      filter: saturate(0.75) brightness(0.8);
+      transition: filter 0.4s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1);
+    }
+    .elite-card:hover img { filter: saturate(1) brightness(0.9); transform: scale(1.04); }
+    .elite-card-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.4rem 1.4rem 1.6rem;
+      background: linear-gradient(0deg, rgba(0,8,20,0.97) 0%, rgba(0,13,38,0.6) 55%, transparent 100%);
+    }
+    .elite-num {
+      font-family: 'Outfit', sans-serif; font-size: 0.58rem; font-weight: 500;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      color: rgba(34,211,238,0.5); margin-bottom: 0.3rem;
+    }
+    .elite-name {
+      font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 700;
+      color: #fff; letter-spacing: -0.01em;
+    }
+    .elite-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300; font-size: 0.88rem;
+      color: rgba(34,211,238,0.6); margin-top: 0.2rem;
+    }
+    .elite-corner {
+      position: absolute; top: 10px; right: 10px;
+      width: 18px; height: 18px;
+      border-top: 1px solid var(--coral);
+      border-right: 1px solid var(--coral);
+      transition: width 0.3s, height 0.3s, border-color 0.3s, box-shadow 0.3s;
+      box-shadow: 2px -2px 8px rgba(251,113,133,0.3);
+    }
+    .elite-card:hover .elite-corner {
+      width: 26px; height: 26px;
+      border-color: var(--coral);
+      box-shadow: 3px -3px 14px rgba(251,113,133,0.55);
+    }
+
+    /* Carousel arrows */
+    .c-arrows {
+      display: flex; gap: 0.8rem;
+      padding: 1.2rem clamp(1.5rem, 5vw, 5rem) 0;
+    }
+    .c-arrow {
+      width: 42px; height: 42px;
+      border: 1px solid rgba(0,188,212,0.25);
+      background: rgba(0,13,38,0.6); backdrop-filter: blur(8px);
+      color: rgba(232,244,248,0.6);
+      font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .c-arrow:hover { border-color: var(--cyan-glow); color: #fff; background: rgba(0,229,255,0.08); }
+
+    /* Rising Tides sub-section */
+    .rising-section {
+      padding: 4rem clamp(1.5rem, 5vw, 5rem) 6rem;
+    }
+    .rising-label {
+      font-family: 'Outfit', sans-serif; font-size: 0.62rem; font-weight: 500;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--coral); opacity: 0.8; margin-bottom: 0.8rem;
+    }
+    .rising-heading {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900;
+      color: #fff; margin-bottom: 0.6rem; letter-spacing: -0.02em;
+    }
+    .rising-heading em {
+      font-style: italic; color: var(--cyan);
+      text-shadow: 0 0 60px rgba(34,211,238,0.3);
+    }
+    .rising-sub {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300; font-size: 1rem;
+      color: rgba(224,247,250,0.4); margin-bottom: 2rem;
+    }
+    .see-all-link {
+      font-family: 'Outfit', sans-serif; font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--cyan); text-decoration: none;
+      border-bottom: 1px solid rgba(0,188,212,0.3);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+      display: inline-block; margin-top: 1.8rem;
+    }
+    .see-all-link:hover { color: var(--cyan-glow); border-color: var(--cyan-glow); }
+
+    /* ════════════════════════════════════════
+       002 / ABOUT US
+    ════════════════════════════════════════ */
+    #s-about {
+      position: relative; z-index: 2;
+      background: var(--navy-deep);
+      overflow: hidden;
+    }
+    #about-video-bg {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; pointer-events: none;
+      opacity: 0.38;
+      filter: saturate(0.8) brightness(0.65);
+      z-index: 0;
+    }
+    #s-about::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none; z-index: 1;
+      background:
+        linear-gradient(180deg, rgba(3,13,31,0.55) 0%, rgba(3,13,31,0.35) 50%, rgba(3,13,31,0.55) 100%),
+        radial-gradient(ellipse 60% 50% at 90% 20%, rgba(0,188,212,0.09) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(255,107,157,0.06) 0%, transparent 65%);
+    }
+    #s-about .about-grid { position: relative; z-index: 2; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    @media (min-width: 900px) {
+      .about-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .about-who {
+      padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 5rem);
+      position: relative;
+      border-right: 1px solid rgba(0,188,212,0.1);
+    }
+    .about-offer {
+      padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 5rem);
+    }
+    .about-offer-items { margin-top: 2.2rem; display: flex; flex-direction: column; gap: 1.4rem; }
+    .offer-item {
+      display: flex; gap: 1.2rem; align-items: flex-start;
+    }
+    .offer-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      border: 1px solid rgba(0,188,212,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: var(--cyan);
+    }
+    .offer-title {
+      font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: #fff; margin-bottom: 0.3rem;
+    }
+    .offer-desc {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300; font-size: 0.95rem;
+      color: rgba(224,247,250,0.45); line-height: 1.7;
+    }
+
+    /* ════════════════════════════════════════
+       003 / GALLERY & MARQUEE
+    ════════════════════════════════════════ */
+    #s-gallery {
+      position: relative; z-index: 2;
+      background: var(--navy-mid);
+      padding-top: clamp(5rem, 10vw, 9rem);
+    }
+    .gallery-header {
+      padding: 0 clamp(1.5rem, 5vw, 5rem);
+      margin-bottom: 3rem;
+    }
+    /* Framer marquee mount */
+    #framer-marquee {
+      width: 100%; overflow: hidden;
+      margin: 1rem 0 3rem;
+    }
+    /* Gallery photo grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.6rem;
+      padding: 0 clamp(1.5rem, 5vw, 5rem) clamp(4rem, 8vw, 7rem);
+    }
+    @media (min-width: 768px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1024px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
+    .gallery-thumb {
+      position: relative; overflow: hidden; aspect-ratio: 3/4;
+      background: var(--navy);
+    }
+    .gallery-thumb img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: saturate(0.7) brightness(0.75);
+      transition: filter 0.4s, transform 0.5s cubic-bezier(0.22,1,0.36,1);
+    }
+    .gallery-thumb:hover img { filter: saturate(1) brightness(0.9); transform: scale(1.06); }
+    .gallery-thumb:first-child {
+      grid-column: span 2; grid-row: span 2; aspect-ratio: auto;
+    }
+    .gallery-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 0.7rem 0.9rem;
+      background: linear-gradient(0deg, rgba(0,8,20,0.9) 0%, transparent 100%);
+      font-family: 'Fraunces', serif; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(232,244,248,0.55);
+    }
+    .gallery-cta {
+      text-align: center;
+      padding: 0 0 clamp(4rem, 8vw, 7rem);
+    }
+    .btn-outline {
+      font-family: 'Outfit', sans-serif; font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.9rem 2.6rem;
+      border: 1px solid rgba(34,211,238,0.25);
+      color: var(--cyan); text-decoration: none; display: inline-block;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--cyan-glow); background: rgba(34,211,238,0.06); color: var(--cyan-glow); }
+
+    /* ════════════════════════════════════════
+       004 / CONTACT
+    ════════════════════════════════════════ */
+    #s-contact {
+      position: relative; z-index: 2;
+      background: var(--navy);
+      padding: clamp(6rem, 12vw, 11rem) clamp(1.5rem, 5vw, 5rem);
+      text-align: center;
+      overflow: hidden;
+    }
+    #contact-video-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      opacity: 0; z-index: 0;
+      transition: opacity 1.2s ease;
+      pointer-events: none;
+    }
+    #contact-video-bg.playing { opacity: 0.45; }
+    #s-contact::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%,
+        rgba(0,188,212,0.07) 0%, transparent 70%);
+    }
+    .contact-big {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(3.2rem, 8vw, 7rem); font-weight: 900;
+      line-height: 0.92; letter-spacing: -0.04em;
+      color: #fff; margin: 1rem 0 1.8rem;
+    }
+    .contact-big span { color: var(--coral); font-style: italic; }
+    .contact-sub {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300; font-size: clamp(1rem, 1.8vw, 1.25rem);
+      color: rgba(224,247,250,0.45); margin-bottom: 3rem;
+      max-width: 480px; margin-left: auto; margin-right: auto;
+      line-height: 1.8;
+    }
+    .contact-info {
+      font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 400;
+      letter-spacing: 0.12em; color: rgba(224,247,250,0.3);
+      text-transform: uppercase; margin-top: 2.5rem;
+    }
+    .contact-info a {
+      color: var(--cyan); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-info a:hover { color: var(--cyan-glow); }
+    .btn-coral {
+      font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 1.1rem 3rem; background: var(--coral); color: #fff;
+      text-decoration: none; display: inline-block; border: none; cursor: pointer;
+      box-shadow: 0 6px 30px rgba(251,113,133,0.38);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-coral:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(251,113,133,0.52); }
+
+    /* ════════════════════════════════════════
+       005 / NEWS + SHOP
+    ════════════════════════════════════════ */
+    #s-news-shop {
+      position: relative; z-index: 2;
+      background: var(--navy-deep);
+    }
+    .ns-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 900px) { .ns-grid { grid-template-columns: 1fr 1fr; } }
+    .ns-news {
+      padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem);
+      border-right: 1px solid rgba(0,188,212,0.08);
+    }
+    .ns-shop {
+      padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem);
+      background: rgba(255,107,157,0.02);
+    }
+    .news-items { margin-top: 2rem; display: flex; flex-direction: column; gap: 0; }
+    .news-item {
+      padding: 1.4rem 0;
+      border-bottom: 1px solid rgba(0,188,212,0.1);
+      display: flex; flex-direction: column; gap: 0.35rem;
+      text-decoration: none;
+      transition: border-bottom-color 0.2s;
+    }
+    .news-item:hover { border-bottom-color: rgba(0,188,212,0.35); }
+    .news-date {
+      font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(224,247,250,0.28);
+    }
+    .news-title {
+      font-family: 'Fraunces', serif; font-size: 1rem;
+      font-weight: 700; letter-spacing: -0.01em;
+      color: rgba(224,247,250,0.78);
+      transition: color 0.2s;
+    }
+    .news-item:hover .news-title { color: #fff; }
+    .news-excerpt {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300; font-size: 0.9rem;
+      color: rgba(224,247,250,0.35); line-height: 1.65;
+    }
+    /* Shop teaser */
+    .shop-featured {
+      position: relative; overflow: hidden;
+      margin-top: 2rem; margin-bottom: 1.8rem;
+      aspect-ratio: 4/3;
+    }
+    .shop-featured img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: saturate(0.7) brightness(0.65);
+    }
+    .shop-featured-label {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 0.5rem;
+      background: rgba(0,13,38,0.4);
+    }
+    .shop-item-name {
+      font-family: 'Fraunces', serif; font-size: 1rem;
+      font-weight: 600; letter-spacing: 0.06em; color: #fff;
+    }
+    .shop-item-price {
+      font-family: 'Outfit', sans-serif;
+      font-style: italic; font-size: 1.1rem;
+      color: var(--coral);
+    }
+
+    /* ════════════════════════════════════════
+       SCROLL CUE (restored)
+    ════════════════════════════════════════ */
+    .scroll-line-wrap {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      margin-top: 1.8rem;
+    }
+    .s-text {
+      font-family: 'Outfit', sans-serif; font-size: 0.48rem; font-weight: 400;
+      letter-spacing: 0.35em; text-transform: uppercase; color: rgba(255,255,255,0.35);
+    }
+    .s-line {
+      width: 1px; height: 52px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.55), transparent);
+      animation: spulse 2.4s ease-in-out infinite;
+    }
+    @keyframes spulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50%       { opacity: 1;   transform: scaleY(0.55); }
+    }
+
+
+    /* ════════════════════════════════════════
+       INTERACTIVE GLOBE
+    ════════════════════════════════════════ */
+    .globe-section {
+      display: flex; flex-direction: column; align-items: center;
+      padding: 3rem 0 4rem; position: relative; z-index: 2;
+    }
+    .globe-label {
+      font-family: 'Outfit', sans-serif; font-size: 0.62rem; font-weight: 500;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--cyan); opacity: 0.65; margin-bottom: 1.4rem;
+    }
+    #globe-canvas {
+      border-radius: 50%;
+      box-shadow:
+        0 0 60px rgba(34,211,238,0.15),
+        0 0 120px rgba(34,211,238,0.06),
+        inset 0 0 40px rgba(6,8,15,0.6);
+      cursor: grab;
+    }
+    #globe-canvas:active { cursor: grabbing; }
+    .globe-legend {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem;
+      margin-top: 1.8rem; max-width: 420px;
+    }
+    .globe-loc {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 400;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(224,247,250,0.45);
+    }
+    .globe-loc-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 6px var(--cyan);
+      flex-shrink: 0;
+    }
+
+    /* ════════════════════════════════════════
+       MERMAID PALACE — parallax footer art
+    ════════════════════════════════════════ */
+    #palace-section {
+      position: relative; z-index: 2;
+      background: var(--navy-deep);
+      overflow: hidden;
+      min-height: 560px;
+      display: flex; align-items: flex-end; justify-content: center;
+      margin-top: -1px;
+    }
+    #palace-video-bg {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      pointer-events: none;
+      opacity: 0.55;
+      filter: saturate(0.75) brightness(0.55);
+      z-index: 0;
+    }
+    .palace-top-fade {
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 260px; z-index: 2; pointer-events: none;
+      background: linear-gradient(180deg, var(--navy) 0%, transparent 100%);
+    }
+    .palace-bg {
+      position: absolute; inset: 0; z-index: 1;
+    }
+    .palace-svg {
+      position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; max-width: 1200px; height: auto;
+      will-change: transform;
+    }
+    /* Parallax layers */
+    .palace-parallax-wrap {
+      position: absolute; inset: 0; will-change: transform;
+    }
+    .bubble-bg {
+      position: absolute; inset: 0; pointer-events: none;
+    }
+
+    /* ════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════ */
+    #site-footer {
+      position: relative; z-index: 2;
+      background: #000814;
+      border-top: 1px solid rgba(34,211,238,0.08);
+      padding: 5rem clamp(2rem, 6vw, 7rem) 3rem;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: start;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+    .footer-brand { display: flex; flex-direction: column; gap: 1rem; }
+    .footer-brand img { height: 40px; width: auto; align-self: flex-start; mix-blend-mode: screen; opacity: 0.75; }
+    .footer-tagline {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 0.95rem; font-weight: 400;
+      color: rgba(224,247,250,0.35); line-height: 1.6;
+      max-width: 220px;
+    }
+    .footer-nav-col { display: flex; flex-direction: column; gap: 1.2rem; }
+    .footer-nav-heading {
+      font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(34,211,238,0.5); margin-bottom: 0.3rem;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 0.75rem; }
+    .footer-link {
+      font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 400;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(224,247,250,0.35); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-link:hover { color: var(--cyan); }
+    .footer-contact-col { display: flex; flex-direction: column; gap: 1rem; text-align: right; }
+    .footer-contact-label {
+      font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(34,211,238,0.5);
+    }
+    .footer-contact-email {
+      font-family: 'Cormorant Garamond', serif; font-size: 1rem;
+      color: rgba(224,247,250,0.5); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-contact-email:hover { color: var(--cyan); }
+    .footer-social { display: flex; gap: 1rem; justify-content: flex-end; margin-top: 0.5rem; }
+    .footer-social-link {
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 1px solid rgba(34,211,238,0.15);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(224,247,250,0.35); text-decoration: none;
+      font-size: 0.75rem; transition: border-color 0.2s, color 0.2s;
+    }
+    .footer-social-link:hover { border-color: var(--cyan); color: var(--cyan); }
+    .footer-divider {
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(34,211,238,0.12), transparent);
+      margin-bottom: 2rem;
+    }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 300;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(224,247,250,0.18);
+    }
+    .footer-legal { display: flex; gap: 1.5rem; }
+    .footer-legal-link {
+      font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 300;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(224,247,250,0.15); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-legal-link:hover { color: rgba(224,247,250,0.4); }
+    @media (max-width: 768px) {
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-contact-col { text-align: left; }
+      .footer-social { justify-content: flex-start; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ════════════════════════════════════════
+       ENTER BUTTON (replaces Framer GlassyButton)
+    ════════════════════════════════════════ */
+    .enter-btn {
+      font-family: 'Outfit', sans-serif; font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: rgba(224,247,250,0.82);
+      background: rgba(0,18,50,0.45);
+      border: 1px solid rgba(0,188,212,0.38);
+      backdrop-filter: blur(10px);
+      padding: 0.72rem 2rem; cursor: pointer; margin-bottom: 0.4rem;
+      transition: background 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s;
+      outline: none;
+    }
+    .enter-btn:hover {
+      background: rgba(0,188,212,0.1);
+      border-color: rgba(0,229,255,0.65);
+      color: #fff;
+      box-shadow: 0 0 18px rgba(0,188,212,0.2);
+    }
+
+    /* ════════════════════════════════════════
+       CSS MARQUEE (replaces Framer)
+    ════════════════════════════════════════ */
+    .css-marquee { overflow: hidden; width: 100%; margin: 1rem 0 3rem; }
+    .css-marquee-inner {
+      display: flex; align-items: baseline; gap: 1.8rem;
+      width: max-content;
+      animation: marqueeRoll 28s linear infinite;
+    }
+    @media (prefers-reduced-motion: reduce) { .css-marquee-inner { animation: none; } }
+    .css-marquee-inner span {
+      font-family: 'Fraunces', serif; font-size: clamp(1.4rem, 3.5vw, 2.8rem);
+      font-weight: 300; font-style: italic;
+      color: rgba(224,247,250,0.12); white-space: nowrap;
+    }
+    .mq-dot {
+      font-style: normal !important; font-size: 0.5em !important;
+      color: rgba(0,188,212,0.28) !important;
+    }
+    @keyframes marqueeRoll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ════════════════════════════════════════
+       WATER TRAIL CURSOR
+    ════════════════════════════════════════ */
+    .water-drop {
+      position: fixed; pointer-events: none; z-index: 99999;
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      animation: dropFade 0.7s ease-out forwards;
+    }
+    @keyframes dropFade {
+      0%   { opacity: 0.7; transform: translate(-50%, -50%) scale(0.3); }
+      40%  { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0;   transform: translate(-50%, -50%) scale(1.8); }
+    }
+
+    /* ════════════════════════════════════════
+       ELITE CAROUSEL — CENTER FOCUS
+    ════════════════════════════════════════ */
+    .carousel-track { scroll-snap-type: x mandatory; }
+    .elite-card {
+      scroll-snap-align: center;
+      transform: scale(0.86);
+      filter: brightness(0.55) saturate(0.7);
+      opacity: 0.65;
+      transition: transform 0.45s cubic-bezier(0.22,1,0.36,1),
+                  filter 0.45s ease, opacity 0.45s ease, border-color 0.3s;
+    }
+    .c-spacer { flex-shrink:0; pointer-events:none; }
+    .carousel-wrap { perspective: 1400px; }
+    @keyframes cardFloat3d {
+      0%,100% {
+        transform: scale(1) translateY(0) rotateX(0deg);
+        box-shadow: 0 8px 40px rgba(0,229,255,0.12), 0 0 0 1px rgba(0,229,255,0.25);
+      }
+      50% {
+        transform: scale(1.012) translateY(-20px) rotateX(3deg);
+        box-shadow: 0 40px 90px rgba(0,229,255,0.28), 0 0 0 1px rgba(0,229,255,0.5);
+      }
+    }
+    .elite-card.active {
+      transform: scale(1);
+      filter: brightness(1) saturate(1);
+      opacity: 1;
+      border-color: rgba(0,229,255,0.5);
+      animation: cardFloat3d 3.6s ease-in-out infinite;
+      box-shadow: 0 8px 40px rgba(0,229,255,0.12), 0 0 0 1px rgba(0,229,255,0.25);
+      cursor: pointer;
+      transform-style: preserve-3d;
+    }
+    .elite-card.active .elite-corner { width: 24px; height: 24px; border-color: var(--coral); box-shadow: 3px -3px 16px rgba(251,113,133,0.6); }
+    .elite-card.active:hover { animation-play-state: paused; transform: scale(1.02) translateY(-6px) rotateX(6deg); }
+
+    /* ════════════════════════════════════════
+       PERFORMER PROFILE MODAL
+    ════════════════════════════════════════ */
+    #profile-modal {
+      display: none; position: fixed; inset: 0; z-index: 10000;
+      align-items: center; justify-content: center;
+      padding: clamp(1rem, 4vw, 3rem);
+    }
+    #profile-modal.open { display: flex; }
+    #modal-backdrop {
+      position: absolute; inset: 0;
+      background: rgba(0,8,20,0.88);
+      backdrop-filter: blur(14px);
+    }
+    .modal-inner {
+      position: relative; z-index: 1;
+      display: flex; gap: 0; overflow: hidden;
+      max-width: 860px; width: 100%;
+      border: 1px solid rgba(0,188,212,0.2);
+      animation: modalIn 0.45s cubic-bezier(0.22,1,0.36,1) both;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(30px) scale(0.96); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .modal-img-col {
+      flex: 0 0 240px; position: relative; overflow: hidden;
+    }
+    @media (max-width: 600px) {
+      .modal-inner { flex-direction: column; max-height: 90vh; overflow-y: auto; }
+      .modal-img-col { flex: 0 0 220px; width: 100%; }
+      .modal-media-arrow { width: 24px; height: 40px; font-size: 1.2rem; }
+    }
+    .modal-img-col img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: saturate(0.8) brightness(0.85);
+      transition: opacity 0.3s ease;
+    }
+    .modal-img-col::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent 60%, rgba(0,8,20,0.7));
+      pointer-events: none;
+    }
+    #modal-photo-dots {
+      position: absolute; bottom: 0.8rem; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 5px; z-index: 3;
+    }
+    .modal-photo-dot {
+      width: 5px; height: 5px; border-radius: 50%; border: none; padding: 0; cursor: pointer;
+      background: rgba(255,255,255,0.3); transition: background 0.2s ease, transform 0.2s ease;
+      font-size: 0; line-height: 0;
+    }
+    .modal-photo-dot.active {
+      background: var(--cyan-glow, #a5f3fc); transform: scale(1.4);
+    }
+    .modal-photo-dot.is-video {
+      width: auto; height: auto; border-radius: 3px; padding: 2px 5px;
+      font-size: 0.45rem; line-height: 1; background: rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.7);
+    }
+    .modal-photo-dot.is-video.active {
+      background: var(--cyan-glow, #a5f3fc); color: #000d26; transform: scale(1);
+    }
+    .modal-media-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      z-index: 4; background: rgba(0,8,20,0.55); border: none; cursor: pointer;
+      color: rgba(255,255,255,0.85); font-size: 1.4rem; width: 28px; height: 44px;
+      display: none; align-items: center; justify-content: center;
+      transition: background 0.2s; backdrop-filter: blur(4px);
+    }
+    .modal-media-arrow:hover { background: rgba(34,211,238,0.2); }
+    .modal-media-arrow.show { display: flex; }
+    .modal-media-arrow-prev { left: 0; border-radius: 0 3px 3px 0; }
+    .modal-media-arrow-next { right: 0; border-radius: 3px 0 0 3px; }
+    }
+    .modal-body {
+      flex: 1; padding: clamp(1.5rem, 4vw, 2.8rem);
+      background: rgba(0,13,38,0.97);
+      display: flex; flex-direction: column;
+    }
+    .modal-num {
+      font-family: 'Outfit', sans-serif; font-size: 0.55rem; font-weight: 500;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(0,229,255,0.5); margin-bottom: 0.5rem;
+    }
+    .modal-name {
+      font-family: 'Fraunces', serif; font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 900; color: #fff; letter-spacing: -0.02em;
+      line-height: 1.05; margin-bottom: 0.3rem;
+    }
+    .modal-bio {
+      font-family: 'Outfit', sans-serif; font-size: 0.88rem;
+      font-weight: 300; line-height: 1.7;
+      color: rgba(224,244,250,0.65); margin-bottom: 1.6rem; flex: 1;
+    }
+    .modal-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.8rem; }
+    .modal-tag {
+      font-family: 'Outfit', sans-serif; font-size: 0.58rem;
+      font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(0,229,255,0.7);
+      border: 1px solid rgba(0,229,255,0.2);
+      padding: 0.28rem 0.7rem;
+    }
+    .modal-view-profile {
+      align-self: flex-start;
+      font-family: 'Outfit', sans-serif; font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: #000d26; background: var(--cyan);
+      border: none; padding: 0.8rem 1.6rem; cursor: pointer;
+      text-decoration: none; display: inline-block;
+      transition: background 0.2s ease;
+    }
+    .modal-view-profile:hover { background: var(--cyan-glow); }
+    #modal-close {
+      position: absolute; top: 1rem; right: 1rem; z-index: 2;
+      width: 36px; height: 36px; border: 1px solid rgba(0,188,212,0.25);
+      background: rgba(0,13,38,0.7); color: rgba(224,244,250,0.6);
+      font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    }
+    #modal-close:hover { color: #fff; border-color: var(--cyan); }
+
+    /* ════════════════════════════════════════
+       RISING TIDES — flip card grid
+    ════════════════════════════════════════ */
+    .rising-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1.2rem;
+      padding: 0.5rem 0 1.5rem;
+    }
+    @media (max-width: 480px) {
+      .rising-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+    }
+    /* floating animation — each card has slightly different timing */
+    @keyframes tideFloat {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-10px); }
+    }
+    .flip-card { animation: tideFloat 4s ease-in-out infinite; }
+    .flip-card:nth-child(1)  { animation-duration:3.8s; animation-delay:0s; }
+    .flip-card:nth-child(2)  { animation-duration:4.2s; animation-delay:0.35s; }
+    .flip-card:nth-child(3)  { animation-duration:3.6s; animation-delay:0.7s; }
+    .flip-card:nth-child(4)  { animation-duration:4.5s; animation-delay:0.15s; }
+    .flip-card:nth-child(5)  { animation-duration:3.9s; animation-delay:0.55s; }
+    .flip-card:nth-child(6)  { animation-duration:4.1s; animation-delay:0.9s; }
+    .flip-card:nth-child(7)  { animation-duration:3.7s; animation-delay:0.45s; }
+    .flip-card:nth-child(8)  { animation-duration:4.3s; animation-delay:0.25s; }
+    .flip-card:nth-child(9)  { animation-duration:3.5s; animation-delay:0.65s; }
+    .flip-card:nth-child(10) { animation-duration:4.0s; animation-delay:0.8s; }
+    .flip-card:hover, .flip-card.flipped { animation-play-state: paused; }
+
+    /* Rising Tides — hover-video cards */
+    .flip-card {
+      position: relative; overflow: hidden;
+      aspect-ratio: 3/4; cursor: pointer;
+      border: 1px solid rgba(255,107,157,0.15);
+      background: var(--navy-deep); border-radius: 2px;
+    }
+    .rv-photo {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(0.85) saturate(0.9);
+      transition: filter 0.5s;
+    }
+    .rv-reel {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: 0; transition: opacity 0.45s ease;
+    }
+    .flip-card:hover .rv-reel,
+    .flip-card.playing .rv-reel { opacity: 1; }
+    .flip-card:hover .rv-photo { filter: brightness(0.45) saturate(0.7); }
+    .rv-overlay {
+      position: absolute; inset: 0; z-index: 2; pointer-events: none;
+      background: linear-gradient(180deg, transparent 35%, rgba(0,8,25,0.92));
+    }
+    .rv-hint {
+      position: absolute; top: 0.5rem; right: 0.5rem; z-index: 4;
+      font-family: 'Outfit', sans-serif; font-size: 0.48rem;
+      font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,107,157,0.8); background: rgba(0,8,25,0.65);
+      backdrop-filter: blur(4px); padding: 0.22rem 0.45rem;
+      border: 1px solid rgba(255,107,157,0.2);
+    }
+    @media (hover: hover) { .rv-hint { display: none; } }
+    .rv-info {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      z-index: 3; padding: 0.9rem 0.8rem 0.8rem;
+    }
+    .rv-flag { font-size: 1rem; display: block; margin-bottom: 0.2rem; }
+    .rv-name {
+      font-family: 'Fraunces', serif; font-size: clamp(0.78rem, 2.2vw, 0.92rem);
+      font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 0.15rem;
+    }
+    .rv-title {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 0.68rem; color: rgba(34,211,238,0.75); line-height: 1.3;
+      margin-bottom: 0.5rem;
+      opacity: 0; transform: translateY(5px);
+      transition: opacity 0.3s 0.08s, transform 0.3s 0.08s;
+    }
+    .flip-card:hover .rv-title,
+    .flip-card.playing .rv-title { opacity: 1; transform: translateY(0); }
+    .rv-enquire {
+      display: block; text-align: center;
+      font-family: 'Outfit', sans-serif; font-size: 0.52rem;
+      font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--navy-deep); background: var(--cyan);
+      padding: 0.45rem 0; text-decoration: none;
+      opacity: 0; transform: translateY(6px);
+      transition: opacity 0.3s 0.14s, transform 0.3s 0.14s, background 0.2s;
+    }
+    .flip-card:hover .rv-enquire,
+    .flip-card.playing .rv-enquire { opacity: 1; transform: translateY(0); }
+    .rv-enquire:hover { background: var(--cyan-glow); }
+
+    /* ════════════════════════════════════════
+       MUSIC PLAYER
+    ════════════════════════════════════════ */
+    #music-player {
+      position: fixed; bottom: 1.8rem; right: 1.8rem; z-index: 500;
+      display: flex; align-items: center; gap: 0.7rem;
+    }
+    #music-toggle {
+      width: 48px; height: 48px;
+      border: 1px solid rgba(0,188,212,0.35);
+      background: rgba(0,13,38,0.85); backdrop-filter: blur(12px);
+      color: rgba(0,229,255,0.8); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    #music-toggle:hover { border-color: var(--cyan-glow); background: rgba(0,229,255,0.12); }
+    #music-toggle svg { width: 18px; height: 18px; }
+    .music-waves {
+      display: flex; align-items: center; gap: 2px;
+      height: 18px; opacity: 0;
+      transition: opacity 0.3s;
+    }
+    #music-player.playing .music-waves { opacity: 1; }
+    .music-waves span {
+      display: block; width: 3px; background: rgba(0,229,255,0.6);
+      border-radius: 2px;
+      animation: musicWave 0.9s ease-in-out infinite alternate;
+    }
+    .music-waves span:nth-child(1) { height: 8px;  animation-delay: 0s; }
+    .music-waves span:nth-child(2) { height: 14px; animation-delay: 0.15s; }
+    .music-waves span:nth-child(3) { height: 18px; animation-delay: 0.05s; }
+    .music-waves span:nth-child(4) { height: 12px; animation-delay: 0.2s; }
+    .music-waves span:nth-child(5) { height: 6px;  animation-delay: 0.1s; }
+    @keyframes musicWave {
+      from { transform: scaleY(0.4); }
+      to   { transform: scaleY(1); }
+    }
+
+    /* ════════════════════════════════════════
+       MOBILE RESPONSIVE
+    ════════════════════════════════════════ */
+    @media (max-width: 480px) {
+      /* Carousel cards slightly narrower on very small screens */
+      .elite-card { flex: 0 0 240px; }
+      /* Carousel arrows smaller */
+      .c-arrow { width: 36px; height: 36px; font-size: 0.85rem; }
+      .c-arrows { padding: 1rem 1.2rem 0; }
+      /* Rising Tides section padding */
+      .rising-section { padding: 3rem 1.2rem 4rem; }
+      /* Modal stacked on tiny screens */
+      .modal-inner { flex-direction: column; max-height: 92vh; overflow-y: auto; }
+      .modal-img-col { flex: 0 0 180px; }
+      .modal-body { padding: 1.2rem; }
+      /* Rising Tides cards — slightly taller name on small screens */
+      .rv-name { font-size: 0.85rem; }
+      /* Music player closer to edge */
+      #music-player { bottom: 1rem; right: 1rem; }
+    }
+    @media (max-width: 360px) {
+      .elite-card { flex: 0 0 210px; }
+      .rising-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+    }
+    /* Ensure 3D animations don't overflow on mobile */
+    @media (max-width: 768px) {
+      .carousel-wrap { padding-top: 24px; padding-bottom: 24px; margin-top: -24px; margin-bottom: -24px; }
+      /* Reduce float amplitude on mobile to avoid jank */
+      @keyframes cardFloat3d {
+        0%,100% { transform: scale(1) translateY(0) rotateX(0deg); }
+        50%      { transform: scale(1.008) translateY(-12px) rotateX(2deg); }
+      }
+      @keyframes tideFloat {
+        0%,100% { transform: translateY(0); }
+        50%      { transform: translateY(-7px); }
+      }
+    }
+    /* Touch device — pause-state shows info */
+    @media (hover: none) {
+      .flip-card.playing .rv-photo { filter: brightness(0.45) saturate(0.7); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mermaid cursor -->
+
+  <!-- Music player -->
+  <div id="music-player">
+    <div class="music-waves">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <button id="music-toggle" aria-label="Toggle music">
+      <svg id="ico-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="ico-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <audio id="bg-audio" loop preload="none">
+      <source src="music/background.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- Performer profile modal -->
+  <div id="profile-modal" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+    <div id="modal-backdrop"></div>
+    <div class="modal-inner">
+      <button id="modal-close" aria-label="Close">✕</button>
+      <div class="modal-img-col">
+        <img id="modal-img" src="" alt="" />
+        <div id="modal-video-wrap" style="display:none;position:absolute;inset:0;">
+          <iframe id="modal-video-embed" src="" allowfullscreen frameborder="0"
+            style="width:100%;height:100%;border:none;display:none;"></iframe>
+          <video id="modal-video-local" src="" muted controls playsinline
+            style="width:100%;height:100%;object-fit:cover;display:none;"></video>
+        </div>
+        <div id="modal-photo-dots"></div>
+        <button class="modal-media-arrow modal-media-arrow-prev" id="modal-media-prev" aria-label="Previous">&#8249;</button>
+        <button class="modal-media-arrow modal-media-arrow-next" id="modal-media-next" aria-label="Next">&#8250;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-num" id="modal-num"></p>
+        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.3rem;">
+          <h2 class="modal-name" id="modal-name"></h2>
+          <span id="modal-flag" style="line-height:1;"></span>
+        </div>
+        <p class="modal-bio" id="modal-bio"></p>
+        <div class="modal-tags" id="modal-tags"></div>
+        <a class="modal-view-profile" id="modal-view-profile" href="performers.html">View Full Profile →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════ -->
+  <nav id="navbar">
+    <a href="index.html">
+      <img src="/Collored Icon.png" alt="Sirena Asia" class="nav-logo" />
+    </a>
+    <div id="nav-links" style="display:flex;align-items:center;gap:2rem;">
+      <a href="#s-collective" class="nav-link">Collective</a>
+      <a href="shows.html"    class="nav-link">Shows</a>
+      <a href="gallery.html"  class="nav-link">Gallery</a>
+      <a href="news.html"     class="nav-link">News</a>
+      <a href="contact.html"  class="btn-book">Get in Touch</a>
+    </div>
+    <button id="burger" aria-label="Menu">
+      <span class="bl"></span><span class="bl"></span><span class="bl"></span>
+    </button>
+  </nav>
+
+  <div id="mobile-menu">
+    <a href="#s-collective" class="mob-link">Collective</a>
+    <a href="#s-about"      class="mob-link">About</a>
+    <a href="shows.html"    class="mob-link">Shows</a>
+    <a href="gallery.html"  class="mob-link">Gallery</a>
+    <a href="news.html"     class="mob-link">News</a>
+    <a href="contact.html"  class="mob-link" style="color:var(--coral);">Get in Touch</a>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <div id="hero">
+    <!-- Video 1: hero.mp4 plays once -->
+    <div id="video-wrap">
+      <video id="hero-video" autoplay muted playsinline preload="metadata" fetchpriority="high"
+             style="background:#2CA0BC;">
+        <source src="/media/general/hero.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <!-- Video 2: video2.mp4 loops in hero after video1 ends -->
+    <div id="video-wrap2">
+      <video id="hero-video2" muted loop playsinline preload="none">
+        <source src="/video2.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- Underwater atmosphere layers (visible after video ends) -->
+    <div class="god-rays"></div>
+    <div class="caustic-layer"></div>
+    <div class="water-shimmer"></div>
+    <div id="hero-particles"></div>
+
+    <!-- SIRENA logo stack -->
+    <div class="hero-content">
+      <div class="sirena-stack">
+        <img id="img1" src="/1.png" alt="Sirena Asia" />
+      </div>
+      <div class="scroll-cue" id="scroll-cue">
+        <div class="scroll-line-wrap">
+          <div class="s-line"></div>
+          <span class="s-text">Scroll</span>
+        </div>
+      </div>
+    </div>
+    <!-- Seamless bottom edge -->
+    <div class="hero-bottom-fade"></div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       PAGE BODY
+  ═══════════════════════════════════════════ -->
+  <div id="page-body">
+    <div id="page-2">
+      <div class="p2-top-fade"></div>
+
+      <!-- ─── 001 / THE COLLECTIVE ─── -->
+      <section id="s-collective">
+        <div class="collective-header">
+          <p class="sec-label rv d1">001 / The Collective</p>
+          <h2 class="sec-heading rv d2">The <em>Elites</em></h2>
+          <p class="sec-body rv d3" style="max-width:520px; margin-top:1rem;">
+            Competition winners. Certified professionals. Instructors, content creators, and TikTok stars. The finest of Asia's 50+ Sirena members — on your stage.
+          </p>
+        </div>
+
+        <!-- Elite Carousel -->
+        <div class="carousel-wrap" id="carousel-wrap">
+          <div class="carousel-track" id="carousel-track">
+            <div class="c-spacer" id="c-spacer-l"></div>
+
+            <div class="elite-card" data-id="fan">
+              <img src="media/performers/fan/photo1.jpg" alt="Mermaid Fan" loading="lazy" />
+              <div class="elite-corner"></div>
+              <div class="elite-card-overlay">
+                
+                <p class="elite-name">Mermaid Fan</p>
+                <p class="elite-title">The Ocean's Whisper</p>
+              </div>
+            </div>
+
+            <div class="elite-card" data-id="ying">
+              <img src="media/performers/ying/photo1.jpg" alt="Mermaid Ying" loading="lazy" />
+              <div class="elite-corner"></div>
+              <div class="elite-card-overlay">
+                
+                <p class="elite-name">Mermaid Ying</p>
+                <p class="elite-title">The Deep Current</p>
+              </div>
+            </div>
+
+            <div class="elite-card" data-id="minmin">
+              <img src="media/performers/minmin/photo1.jpg" alt="Mermaid Minmin" loading="lazy" />
+              <div class="elite-corner"></div>
+              <div class="elite-card-overlay">
+                
+                <p class="elite-name">Mermaid Minmin</p>
+                <p class="elite-title">Pearl of the East</p>
+              </div>
+            </div>
+
+            <div class="elite-card" data-id="chen">
+              <img src="media/performers/chen/photo1.jpg" alt="Mermaid Chen" loading="lazy" />
+              <div class="elite-corner"></div>
+              <div class="elite-card-overlay">
+                
+                <p class="elite-name">Mermaid Chen</p>
+                <p class="elite-title">The Jade Tide</p>
+              </div>
+            </div>
+
+            <div class="elite-card" data-id="ronnie">
+              <img src="media/performers/ronnie/photo1.jpg" alt="Mermaid Ronnie" loading="lazy" />
+              <div class="elite-corner"></div>
+              <div class="elite-card-overlay">
+                
+                <p class="elite-name">Mermaid Ronnie</p>
+                <p class="elite-title">Storm of the South</p>
+              </div>
+            </div>
+
+            <div class="elite-card" data-id="linda">
+              <img src="media/performers/linda/photo1.jpg" alt="Mermaid Linda" loading="lazy" />
+              <div class="elite-corner"></div>
+              <div class="elite-card-overlay">
+                
+                <p class="elite-name">Mermaid Linda</p>
+                <p class="elite-title">The Silver Shore</p>
+              </div>
+            </div>
+
+            <div class="elite-card" data-id="kita">
+              <img src="media/performers/kita/photo1.jpg" alt="Mermaid Kita" loading="lazy" />
+              <div class="elite-corner"></div>
+              <div class="elite-card-overlay">
+                
+                <p class="elite-name">Mermaid Kita</p>
+                <p class="elite-title">Spirit of the Reef</p>
+              </div>
+            </div>
+
+            <div class="c-spacer" id="c-spacer-r"></div>
+          </div>
+        </div>
+
+        <!-- Carousel controls -->
+        <div class="c-arrows rv d3">
+          <button class="c-arrow" id="c-prev" aria-label="Previous">&#8592;</button>
+          <button class="c-arrow" id="c-next" aria-label="Next">&#8594;</button>
+          <a href="performers.html" class="see-all-link" style="margin-top:0; align-self:center;">All Performers →</a>
+        </div>
+
+        <!-- Rising Tides -->
+        <div class="rising-section">
+          <div class="sec-divider" style="margin-bottom:3rem;"></div>
+          <p class="rising-label rv d1">Rising Tides</p>
+          <h3 class="rising-heading rv d2">The <em>Next Wave</em></h3>
+          <p class="rising-sub rv d3">The next generation of Sirena performers — emerging talent, full artistry.</p>
+          <!-- ─── Rising Tides flip cards ───
+               To add more Rising Tides: copy a .flip-card block and add it before the closing div.
+               Floating animation delays cycle automatically for up to 10 cards via nth-child CSS.
+          ──────────────────────────────────── -->
+          <div class="rising-grid" id="rising-grid">
+
+            <!-- 01 · Shinta -->
+            <div class="flip-card rv d1" tabindex="0" aria-label="Mermaid Shinta">
+              <img src="media/performers/rising/shinta/photo1.jpg" alt="Mermaid Shinta" loading="lazy" class="rv-photo" />
+              <video class="rv-reel" src="" muted loop playsinline preload="none"></video>
+              <div class="rv-overlay"></div>
+              <span class="rv-hint">Tap to play</span>
+              <div class="rv-info">
+                <span class="rv-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg></span>
+                <p class="rv-name">Mermaid Shinta</p>
+                <p class="rv-title">Jewel of the Java Sea</p>
+                <a href="contact.html?performer=Mermaid+Shinta" class="rv-enquire" onclick="event.stopPropagation()">Enquire →</a>
+              </div>
+            </div>
+
+            <!-- 02 · Thia -->
+            <div class="flip-card rv d2" tabindex="0" aria-label="Mermaid Thia">
+              <img src="media/performers/rising/thia/photo1.jpg" alt="Mermaid Thia" loading="lazy" class="rv-photo" />
+              <video class="rv-reel" src="media/performers/rising/thia/reel1.mp4" muted loop playsinline preload="none"></video>
+              <div class="rv-overlay"></div>
+              <span class="rv-hint">Tap to play</span>
+              <div class="rv-info">
+                <span class="rv-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg></span>
+                <p class="rv-name">Mermaid Thia</p>
+                <p class="rv-title">Moonlit Shore</p>
+                <a href="contact.html?performer=Mermaid+Thia" class="rv-enquire" onclick="event.stopPropagation()">Enquire →</a>
+              </div>
+            </div>
+
+            <!-- 03 · Indah -->
+            <div class="flip-card rv d3" tabindex="0" aria-label="Mermaid Indah">
+              <img src="media/performers/rising/indah/photo1.jpg" alt="Mermaid Indah" loading="lazy" class="rv-photo" />
+              <video class="rv-reel" src="media/performers/rising/indah/reel2.mp4" muted loop playsinline preload="none"></video>
+              <div class="rv-overlay"></div>
+              <span class="rv-hint">Tap to play</span>
+              <div class="rv-info">
+                <span class="rv-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg></span>
+                <p class="rv-name">Mermaid Indah</p>
+                <p class="rv-title">Song of Sumatra</p>
+                <a href="contact.html?performer=Mermaid+Indah" class="rv-enquire" onclick="event.stopPropagation()">Enquire →</a>
+              </div>
+            </div>
+
+          </div><!-- /.rising-grid -->
+          <a href="performers.html" class="see-all-link rv d4">Meet the Rising Tides →</a>
+        </div>
+      </section>
+
+      <div class="sec-divider"></div>
+
+      <!-- ─── 002 / ABOUT US ─── -->
+      <section id="s-about">
+        <video id="about-video-bg" autoplay muted loop playsinline preload="none">
+          <source src="/aboutus.mp4" type="video/mp4" />
+        </video>
+        <div class="about-grid">
+          <div class="about-who">
+            <p class="sec-label rv-l d1">002 / About Us</p>
+            <h2 class="sec-heading rv-l d2">Who<br/><em>Are We</em></h2>
+            <p class="sec-body rv-l d3" style="margin-top:1.6rem;">
+              Sirena Asia is the region's premier mermaid performance collective — a company of elite artists trained in underwater performance, breath-hold technique, and spectacle design.
+            </p>
+            <p class="sec-body rv-l d4" style="margin-top:1rem;">
+              Founded on the belief that the ocean holds the world's oldest magic, we bring that magic above the surface — into your events, activations, and celebrations.
+            </p>
+          </div>
+          <div class="about-offer">
+            <p class="sec-label rv-r d1">What We Offer</p>
+            <h2 class="sec-heading rv-r d2" style="font-size:clamp(1.8rem,3.5vw,2.8rem);"><em>Services</em></h2>
+            <div class="about-offer-items">
+              <div class="offer-item rv-r d2">
+                <div class="offer-icon">✦</div>
+                <div>
+                  <p class="offer-title">Live Mermaid Shows</p>
+                  <p class="offer-desc">Choreographed underwater performances for pools, aquariums, and open water venues.</p>
+                </div>
+              </div>
+              <div class="offer-item rv-r d3">
+                <div class="offer-icon">◈</div>
+                <div>
+                  <p class="offer-title">Private Events</p>
+                  <p class="offer-desc">Birthdays, galas, corporate retreats — a Sirena transforms any gathering into a myth.</p>
+                </div>
+              </div>
+              <div class="offer-item rv-r d3">
+                <div class="offer-icon">⊕</div>
+                <div>
+                  <p class="offer-title">Brand Activations</p>
+                  <p class="offer-desc">Luxury brand campaigns, product launches, and immersive marketing experiences.</p>
+                </div>
+              </div>
+              <div class="offer-item rv-r d4">
+                <div class="offer-icon">◎</div>
+                <div>
+                  <p class="offer-title">Training &amp; Workshops</p>
+                  <p class="offer-desc">Professional mermaid training programs for aspiring performers across Asia.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="sec-divider"></div>
+
+      <!-- ─── 003 / GALLERY ─── -->
+      <section id="s-gallery">
+        <div class="gallery-header">
+          <p class="sec-label rv d1">003 / Gallery</p>
+          <h2 class="sec-heading rv d2">Be a part of<br/><em>our family.</em></h2>
+          <p class="sec-body rv d3" style="max-width:460px; margin-top:1rem;">
+            Every frame is a world. Breathe it in.
+          </p>
+        </div>
+
+        <!-- CSS Marquee (replaces Framer) -->
+        <div class="css-marquee" aria-hidden="true">
+          <div class="css-marquee-inner">
+            <span>Training</span><span class="mq-dot">·</span>
+            <span>Workshops</span><span class="mq-dot">·</span>
+            <span>Shows</span><span class="mq-dot">·</span>
+            <span>Underwater</span><span class="mq-dot">·</span>
+            <span>Performance</span><span class="mq-dot">·</span>
+            <span>Training</span><span class="mq-dot">·</span>
+            <span>Workshops</span><span class="mq-dot">·</span>
+            <span>Shows</span><span class="mq-dot">·</span>
+            <span>Underwater</span><span class="mq-dot">·</span>
+            <span>Performance</span><span class="mq-dot">·</span>
+          </div>
+        </div>
+
+        <!-- Photo grid -->
+        <div class="gallery-grid">
+          <div class="gallery-thumb rv d1">
+            <img src="/media/gallery/photos/1.jpg" alt="Performance" loading="lazy" />
+            <span class="gallery-label">Performance</span>
+          </div>
+          <div class="gallery-thumb rv d2">
+            <img src="/media/gallery/photos/2.jpg" alt="Show" loading="lazy" />
+            <span class="gallery-label">Show</span>
+          </div>
+          <div class="gallery-thumb rv d2">
+            <img src="/media/gallery/photos/3.jpg" alt="Underwater" loading="lazy" />
+            <span class="gallery-label">Underwater</span>
+          </div>
+          <div class="gallery-thumb rv d3">
+            <img src="/media/gallery/photos/4.jpg" alt="Training" loading="lazy" />
+            <span class="gallery-label">Training</span>
+          </div>
+          <div class="gallery-thumb rv d3">
+            <img src="/media/gallery/photos/5.jpg" alt="Event" loading="lazy" />
+            <span class="gallery-label">Event</span>
+          </div>
+        </div>
+        <div class="gallery-cta rv d3">
+          <a href="gallery.html" class="btn-outline">View Full Gallery →</a>
+        </div>
+      </section>
+
+      <div class="sec-divider"></div>
+
+      <!-- ─── 004 / NEWS + SHOP ─── -->
+      <section id="s-news-shop">
+        <div class="ns-grid">
+          <div class="ns-news">
+            <p class="sec-label rv-l d1">004 / Underwater News</p>
+            <h2 class="sec-heading rv-l d2" style="font-size:clamp(1.8rem,3.5vw,2.8rem);">Latest<br/><em>Tides</em></h2>
+            <div class="news-items">
+              <a href="news.html" class="news-item rv-l d2">
+                <span class="news-date">April 2025</span>
+                <span class="news-title">Sirena Asia Debuts at Marina Bay Sands</span>
+                <span class="news-excerpt">An evening the guests won't forget — our most ambitious show yet, beneath the stars.</span>
+              </a>
+              <a href="news.html" class="news-item rv-l d3">
+                <span class="news-date">March 2025</span>
+                <span class="news-title">New Training Program Launches in Bangkok</span>
+                <span class="news-excerpt">Applications are now open for the next cohort of rising mermaid performers.</span>
+              </a>
+              <a href="news.html" class="news-item rv-l d4">
+                <span class="news-date">February 2025</span>
+                <span class="news-title">Sirena x Luxury Resort Partnership</span>
+                <span class="news-excerpt">Exclusive residency announced with a leading resort group across Southeast Asia.</span>
+              </a>
+            </div>
+            <a href="news.html" class="see-all-link rv-l d5">All News →</a>
+          </div>
+          <div class="ns-shop">
+            <p class="sec-label rv-r d1">Mermaid Shop</p>
+            <h2 class="sec-heading rv-r d2" style="font-size:clamp(1.8rem,3.5vw,2.8rem);">The <em>Shop</em></h2>
+            <div class="shop-featured rv-r d3">
+              <img src="https://placehold.co/600x450/001a4d/ff6b9d?text=Sirena+Merch" alt="Shop Featured" loading="lazy" />
+              <div class="shop-featured-label">
+                <span class="shop-item-name">Sirena Signature Tail</span>
+                <span class="shop-item-price">From USD 380</span>
+              </div>
+            </div>
+            <a href="shop.html" class="btn-coral rv-r d4" style="display:inline-block;">Explore the Shop →</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="sec-divider"></div>
+
+      <!-- ─── 005 / CONTACT ─── -->
+      <section id="s-contact">
+        <video id="contact-video-bg" preload="none" muted loop playsinline>
+          <source src="/bottom.mp4" type="video/mp4" />
+        </video>
+
+        <p class="sec-label rv d1">005 / Contact Us</p>
+        <h2 class="contact-big rv d2">
+          Let's create<br/><span>something</span><br/>unforgettable.
+        </h2>
+        <p class="contact-sub rv d3">
+          Tell us your vision. We'll bring the ocean to you.
+        </p>
+        <div class="rv d4">
+          <a href="contact.html" class="btn-coral">Request a Performance</a>
+        </div>
+        <p class="contact-info rv d5">
+          or write to us at &nbsp;<a href="mailto:info@sirenaasia.com">info@sirenaasia.com</a>
+        </p>
+
+        <!-- Globe -->
+        <div class="globe-section rv d5">
+          <p class="globe-label">Our Home Waters</p>
+          <canvas id="globe-canvas" width="420" height="420"></canvas>
+          <div class="globe-legend">
+            <span class="globe-loc"><span class="globe-loc-dot"></span>Philippines</span>
+            <span class="globe-loc"><span class="globe-loc-dot"></span>Taiwan</span>
+            <span class="globe-loc"><span class="globe-loc-dot"></span>Indonesia</span>
+            <span class="globe-loc"><span class="globe-loc-dot"></span>Malaysia</span>
+            <span class="globe-loc"><span class="globe-loc-dot"></span>India</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── FOOTER ─── -->
+      <footer id="site-footer">
+        <!-- Top row: brand / nav / contact -->
+        <div class="footer-top">
+          <div class="footer-brand">
+            <img src="/Logo Stacked White.png" alt="Sirena Asia" loading="lazy" />
+            <p class="footer-tagline">Asia's Premier Mermaid Collective — where the ocean performs.</p>
+          </div>
+
+          <div class="footer-nav-col">
+            <p class="footer-nav-heading">Explore</p>
+            <nav class="footer-links">
+              <a href="performers.html" class="footer-link">Performers</a>
+              <a href="shows.html"      class="footer-link">Shows</a>
+              <a href="gallery.html"    class="footer-link">Gallery</a>
+              <a href="shop.html"       class="footer-link">Shop</a>
+              <a href="news.html"       class="footer-link">News</a>
+              <a href="contact.html"    class="footer-link">Contact</a>
+            </nav>
+          </div>
+
+          <div class="footer-contact-col">
+            <p class="footer-contact-label">Get in touch</p>
+            <a href="mailto:info@sirenaasia.com" class="footer-contact-email">info@sirenaasia.com</a>
+            <a href="contact.html" class="btn-coral" style="display:inline-block;margin-top:0.5rem;font-size:0.65rem;padding:0.55rem 1.3rem;">Request a Performance</a>
+            <div class="footer-social">
+              <a href="https://instagram.com/sirenaasia.co" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              </a>
+              <a href="https://facebook.com/sirenaasia.co" target="_blank" rel="noopener" class="footer-social-link" aria-label="Facebook">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="https://tiktok.com/@sirenaasia.co" target="_blank" rel="noopener" class="footer-social-link" aria-label="TikTok">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <!-- Bottom row: copyright + legal -->
+        <div class="footer-bottom">
+          <p class="footer-copy">© 2025 Sirena Asia · Asia's Premier Mermaid Collective</p>
+          <div class="footer-legal">
+            <a href="#" class="footer-legal-link">Privacy Policy</a>
+            <a href="#" class="footer-legal-link">Terms of Use</a>
+          </div>
+        </div>
+      </footer>
+
+
+    </div><!-- /#page-2 -->
+  </div><!-- /#page-body -->
+
+
+  <script>
+    /* ══════════════════════
+       VIDEO
+    ══════════════════════ */
+    const video   = document.getElementById('hero-video');
+    const video2  = document.getElementById('hero-video2');
+    const bgVideo2 = document.getElementById('bg-video2');
+    const img1    = document.getElementById('img1');
+
+    document.getElementById('scroll-cue').classList.add('show');
+
+    // Enter button → navigate to story page
+    document.getElementById('scroll-cue').addEventListener('click', () => {
+      window.location.href = 'story.html';
+    });
+
+    // Slow, cinematic playback
+    video.playbackRate  = 0.75;
+    video2.playbackRate = 0.75;
+
+    let heroEnded = false;
+
+    // Pre-buffer video2 when hero is 70% through
+    video.addEventListener('timeupdate', () => {
+      if (video.duration && video.currentTime / video.duration > 0.7 && video2.preload === 'none') {
+        video2.preload = 'auto';
+        video2.load();
+      }
+    }, { passive: true });
+
+    // When hero.mp4 ends: play video2 in hero, crossfade, light up scroll cue
+    video.addEventListener('ended', () => {
+      heroEnded = true;
+      video2.playbackRate = 0.75;
+      video2.play().then(() => {
+        video.style.opacity  = '0';
+        video2.style.opacity = '1';
+      }).catch(() => {
+        video.style.opacity  = '0';
+        video2.style.opacity = '1';
+      });
+      document.getElementById('scroll-cue').classList.add('lit');
+    });
+
+    // Pause hero-video2 when page-2 covers hero, resume when scrolled back up
+    window.addEventListener('scroll', () => {
+      if (!heroEnded) return;
+      if (window.scrollY >= window.innerHeight * 0.9) {
+        if (!video2.paused) video2.pause();
+      } else {
+        if (video2.paused) video2.play().catch(() => {});
+      }
+    }, { passive: true });
+
+    // Start/pause bg-video2 based on page-2 visibility, synced to hero-video2
+    let bgLoaded = false;
+    const page2Observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && heroEnded) {
+        if (!bgLoaded) {
+          bgLoaded = true;
+          bgVideo2.load();
+          bgVideo2.addEventListener('canplay', () => {
+            bgVideo2.currentTime = video2.currentTime;
+            bgVideo2.playbackRate = 0.75;
+            bgVideo2.play().catch(() => {});
+          }, { once: true });
+        } else {
+          bgVideo2.currentTime = video2.currentTime;
+          bgVideo2.play().catch(() => {});
+        }
+      } else {
+        bgVideo2.pause();
+      }
+    }, { threshold: 0.1 });
+    page2Observer.observe(document.getElementById('page-2'));
+
+
+
+    /* ══════════════════════
+       MOUSE PARALLAX — video + logo
+    ══════════════════════ */
+    const videoWrap  = document.getElementById('video-wrap');
+    const videoWrap2 = document.getElementById('video-wrap2');
+    const logoStack  = document.querySelector('.sirena-stack');
+
+    // Video target / current
+    let tx = 0, ty = 0, cx = 0, cy = 0;
+    // Logo target / current (separate lerp, slower + smaller)
+    let lx = 0, ly = 0, lcx = 0, lcy = 0;
+    // Autonomous float offset
+    let floatT = 0;
+
+    document.addEventListener('mousemove', e => {
+      if (window.scrollY > window.innerHeight) return;
+      const nx = (e.clientX / window.innerWidth  - 0.5);
+      const ny = (e.clientY / window.innerHeight - 0.5);
+      tx = nx * 18;
+      ty = ny * 18;
+      // Logo: subtler displacement + slight tilt stored separately
+      lx = nx * 22;
+      ly = ny * 14;
+    });
+    document.addEventListener('mouseleave', () => { tx = 0; ty = 0; lx = 0; ly = 0; });
+
+    // Pause lerp when hero is offscreen — no DOM writes when not needed
+    let heroInView = true;
+    const heroSec = document.getElementById('page-1');
+    if (heroSec) {
+      new IntersectionObserver(entries => { heroInView = entries[0].isIntersecting; }, { threshold: 0 })
+        .observe(heroSec);
+    }
+
+    (function lerp() {
+      requestAnimationFrame(lerp);
+      if (!heroInView) return; // idle — no layout work
+      floatT += 0.008;
+      const floatY = Math.sin(floatT) * 10 + Math.sin(floatT * 0.6) * 5;
+      const floatX = Math.sin(floatT * 0.7) * 3;
+
+      // Video parallax — both wraps move together
+      cx += (tx - cx) * 0.07;
+      cy += (ty - cy) * 0.07;
+      videoWrap.style.transform  = `translate(${cx}px, ${cy}px)`;
+      videoWrap2.style.transform = `translate(${cx}px, ${cy}px)`;
+
+      // Logo: mouse parallax + autonomous organic float + subtle tilt
+      lcx += (lx - lcx) * 0.035;
+      lcy += (ly - lcy) * 0.035;
+      const tiltX =  lcy * 0.06;   // pitch
+      const tiltY = -lcx * 0.06;   // yaw
+      logoStack.style.transform =
+        `translate(${lcx + floatX}px, ${lcy + floatY}px)
+         rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+    })();
+
+
+    /* ══════════════════════
+       NAVBAR
+    ══════════════════════ */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+
+    /* ══════════════════════
+       MOBILE MENU
+    ══════════════════════ */
+    const burger = document.getElementById('burger');
+    const menu   = document.getElementById('mobile-menu');
+    const bls    = burger.querySelectorAll('.bl');
+    let open = false;
+    burger.addEventListener('click', () => {
+      open = !open;
+      menu.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+      bls[0].style.transform = open ? 'rotate(45deg) translate(4.5px,4.5px)' : '';
+      bls[1].style.opacity   = open ? '0' : '1';
+      bls[2].style.transform = open ? 'rotate(-45deg) translate(4.5px,-4.5px)' : '';
+    });
+    menu.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => {
+      open = false; menu.classList.remove('open');
+      document.body.style.overflow = '';
+      bls.forEach(b => { b.style.transform=''; b.style.opacity='1'; });
+    }));
+
+    // Smooth anchor scroll (after menu vars exist)
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        if (open) { open = false; menu.classList.remove('open'); document.body.style.overflow = ''; }
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+
+    /* ══════════════════════
+       SMOOTH ANCHOR SCROLL
+      (wired after mobile menu vars are set below)
+    ══════════════════════ */
+
+    /* ══════════════════════
+       SCROLL REVEAL
+    ══════════════════════ */
+    const revealTargets = document.querySelectorAll('.rv, .rv-l, .rv-r');
+    const revObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); revObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.14 });
+    revealTargets.forEach(el => revObs.observe(el));
+
+
+    /* ══════════════════════
+       ELITE CAROUSEL — drag + arrows + floating
+    ══════════════════════ */
+    const track = document.getElementById('carousel-track');
+    const eliteCards = [...track.querySelectorAll('.elite-card')];
+    let activeIdx = Math.floor(Math.random() * eliteCards.length);
+
+    // Size spacers so first/last cards can center
+    function sizeSpacers() {
+      const card = eliteCards[0];
+      if (!card) return;
+      const w = Math.max(0, (track.offsetWidth - card.offsetWidth) / 2);
+      document.getElementById('c-spacer-l').style.width = w + 'px';
+      document.getElementById('c-spacer-r').style.width = w + 'px';
+    }
+    sizeSpacers();
+    window.addEventListener('resize', sizeSpacers);
+
+    function scrollToCard(idx, smooth = true) {
+      activeIdx = Math.max(0, Math.min(idx, eliteCards.length - 1));
+      const card = eliteCards[activeIdx];
+      const off = card.offsetLeft - (track.offsetWidth / 2) + (card.offsetWidth / 2);
+      track.scrollTo({ left: off, behavior: smooth ? 'smooth' : 'instant' });
+      eliteCards.forEach((c, i) => c.classList.toggle('active', i === activeIdx));
+    }
+
+    // Init center
+    setTimeout(() => scrollToCard(activeIdx, false), 60);
+
+    // Update active on scroll (for drag)
+    let scrollTimer;
+    track.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        const tCenter = track.getBoundingClientRect().left + track.offsetWidth / 2;
+        let minDist = Infinity, nearest = activeIdx;
+        eliteCards.forEach((c, i) => {
+          const r = c.getBoundingClientRect();
+          const d = Math.abs(r.left + r.width / 2 - tCenter);
+          if (d < minDist) { minDist = d; nearest = i; }
+        });
+        activeIdx = nearest;
+        eliteCards.forEach((c, i) => c.classList.toggle('active', i === activeIdx));
+      }, 60);
+    }, { passive: true });
+
+    // Arrow buttons
+    document.getElementById('c-next').addEventListener('click', () => scrollToCard(activeIdx + 1));
+    document.getElementById('c-prev').addEventListener('click', () => scrollToCard(activeIdx - 1));
+
+    // Drag with momentum
+    let isDown = false, startX = 0, scrollLeft = 0, lastX = 0, velocity = 0;
+    track.addEventListener('mousedown', e => {
+      isDown = true; track.style.cursor = 'grabbing'; track.style.scrollBehavior = 'auto';
+      startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft; lastX = e.pageX; velocity = 0;
+    });
+    track.addEventListener('mouseleave', () => { if (isDown) { isDown = false; track.style.cursor = 'grab'; track.style.scrollBehavior = ''; applyMomentum(); } });
+    track.addEventListener('mouseup', () => { isDown = false; track.style.cursor = 'grab'; track.style.scrollBehavior = ''; applyMomentum(); });
+    track.addEventListener('mousemove', e => {
+      if (!isDown) return; e.preventDefault();
+      velocity = e.pageX - lastX; lastX = e.pageX;
+      track.scrollLeft = scrollLeft - (e.pageX - startX) * 1.2;
+    });
+    function applyMomentum() {
+      if (Math.abs(velocity) < 2) return;
+      let v = velocity * 5;
+      function step() { if (Math.abs(v) < 0.5) return; track.scrollLeft -= v; v *= 0.88; requestAnimationFrame(step); }
+      requestAnimationFrame(step);
+    }
+    // Touch support
+    let tStartX = 0, tScrollLeft = 0;
+    track.addEventListener('touchstart', e => { tStartX = e.touches[0].pageX; tScrollLeft = track.scrollLeft; clearAutoRotate(); }, { passive: true });
+    track.addEventListener('touchmove',  e => { track.scrollLeft = tScrollLeft - (e.touches[0].pageX - tStartX) * 1.2; }, { passive: true });
+    track.addEventListener('touchend', () => startAutoRotate());
+
+    // Auto-rotate left→right, pause on hover/drag
+    let autoTimer;
+    function startAutoRotate() {
+      clearAutoRotate();
+      autoTimer = setInterval(() => {
+        const next = (activeIdx + 1) % eliteCards.length;
+        scrollToCard(next);
+      }, 4000);
+    }
+    function clearAutoRotate() { clearInterval(autoTimer); }
+    track.addEventListener('mouseenter', clearAutoRotate);
+    track.addEventListener('mouseleave', startAutoRotate);
+    startAutoRotate();
+
+
+    /* ══════════════════════
+       PARTICLES
+    ══════════════════════ */
+    const pc = document.getElementById('hero-particles');
+    function spawn() {
+      const p = document.createElement('div');
+      p.className = 'bp';
+      const s = Math.random() * 2.2 + 0.6;
+      p.style.cssText = `
+        width:${s}px; height:${s}px; left:${Math.random()*100}%;
+        background: rgba(255,255,255,0.65);
+        box-shadow: 0 0 ${s*5}px rgba(255,255,255,0.4);
+        animation-duration:${Math.random()*10+7}s;
+        animation-delay:${Math.random()*6}s;
+      `;
+      pc.appendChild(p);
+      p.addEventListener('animationend', () => p.remove());
+    }
+    for (let i = 0; i < 8; i++) spawn();
+    setInterval(() => { if (pc.children.length < 18) spawn(); }, 1800);
+
+
+
+
+    /* ══════════════════════
+       TACTICAL GLOBE CANVAS
+    ══════════════════════ */
+    (function initGlobe() {
+      const canvas = document.getElementById('globe-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width, H = canvas.height;
+      const cx = W / 2, cy = H / 2, R = W / 2 - 8;
+
+      // Preload Sirena icon for markers
+      const markerIcon = new Image();
+      markerIcon.src = 'Collored Icon.png';
+      let iconReady = false;
+      markerIcon.onload = () => { iconReady = true; };
+
+      // View centre: Southeast Asia
+      const VLat = 8 * Math.PI / 180;
+      const VLon = 108 * Math.PI / 180;
+
+      function project(lat, lon) {
+        const φ = lat * Math.PI / 180;
+        const λ = lon * Math.PI / 180 - VLon;
+        const cosC = Math.sin(VLat) * Math.sin(φ) + Math.cos(VLat) * Math.cos(φ) * Math.cos(λ);
+        if (cosC < 0.05) return null;
+        const x = R * Math.cos(φ) * Math.sin(λ);
+        const y = R * (Math.cos(VLat) * Math.sin(φ) - Math.sin(VLat) * Math.cos(φ) * Math.cos(λ));
+        return { x: cx + x, y: cy - y, z: cosC };
+      }
+
+      // Land polygons — full world, Natural Earth simplified
+      const lands = [
+        // ── SE Asia — detailed (your home waters) ──
+        // Philippines — Luzon
+        [[18.6,121.0],[18.3,121.8],[18.2,122.3],[17.8,122.5],[17.2,122.7],[16.5,122.3],[16.0,120.8],[15.5,120.0],[14.8,120.1],[14.3,121.0],[13.8,122.0],[13.6,123.2],[14.3,124.0],[14.8,124.5],[15.0,122.8],[16.0,122.5],[17.0,122.8],[18.0,121.5],[18.6,121.0]],
+        // Philippines — Mindanao
+        [[8.6,126.5],[8.2,125.5],[7.7,126.0],[7.0,126.2],[6.3,124.8],[5.9,121.8],[5.6,120.9],[6.2,120.5],[7.0,121.8],[7.5,123.2],[8.0,123.2],[8.5,124.5],[8.6,126.5]],
+        // Philippines — Samar
+        [[11.8,125.5],[12.0,125.2],[11.5,124.8],[11.2,125.0],[11.0,125.5],[11.8,125.5]],
+        // Philippines — Panay
+        [[10.5,121.8],[10.8,122.5],[11.5,122.8],[11.3,121.8],[10.8,121.2],[10.5,121.8]],
+        // Philippines — Negros
+        [[9.2,122.8],[9.8,122.9],[10.5,123.2],[10.2,122.5],[9.5,122.0],[9.2,122.8]],
+        // Philippines — Cebu
+        [[9.5,123.5],[10.2,124.0],[10.8,124.0],[10.5,123.5],[9.8,123.2],[9.5,123.5]],
+        // Philippines — Leyte
+        [[9.8,124.5],[10.5,125.0],[11.2,124.8],[11.0,124.2],[10.2,124.0],[9.8,124.5]],
+        // Taiwan
+        [[21.9,120.7],[22.3,120.4],[23.2,120.2],[24.3,120.7],[25.2,121.6],[25.1,121.9],[24.5,121.8],[23.5,121.5],[22.5,121.2],[21.9,120.7]],
+        // Borneo / Kalimantan
+        [[1.2,109.2],[2.0,110.0],[3.0,111.5],[4.2,112.8],[5.5,115.0],[6.5,116.5],[7.0,117.5],[6.7,118.2],[5.5,118.8],[4.5,118.5],[3.5,119.2],[2.5,119.5],[1.5,118.8],[0.5,118.0],[0.0,117.0],[-0.8,115.5],[-1.5,114.0],[-2.0,112.5],[-2.5,111.0],[-1.5,109.8],[0.0,108.8],[1.2,109.2]],
+        // Sumatra
+        [[5.5,95.5],[4.5,96.5],[3.5,97.5],[2.5,98.5],[1.5,99.5],[0.0,99.5],[-1.0,100.5],[-2.0,101.5],[-3.5,102.8],[-4.5,104.0],[-5.5,105.5],[-5.5,106.0],[-4.5,104.5],[-3.5,103.0],[-2.0,101.0],[-0.5,100.0],[1.0,99.0],[2.5,98.0],[3.5,96.5],[5.5,95.5]],
+        // Java
+        [[-6.0,106.0],[-6.3,107.0],[-6.8,108.5],[-7.2,110.0],[-7.8,112.0],[-8.2,113.5],[-8.5,114.3],[-8.5,115.0],[-8.2,115.5],[-8.0,114.0],[-7.5,112.5],[-7.0,110.5],[-6.5,109.0],[-6.2,107.5],[-6.0,106.0]],
+        // Sulawesi
+        [[0.5,120.5],[1.5,122.0],[2.0,123.0],[1.8,125.5],[1.0,125.5],[0.0,124.5],[-1.0,123.5],[-2.0,122.5],[-3.5,122.0],[-4.5,122.5],[-5.5,121.5],[-4.0,120.5],[-2.5,120.2],[-1.0,120.0],[0.5,120.5]],
+        // Timor
+        [[-8.5,124.5],[-8.8,125.5],[-9.5,126.5],[-10.2,127.0],[-9.5,125.5],[-8.8,124.8],[-8.5,124.5]],
+        // Lombok + Sumbawa
+        [[-8.4,115.5],[-8.8,116.8],[-9.0,118.5],[-8.5,119.5],[-8.2,118.5],[-8.5,117.0],[-8.2,115.8],[-8.4,115.5]],
+        // Flores
+        [[-8.5,121.0],[-8.8,122.0],[-9.0,123.0],[-8.5,122.5],[-8.2,121.5],[-8.5,121.0]],
+        // Malay Peninsula
+        [[1.3,103.5],[2.0,103.8],[3.0,103.5],[4.0,103.2],[5.0,102.5],[6.0,101.5],[7.0,100.5],[6.5,100.2],[5.5,101.0],[4.5,102.5],[3.5,103.0],[2.5,103.5],[1.3,103.5]],
+        // Indochina + Thailand + Myanmar
+        [[2.0,103.5],[3.5,103.0],[5.5,101.0],[7.5,100.0],[9.5,98.5],[11.0,98.5],[12.5,99.0],[14.0,98.5],[15.5,100.0],[17.5,100.5],[19.5,100.0],[21.5,101.5],[22.5,103.5],[23.5,106.0],[23.0,107.5],[21.5,106.5],[20.0,106.5],[18.0,107.0],[17.0,108.0],[16.0,108.5],[14.5,109.5],[13.0,109.5],[11.5,108.5],[10.0,107.5],[9.0,106.0],[8.5,104.5],[7.5,103.5],[5.5,102.0],[3.5,103.0],[2.0,103.5]],
+        // India subcontinent
+        [[8.0,77.5],[9.0,78.5],[10.0,79.5],[11.5,79.8],[13.0,80.2],[14.5,80.5],[16.0,81.5],[18.0,83.5],[19.5,85.5],[21.0,87.5],[22.5,88.5],[24.0,88.0],[26.0,88.5],[28.0,88.5],[28.5,79.0],[28.0,78.0],[26.5,74.5],[25.0,73.0],[23.5,72.0],[22.0,70.5],[20.5,72.5],[19.0,73.0],[17.0,73.5],[15.0,73.5],[13.0,74.5],[11.0,75.5],[9.5,76.5],[8.0,77.5]],
+        // Sri Lanka
+        [[6.0,80.0],[6.5,81.0],[7.5,81.5],[8.5,81.5],[9.5,81.0],[9.0,80.5],[8.0,80.0],[7.0,79.8],[6.0,80.0]],
+        // China + inland
+        [[18.5,109.5],[20.0,110.5],[22.0,113.5],[22.5,114.5],[23.0,116.5],[24.0,118.0],[25.0,119.0],[27.0,120.5],[28.5,121.5],[30.0,122.0],[32.5,121.5],[34.0,120.0],[36.0,120.5],[38.0,121.0],[40.0,120.0],[41.5,122.5],[41.0,124.0],[40.0,125.0],[38.5,121.0],[36.0,119.5],[34.0,119.5],[32.0,120.0],[30.0,121.0],[28.0,121.0],[26.5,120.0],[25.0,119.0],[23.5,116.5],[22.5,115.0],[21.5,110.5],[18.5,109.5]],
+        // Hainan
+        [[18.5,109.5],[19.5,111.0],[20.0,110.5],[19.5,109.0],[18.5,109.5]],
+        // Korea
+        [[34.5,126.5],[35.5,129.5],[36.5,129.5],[37.5,129.0],[38.5,128.5],[38.5,127.0],[37.0,126.0],[35.0,126.5],[34.5,126.5]],
+        // Japan — Honshu
+        [[33.5,131.0],[34.5,135.0],[35.5,138.0],[36.5,140.5],[38.5,141.5],[40.5,140.5],[39.0,138.0],[36.5,134.5],[34.5,133.5],[33.5,131.0]],
+        // Japan — Kyushu
+        [[31.5,131.0],[32.5,131.5],[33.5,131.5],[33.5,130.5],[33.0,130.0],[31.5,131.0]],
+        // Japan — Hokkaido
+        [[42.0,140.0],[43.5,141.5],[44.5,143.0],[44.0,145.5],[43.5,144.5],[42.5,143.0],[41.5,140.5],[42.0,140.0]],
+        // New Guinea
+        [[-2.0,132.0],[-3.5,136.0],[-5.0,141.0],[-7.0,146.0],[-10.0,149.5],[-9.0,148.0],[-6.0,141.0],[-4.0,137.0],[-2.5,133.0],[-2.0,132.0]],
+        // Australia
+        [[-14.0,127.5],[-13.5,130.0],[-12.5,136.0],[-14.0,140.0],[-17.0,146.0],[-22.0,150.0],[-28.0,153.5],[-34.0,151.0],[-38.0,146.5],[-39.0,147.0],[-38.0,145.0],[-35.5,137.5],[-32.5,133.5],[-34.0,123.0],[-30.0,115.0],[-26.0,113.5],[-22.0,113.5],[-18.0,122.0],[-14.0,127.5]],
+        // New Zealand — North Island
+        [[-36.5,174.5],[-37.5,175.5],[-39.5,176.5],[-41.5,175.5],[-41.0,174.5],[-39.0,174.0],[-37.0,174.5],[-36.5,174.5]],
+        // New Zealand — South Island
+        [[-40.5,172.5],[-42.5,171.5],[-44.5,168.5],[-46.5,169.0],[-46.0,170.5],[-44.0,171.5],[-42.0,172.5],[-40.5,172.5]],
+        // ── Africa ──
+        [[37.0,11.0],[36.0,3.0],[33.0,-2.0],[30.0,-8.0],[26.0,-14.5],[20.0,-17.0],[15.0,-16.5],[10.0,-15.0],[5.0,-5.0],[2.0,3.0],[0.0,9.5],[-4.0,11.0],[-5.0,12.5],[-12.0,13.5],[-16.0,12.0],[-20.0,13.0],[-24.0,14.5],[-28.0,16.5],[-34.5,18.5],[-34.0,25.0],[-29.0,31.0],[-24.0,33.0],[-18.0,36.0],[-12.0,39.5],[-5.0,41.0],[1.0,41.5],[5.0,41.0],[11.0,44.0],[12.5,51.0],[14.5,42.0],[22.0,37.0],[28.0,34.0],[31.5,25.5],[31.0,24.0],[30.0,33.0],[28.0,34.0],[22.0,37.0],[14.5,42.0],[11.0,44.0],[5.0,41.0],[-5.0,41.0],[-12.0,39.5],[-18.0,36.0],[-24.0,33.0],[-29.0,31.0],[-34.0,25.0],[-34.5,18.5],[-28.0,16.5],[-24.0,14.5],[-20.0,13.0],[-16.0,12.0],[-12.0,13.5],[-5.0,12.5],[-4.0,11.0],[0.0,9.5],[2.0,3.0],[5.0,-5.0],[10.0,-15.0],[15.0,-16.5],[20.0,-17.0],[26.0,-14.5],[30.0,-8.0],[33.0,-2.0],[36.0,3.0],[37.0,11.0]],
+        // Madagascar
+        [[-13.0,49.5],[-17.0,50.0],[-20.0,48.5],[-25.0,44.5],[-25.5,44.0],[-20.5,44.5],[-17.0,44.0],[-13.0,48.5],[-13.0,49.5]],
+        // ── Europe ──
+        [[36.0,-6.0],[38.0,-9.0],[44.0,-9.0],[47.5,-4.5],[48.5,-2.0],[51.0,2.0],[51.5,4.0],[53.0,7.0],[55.0,9.0],[57.5,8.0],[58.5,6.0],[60.5,5.0],[63.0,7.0],[65.0,14.0],[68.5,17.0],[70.5,25.0],[70.0,30.0],[68.0,29.0],[65.0,25.0],[62.0,22.0],[60.5,25.5],[60.0,28.0],[59.5,28.5],[57.5,22.0],[54.5,19.5],[53.5,14.5],[54.5,10.5],[55.5,12.5],[55.0,11.5],[54.5,10.0],[53.0,7.0],[51.5,4.0],[51.0,2.0],[50.5,-0.5],[49.5,-2.0],[47.5,-4.5],[44.0,-2.0],[43.5,-1.5],[43.0,-9.0],[38.0,-9.0],[36.0,-6.0]],
+        // UK
+        [[51.0,-2.0],[51.5,0.5],[52.5,2.0],[54.5,1.5],[55.5,-3.0],[58.5,-3.5],[59.5,-2.5],[58.5,-3.5],[57.5,-3.5],[56.0,-5.0],[54.0,-3.5],[52.5,-4.5],[51.5,-3.5],[51.0,-2.0]],
+        // Scandinavia
+        [[55.0,9.0],[57.0,10.0],[57.5,12.0],[58.5,11.5],[59.0,10.5],[59.5,11.0],[60.5,5.0],[62.0,5.5],[64.0,8.0],[65.0,14.0],[68.5,17.0],[70.5,25.0],[71.0,28.0],[70.0,26.0],[67.5,15.0],[65.5,14.0],[63.0,7.0],[60.5,5.0],[58.5,6.0],[57.5,8.0],[55.0,9.0]],
+        // Italy
+        [[44.0,8.0],[43.0,11.5],[41.5,13.5],[39.0,16.5],[37.5,15.0],[38.0,15.5],[39.5,16.0],[41.0,14.0],[42.5,11.5],[44.0,8.0]],
+        // Iberian Peninsula
+        [[36.0,-6.0],[36.5,-2.0],[38.0,-0.5],[40.0,0.5],[42.5,3.0],[43.5,-1.5],[44.0,-2.0],[43.0,-9.0],[38.0,-9.0],[36.0,-6.0]],
+        // ── North America ──
+        [[70.0,-141.0],[72.5,-130.0],[71.0,-120.0],[68.0,-96.0],[71.5,-83.0],[73.5,-75.0],[70.0,-68.0],[67.5,-63.0],[55.0,-60.0],[47.0,-53.0],[44.5,-66.0],[42.5,-70.0],[40.5,-74.0],[35.0,-75.5],[26.0,-80.0],[24.5,-81.0],[25.0,-80.5],[25.5,-89.5],[21.0,-87.5],[16.0,-88.0],[15.5,-92.0],[20.0,-97.0],[28.0,-97.0],[30.0,-94.0],[29.5,-89.5],[30.0,-89.0],[30.0,-85.0],[26.0,-80.5],[24.5,-81.0],[26.0,-80.0],[35.0,-75.5],[38.0,-75.5],[40.5,-74.0],[42.5,-70.0],[44.5,-66.0],[47.0,-53.0],[55.0,-60.0],[58.0,-64.0],[67.5,-63.0],[70.0,-68.0],[73.5,-75.0],[71.5,-83.0],[68.0,-96.0],[66.0,-141.0],[70.0,-141.0]],
+        // Pacific coast + Mexico
+        [[32.5,-117.0],[37.5,-122.0],[48.5,-124.5],[55.0,-130.0],[58.0,-137.0],[59.5,-148.0],[62.0,-150.0],[58.0,-152.0],[55.0,-160.0],[60.0,-165.0],[65.0,-168.0],[62.0,-168.0],[60.0,-165.0],[55.0,-160.0],[58.0,-154.0],[60.0,-148.0],[58.0,-137.0],[55.0,-130.0],[48.5,-124.5],[38.0,-123.0],[34.0,-120.0],[32.5,-117.0],[28.0,-115.0],[24.0,-110.0],[20.0,-105.0],[20.0,-97.0],[15.5,-92.0],[16.0,-88.0],[20.0,-97.0],[22.0,-98.0],[28.0,-97.0],[32.5,-117.0]],
+        // Greenland
+        [[60.0,-45.0],[68.0,-52.0],[74.0,-57.0],[77.0,-65.0],[80.0,-58.0],[83.5,-42.0],[82.0,-25.0],[76.5,-18.0],[70.5,-22.0],[64.0,-38.0],[60.0,-45.0]],
+        // Cuba + Caribbean
+        [[23.0,-82.0],[22.5,-79.5],[20.0,-75.0],[20.0,-74.0],[22.0,-75.0],[23.0,-82.0]],
+        // ── South America ──
+        [[12.0,-72.0],[10.5,-62.0],[8.0,-60.0],[5.0,-52.5],[2.0,-50.0],[0.0,-50.0],[-5.0,-35.5],[-10.0,-37.5],[-15.0,-39.0],[-23.0,-43.0],[-33.5,-53.5],[-38.5,-62.0],[-42.0,-65.0],[-55.0,-68.0],[-54.5,-68.0],[-52.0,-69.0],[-45.0,-65.5],[-38.5,-57.5],[-34.5,-56.5],[-28.0,-48.5],[-22.5,-43.0],[-15.5,-39.0],[-5.0,-35.5],[0.0,-50.0],[2.0,-50.0],[5.0,-52.5],[8.0,-60.0],[10.5,-62.0],[12.0,-72.0],[-72.0,-77.0],[-74.5,-73.5],[-4.0,-81.0],[0.0,-80.0],[5.0,-77.5],[10.0,-75.0],[12.0,-72.0]],
+        // ── Central Asia / Middle East ──
+        [[37.0,11.0],[32.0,25.0],[31.5,35.0],[30.0,34.5],[29.5,35.0],[28.0,34.5],[27.0,36.0],[24.0,38.5],[21.0,39.0],[18.0,42.0],[12.0,44.0],[11.0,44.0],[12.5,51.0],[14.5,42.0],[18.0,42.0],[22.0,37.0],[26.0,36.0],[28.0,34.5],[30.0,34.5],[31.5,35.0],[32.0,35.5],[34.5,36.5],[36.0,36.0],[37.0,37.0],[38.0,44.0],[40.0,44.0],[42.0,50.5],[45.0,50.0],[47.0,53.0],[44.0,57.5],[38.5,57.5],[37.5,58.0],[37.0,60.5],[36.0,62.0],[33.0,60.5],[29.5,61.0],[25.5,63.5],[25.5,57.5],[27.0,56.5],[25.0,56.5],[23.0,57.5],[22.5,59.5],[20.0,58.5],[17.0,55.0],[15.0,52.0],[13.0,44.5],[12.0,44.0],[14.5,42.0],[22.0,37.0],[28.0,34.5],[30.0,34.5],[31.5,35.0],[33.0,36.5],[36.5,36.0],[38.0,37.5],[38.0,44.0],[40.0,44.0],[37.0,37.0],[36.0,36.0],[37.0,11.0]],
+        // Russia / Siberia (simplified top)
+        [[55.0,32.0],[60.0,30.0],[65.0,35.0],[68.0,39.0],[66.0,33.0],[70.0,30.0],[68.0,29.0],[65.0,25.0],[60.0,28.0],[57.5,22.0],[54.5,19.5],[53.5,23.0],[56.0,26.0],[57.5,34.0],[58.0,50.0],[60.0,60.0],[60.0,68.0],[62.5,68.0],[65.0,77.0],[66.0,86.0],[67.5,86.0],[68.5,73.0],[70.0,73.0],[72.5,80.0],[73.5,80.5],[73.5,86.0],[72.0,105.0],[72.5,106.0],[73.0,130.0],[71.5,140.0],[68.5,148.0],[67.0,167.0],[64.0,173.0],[62.0,177.0],[61.0,167.0],[62.0,163.0],[60.0,160.0],[56.0,163.0],[52.0,159.0],[51.0,156.0],[44.0,145.5],[44.0,143.0],[47.5,142.5],[51.0,142.5],[52.0,141.0],[50.0,141.0],[46.0,142.5],[43.5,135.0],[43.0,131.5],[42.0,131.0],[43.0,134.0],[44.5,136.0],[46.0,137.0],[47.0,138.5],[47.5,140.0],[47.0,141.0],[44.5,136.0],[43.0,131.0],[42.0,131.5],[42.5,130.5],[44.0,136.0],[47.0,138.5],[50.0,141.0],[52.0,141.0],[51.0,142.5],[47.5,142.5],[44.0,143.0],[44.0,145.5],[51.0,156.0],[52.0,159.0],[56.0,163.0],[60.0,160.0],[62.0,163.0],[61.0,167.0],[62.0,177.0],[64.0,173.0],[67.0,167.0],[68.5,148.0],[71.5,140.0],[73.0,130.0],[72.5,106.0],[72.0,105.0],[73.5,86.0],[73.5,80.5],[72.5,80.0],[70.0,73.0],[68.5,73.0],[67.5,86.0],[66.0,86.0],[65.0,77.0],[62.5,68.0],[60.0,68.0],[60.0,60.0],[58.0,50.0],[57.5,34.0],[56.0,26.0],[53.5,23.0],[54.5,19.5],[55.0,32.0]],
+      ];
+
+      const locations = [
+        { name: 'Philippines', lat: 12.8, lon: 121.7 },
+        { name: 'Taiwan',      lat: 23.5, lon: 121.0 },
+        { name: 'Indonesia',   lat: -6.2, lon: 106.8 },
+        { name: 'Malaysia',    lat: 3.1,  lon: 101.7 },
+        { name: 'India',       lat: 19.0, lon: 72.8  },
+      ];
+
+      let pulseT = 0, scanAngle = 0;
+      let rotOffset = 0;
+      let isDragging = false, dragStartX = 0, lastRot = 0;
+      let animRunning = false;
+
+      canvas.addEventListener('mousedown', e => { isDragging = true; dragStartX = e.clientX; lastRot = rotOffset; });
+      window.addEventListener('mouseup', () => { isDragging = false; });
+      window.addEventListener('mousemove', e => { if (isDragging) rotOffset = lastRot + (e.clientX - dragStartX) * 0.3; });
+      canvas.addEventListener('touchstart', e => { isDragging = true; dragStartX = e.touches[0].clientX; lastRot = rotOffset; }, { passive: true });
+      window.addEventListener('touchend', () => { isDragging = false; });
+      window.addEventListener('touchmove', e => { if (isDragging) rotOffset = lastRot + (e.touches[0].clientX - dragStartX) * 0.3; }, { passive: true });
+
+      function drawGlobe() {
+        if (!animRunning) return;
+        ctx.clearRect(0, 0, W, H);
+
+        // ── Deep ocean background ──
+        const bg = ctx.createRadialGradient(cx - R * 0.28, cy - R * 0.32, R * 0.04, cx, cy, R);
+        bg.addColorStop(0,   '#0a2040');
+        bg.addColorStop(0.5, '#040f24');
+        bg.addColorStop(1,   '#010508');
+        ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2);
+        ctx.fillStyle = bg; ctx.fill();
+
+        // ── Tactical grid — latitude lines ──
+        for (let lat = -75; lat <= 75; lat += 15) {
+          const isEquator = lat === 0;
+          ctx.beginPath();
+          ctx.strokeStyle = isEquator ? 'rgba(0,188,212,0.20)' : 'rgba(0,188,212,0.07)';
+          ctx.lineWidth = isEquator ? 0.8 : 0.4;
+          let first = true;
+          for (let lon = -180; lon <= 180; lon += 2) {
+            const p = project(lat, lon + rotOffset);
+            if (!p) { first = true; continue; }
+            first ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
+            first = false;
+          }
+          ctx.stroke();
+        }
+        // ── Tactical grid — longitude lines ──
+        for (let lon = 0; lon < 360; lon += 15) {
+          ctx.beginPath();
+          ctx.strokeStyle = 'rgba(0,188,212,0.07)';
+          ctx.lineWidth = 0.4;
+          let first = true;
+          for (let lat = -80; lat <= 80; lat += 2) {
+            const p = project(lat, lon + rotOffset);
+            if (!p) { first = true; continue; }
+            first ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
+            first = false;
+          }
+          ctx.stroke();
+        }
+
+        // ── Land masses ──
+        lands.forEach(poly => {
+          const pts = poly.map(([la, lo]) => project(la, lo + rotOffset)).filter(Boolean);
+          if (pts.length < 3) return;
+          ctx.beginPath();
+          ctx.moveTo(pts[0].x, pts[0].y);
+          pts.slice(1).forEach(p => ctx.lineTo(p.x, p.y));
+          ctx.closePath();
+          ctx.fillStyle   = 'rgba(0,210,228,0.32)';
+          ctx.strokeStyle = 'rgba(34,211,238,0.75)';
+          ctx.lineWidth   = 1.2;
+          ctx.fill(); ctx.stroke();
+        });
+
+        // ── Radar sweep ──
+        ctx.save();
+        ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.clip();
+        ctx.translate(cx, cy);
+        const sweepSpan = Math.PI / 5;
+        const steps = 32;
+        for (let i = 0; i < steps; i++) {
+          const a = scanAngle - (i / steps) * sweepSpan;
+          ctx.beginPath();
+          ctx.moveTo(0, 0);
+          ctx.arc(0, 0, R, a, a + sweepSpan / steps);
+          ctx.lineTo(0, 0);
+          ctx.fillStyle = `rgba(0,188,212,${0.06 * (1 - i / steps)})`;
+          ctx.fill();
+        }
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(R * Math.cos(scanAngle), R * Math.sin(scanAngle));
+        ctx.strokeStyle = 'rgba(0,229,255,0.55)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.restore();
+
+        // ── Atmosphere rim ──
+        const atmos = ctx.createRadialGradient(cx, cy, R - 4, cx, cy, R + 10);
+        atmos.addColorStop(0, 'rgba(0,188,212,0.22)');
+        atmos.addColorStop(1, 'transparent');
+        ctx.beginPath(); ctx.arc(cx, cy, R + 10, 0, Math.PI * 2);
+        ctx.fillStyle = atmos; ctx.fill();
+
+        // ── Globe ring ──
+        ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(0,188,212,0.38)';
+        ctx.lineWidth = 1.5; ctx.stroke();
+
+        // ── Sirena logo markers ──
+        pulseT += 0.04;
+        locations.forEach((loc, i) => {
+          const p = project(loc.lat, loc.lon + rotOffset);
+          if (!p) return;
+          const pulse = (Math.sin(pulseT + i * 1.3) + 1) / 2;
+          const iconR = 12;
+
+          // Coral glow rings
+          [22, 15].forEach((r, ri) => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, r + pulse * (ri === 0 ? 7 : 4), 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255,107,157,${[0.04, 0.08][ri] + pulse * 0.05})`;
+            ctx.fill();
+          });
+
+          // Sirena icon clipped to circle
+          if (iconReady) {
+            ctx.save();
+            ctx.beginPath(); ctx.arc(p.x, p.y, iconR, 0, Math.PI * 2); ctx.clip();
+            ctx.drawImage(markerIcon, p.x - iconR, p.y - iconR, iconR * 2, iconR * 2);
+            ctx.restore();
+            // Icon border ring
+            ctx.beginPath(); ctx.arc(p.x, p.y, iconR, 0, Math.PI * 2);
+            ctx.strokeStyle = `rgba(255,107,157,${0.65 + pulse * 0.35})`;
+            ctx.lineWidth = 1.8; ctx.stroke();
+            // Outer tactical ring
+            ctx.beginPath(); ctx.arc(p.x, p.y, iconR + 4 + pulse * 2, 0, Math.PI * 2);
+            ctx.strokeStyle = `rgba(0,229,255,${0.2 + pulse * 0.2})`;
+            ctx.lineWidth = 0.8; ctx.stroke();
+          } else {
+            // Fallback
+            ctx.beginPath(); ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
+            ctx.fillStyle = '#ff6b9d'; ctx.fill();
+          }
+
+          // Location name
+          ctx.save();
+          ctx.font = '600 6px "Outfit", sans-serif';
+          ctx.fillStyle = `rgba(200,240,250,${0.55 + pulse * 0.35})`;
+          ctx.textAlign = 'center';
+          ctx.shadowColor = 'rgba(0,188,212,0.6)';
+          ctx.shadowBlur = 4;
+          ctx.fillText(loc.name.toUpperCase(), p.x, p.y + iconR + 9);
+          ctx.restore();
+        });
+
+        // ── HUD corner brackets (diagonal positions inside globe) ──
+        const blen = 13;
+        [[-0.707,-0.707],[0.707,-0.707],[-0.707,0.707],[0.707,0.707]].forEach(([nx, ny]) => {
+          const bx = cx + nx * (R - 10);
+          const by = cy + ny * (R - 10);
+          ctx.strokeStyle = 'rgba(0,229,255,0.4)';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(bx + nx * blen, by); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(bx, by + ny * blen); ctx.stroke();
+        });
+
+        scanAngle += 0.007;
+        if (!isDragging) rotOffset += 0.04;
+        requestAnimationFrame(drawGlobe);
+      }
+
+      // Start when visible, pause when scrolled away
+      const globeObs = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting && !animRunning) { animRunning = true; drawGlobe(); }
+        else if (!entries[0].isIntersecting) { animRunning = false; }
+      }, { threshold: 0.1 });
+      globeObs.observe(canvas);
+    })();
+
+
+    /* ══════════════════════
+       CONTACT VIDEO — scroll-triggered
+    ══════════════════════ */
+    (function() {
+      const cv = document.getElementById('contact-video-bg');
+      if (!cv) return;
+      const contactObs = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          cv.play().catch(() => {});
+          cv.classList.add('playing');
+        } else {
+          cv.pause();
+          cv.classList.remove('playing');
+        }
+      }, { threshold: 0.15 });
+      contactObs.observe(document.getElementById('s-contact'));
+    })();
+
+
+    /* ══════════════════════
+       WATER TRAIL
+    ══════════════════════ */
+    (function() {
+      if (!window.matchMedia('(pointer:fine)').matches) return;
+      let last = 0;
+      const sizes  = [6, 9, 5, 7, 4];
+      const alphas = [0.55, 0.35, 0.45, 0.28, 0.38];
+      let i = 0;
+      document.addEventListener('mousemove', e => {
+        const now = Date.now();
+        if (now - last < 28) return; // throttle ~35fps
+        last = now;
+        const d = document.createElement('div');
+        d.className = 'water-drop';
+        const sz = sizes[i % sizes.length];
+        const al = alphas[i % alphas.length];
+        i++;
+        d.style.cssText = `
+          left:${e.clientX}px; top:${e.clientY}px;
+          width:${sz}px; height:${sz}px;
+          background: radial-gradient(circle, rgba(165,243,252,${al}) 0%, rgba(0,188,212,${al * 0.4}) 60%, transparent 100%);
+          box-shadow: 0 0 ${sz * 1.5}px rgba(0,229,255,${al * 0.5});
+        `;
+        document.body.appendChild(d);
+        d.addEventListener('animationend', () => d.remove(), { once: true });
+      });
+    })();
+
+
+    /* ══════════════════════
+       ELITE CAROUSEL — active card + modal
+    ══════════════════════ */
+    const performers = {
+      fan:    { num:'01', name:'Mermaid Fan',    flag:'tw',
+                bio:'A certified professional mermaid, competition finalist, and one of Asia\'s few certified mermaid instructors. Fan has performed at prestigious venues across Asia and brings both technical mastery and artistic depth to every show.',
+                tags:['Competition Finalist','Certified Instructor','Breath-hold Specialist','Underwater Choreographer'],
+                media:[{type:'photo',src:'media/performers/fan/photo1.jpg'},{type:'photo',src:'media/performers/fan/photo2.jpg'},{type:'photo',src:'media/performers/fan/photo3.jpg'},{type:'video',src:'media/performers/fan/reel1.mp4.mp4'}], contact:'Mermaid+Fan' },
+      ying:   { num:'02', name:'Mermaid Ying',   flag:'tw',
+                bio:'Professional freediver, certified mermaid performer, and TikTok content creator with a dedicated following in the aquatic arts community. Ying\'s athletic precision and magnetic screen presence make her a standout on any stage.',
+                tags:['Certified Freediver','TikTok Creator','Aquatic Acrobatics','Brand Ambassador'],
+                media:[{type:'photo',src:'media/performers/ying/photo1.jpg'},{type:'photo',src:'media/performers/ying/photo2.jpg'},{type:'video',src:'media/performers/ying/reel1.mp4'}], contact:'Mermaid+Ying' },
+      minmin: { num:'03', name:'Mermaid Minmin', flag:'tw',
+                bio:'Certified professional mermaid and performance instructor who teaches mermaid swimming across Asia. With a classical dance background and accreditation from recognised mermaid training bodies, Minmin brings rare refinement to her performances.',
+                tags:['Certified Mermaid','Performance Instructor','Classical Dance','Resort Specialist'],
+                media:[{type:'photo',src:'media/performers/minmin/photo1.jpg'},{type:'photo',src:'media/performers/minmin/photo2.jpg'}], contact:'Mermaid+Minmin' },
+      chen:   { num:'04', name:'Mermaid Chen',   flag:'tw',
+                bio:'Certified aquatic performance specialist, synchronised swimming trained, and Sirena\'s lead performance coach. Chen trains and certifies other performers while directing the collective\'s most ambitious productions.',
+                tags:['Certified Instructor','Performance Coach','Sync Swimming','Event Director'],
+                media:[{type:'photo',src:'media/performers/chen/photo1.jpg'},{type:'photo',src:'media/performers/chen/photo2.jpeg'},{type:'photo',src:'media/performers/chen/photo3.jpg'},{type:'photo',src:'media/performers/chen/photo4.jpg'},{type:'photo',src:'media/performers/chen/photo5.jpg'},{type:'photo',src:'media/performers/chen/photo6.jpg'}], contact:'Mermaid+Chen' },
+      ronnie: { num:'05', name:'Mermaid Ronnie', flag:'tw',
+                bio:'Competition winner, certified freediver, and TikTok star with a significant following in the mermaid and aquatic performance space. Ronnie is a multi-discipline performer — known for raw intensity and technical mastery across multiple disciplines.',
+                tags:['Competition Winner','TikTok Star','Certified Freediver','Content Creator'],
+                media:[{type:'photo',src:'media/performers/ronnie/photo1.jpg'},{type:'photo',src:'media/performers/ronnie/photo2.jpg'},{type:'photo',src:'media/performers/ronnie/photo3.jpg'},{type:'photo',src:'media/performers/ronnie/photo4.jpg'}], contact:'Mermaid+Ronnie' },
+      linda:  { num:'06', name:'Mermaid Linda',  flag:'tw',
+                bio:'Certified mermaid instructor and aquatic performance specialist. Linda holds professional accreditation and has been featured in brand campaigns and regional media. Her artistry and technical precision make her one of Asia\'s most sought-after performers.',
+                tags:['Certified Mermaid','Aquatic Instructor','Brand Campaigns','Underwater Theatre'],
+                media:[{type:'photo',src:'media/performers/linda/photo1.jpg'},{type:'photo',src:'media/performers/linda/photo2.jpg'}], contact:'Mermaid+Linda' },
+      kita:   { num:'07', name:'Mermaid Kita',   flag:'tw',
+                bio:'Certified professional mermaid and content creator whose underwater photography and performance videos have amassed hundreds of thousands of views across social platforms. Kita brings mission-driven authenticity and creative vision to every performance.',
+                tags:['Certified Mermaid','Content Creator','Marine Educator','Underwater Photographer'],
+                media:[{type:'photo',src:'media/performers/kita/photo1.jpg'},{type:'photo',src:'media/performers/kita/photo2.jpg'},{type:'photo',src:'media/performers/kita/photo3.jpg'},{type:'photo',src:'media/performers/kita/photo4.jpg'}], contact:'Mermaid+Kita' },
+    };
+
+    // Profile modal — click ANY card (non-active ones center first, then open)
+    (function() {
+      const modal    = document.getElementById('profile-modal');
+      const backdrop = document.getElementById('modal-backdrop');
+      const closeBtn = document.getElementById('modal-close');
+      if (!modal) return;
+      let dragMoved = false;
+
+      function openModal(id) {
+        const p = performers[id]; if (!p) return;
+        document.getElementById('modal-num').textContent    = p.num + ' · Sirena Elite';
+        document.getElementById('modal-name').textContent   = p.name;
+        const flagEl = document.getElementById('modal-flag');
+        if (flagEl) {
+          const FLAG_SVGS = {
+            tw: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 30 20" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="30" height="20" fill="#FE0000"/><rect width="15" height="10" fill="#000095"/><circle cx="7.5" cy="5" r="3.8" fill="white"/><circle cx="7.5" cy="5" r="2.4" fill="#000095"/><circle cx="7.5" cy="5" r="1.2" fill="white"/></svg>`,
+            id: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg>`,
+          };
+          const code = (p.flag || 'tw').toLowerCase();
+          flagEl.innerHTML = FLAG_SVGS[code] || `<span style="font-size:0.55rem;font-weight:700;opacity:0.6;">${code.toUpperCase()}</span>`;
+        }
+        document.getElementById('modal-bio').textContent    = p.bio;
+        document.getElementById('modal-view-profile').href  = 'performers.html#' + id;
+        document.getElementById('modal-tags').innerHTML     = p.tags.map(t => `<span class="modal-tag">${t}</span>`).join('');
+
+        // Build media gallery — photos + optional reel, dots shown only if >1
+        const imgEl       = document.getElementById('modal-img');
+        const videoWrap   = document.getElementById('modal-video-wrap');
+        const embedEl     = document.getElementById('modal-video-embed');
+        const localVidEl  = document.getElementById('modal-video-local');
+        const dotsEl      = document.getElementById('modal-photo-dots');
+        const mPrev       = document.getElementById('modal-media-prev');
+        const mNext       = document.getElementById('modal-media-next');
+        const media       = (p.media || [{type:'photo', src: p.img}]).filter(m => m && m.src);
+        let curMediaIdx   = 0;
+
+        function clearVideo() {
+          embedEl.src = ''; embedEl.style.display = 'none';
+          localVidEl.src = ''; localVidEl.pause && localVidEl.pause(); localVidEl.style.display = 'none';
+          videoWrap.style.display = 'none';
+        }
+
+        function updateModalArrows() {
+          mPrev.classList.toggle('show', curMediaIdx > 0);
+          mNext.classList.toggle('show', curMediaIdx < media.length - 1);
+        }
+
+        function setMedia(idx) {
+          curMediaIdx = idx;
+          const m = media[idx];
+          dotsEl.querySelectorAll('.modal-photo-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+          updateModalArrows();
+          if (m.type === 'video') {
+            imgEl.style.display = 'none';
+            clearVideo();
+            videoWrap.style.display = 'block';
+            const isLocal = !m.src.startsWith('http');
+            if (isLocal) {
+              localVidEl.src = m.src; localVidEl.style.display = 'block';
+              localVidEl.play().catch(() => {});
+            } else {
+              embedEl.src = m.src; embedEl.style.display = 'block';
+            }
+          } else {
+            clearVideo();
+            imgEl.style.opacity = '0';
+            setTimeout(() => { imgEl.src = m.src; imgEl.alt = p.name; imgEl.style.opacity = '1'; }, 150);
+            imgEl.style.display = '';
+          }
+        }
+
+        mPrev.onclick = (e) => { e.stopPropagation(); if (curMediaIdx > 0) setMedia(curMediaIdx - 1); };
+        mNext.onclick = (e) => { e.stopPropagation(); if (curMediaIdx < media.length - 1) setMedia(curMediaIdx + 1); };
+
+        dotsEl.innerHTML = '';
+        if (media.length > 1) {
+          media.forEach((m, i) => {
+            const dot = document.createElement('button');
+            const isVid = m.type === 'video';
+            dot.className = 'modal-photo-dot' + (isVid ? ' is-video' : '') + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', isVid ? 'Reel' : 'Photo ' + (i + 1));
+            dot.textContent = isVid ? '▶' : '';
+            dot.addEventListener('click', e => { e.stopPropagation(); setMedia(i); });
+            dotsEl.appendChild(dot);
+          });
+          dotsEl.style.display = 'flex';
+        } else {
+          dotsEl.style.display = 'none';
+        }
+
+        // Show first item
+        curMediaIdx = 0;
+        clearVideo();
+        imgEl.style.display = '';
+        imgEl.src = (media[0] && media[0].type === 'photo') ? media[0].src : '';
+        imgEl.alt = p.name;
+        imgEl.style.opacity = '1';
+        updateModalArrows();
+
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        clearAutoRotate();
+      }
+
+      function closeModal() {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+        const ve = document.getElementById('modal-video-embed');
+        const vl = document.getElementById('modal-video-local');
+        if (ve) ve.src = '';
+        if (vl) { vl.pause(); vl.src = ''; }
+        startAutoRotate();
+      }
+
+      // Detect drag vs click
+      track.addEventListener('mousedown', () => { dragMoved = false; });
+      track.addEventListener('mousemove', () => { dragMoved = true; });
+
+      track.addEventListener('click', e => {
+        if (dragMoved) return;
+        const card = e.target.closest('.elite-card');
+        if (!card) return;
+        const idx = eliteCards.indexOf(card);
+        if (idx === -1) return;
+        if (card.classList.contains('active')) {
+          openModal(card.dataset.id);
+        } else {
+          // scroll to center, then open
+          scrollToCard(idx);
+          setTimeout(() => openModal(card.dataset.id), 380);
+        }
+      });
+
+      // Hint: show "click to view" on hover for non-active
+      eliteCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          if (!card.classList.contains('active')) {
+            card.style.cursor = 'pointer';
+          }
+        });
+      });
+
+      backdrop.addEventListener('click', closeModal);
+      closeBtn.addEventListener('click', closeModal);
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+      // Arrow key nav
+      document.addEventListener('keydown', e => {
+        if (modal.classList.contains('open')) return;
+        if (e.key === 'ArrowRight') scrollToCard(activeIdx + 1);
+        if (e.key === 'ArrowLeft')  scrollToCard(activeIdx - 1);
+        if (e.key === 'Enter') { const card = eliteCards[activeIdx]; if (card) openModal(card.dataset.id); }
+      });
+    })();
+
+
+    /* ══════════════════════
+       RISING TIDES — hover/tap video
+    ══════════════════════ */
+    (function() {
+      const cards = document.querySelectorAll('#rising-grid .flip-card');
+      cards.forEach(card => {
+        const video = card.querySelector('.rv-reel');
+        if (!video) return;
+
+        // Desktop: play on hover
+        card.addEventListener('mouseenter', () => { video.play().catch(() => {}); });
+        card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+
+        // Mobile: tap to toggle, only one at a time
+        card.addEventListener('click', e => {
+          if (e.target.closest('.rv-enquire')) return;
+          const wasPlaying = card.classList.contains('playing');
+          cards.forEach(c => {
+            c.classList.remove('playing');
+            const v = c.querySelector('.rv-reel');
+            if (v) { v.pause(); v.currentTime = 0; }
+          });
+          if (!wasPlaying) {
+            card.classList.add('playing');
+            video.play().catch(() => {});
+          }
+        });
+
+        // Keyboard
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            card.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+          }
+        });
+      });
+    })();
+
+
+    /* ══════════════════════
+       MUSIC PLAYER
+    ══════════════════════ */
+    (function() {
+      const btn    = document.getElementById('music-toggle');
+      const audio  = document.getElementById('bg-audio');
+      const player = document.getElementById('music-player');
+      const iPlay  = document.getElementById('ico-play');
+      const iPause = document.getElementById('ico-pause');
+      if (!btn || !audio) return;
+      audio.volume = 0.25; // reduced from default 1.0
+      let playing = false;
+      btn.addEventListener('click', () => {
+        if (playing) {
+          audio.pause();
+          playing = false;
+          iPlay.style.display  = '';
+          iPause.style.display = 'none';
+          player.classList.remove('playing');
+        } else {
+          audio.play().then(() => {
+            playing = true;
+            iPlay.style.display  = 'none';
+            iPause.style.display = '';
+            player.classList.add('playing');
+          }).catch(() => {});
+        }
+      });
+    })();
+
+
+    /* ══════════════════════
+       PALACE PARALLAX
+    ══════════════════════ */
+    const palace = document.getElementById('palace-section');
+    const palaceSVG = palace ? palace.querySelector('.palace-svg') : null;
+    if (palaceSVG) {
+      let palaceTicking = false;
+      window.addEventListener('scroll', () => {
+        if (palaceTicking) return;
+        palaceTicking = true;
+        requestAnimationFrame(() => {
+          const rect = palace.getBoundingClientRect();
+          if (rect.bottom >= 0 && rect.top <= window.innerHeight) {
+            const progress = 1 - rect.bottom / (window.innerHeight + rect.height);
+            palaceSVG.style.transform = `translateX(-50%) translateY(${progress * 40}px)`;
+          }
+          palaceTicking = false;
+        });
+      }, { passive: true });
+    }
+  </script>
+
+
+</body>
+</html>

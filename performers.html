@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Performers — Sirena Asia</title>
+  <meta name="description" content="Meet the elite sirenas of Sirena Asia — Asia's most celebrated mermaid performance collective."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/></noscript>
+  <style>
+    :root {
+      --navy:#0d1f45; --navy-deep:#030d1f; --navy-mid:#081428;
+      --cyan:#22d3ee; --cyan-glow:#a5f3fc; --coral:#fb7185; --mist:#e0f7fa;
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { background:var(--navy-deep); color:var(--mist); font-family:'Outfit',sans-serif; overflow-x:clip; }
+    body::before {
+      content:''; position:fixed; inset:0; z-index:1000; pointer-events:none; opacity:0.05;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ─── NAV ─── */
+    #navbar { position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(3,8,20,0.92);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(34,211,238,0.08); }
+    .nav-logo { height:48px;width:auto;object-fit:contain; }
+    #nav-links { display:flex;align-items:center;gap:2rem; }
+    .nav-link { font-family:'Outfit',sans-serif;font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(224,247,250,0.55);text-decoration:none;transition:color 0.2s; }
+    .nav-link:hover,.nav-link.active { color:var(--cyan-glow); }
+    .btn-book { font-family:'Outfit',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.6rem 1.6rem;background:var(--coral);color:#fff;border:none;cursor:pointer;text-decoration:none;box-shadow:0 4px 20px rgba(251,113,133,0.35);transition:transform 0.2s,box-shadow 0.2s; }
+    .btn-book:hover { transform:translateY(-2px);box-shadow:0 8px 28px rgba(251,113,133,0.5); }
+    #burger { display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px; }
+    .bl { display:block;width:22px;height:1.5px;background:#fff;transition:transform 0.25s,opacity 0.25s; }
+    #mobile-menu { display:none;position:fixed;inset:0;z-index:99;background:rgba(3,8,20,0.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem; }
+    #mobile-menu.open { display:flex; }
+    .mob-link { font-family:'Fraunces',serif;font-size:2rem;font-weight:700;color:rgba(224,247,250,0.85);text-decoration:none;transition:color 0.2s; }
+    .mob-link:hover { color:var(--cyan); }
+    @media(max-width:768px) { #navbar{padding:1.2rem 1.5rem;} #nav-links{display:none!important;} #burger{display:flex;} }
+
+    /* ─── REVEAL ─── */
+    .rv { opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease; }
+    .rv.visible { opacity:1;transform:none; }
+    .d1{transition-delay:0.05s;} .d2{transition-delay:0.13s;} .d3{transition-delay:0.22s;} .d4{transition-delay:0.32s;}
+
+    /* ─── PAGE INTRO ─── */
+    #page-intro {
+      padding: 10rem clamp(2rem,6vw,6rem) 4rem;
+      position: relative; overflow: hidden;
+    }
+    #page-intro::after {
+      content:''; position:absolute; bottom:0; left:0; right:0; height:1px;
+      background: linear-gradient(90deg, transparent, rgba(34,211,238,0.08), transparent);
+    }
+    .intro-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+      align-items: end; max-width: 1200px; margin: 0 auto;
+    }
+    @media(max-width:768px) { .intro-grid { grid-template-columns:1fr; gap:2rem; } }
+    .intro-label {
+      font-family:'Outfit',sans-serif; font-size:0.6rem; font-weight:600;
+      letter-spacing:0.25em; text-transform:uppercase;
+      color:rgba(34,211,238,0.45); margin-bottom:1.4rem;
+    }
+    .intro-h1 {
+      font-family:'Fraunces',serif;
+      font-size:clamp(4rem,10vw,8rem);
+      font-weight:900; line-height:0.88; letter-spacing:-0.03em; color:#fff;
+    }
+    .intro-h1 em { font-style:italic; color:var(--cyan); }
+    .intro-right { display:flex; flex-direction:column; gap:1.5rem; padding-bottom:0.5rem; }
+    .intro-desc {
+      font-family:'Cormorant Garamond',serif; font-style:italic;
+      font-size:1.1rem; line-height:1.75; color:rgba(224,247,250,0.42);
+      max-width:340px;
+    }
+    .intro-meta {
+      display: flex; gap: 2.5rem;
+    }
+    .intro-stat { display:flex; flex-direction:column; gap:0.25rem; }
+    .intro-stat-num {
+      font-family:'Fraunces',serif; font-size:2.2rem; font-weight:900;
+      color:#fff; line-height:1; letter-spacing:-0.03em;
+    }
+    .intro-stat-label {
+      font-family:'Outfit',sans-serif; font-size:0.55rem; font-weight:500;
+      letter-spacing:0.2em; text-transform:uppercase; color:rgba(34,211,238,0.4);
+    }
+
+    /* ─── MAGAZINE SECTION ─── */
+    #mag-section {
+      padding: 4rem 0 6rem;
+      position: relative;
+      background: rgba(255,255,255,0.03);
+      border-top: 1px solid rgba(34,211,238,0.06);
+      border-bottom: 1px solid rgba(34,211,238,0.06);
+    }
+
+    .mag-outer {
+      max-width: 1400px; margin: 0 auto;
+      padding: 0 clamp(3rem, 5vw, 6rem);
+    }
+
+    /* Perspective stage */
+    .mag-book-wrap {
+      perspective: 1400px;
+      perspective-origin: 50% 38%;
+    }
+
+    /* Static tilt layer — no movement */
+    .mag-tilt-wrap {
+      transform-style: preserve-3d;
+      transform: rotateX(4deg);
+    }
+
+    .mag-spread {
+      display: grid;
+      grid-template-columns: 42fr 58fr;
+      height: clamp(520px, 66vh, 780px);
+      position: relative;
+      box-shadow:
+        0 60px 160px rgba(0,0,0,0.95),
+        0 28px 72px rgba(0,0,0,0.75),
+        0 8px 24px rgba(0,0,0,0.55),
+        0 0 0 1px rgba(255,255,255,0.04);
+      transform-style: preserve-3d;
+      transition: box-shadow 0.5s ease;
+    }
+
+    /* LEFT PAGE — photo */
+    .mag-page-l {
+      position: relative; overflow: hidden;
+      background: #000;
+      transform: perspective(1400px) rotateY(9deg);
+      transform-origin: right center;
+      transition: transform 0.5s ease;
+    }
+    .mag-page-l img {
+      width:100%; height:100%; object-fit:cover; display:block;
+      filter:brightness(0.8) saturate(0.85) contrast(1.05);
+      transition: filter 0.55s ease, transform 0.55s ease;
+    }
+    .mag-spread:hover .mag-page-l img {
+      filter:brightness(0.9) saturate(1) contrast(1.05);
+      transform: scale(1.025);
+    }
+    /* Left page media gallery */
+    #mag-media-gallery { position:absolute; inset:0; overflow:hidden; }
+    .mag-media-item { position:absolute; inset:0; opacity:0; transition:opacity 0.4s ease; }
+    .mag-media-item.active { opacity:1; }
+    .mag-media-item img { width:100%; height:100%; object-fit:cover; display:block; filter:brightness(0.8) saturate(0.85) contrast(1.05); }
+    .mag-media-item iframe { width:100%; height:100%; border:none; display:block; }
+    .mag-media-item video { width:100%; height:100%; object-fit:cover; display:block; }
+    .mag-media-dot { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.35); border:none; cursor:pointer; padding:0; transition:background 0.2s; }
+    .mag-media-dot.active { background:#fff; }
+    .mag-media-arrow {
+      position:absolute; top:50%; transform:translateY(-50%);
+      z-index:6; background:rgba(0,8,20,0.55); border:none; cursor:pointer;
+      color:rgba(255,255,255,0.85); font-size:1.4rem; width:32px; height:48px;
+      display:none; align-items:center; justify-content:center;
+      transition:background 0.2s,color 0.2s; backdrop-filter:blur(4px);
+    }
+    .mag-media-arrow:hover { background:rgba(34,211,238,0.2); color:#fff; }
+    .mag-media-arrow.show { display:flex; }
+    .mag-media-arrow-prev { left:0; border-radius:0 4px 4px 0; }
+    .mag-media-arrow-next { right:0; border-radius:4px 0 0 4px; }
+
+    /* Left page overlays */
+    .mag-photo-vign {
+      position:absolute; inset:0; pointer-events:none;
+      background: linear-gradient(
+        to right, rgba(3,8,20,0.3) 0%, transparent 35%,
+        rgba(0,0,0,0.45) 100%
+      );
+    }
+    .mag-photo-base {
+      position:absolute; bottom:0; left:0; right:0; height:45%;
+      background: linear-gradient(0deg, rgba(3,8,20,0.92) 0%, transparent 100%);
+      pointer-events:none;
+    }
+    .mag-ghost-n {
+      position:absolute; bottom:0.8rem; left:1rem;
+      font-family:'Fraunces',serif; font-size:9rem; font-weight:900;
+      color:rgba(255,255,255,0.035); line-height:1; pointer-events:none;
+      user-select:none; letter-spacing:-0.06em;
+    }
+    .mag-corner-mark {
+      position:absolute; top:1.2rem; left:1.2rem;
+      width:20px; height:20px;
+      border-top:1px solid rgba(34,211,238,0.35);
+      border-left:1px solid rgba(34,211,238,0.35);
+    }
+    .mag-series-tag {
+      position:absolute; top:1.2rem; right:1.2rem;
+      font-family:'Outfit',sans-serif; font-size:0.46rem; font-weight:600;
+      letter-spacing:0.22em; text-transform:uppercase;
+      color:rgba(255,255,255,0.4);
+      writing-mode:vertical-rl; text-orientation:mixed;
+    }
+
+    /* RIGHT PAGE — content */
+    .mag-page-r {
+      position:relative;
+      background: rgba(4,11,28,0.99);
+      padding: clamp(2rem,3.5vw,3.2rem) clamp(1.8rem,3vw,3rem) clamp(1.8rem,3vw,2.8rem);
+      display:flex; flex-direction:column; justify-content:center;
+      transform: perspective(1400px) rotateY(-9deg);
+      transform-origin: left center;
+      transition: transform 0.5s ease;
+    }
+    /* Book spine shadow on right page */
+    .mag-spine {
+      position:absolute; left:0; top:0; bottom:0; width:28px; pointer-events:none; z-index:2;
+      background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 40%, transparent 100%);
+    }
+
+    /* Content typography */
+    .mag-issue-row {
+      display:flex; align-items:center; gap:0.85rem;
+      margin-bottom: 1.8rem;
+    }
+    .mag-issue-num {
+      font-family:'Fraunces',serif; font-size:3.5rem; font-weight:900;
+      color:rgba(34,211,238,0.06); line-height:1; letter-spacing:-0.04em;
+      flex-shrink:0;
+    }
+    .mag-issue-meta { display:flex; flex-direction:column; gap:0.2rem; }
+    .mag-issue-label {
+      font-family:'Outfit',sans-serif; font-size:0.52rem; font-weight:600;
+      letter-spacing:0.28em; text-transform:uppercase;
+      color:rgba(34,211,238,0.38);
+    }
+    .mag-issue-line {
+      width:100%; height:1px; background:rgba(34,211,238,0.1);
+    }
+    .mag-name {
+      font-family:'Fraunces',serif;
+      font-size:clamp(2rem,4.2vw,3.6rem);
+      font-weight:900; letter-spacing:-0.03em; color:#fff; line-height:0.9;
+      margin-bottom:0.55rem;
+    }
+    .mag-performer-title {
+      font-family:'Cormorant Garamond',serif; font-style:italic;
+      font-size:0.88rem; color:rgba(34,211,238,0.6);
+      margin:-0.25rem 0 0.65rem; letter-spacing:0.04em;
+    }
+    .mag-divider {
+      width:32px; height:1px; background:rgba(251,113,133,0.55);
+      margin-bottom:1.3rem;
+    }
+    .mag-bio {
+      font-family:'Cormorant Garamond',serif; font-size:clamp(0.88rem,1.3vw,1.02rem);
+      line-height:1.85; color:rgba(224,247,250,0.6);
+      margin-bottom:1.6rem; flex:1;
+    }
+    .mag-bio b { color:rgba(34,211,238,0.75); font-weight:600; font-style:normal; }
+    .mag-skills { display:flex; flex-wrap:wrap; gap:0.38rem; margin-bottom:1.8rem; }
+    .mag-skill {
+      font-family:'Outfit',sans-serif; font-size:0.5rem; font-weight:500;
+      letter-spacing:0.14em; text-transform:uppercase;
+      color:rgba(34,211,238,0.58); border:1px solid rgba(34,211,238,0.14);
+      padding:0.23rem 0.62rem;
+    }
+    .mag-cta {
+      align-self:flex-start;
+      font-family:'Outfit',sans-serif; font-size:0.6rem; font-weight:600;
+      letter-spacing:0.22em; text-transform:uppercase;
+      color:var(--navy-deep); background:var(--cyan);
+      padding:0.75rem 1.9rem; text-decoration:none; display:inline-block;
+      transition:background 0.2s, transform 0.15s;
+    }
+    .mag-cta:hover { background:var(--cyan-glow); transform:translateY(-2px); }
+
+    /* ─── SIDE NAV ARROWS (on the spread) ─── */
+    .mag-side-arrow {
+      position:absolute; top:50%; transform:translateY(-50%);
+      z-index:10; background:rgba(0,13,31,0.55);
+      border:1px solid rgba(34,211,238,0.25); color:rgba(34,211,238,0.85);
+      width:42px; height:42px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer; font-size:1.2rem; line-height:1;
+      transition:background 0.2s, border-color 0.2s, opacity 0.2s;
+      backdrop-filter:blur(6px);
+    }
+    .mag-side-arrow:hover { background:rgba(34,211,238,0.12); border-color:rgba(34,211,238,0.6); }
+    .mag-side-arrow:disabled { opacity:0.15; cursor:not-allowed; pointer-events:none; }
+    .mag-side-arrow-prev { left:-21px; }
+    .mag-side-arrow-next { right:-21px; }
+    @media(max-width:768px) { .mag-side-arrow { display:none; } }
+
+    /* ─── MAGAZINE NAVIGATION ─── */
+    .mag-nav {
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 1.6rem 0 0;
+      gap: 1rem;
+    }
+    .mag-arrow-btn {
+      font-family:'Outfit',sans-serif; font-size:0.58rem; font-weight:500;
+      letter-spacing:0.16em; text-transform:uppercase;
+      color:rgba(34,211,238,0.8); background:rgba(34,211,238,0.04);
+      border:1px solid rgba(34,211,238,0.3);
+      padding:0.65rem 1.6rem; cursor:pointer;
+      display:flex; align-items:center; gap:0.55rem;
+      transition:border-color 0.2s,color 0.2s,background 0.2s;
+    }
+    .mag-arrow-btn:hover { border-color:var(--cyan); color:var(--cyan-glow); background:rgba(34,211,238,0.05); }
+    .mag-arrow-btn:disabled { opacity:0.18; cursor:not-allowed; pointer-events:none; }
+    .mag-dots-row { display:flex; gap:0.55rem; align-items:center; }
+    .mag-dot {
+      width:5px; height:5px; border-radius:50%;
+      background:rgba(34,211,238,0.18); border:none; cursor:pointer;
+      transition:background 0.25s,transform 0.25s;
+    }
+    .mag-dot.active { background:var(--cyan); transform:scale(1.6); }
+    .mag-counter {
+      font-family:'Outfit',sans-serif; font-size:0.6rem; letter-spacing:0.15em;
+      color:rgba(224,247,250,0.22);
+    }
+    .mag-counter span { color:rgba(34,211,238,0.5); }
+
+    /* ─── PAGE TURN ANIMATION ─── */
+    @keyframes turnOutNext {
+      0%   { opacity:1; transform: scale(1)    rotateY(0deg)   translateX(0); }
+      100% { opacity:0; transform: scale(0.94) rotateY(-24deg) translateX(-5%); }
+    }
+    @keyframes turnInNext {
+      0%   { opacity:0; transform: scale(0.94) rotateY(24deg)  translateX(5%); }
+      100% { opacity:1; transform: scale(1)    rotateY(0deg)   translateX(0); }
+    }
+    @keyframes turnOutPrev {
+      0%   { opacity:1; transform: scale(1)    rotateY(0deg)   translateX(0); }
+      100% { opacity:0; transform: scale(0.94) rotateY(24deg)  translateX(5%); }
+    }
+    @keyframes turnInPrev {
+      0%   { opacity:0; transform: scale(0.94) rotateY(-24deg) translateX(-5%); }
+      100% { opacity:1; transform: scale(1)    rotateY(0deg)   translateX(0); }
+    }
+    .mag-spread.out-next { animation:turnOutNext 0.26s cubic-bezier(0.4,0,1,1) forwards; pointer-events:none; }
+    .mag-spread.in-next  { animation:turnInNext  0.46s cubic-bezier(0.16,1,0.3,1) both; }
+    .mag-spread.out-prev { animation:turnOutPrev 0.26s cubic-bezier(0.4,0,1,1) forwards; pointer-events:none; }
+    .mag-spread.in-prev  { animation:turnInPrev  0.46s cubic-bezier(0.16,1,0.3,1) both; }
+
+    /* ─── MOBILE MAGAZINE ─── */
+    @media(max-width:768px) {
+      #mag-section { padding: 2rem 0 3rem; }
+      .mag-outer { padding: 0 1rem; }
+      .mag-book-wrap { perspective: none; }
+      .mag-tilt-wrap { transform: none; }
+      .mag-spread {
+        grid-template-columns:1fr; grid-template-rows:auto auto;
+        transform:none; height:auto; box-shadow:0 20px 60px rgba(0,0,0,0.8);
+      }
+      .mag-page-l { transform:none; height:72vw; max-height:340px; }
+      .mag-page-r { transform:none; padding:1.6rem 1.2rem; min-height:auto; }
+      .mag-spine { display:none; }
+      .mag-name { font-size:clamp(1.6rem,8vw,2.4rem); }
+      .mag-bio { font-size:0.9rem; }
+      .mag-media-arrow { width:40px; height:56px; font-size:1.6rem; }
+      .mag-nav { padding: 1rem 0 0; }
+      .mag-arrow-btn { padding: 0.55rem 1rem; font-size:0.52rem; }
+      @keyframes turnOutNext { from{opacity:1;transform:translateX(0);} to{opacity:0;transform:translateX(-4%);} }
+      @keyframes turnInNext  { from{opacity:0;transform:translateX(4%);}  to{opacity:1;transform:translateX(0);} }
+      @keyframes turnOutPrev { from{opacity:1;transform:translateX(0);} to{opacity:0;transform:translateX(4%);} }
+      @keyframes turnInPrev  { from{opacity:0;transform:translateX(-4%);} to{opacity:1;transform:translateX(0);} }
+      .mag-issue-num { display:none; }
+      .mag-cta { font-size:0.55rem; padding:0.65rem 1.4rem; }
+    }
+
+    /* ─── DIVIDER ─── */
+    .sec-divide {
+      height:1px; margin:5rem clamp(2rem,5vw,5rem) 0;
+      background:linear-gradient(90deg,transparent,rgba(34,211,238,0.08),transparent);
+    }
+
+    /* ─── AI INQUIRY SECTION ─── */
+    #inquiry-section {
+      padding: 6rem clamp(2rem,5vw,5rem) 8rem;
+      background: var(--navy-mid);
+      position:relative; overflow:hidden;
+    }
+    #inquiry-section::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:1px;
+      background:linear-gradient(90deg,transparent,rgba(34,211,238,0.08),transparent);
+    }
+    #inquiry-section::after {
+      content:''; position:absolute; inset:0; pointer-events:none;
+      background:
+        radial-gradient(ellipse 55% 35% at 30% 0%, rgba(34,211,238,0.025) 0%, transparent 70%),
+        radial-gradient(ellipse 45% 30% at 75% 100%, rgba(251,113,133,0.02) 0%, transparent 70%);
+    }
+    .inq-layout {
+      display:grid; grid-template-columns:1fr 1.15fr; gap:5rem;
+      max-width:1060px; margin:0 auto; align-items:start;
+      position:relative; z-index:1;
+    }
+    @media(max-width:900px) { .inq-layout { grid-template-columns:1fr; gap:3rem; } }
+
+    /* Left info column */
+    .inq-label {
+      font-family:'Outfit',sans-serif; font-size:0.6rem; font-weight:600;
+      letter-spacing:0.24em; text-transform:uppercase;
+      color:rgba(34,211,238,0.45); margin-bottom:1.2rem;
+    }
+    .inq-heading {
+      font-family:'Fraunces',serif;
+      font-size:clamp(2.2rem,4vw,3.4rem);
+      font-weight:900; letter-spacing:-0.03em; color:#fff; line-height:0.95;
+      margin-bottom:1.4rem;
+    }
+    .inq-heading em { font-style:italic; color:var(--coral); }
+    .inq-body {
+      font-family:'Outfit',sans-serif; font-size:0.88rem; font-weight:300;
+      line-height:1.78; color:rgba(224,247,250,0.38);
+      margin-bottom:2.5rem; max-width:360px;
+    }
+    .inq-bullets { display:flex; flex-direction:column; gap:1.1rem; margin-bottom:2.8rem; }
+    .inq-bullet { display:flex; align-items:flex-start; gap:0.85rem; }
+    .inq-bullet-mark {
+      width:5px; height:5px; border-radius:50%; background:var(--coral);
+      flex-shrink:0; margin-top:0.42rem;
+    }
+    .inq-bullet-body {
+      font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:300;
+      line-height:1.62; color:rgba(224,247,250,0.4);
+    }
+    .inq-bullet-body strong { font-weight:500; color:rgba(224,247,250,0.72); display:block; }
+    .inq-formal {
+      display:flex; flex-direction:column; gap:0.75rem; align-items:flex-start;
+    }
+    .inq-formal-note {
+      font-family:'Cormorant Garamond',serif; font-style:italic;
+      font-size:0.92rem; color:rgba(224,247,250,0.28);
+    }
+    .btn-enquire {
+      display:inline-flex; align-items:center; gap:0.5rem;
+      font-family:'Outfit',sans-serif; font-size:0.6rem; font-weight:600;
+      letter-spacing:0.2em; text-transform:uppercase;
+      color:#fff; background:var(--coral); border:none;
+      padding:0.8rem 1.9rem; text-decoration:none; cursor:pointer;
+      box-shadow:0 4px 20px rgba(251,113,133,0.28);
+      transition:transform 0.2s,box-shadow 0.2s;
+    }
+    .btn-enquire:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(251,113,133,0.42); }
+
+    /* ─── CHAT PANEL ─── */
+    .chat-panel {
+      border:1px solid rgba(34,211,238,0.1);
+      background:rgba(3,8,20,0.82);
+      backdrop-filter:blur(24px);
+      display:flex; flex-direction:column;
+      height:500px;
+      box-shadow:0 24px 80px rgba(0,0,0,0.5);
+    }
+
+    /* Chat header */
+    .chat-head {
+      padding:0.9rem 1.3rem;
+      border-bottom:1px solid rgba(34,211,238,0.07);
+      display:flex; align-items:center; gap:0.7rem;
+    }
+    .chat-online {
+      width:7px; height:7px; border-radius:50%;
+      background:#22c55e; box-shadow:0 0 7px rgba(34,197,94,0.6);
+      animation:onlinePulse 2.2s ease-in-out infinite;
+    }
+    @keyframes onlinePulse { 0%,100%{opacity:1;} 50%{opacity:0.45;} }
+    .chat-head-name {
+      font-family:'Outfit',sans-serif; font-size:0.62rem; font-weight:600;
+      letter-spacing:0.16em; text-transform:uppercase;
+      color:rgba(224,247,250,0.68);
+    }
+    .chat-head-tag {
+      margin-left:auto;
+      font-family:'Outfit',sans-serif; font-size:0.52rem; font-weight:300;
+      letter-spacing:0.1em; color:rgba(224,247,250,0.22);
+    }
+
+    /* Quick suggestions */
+    .chat-sugs {
+      padding:0.75rem 1.1rem 0.6rem;
+      display:flex; flex-wrap:wrap; gap:0.4rem;
+      border-bottom:1px solid rgba(34,211,238,0.05);
+    }
+    .sug {
+      font-family:'Outfit',sans-serif; font-size:0.52rem; font-weight:500;
+      letter-spacing:0.1em; text-transform:uppercase;
+      color:rgba(34,211,238,0.48); border:1px solid rgba(34,211,238,0.1);
+      background:transparent; padding:0.27rem 0.7rem; cursor:pointer;
+      transition:border-color 0.2s,color 0.2s,background 0.2s;
+    }
+    .sug:hover { border-color:rgba(34,211,238,0.35); color:var(--cyan); background:rgba(34,211,238,0.05); }
+
+    /* Messages */
+    .chat-msgs {
+      flex:1; overflow-y:auto; padding:1.1rem;
+      display:flex; flex-direction:column; gap:0.85rem;
+      scrollbar-width:thin; scrollbar-color:rgba(34,211,238,0.1) transparent;
+    }
+    .chat-msgs::-webkit-scrollbar { width:3px; }
+    .chat-msgs::-webkit-scrollbar-thumb { background:rgba(34,211,238,0.1); }
+
+    .cmsg { display:flex; gap:0.6rem; align-items:flex-end; }
+    .cmsg.user { flex-direction:row-reverse; }
+    .cmsg-ava {
+      width:24px; height:24px; border-radius:50%; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center;
+      font-size:0.6rem; font-weight:600; font-family:'Outfit',sans-serif;
+    }
+    .cmsg.bot .cmsg-ava { background:rgba(34,211,238,0.08); border:1px solid rgba(34,211,238,0.18); color:var(--cyan); }
+    .cmsg.user .cmsg-ava { background:rgba(251,113,133,0.08); border:1px solid rgba(251,113,133,0.18); color:var(--coral); }
+    .cmsg-bubble {
+      max-width:84%; padding:0.65rem 0.9rem;
+      font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:300; line-height:1.65;
+    }
+    .cmsg.bot .cmsg-bubble { background:rgba(8,20,45,0.9); border:1px solid rgba(34,211,238,0.09); color:rgba(224,247,250,0.76); }
+    .cmsg.user .cmsg-bubble { background:rgba(251,113,133,0.07); border:1px solid rgba(251,113,133,0.14); color:rgba(224,247,250,0.88); }
+
+    /* Typing */
+    .typing-msg { display:flex; gap:0.6rem; align-items:flex-end; }
+    .typing-ava { width:24px; height:24px; border-radius:50%; flex-shrink:0; background:rgba(34,211,238,0.08); border:1px solid rgba(34,211,238,0.18); display:flex; align-items:center; justify-content:center; font-size:0.6rem; color:var(--cyan); font-family:'Outfit',sans-serif; font-weight:600; }
+    .typing-bubble { padding:0.65rem 0.9rem; background:rgba(8,20,45,0.9); border:1px solid rgba(34,211,238,0.09); display:flex; gap:4px; align-items:center; }
+    .tdot { width:5px; height:5px; border-radius:50%; background:rgba(34,211,238,0.3); animation:td 1.1s ease-in-out infinite; }
+    .tdot:nth-child(2){animation-delay:0.18s;} .tdot:nth-child(3){animation-delay:0.36s;}
+    @keyframes td { 0%,60%,100%{transform:translateY(0);opacity:0.3;} 30%{transform:translateY(-5px);opacity:1;} }
+
+    /* Input */
+    .chat-input-row {
+      display:flex; border-top:1px solid rgba(34,211,238,0.07);
+    }
+    #chat-input {
+      flex:1; background:transparent; border:none;
+      padding:0.9rem 1.1rem;
+      font-family:'Outfit',sans-serif; font-size:0.8rem; font-weight:300;
+      color:rgba(224,247,250,0.85); outline:none;
+    }
+    #chat-input::placeholder { color:rgba(224,247,250,0.18); }
+    #chat-send {
+      padding:0.9rem 1.2rem; background:transparent; border:none;
+      border-left:1px solid rgba(34,211,238,0.07);
+      cursor:pointer; color:rgba(34,211,238,0.4);
+      transition:color 0.2s,background 0.2s;
+      display:flex; align-items:center;
+    }
+    #chat-send:hover { color:var(--cyan); background:rgba(34,211,238,0.05); }
+    #chat-send svg { width:15px; height:15px; }
+
+    /* ─── FOOTER ─── */
+    #site-footer { position:relative;z-index:2;background:#000814;border-top:1px solid rgba(34,211,238,0.08);padding:5rem clamp(2rem,6vw,7rem) 3rem; }
+    .footer-top { display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:3rem;margin-bottom:4rem; }
+    .footer-brand { display:flex;flex-direction:column;gap:1rem; }
+    .footer-brand img { height:40px;width:auto;align-self:flex-start;mix-blend-mode:screen;opacity:0.75; }
+    .footer-tagline { font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:rgba(224,247,250,0.35);line-height:1.6;max-width:220px; }
+    .footer-nav-col { display:flex;flex-direction:column;gap:1.2rem; }
+    .footer-nav-heading { font-family:'Outfit',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(34,211,238,0.5);margin-bottom:0.3rem; }
+    .footer-links { display:flex;flex-direction:column;gap:0.75rem; }
+    .footer-link { font-family:'Outfit',sans-serif;font-size:0.72rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:rgba(224,247,250,0.35);text-decoration:none;transition:color 0.2s; }
+    .footer-link:hover { color:var(--cyan); }
+    .footer-contact-col { display:flex;flex-direction:column;gap:1rem;text-align:right; }
+    .footer-contact-label { font-family:'Outfit',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(34,211,238,0.5); }
+    .footer-contact-email { font-family:'Cormorant Garamond',serif;font-size:1rem;color:rgba(224,247,250,0.5);text-decoration:none;transition:color 0.2s; }
+    .footer-contact-email:hover { color:var(--cyan); }
+    .footer-social { display:flex;gap:1rem;justify-content:flex-end;margin-top:0.5rem; }
+    .footer-social-link { width:34px;height:34px;border-radius:50%;border:1px solid rgba(34,211,238,0.15);display:flex;align-items:center;justify-content:center;color:rgba(224,247,250,0.35);text-decoration:none;font-size:0.75rem;transition:border-color 0.2s,color 0.2s; }
+    .footer-social-link:hover { border-color:var(--cyan);color:var(--cyan); }
+    .footer-divider { width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(34,211,238,0.12),transparent);margin-bottom:2rem; }
+    .footer-bottom { display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem; }
+    .footer-copy { font-family:'Outfit',sans-serif;font-size:0.6rem;font-weight:300;letter-spacing:0.12em;text-transform:uppercase;color:rgba(224,247,250,0.18); }
+    .footer-legal { display:flex;gap:1.5rem; }
+    .footer-legal-link { font-family:'Outfit',sans-serif;font-size:0.6rem;font-weight:300;letter-spacing:0.1em;text-transform:uppercase;color:rgba(224,247,250,0.15);text-decoration:none;transition:color 0.2s; }
+    .footer-legal-link:hover { color:rgba(224,247,250,0.4); }
+    @media(max-width:768px) { .footer-top{grid-template-columns:1fr;} .footer-contact-col{text-align:left;} .footer-social{justify-content:flex-start;} .footer-bottom{flex-direction:column;align-items:flex-start;} }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="index.html">
+      <img src="/Collored Icon.png" alt="Sirena Asia" class="nav-logo" style="mix-blend-mode:screen;"/>
+    </a>
+    <div id="nav-links">
+      <a href="performers.html" class="nav-link active">Performers</a>
+      <a href="shows.html"      class="nav-link">Shows</a>
+      <a href="gallery.html"    class="nav-link">Gallery</a>
+      <a href="news.html"       class="nav-link">News</a>
+      <a href="shop.html"       class="nav-link">Shop</a>
+      <a href="contact.html"    class="btn-book">Get in Touch</a>
+    </div>
+    <button id="burger" aria-label="Menu">
+      <span class="bl"></span><span class="bl"></span><span class="bl"></span>
+    </button>
+  </nav>
+
+  <div id="mobile-menu">
+    <a href="performers.html" class="mob-link">Performers</a>
+    <a href="shows.html"      class="mob-link">Shows</a>
+    <a href="gallery.html"    class="mob-link">Gallery</a>
+    <a href="news.html"       class="mob-link">News</a>
+    <a href="shop.html"       class="mob-link">Shop</a>
+    <a href="contact.html"    class="mob-link" style="color:var(--coral);">Get in Touch</a>
+  </div>
+
+  <!-- ═══ PAGE INTRO ═══ -->
+  <section id="page-intro">
+    <div class="intro-grid">
+      <div>
+        <p class="intro-label rv d1">Sirena Asia · The Collective</p>
+        <h1 class="intro-h1 rv d2">The<br/><em>Elites.</em></h1>
+      </div>
+      <div class="intro-right rv d3">
+        <p class="intro-desc">Elite athletes. Certified professionals. Digital icons. We've gathered the industry's finest to bring you the top mermaid talent in Asia.</p>
+        <div class="intro-meta">
+          <div class="intro-stat">
+            <span class="intro-stat-num">50+</span>
+            <span class="intro-stat-label">Sirena Members</span>
+          </div>
+          <div class="intro-stat">
+            <span class="intro-stat-num">12+</span>
+            <span class="intro-stat-label">Countries</span>
+          </div>
+          <div class="intro-stat">
+            <span class="intro-stat-num">№1</span>
+            <span class="intro-stat-label">In Asia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MAGAZINE VIEWER ═══ -->
+  <section id="mag-section">
+    <div class="mag-outer rv d1">
+      <div class="mag-book-wrap" style="position:relative;">
+        <button class="mag-side-arrow mag-side-arrow-prev" id="mag-side-prev" aria-label="Previous performer">&#8249;</button>
+        <button class="mag-side-arrow mag-side-arrow-next" id="mag-side-next" aria-label="Next performer">&#8250;</button>
+        <div class="mag-tilt-wrap" id="mag-tilt-wrap">
+        <div class="mag-spread" id="mag-spread">
+
+          <!-- LEFT: Photo/Media page -->
+          <div class="mag-page-l" id="mag-page-l">
+            <img id="mag-photo" src="" alt="" />
+            <div id="mag-media-gallery" style="display:none;position:absolute;inset:0;"></div>
+            <div class="mag-photo-vign"></div>
+            <div class="mag-photo-base"></div>
+            <div class="mag-ghost-n" id="mag-ghost-n">01</div>
+            <div class="mag-corner-mark"></div>
+            <span class="mag-series-tag">SIRENA ELITE · 2025</span>
+            <!-- Media nav dots -->
+            <div id="mag-media-dots" style="position:absolute;bottom:3.2rem;left:50%;transform:translateX(-50%);display:none;gap:5px;z-index:5;"></div>
+            <!-- Media nav arrows -->
+            <button class="mag-media-arrow mag-media-arrow-prev" id="mag-media-prev-btn" aria-label="Previous media">&#8249;</button>
+            <button class="mag-media-arrow mag-media-arrow-next" id="mag-media-next-btn" aria-label="Next media">&#8250;</button>
+          </div>
+
+          <!-- RIGHT: Content page -->
+          <div class="mag-page-r" id="mag-page-r">
+            <div class="mag-spine"></div>
+            <div class="mag-issue-row">
+              <div class="mag-issue-num" id="mag-issue-num">01</div>
+              <div class="mag-issue-meta">
+                <span class="mag-issue-label" id="mag-issue-label">Issue 01 · Sirena Elite</span>
+                <div class="mag-issue-line"></div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.4rem;">
+              <h2 class="mag-name" id="mag-name">—</h2>
+              <span class="mag-flag" id="mag-flag" style="line-height:1;"></span>
+            </div>
+            <p class="mag-performer-title" id="mag-performer-title"></p>
+            <div class="mag-divider"></div>
+            <p class="mag-bio" id="mag-bio">—</p>
+            <div class="mag-skills" id="mag-skills"></div>
+            <a class="mag-cta" id="mag-cta" href="#">Send Enquiry →</a>
+          </div>
+
+        </div><!-- /.mag-spread -->
+        </div><!-- /.mag-tilt-wrap -->
+      </div><!-- /.mag-book-wrap -->
+
+      <!-- Navigation row -->
+      <nav class="mag-nav" aria-label="Performer navigation">
+        <button class="mag-arrow-btn" id="mag-prev" aria-label="Previous performer">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 2L3 6l4 4"/></svg>
+          Prev
+        </button>
+
+        <div class="mag-dots-row" id="mag-dots" role="tablist" aria-label="Performer pages"></div>
+
+        <button class="mag-arrow-btn" id="mag-next" aria-label="Next performer">
+          Next
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2l4 4-4 4"/></svg>
+        </button>
+      </nav>
+    </div><!-- /.mag-outer -->
+  </section>
+
+  <div class="sec-divide"></div>
+
+  <!-- ═══ AI INQUIRY SECTION ═══ -->
+  <section id="inquiry-section">
+    <div class="inq-layout">
+
+      <!-- Left: Info -->
+      <div class="inq-info rv d1">
+        <p class="inq-label">Direct Line</p>
+        <h2 class="inq-heading">Message<br/><em>Us.</em></h2>
+        <p class="inq-body">Ask anything about our performers, show formats, or how to bring Sirena to your event. Our AI handles the first conversation — your human team handles the rest.</p>
+
+        <div class="inq-bullets">
+          <div class="inq-bullet">
+            <div class="inq-bullet-mark"></div>
+            <div class="inq-bullet-body">
+              <strong>Instant answers</strong>
+              Questions about performers, availability, and event types answered immediately.
+            </div>
+          </div>
+          <div class="inq-bullet">
+            <div class="inq-bullet-mark"></div>
+            <div class="inq-bullet-body">
+              <strong>Lead qualification</strong>
+              Tell us about your event and we'll route your enquiry to the right team.
+            </div>
+          </div>
+          <div class="inq-bullet">
+            <div class="inq-bullet-mark"></div>
+            <div class="inq-bullet-body">
+              <strong>24 / 7 availability</strong>
+              We're in multiple time zones. The AI never sleeps.
+            </div>
+          </div>
+        </div>
+
+        <div class="inq-formal">
+          <p class="inq-formal-note">Ready to make it official?</p>
+          <a href="contact.html" class="btn-enquire">Send Formal Enquiry →</a>
+        </div>
+      </div>
+
+      <!-- Right: Chat -->
+      <div class="chat-panel rv d2">
+
+        <div class="chat-head">
+          <div class="chat-online"></div>
+          <span class="chat-head-name">Sirena AI</span>
+          <span class="chat-head-tag">Powered by Claude</span>
+        </div>
+
+        <div class="chat-sugs" id="chat-sugs">
+          <button class="sug" data-q="How do I book a mermaid performance?">How to book</button>
+          <button class="sug" data-q="What events do you perform at?">Event types</button>
+          <button class="sug" data-q="How many performers can I hire at once?">Group shows</button>
+          <button class="sug" data-q="Do you perform internationally?">International</button>
+          <button class="sug" data-q="Tell me about your elite performers">The Elites</button>
+        </div>
+
+        <div class="chat-msgs" id="chat-msgs">
+          <div class="cmsg bot">
+            <div class="cmsg-ava">S</div>
+            <div class="cmsg-bubble">Hi — I'm the Sirena AI. Ask me anything about our performers, shows, or how to bring us to your event. For formal proposals I'll point you in the right direction.</div>
+          </div>
+        </div>
+
+        <div class="chat-input-row">
+          <input type="text" id="chat-input" placeholder="Ask about Sirena…" autocomplete="off" />
+          <button id="chat-send" aria-label="Send">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 8H2M14 8L9 3M14 8L9 13"/>
+            </svg>
+          </button>
+        </div>
+
+      </div><!-- /.chat-panel -->
+    </div><!-- /.inq-layout -->
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/Logo Stacked White.png" alt="Sirena Asia" />
+        <p class="footer-tagline">Asia's Premier Mermaid Collective — where the ocean performs.</p>
+      </div>
+      <div class="footer-nav-col">
+        <p class="footer-nav-heading">Explore</p>
+        <nav class="footer-links">
+          <a href="performers.html" class="footer-link">Performers</a>
+          <a href="shows.html"      class="footer-link">Shows</a>
+          <a href="gallery.html"    class="footer-link">Gallery</a>
+          <a href="shop.html"       class="footer-link">Shop</a>
+          <a href="news.html"       class="footer-link">News</a>
+          <a href="contact.html"    class="footer-link">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-contact-col">
+        <p class="footer-contact-label">Get in touch</p>
+        <a href="mailto:info@sirenaasia.com" class="footer-contact-email">info@sirenaasia.com</a>
+        <a href="contact.html" class="btn-enquire" style="margin-top:0.5rem;font-size:0.6rem;padding:0.55rem 1.3rem;">Request a Performance</a>
+        <div class="footer-social">
+          <a href="https://instagram.com/sirenaasia.co" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://facebook.com/sirenaasia.co" target="_blank" rel="noopener" class="footer-social-link" aria-label="Facebook">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://tiktok.com/@sirenaasia.co" target="_blank" rel="noopener" class="footer-social-link" aria-label="TikTok">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Sirena Asia · Asia's Premier Mermaid Collective</p>
+      <div class="footer-legal">
+        <a href="#" class="footer-legal-link">Privacy Policy</a>
+        <a href="#" class="footer-legal-link">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  /* ══════════════════════════════════════════════
+     PERFORMERS DATA
+  ══════════════════════════════════════════════ */
+  /*
+   * ELITES — the featured selection from Sirena Asia's 50+ member collective.
+   * To add more: push a new object into this array. The magazine viewer handles any count.
+   */
+  const PERFORMERS = [
+    {
+      slug: 'fan', num: '01', name: 'Mermaid Fan', flag: 'tw',
+      title: 'The Happy Mermaid',
+      bio: '<b>Competition</b><br>· 2024 Asia Cup: Silver Medalist<br>· 2025 Taiwan Open: 4th Place<br>· 2026 Korea Open: 4th Place<br>· 2025 Professional mermaid performer — India Project<br><br><b>Specializations &amp; Certifications</b><br>· Performance Special Training: Advanced training for underwater performance.<br>· Fundamental Skill Training: Core technical drills and conditioning.<br>· Mersoul Taiwan: Certified MFI Mermaid Instructor, Certified AIDA Freediving Instructor',
+      skills: ['Silver Medalist 2024', 'MFI Instructor', 'AIDA Freediving', 'Performance Trainer'],
+      img: 'media/performers/fan/photo1.jpg',
+      media: [
+        { type: 'photo', src: 'media/performers/fan/photo1.jpg' },
+        { type: 'photo', src: 'media/performers/fan/photo2.jpg' },
+        { type: 'photo', src: 'media/performers/fan/photo3.jpg' },
+        { type: 'video', src: 'media/performers/fan/reel1.mp4.mp4' },
+      ],
+      contact: 'Mermaid+Fan'
+    },
+    {
+      slug: 'ying', num: '02', name: 'Mermaid Ying', flag: 'tw',
+      bio: 'Ying is a professional freediver and certified mermaid performer with a following across TikTok and Instagram. Known for her powerful underwater presence and precise aquatic acrobatics, she brings athletic credibility and visual impact to every performance she enters.',
+      skills: ['Certified Freediver', 'TikTok Creator', 'Aquatic Acrobatics', 'Brand Ambassador'],
+      img: 'media/performers/ying/photo1.jpg',
+      media: [
+        { type: 'photo', src: 'media/performers/ying/photo1.jpg' },
+        { type: 'photo', src: 'media/performers/ying/photo2.jpg' },
+        { type: 'video', src: 'media/performers/ying/reel1.mp4' },
+      ],
+      contact: 'Mermaid+Ying'
+    },
+    {
+      slug: 'minmin', num: '03', name: 'Mermaid Minmin', flag: 'tw',
+      bio: 'A classically trained dancer and certified mermaid performer, Minmin holds professional accreditation from recognised mermaid training organisations. She teaches mermaid swimming and performance to students across Asia, and has performed at high-profile resort properties and luxury brand events.',
+      skills: ['Certified Mermaid', 'Performance Instructor', 'Classical Dance', 'Resort Specialist'],
+      img: 'media/performers/minmin/photo1.jpg',
+      media: [
+        { type: 'photo', src: 'media/performers/minmin/photo1.jpg' },
+        { type: 'photo', src: 'media/performers/minmin/photo2.jpg' },
+      ],
+      contact: 'Mermaid+Minmin'
+    },
+    {
+      slug: 'chen', num: '04', name: 'Mermaid Chen', flag: 'tw',
+      bio: 'Chen is a certified aquatic performance specialist and one of Sirena\'s most experienced members. With a background in synchronised swimming and event production, she trains and coaches other performers while simultaneously headlining the collective\'s most ambitious productions.',
+      skills: ['Sync Swimming', 'Performance Coach', 'Certified Instructor', 'Event Director'],
+      img: 'media/performers/chen/photo1.jpg',
+      media: [
+        { type: 'photo', src: 'media/performers/chen/photo1.jpg' },
+        { type: 'photo', src: 'media/performers/chen/photo2.jpeg' },
+        { type: 'photo', src: 'media/performers/chen/photo3.jpg' },
+        { type: 'photo', src: 'media/performers/chen/photo4.jpg' },
+        { type: 'photo', src: 'media/performers/chen/photo5.jpg' },
+        { type: 'photo', src: 'media/performers/chen/photo6.jpg' },
+      ],
+      contact: 'Mermaid+Chen'
+    },
+    {
+      slug: 'ronnie', num: '05', name: 'Mermaid Ronnie', flag: 'tw',
+      bio: 'Ronnie is a multi-discipline performer and content creator with a significant TikTok presence in the mermaid and aquatic arts community. A competition winner and certified freediver, her performances are known for raw intensity and technical mastery — fire, aerial, and underwater combined.',
+      skills: ['Competition Winner', 'TikTok Star', 'Certified Freediver', 'Content Creator'],
+      img: 'media/performers/ronnie/photo1.jpg',
+      media: [
+        { type: 'photo', src: 'media/performers/ronnie/photo1.jpg' },
+        { type: 'photo', src: 'media/performers/ronnie/photo2.jpg' },
+        { type: 'photo', src: 'media/performers/ronnie/photo3.jpg' },
+        { type: 'photo', src: 'media/performers/ronnie/photo4.jpg' },
+      ],
+      contact: 'Mermaid+Ronnie'
+    },
+    {
+      slug: 'linda', num: '06', name: 'Mermaid Linda', flag: 'tw',
+      bio: 'Linda is a certified professional mermaid and aquatic instructor with professional accreditation. She brings depth and artistry to her performances and is one of the few certified mermaid instructors in Asia. Her underwater theatre work has been featured across regional media and brand campaigns.',
+      skills: ['Certified Mermaid', 'Aquatic Instructor', 'Brand Campaigns', 'Underwater Theatre'],
+      img: 'media/performers/linda/photo1.jpg',
+      media: [
+        { type: 'photo', src: 'media/performers/linda/photo1.jpg' },
+        { type: 'photo', src: 'media/performers/linda/photo2.jpg' },
+      ],
+      contact: 'Mermaid+Linda'
+    },
+    {
+      slug: 'kita', num: '07', name: 'Mermaid Kita', flag: 'tw',
+      bio: 'Kita is a certified professional mermaid and content creator whose underwater photography and performance videos have amassed hundreds of thousands of views across social platforms. She is a trained marine educator and brings mission-driven authenticity to every stage she graces.',
+      skills: ['Certified Mermaid', 'Content Creator', 'Marine Educator', 'Underwater Photographer'],
+      img: 'media/performers/kita/photo1.jpg',
+      media: [
+        { type: 'photo', src: 'media/performers/kita/photo1.jpg' },
+        { type: 'photo', src: 'media/performers/kita/photo2.jpg' },
+        { type: 'photo', src: 'media/performers/kita/photo3.jpg' },
+        { type: 'photo', src: 'media/performers/kita/photo4.jpg' },
+      ],
+      contact: 'Mermaid+Kita'
+    },
+  ];
+
+  /* Inline flag SVGs — no CDN needed */
+  const FLAG_SVGS = {
+    tw: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 30 20" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="30" height="20" fill="#FE0000"/><rect width="15" height="10" fill="#000095"/><circle cx="7.5" cy="5" r="3.8" fill="white"/><circle cx="7.5" cy="5" r="2.4" fill="#000095"/><circle cx="7.5" cy="5" r="1.2" fill="white"/></svg>`,
+    id: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg>`,
+    ph: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 36 18" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="36" height="9" fill="#0038A8"/><rect y="9" width="36" height="9" fill="#CE1126"/><polygon points="0,0 18,9 0,18" fill="#FCD116"/><circle cx="6" cy="9" r="2.5" fill="#0038A8"/></svg>`,
+    my: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 28 14" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="28" height="2" fill="#CC0001"/><rect y="2" width="28" height="2" fill="#fff"/><rect y="4" width="28" height="2" fill="#CC0001"/><rect y="6" width="28" height="2" fill="#fff"/><rect y="8" width="28" height="2" fill="#CC0001"/><rect y="10" width="28" height="2" fill="#fff"/><rect y="12" width="28" height="2" fill="#CC0001"/><rect width="12" height="8" fill="#006747"/></svg>`,
+  };
+  function flagSVG(code) {
+    return FLAG_SVGS[code] || `<span style="font-size:0.55rem;font-weight:700;opacity:0.6;letter-spacing:0.05em;">${(code||'').toUpperCase()}</span>`;
+  }
+
+  /* ══════════════════════════════════════════════
+     MAGAZINE VIEWER
+  ══════════════════════════════════════════════ */
+  (function() {
+    let current = 0;
+    let turning = false;
+    const spread    = document.getElementById('mag-spread');
+    const photo     = document.getElementById('mag-photo');
+    const ghostN    = document.getElementById('mag-ghost-n');
+    const issueNum  = document.getElementById('mag-issue-num');
+    const issueLabel= document.getElementById('mag-issue-label');
+    const name      = document.getElementById('mag-name');
+    const perfTitle = document.getElementById('mag-performer-title');
+    const bio       = document.getElementById('mag-bio');
+    const skillsEl  = document.getElementById('mag-skills');
+    const cta       = document.getElementById('mag-cta');
+    const prevBtn   = document.getElementById('mag-prev');
+    const nextBtn   = document.getElementById('mag-next');
+    const dotsWrap  = document.getElementById('mag-dots');
+
+    // Build dots
+    PERFORMERS.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'mag-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('role', 'tab');
+      d.setAttribute('aria-label', 'Performer ' + (i + 1));
+      d.addEventListener('click', () => navigate(i, i > current ? 'next' : 'prev'));
+      dotsWrap.appendChild(d);
+    });
+
+    const mediaGallery  = document.getElementById('mag-media-gallery');
+    const mediaDotsEl   = document.getElementById('mag-media-dots');
+    const mediaPrevBtn  = document.getElementById('mag-media-prev-btn');
+    const mediaNextBtn  = document.getElementById('mag-media-next-btn');
+    let mediaIdx = 0;
+    let mediaCount = 0;
+
+    function stopActiveVideo() {
+      const active = mediaGallery.querySelector('.mag-media-item.active video');
+      if (active) { active.pause(); active.currentTime = 0; }
+    }
+
+    function updateMediaArrows() {
+      if (mediaCount > 1) {
+        mediaPrevBtn.classList.toggle('show', mediaIdx > 0);
+        mediaNextBtn.classList.toggle('show', mediaIdx < mediaCount - 1);
+      } else {
+        mediaPrevBtn.classList.remove('show');
+        mediaNextBtn.classList.remove('show');
+      }
+    }
+
+    function buildMediaGallery(p) {
+      stopActiveVideo();
+      mediaGallery.innerHTML = '';
+      mediaDotsEl.innerHTML  = '';
+      mediaIdx   = 0;
+
+      // Video always first, then photos
+      const sorted = p.media ? [
+        ...p.media.filter(m => m.type === 'video'),
+        ...p.media.filter(m => m.type !== 'video'),
+      ] : [];
+      mediaCount = sorted.length;
+
+      if (sorted.length > 1) {
+        photo.style.display = 'none';
+        mediaGallery.style.display = 'block';
+        mediaDotsEl.style.display  = 'flex';
+
+        sorted.forEach((m, i) => {
+          const item = document.createElement('div');
+          item.className = 'mag-media-item' + (i === 0 ? ' active' : '');
+          if (m.type === 'video') {
+            const isLocal = !m.src.startsWith('http');
+            if (isLocal) {
+              item.innerHTML = `<video src="${m.src}" muted playsinline loop><source src="${m.src}" type="video/mp4"></video>`;
+            } else {
+              item.innerHTML = `<iframe src="${m.src}" allowfullscreen allow="autoplay; encrypted-media" frameborder="0"></iframe>`;
+            }
+          } else {
+            item.innerHTML = `<img src="${m.src}" alt="${p.name}" />`;
+          }
+          mediaGallery.appendChild(item);
+
+          const dot = document.createElement('button');
+          dot.className = 'mag-media-dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', m.type === 'video' ? '▶ Video' : 'Photo ' + i);
+          dot.addEventListener('click', () => switchMedia(i));
+          mediaDotsEl.appendChild(dot);
+        });
+
+        updateMediaArrows();
+
+        // Autoplay the first item if it's a video
+        const firstVid = mediaGallery.querySelector('.mag-media-item.active video');
+        if (firstVid) setTimeout(() => firstVid.play().catch(() => {}), 80);
+
+      } else {
+        photo.style.display = '';
+        mediaGallery.style.display = 'none';
+        mediaDotsEl.style.display  = 'none';
+        photo.src = p.img || (sorted[0] ? sorted[0].src : '');
+        photo.alt = p.name;
+        updateMediaArrows();
+      }
+    }
+
+    function switchMedia(idx) {
+      stopActiveVideo();
+      const items = mediaGallery.querySelectorAll('.mag-media-item');
+      const dots  = mediaDotsEl.querySelectorAll('.mag-media-dot');
+      items.forEach((el, i) => el.classList.toggle('active', i === idx));
+      dots.forEach((el, i)  => el.classList.toggle('active', i === idx));
+      mediaIdx = idx;
+      updateMediaArrows();
+      const vid = mediaGallery.querySelector('.mag-media-item.active video');
+      if (vid) vid.play().catch(() => {});
+    }
+
+    mediaPrevBtn.addEventListener('click', () => { if (mediaIdx > 0) switchMedia(mediaIdx - 1); });
+    mediaNextBtn.addEventListener('click', () => { if (mediaIdx < mediaCount - 1) switchMedia(mediaIdx + 1); });
+
+    function populate(p) {
+      ghostN.textContent  = p.num;
+      issueNum.textContent = p.num;
+      issueLabel.textContent = 'Issue ' + p.num + ' · Sirena Elite';
+      name.textContent    = p.name;
+      const flagEl = document.getElementById('mag-flag');
+      if (flagEl) flagEl.innerHTML = flagSVG(p.flag || 'tw');
+      if (perfTitle) perfTitle.textContent = p.title || '';
+      bio.innerHTML       = p.bio;
+      skillsEl.innerHTML  = p.skills.map(s => `<span class="mag-skill">${s}</span>`).join('');
+      cta.href            = 'contact.html?performer=' + p.contact;
+      buildMediaGallery(p);
+    }
+
+    function updateDots() {
+      dotsWrap.querySelectorAll('.mag-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    function updateArrows() {
+      const isFirst = current === 0;
+      const isLast  = current === PERFORMERS.length - 1;
+      prevBtn.disabled = isFirst;
+      nextBtn.disabled = isLast;
+      const sp = document.getElementById('mag-side-prev');
+      const sn = document.getElementById('mag-side-next');
+      if (sp) sp.disabled = isFirst;
+      if (sn) sn.disabled = isLast;
+    }
+
+    function navigate(to, dir) {
+      if (turning || to === current) return;
+      turning = true;
+      const outClass = dir === 'next' ? 'out-next' : 'out-prev';
+      const inClass  = dir === 'next' ? 'in-next'  : 'in-prev';
+
+      spread.classList.add(outClass);
+      setTimeout(() => {
+        spread.classList.remove(outClass);
+        stopActiveVideo();
+        current = to;
+        populate(PERFORMERS[current]);
+        updateDots();
+        updateArrows();
+        spread.classList.add(inClass);
+        spread.addEventListener('animationend', () => {
+          spread.classList.remove(inClass);
+          turning = false;
+        }, { once: true });
+      }, 260);
+    }
+
+    prevBtn.addEventListener('click', () => navigate(current - 1, 'prev'));
+    nextBtn.addEventListener('click', () => navigate(current + 1, 'next'));
+
+    // Side arrows (on the spread itself)
+    const sidePrev = document.getElementById('mag-side-prev');
+    const sideNext = document.getElementById('mag-side-next');
+    if (sidePrev) sidePrev.addEventListener('click', () => navigate(current - 1, 'prev'));
+    if (sideNext) sideNext.addEventListener('click', () => navigate(current + 1, 'next'));
+
+    // Keyboard navigation
+    document.addEventListener('keydown', e => {
+      if (e.target === document.getElementById('chat-input')) return;
+      if (e.key === 'ArrowRight' && current < PERFORMERS.length - 1) navigate(current + 1, 'next');
+      if (e.key === 'ArrowLeft'  && current > 0) navigate(current - 1, 'prev');
+    });
+
+    // Touch/swipe on spread
+    let tX0 = 0;
+    spread.addEventListener('touchstart', e => { tX0 = e.touches[0].clientX; }, { passive: true });
+    spread.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - tX0;
+      if (Math.abs(dx) > 50) dx < 0 ? navigate(current + 1, 'next') : navigate(current - 1, 'prev');
+    });
+
+    // Init
+    populate(PERFORMERS[0]);
+    updateArrows();
+
+    // Deep-link: if URL has #slug, jump directly to that performer
+    const hashSlug = window.location.hash.slice(1);
+    if (hashSlug) {
+      const idx = PERFORMERS.findIndex(p => p.slug === hashSlug);
+      if (idx > 0) {
+        current = idx;
+        populate(PERFORMERS[current]);
+        updateDots();
+        updateArrows();
+        // Scroll magazine into view smoothly
+        setTimeout(() => {
+          document.getElementById('mag-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 200);
+      }
+    }
+  })();
+
+  /* ══════════════════════════════════════════════
+     MOBILE NAV
+  ══════════════════════════════════════════════ */
+  (function() {
+    const burger = document.getElementById('burger');
+    const menu   = document.getElementById('mobile-menu');
+    const bls    = burger.querySelectorAll('.bl');
+    let open = false;
+    burger.addEventListener('click', () => {
+      open = !open;
+      menu.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+      bls[0].style.transform = open ? 'rotate(45deg) translate(4px,4px)' : '';
+      bls[1].style.opacity   = open ? '0' : '1';
+      bls[2].style.transform = open ? 'rotate(-45deg) translate(3px,-3px)' : '';
+    });
+    menu.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => {
+      open = false; menu.classList.remove('open'); document.body.style.overflow = '';
+      bls.forEach(b => { b.style.transform=''; b.style.opacity='1'; });
+    }));
+  })();
+
+  /* ══════════════════════════════════════════════
+     SCROLL REVEAL
+  ══════════════════════════════════════════════ */
+  const rvObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); rvObs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv').forEach(el => rvObs.observe(el));
+
+  /* ══════════════════════════════════════════════
+     AI INQUIRY CHAT
+     ─────────────────────────────────────────────
+     To enable real AI: deploy this Cloudflare Worker,
+     then set CHAT_ENDPOINT to your worker URL.
+
+     ── cloudflare-worker.js ────────────────────
+     export default {
+       async fetch(request, env) {
+         const cors = {
+           'Access-Control-Allow-Origin': '*',
+           'Access-Control-Allow-Methods': 'POST, OPTIONS',
+           'Access-Control-Allow-Headers': 'Content-Type',
+         };
+         if (request.method === 'OPTIONS')
+           return new Response(null, { headers: cors });
+         const { messages } = await request.json();
+         const res = await fetch('https://api.anthropic.com/v1/messages', {
+           method: 'POST',
+           headers: {
+             'x-api-key': env.ANTHROPIC_API_KEY,
+             'anthropic-version': '2023-06-01',
+             'content-type': 'application/json',
+           },
+           body: JSON.stringify({
+             model: 'claude-haiku-4-5-20251001',
+             max_tokens: 350,
+             system: `You are Sirena AI — the inquiry assistant for Sirena Asia, Asia's Premier Mermaid Performance Collective.
+                      Be warm, concise (2–3 sentences max), and professional.
+                      Answer questions about performers (Fan, Ying, Minmin, Chen, Ronnie, Linda, Kita — elite tier; plus Rising Tides: Aiko, Luna, Zara, Mei, Isla, Nova, Sari, Shinta, Thia, Inda, Nanda).
+                      Events: weddings, corporate, resort pools, brand activations, children's parties, galas, private celebrations.
+                      We operate across Asia and internationally. Based in Southeast Asia.
+                      For pricing, contracts, and formal proposals always direct to contact.html or info@sirenaasia.com.
+                      Never quote specific prices. Never promise availability. Keep it elegant.`,
+             messages: messages.slice(-8),
+           }),
+         });
+         const data = await res.json();
+         return new Response(
+           JSON.stringify({ reply: data.content[0].text }),
+           { headers: { 'content-type': 'application/json', ...cors } }
+         );
+       }
+     };
+     ─────────────────────────────────────────────
+     Set env variable: ANTHROPIC_API_KEY = your key
+     Deploy: wrangler deploy
+  ══════════════════════════════════════════════ */
+  const CHAT_ENDPOINT = null; // e.g. 'https://sirena-chat.yourname.workers.dev'
+
+  (function() {
+    const msgsEl  = document.getElementById('chat-msgs');
+    const input   = document.getElementById('chat-input');
+    const sendBtn = document.getElementById('chat-send');
+    const sugsEl  = document.getElementById('chat-sugs');
+    const history = []; // [{role:'user'|'assistant', content:'...'}]
+
+    /* ── Smart fallback responses (no backend) ── */
+    const FALLBACK = [
+      {
+        keys: ['book','hire','get','enquir','reserv','avail'],
+        reply: "To bring a Sirena to your event, head to our contact page or drop us a line at info@sirenaasia.com. Share your event type, date, location, and how many performers you have in mind — we'll come back with a custom proposal within 24 hours."
+      },
+      {
+        keys: ['price','cost','rate','fee','budget','quote','how much'],
+        reply: "Pricing is tailored to each event — duration, number of performers, location, and show complexity all factor in. We don't do standard packages because no two events are the same. Reach out via the contact form and we'll put together a proper quote."
+      },
+      {
+        keys: ['wedding','corporate','resort','hotel','birthday','gala','party','event type','what events'],
+        reply: "We perform at weddings, corporate galas, resort pools, brand activations, luxury hotel events, children's parties, and private celebrations. If there's water and an audience, a Sirena belongs there."
+      },
+      {
+        keys: ['international','travel','overseas','abroad','outside','global','world'],
+        reply: "Yes — we perform internationally. Sirena has been hosted across Southeast Asia, East Asia, and beyond. International bookings are welcome; just give us the details and we'll make it work."
+      },
+      {
+        keys: ['how many','group','multiple','several','ensemble','team'],
+        reply: "You can book one Sirena or the full collective — we're flexible. Group packages for large-scale productions and ensemble shows are available. Tell us your vision and we'll match the right performers to it."
+      },
+      {
+        keys: ['elite','fan','ying','minmin','chen','ronnie','linda','kita','who are'],
+        reply: "Our Elite tier features seven exceptional performers: Fan, Ying, Minmin, Chen, Ronnie, Linda, and Kita — each from a different Asian country, each with her own signature style. Flip through the magazine above to meet them individually."
+      },
+      {
+        keys: ['rising','tide','new','upcoming','junior','shinta','thia','inda','nanda','aiko','luna','zara','mei','isla','nova','sari'],
+        reply: "Our Rising Tides are the next generation — eleven emerging performers from across Asia. Aiko, Luna, Zara, Mei, Isla, Nova, Sari, Shinta, Thia, Inda, and Nanda. Full artistry, all the wonder."
+      },
+      {
+        keys: ['contact','email','reach','speak','human','person','talk'],
+        reply: "You can reach us directly at info@sirenaasia.com, or use the formal enquiry form on our Contact page. A real member of our team will respond — usually within a day."
+      },
+      {
+        keys: ['show','performance','what','look like','underwater','pool','swim'],
+        reply: "A Sirena show is an immersive underwater performance — choreographed movement, breath-hold artistry, and visual storytelling that transforms any pool or water feature into a stage. We tailor every show to the event's tone and venue."
+      },
+    ];
+
+    function getFallback(msg) {
+      const lower = msg.toLowerCase();
+      for (const f of FALLBACK) {
+        if (f.keys.some(k => lower.includes(k))) return f.reply;
+      }
+      return "That's a great question — our human team would love to answer it properly. Drop us a note at info@sirenaasia.com or use the enquiry form below and we'll get back to you quickly.";
+    }
+
+    function appendMsg(role, text) {
+      const div = document.createElement('div');
+      div.className = 'cmsg ' + role;
+      div.innerHTML = `
+        <div class="cmsg-ava">${role === 'bot' ? 'S' : 'You'}</div>
+        <div class="cmsg-bubble">${text}</div>
+      `;
+      msgsEl.appendChild(div);
+      msgsEl.scrollTop = msgsEl.scrollHeight;
+    }
+
+    function showTyping() {
+      const t = document.createElement('div');
+      t.className = 'typing-msg'; t.id = 'typing-ind';
+      t.innerHTML = `
+        <div class="typing-ava">S</div>
+        <div class="typing-bubble">
+          <div class="tdot"></div><div class="tdot"></div><div class="tdot"></div>
+        </div>
+      `;
+      msgsEl.appendChild(t);
+      msgsEl.scrollTop = msgsEl.scrollHeight;
+      return t;
+    }
+
+    async function sendMessage(text) {
+      if (!text.trim()) return;
+      input.value = '';
+      appendMsg('user', text);
+      history.push({ role: 'user', content: text });
+
+      const typingEl = showTyping();
+
+      let reply;
+      if (CHAT_ENDPOINT) {
+        try {
+          const res = await fetch(CHAT_ENDPOINT, {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ messages: history }),
+          });
+          const data = await res.json();
+          reply = data.reply;
+        } catch {
+          reply = "We're having a brief connection issue. Please email us directly at info@sirenaasia.com — we'll respond promptly.";
+        }
+      } else {
+        // Simulate thinking time
+        await new Promise(r => setTimeout(r, 800 + Math.random() * 600));
+        reply = getFallback(text);
+      }
+
+      typingEl.remove();
+      appendMsg('bot', reply);
+      history.push({ role: 'assistant', content: reply });
+    }
+
+    sendBtn.addEventListener('click', () => sendMessage(input.value));
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') sendMessage(input.value); });
+
+    sugsEl.querySelectorAll('.sug').forEach(btn => {
+      btn.addEventListener('click', () => {
+        sendMessage(btn.dataset.q);
+        // Hide suggestions after first use
+        sugsEl.style.opacity = '0.4';
+        sugsEl.style.pointerEvents = 'none';
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

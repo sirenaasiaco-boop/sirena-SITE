@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Story — Sirena Asia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" /></noscript>
+
+  <style>
+    :root {
+      --navy:      #001a4d;
+      --navy-deep: #000d26;
+      --cyan:      #00bcd4;
+      --cyan-glow: #00e5ff;
+      --coral:     #ff6b9d;
+      --mist:      #e8f4f8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--navy-deep);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Noise grain */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 1000; pointer-events: none; opacity: 0.15;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+
+    /* ══════════════════════════════════
+       AMBIENT BACKGROUND — deep sea
+    ══════════════════════════════════ */
+    .sea-bg {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    }
+    .sea-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 15% 20%, rgba(0,188,212,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 40% at 85% 75%, rgba(255,107,157,0.05) 0%, transparent 65%),
+        radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,26,77,0.5) 0%, transparent 80%);
+      animation: seaShift 20s ease-in-out infinite alternate;
+    }
+    @keyframes seaShift {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(18px, -28px) scale(1.04); }
+    }
+
+    /* Light rays from above */
+    .rays {
+      position: fixed; top: 0; left: 0; right: 0; height: 60vh;
+      z-index: 0; pointer-events: none;
+      background:
+        linear-gradient(170deg, rgba(0,229,255,0.04) 0%, transparent 45%),
+        linear-gradient(162deg, rgba(0,188,212,0.03) 5%, transparent 50%),
+        linear-gradient(178deg, rgba(100,235,255,0.05) 0%, transparent 40%);
+      animation: raysBreath 16s ease-in-out infinite alternate;
+    }
+    @keyframes raysBreath {
+      from { opacity: 0.5; transform: skewX(-1deg); }
+      to   { opacity: 1;   transform: skewX(1deg); }
+    }
+
+    /* Bubbles container */
+    #bubbles { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+    .bbl {
+      position: absolute; border-radius: 50%;
+      animation: bblRise linear infinite;
+    }
+    @keyframes bblRise {
+      0%   { transform: translateY(105vh) scale(0); opacity: 0; }
+      8%   { opacity: 0.7; }
+      88%  { opacity: 0.3; }
+      100% { transform: translateY(-6vh) translateX(8px) scale(1); opacity: 0; }
+    }
+
+    /* ══════════════════════════════════
+       CHAPTER PROGRESS — side rail
+    ══════════════════════════════════ */
+    #chapter-rail {
+      position: fixed; right: 2.2rem; top: 50%; transform: translateY(-50%);
+      z-index: 50;
+      display: flex; flex-direction: column; gap: 0.9rem;
+      align-items: center;
+    }
+    .rail-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      transition: background 0.4s, transform 0.4s, height 0.4s;
+      cursor: pointer;
+    }
+    .rail-dot.active {
+      background: var(--cyan-glow);
+      transform: scale(1.6);
+      box-shadow: 0 0 8px rgba(0,229,255,0.6);
+    }
+    @media (max-width: 768px) { #chapter-rail { display: none; } }
+
+    /* ══════════════════════════════════
+       NAV — minimal top bar
+    ══════════════════════════════════ */
+    #top-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.4rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: linear-gradient(180deg, rgba(0,13,38,0.7) 0%, transparent 100%);
+    }
+    .top-logo { mix-blend-mode: screen; height: 30px; width: auto; opacity: 0.85; }
+    .top-skip {
+      font-family: 'Inter', sans-serif; font-size: 0.6rem; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .top-skip:hover { color: rgba(255,255,255,0.7); }
+
+    /* ══════════════════════════════════
+       SECTIONS — general
+    ══════════════════════════════════ */
+    section {
+      position: relative; z-index: 2;
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* Chapter label */
+    .ch-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.55rem; font-weight: 500;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--cyan);
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      margin-bottom: 1.4rem;
+    }
+
+    /* ══════════════════════════════════
+       OPENING — full screen title
+    ══════════════════════════════════ */
+    #opening {
+      flex-direction: column;
+      text-align: center;
+      padding: 0 2rem;
+    }
+    #opening .big-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(3.5rem, 10vw, 8.5rem);
+      font-weight: 700;
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff 0%, rgba(0,229,255,0.85) 55%, rgba(255,107,157,0.7) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 1.2s cubic-bezier(0.22,1,0.36,1), transform 1.2s cubic-bezier(0.22,1,0.36,1);
+    }
+    #opening .sub-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 300;
+      font-size: clamp(1.1rem, 3vw, 1.6rem);
+      color: rgba(255,255,255,0.5);
+      margin-top: 1.2rem;
+      letter-spacing: 0.06em;
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.9s ease 0.35s, transform 0.9s ease 0.35s;
+    }
+    #opening .scroll-invite {
+      margin-top: 4rem;
+      font-family: 'Inter', sans-serif; font-size: 0.55rem;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      opacity: 0; transition: opacity 0.9s ease 0.8s;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+    .s-thread {
+      width: 1px; height: 50px;
+      background: linear-gradient(180deg, rgba(0,229,255,0.5), transparent);
+      animation: threadPulse 2.2s ease-in-out infinite;
+    }
+    @keyframes threadPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50%       { opacity: 0.9; transform: scaleY(0.6); }
+    }
+
+    /* ══════════════════════════════════
+       CHAPTERS
+    ══════════════════════════════════ */
+    .chapter {
+      padding: clamp(5rem, 12vw, 10rem) clamp(1.5rem, 6vw, 5rem);
+    }
+
+    /* Chapter inner */
+    .ch-inner { max-width: 680px; }
+
+    /* Reveal animation targets */
+    .reveal-up {
+      opacity: 0; transform: translateY(36px);
+      transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal-left {
+      opacity: 0; transform: translateX(-36px);
+      transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal-right {
+      opacity: 0; transform: translateX(36px);
+      transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal-up.in, .reveal-left.in, .reveal-right.in {
+      opacity: 1; transform: translate(0);
+    }
+    .ch-label.in { opacity: 1; transform: translateY(0); }
+
+    .d1 { transition-delay: 0s; }
+    .d2 { transition-delay: 0.12s; }
+    .d3 { transition-delay: 0.24s; }
+    .d4 { transition-delay: 0.36s; }
+    .d5 { transition-delay: 0.5s; }
+
+    /* Chapter heading */
+    .ch-heading {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: #fff;
+      margin-bottom: 1.6rem;
+    }
+    .ch-heading em {
+      font-style: normal;
+      background: linear-gradient(90deg, var(--cyan), var(--cyan-glow));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Chapter body text */
+    .ch-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 300;
+      font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+      line-height: 1.85;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 1.4rem;
+    }
+
+    /* Accent quote */
+    .ch-quote {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 400;
+      color: var(--coral);
+      letter-spacing: 0.04em;
+      border-left: 2px solid var(--coral);
+      padding-left: 1.4rem;
+      margin: 2.2rem 0;
+      opacity: 0.9;
+    }
+
+    /* Decorative glow orbs per chapter */
+    .orb {
+      position: absolute; border-radius: 50%; pointer-events: none;
+      filter: blur(80px); opacity: 0.08; z-index: 1;
+    }
+
+    /* ══════════════════════════════════
+       CHAPTER 1 — origin (left)
+    ══════════════════════════════════ */
+    #ch1 { justify-content: flex-start; }
+    #ch1 .orb { width: 600px; height: 600px; right: -100px; top: 50%; transform: translateY(-50%); background: var(--cyan); }
+
+    /* ══════════════════════════════════
+       CHAPTER 2 — the mermaids (right)
+    ══════════════════════════════════ */
+    #ch2 { justify-content: flex-end; }
+    #ch2 .orb { width: 500px; height: 500px; left: -80px; top: 50%; transform: translateY(-50%); background: var(--coral); }
+
+    /* ══════════════════════════════════
+       CHAPTER 3 — the experience (center)
+    ══════════════════════════════════ */
+    #ch3 { justify-content: center; text-align: center; }
+    #ch3 .ch-inner { max-width: 780px; }
+    #ch3 .orb { width: 700px; height: 350px; left: 50%; bottom: 0; transform: translateX(-50%); background: radial-gradient(var(--cyan), var(--navy)); opacity: 0.06; }
+
+    /* ══════════════════════════════════
+       CHAPTER 4 — a floating number beat
+    ══════════════════════════════════ */
+    #ch4 { justify-content: center; flex-direction: column; text-align: center; }
+    .stats-row {
+      display: flex; gap: clamp(2rem, 6vw, 6rem);
+      justify-content: center; flex-wrap: wrap;
+      margin-top: 3rem;
+    }
+    .stat-item { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+    .stat-num {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 700;
+      line-height: 1;
+      background: linear-gradient(135deg, #fff, var(--cyan-glow));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label {
+      font-family: 'Inter', sans-serif; font-size: 0.6rem;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* Divider wave */
+    .wave-divider {
+      width: 100%; overflow: hidden; line-height: 0; position: relative; z-index: 2;
+      height: 60px;
+    }
+    .wave-divider svg { display: block; width: 100%; height: 60px; }
+
+    /* ══════════════════════════════════
+       FINALE — CTA
+    ══════════════════════════════════ */
+    #finale {
+      flex-direction: column; text-align: center;
+      padding: 8rem 2rem;
+      background: radial-gradient(ellipse 80% 60% at 50% 50%,
+        rgba(0,188,212,0.08) 0%, transparent 65%);
+    }
+    #finale .fin-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.8rem, 5vw, 4rem);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #fff;
+      margin-bottom: 1.4rem;
+    }
+    #finale .fin-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 300;
+      font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+      color: rgba(255,255,255,0.5);
+      max-width: 480px; margin: 0 auto 3rem;
+      line-height: 1.75;
+    }
+    .fin-btns { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 1rem 2.8rem; background: var(--coral); color: #fff;
+      text-decoration: none; border: none; cursor: pointer;
+      box-shadow: 0 6px 28px rgba(255,107,157,0.38);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(255,107,157,0.5); }
+    .btn-ghost {
+      font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 1rem 2.8rem; background: transparent; color: rgba(255,255,255,0.6);
+      text-decoration: none; border: 1px solid rgba(255,255,255,0.22); cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-ghost:hover { color: #fff; border-color: rgba(255,255,255,0.55); }
+
+    /* Footer credit */
+    .story-footer {
+      position: relative; z-index: 2;
+      padding: 2rem; text-align: center;
+      font-family: 'Inter', sans-serif; font-size: 0.55rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(255,255,255,0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient background layers -->
+  <div class="sea-bg"></div>
+  <div class="rays"></div>
+  <div id="bubbles"></div>
+
+  <!-- Chapter rail -->
+  <nav id="chapter-rail" aria-label="Chapter navigation">
+    <div class="rail-dot active" data-ch="opening" title="Opening"></div>
+    <div class="rail-dot" data-ch="ch1" title="Chapter I"></div>
+    <div class="rail-dot" data-ch="ch2" title="Chapter II"></div>
+    <div class="rail-dot" data-ch="ch3" title="Chapter III"></div>
+    <div class="rail-dot" data-ch="ch4" title="Chapter IV"></div>
+    <div class="rail-dot" data-ch="finale" title="Enter"></div>
+  </nav>
+
+  <!-- Top bar -->
+  <header id="top-bar">
+    <a href="index.html">
+      <img src="/Logo Stacked White.png" alt="Sirena Asia" class="top-logo" />
+    </a>
+    <a href="performers.html" class="top-skip">Skip to site →</a>
+  </header>
+
+
+  <!-- ═══════════════════════════════════
+       OPENING
+  ═══════════════════════════════════ -->
+  <section id="opening">
+    <p class="ch-label reveal-up d1">A story from beneath the surface</p>
+    <h1 class="big-title">Sirena<br/>Asia</h1>
+    <p class="sub-title">Asia's Premier Mermaid Collective</p>
+    <div class="scroll-invite">
+      <span>Begin</span>
+      <div class="s-thread"></div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════
+       CHAPTER I — Born from the Sea
+  ═══════════════════════════════════ -->
+  <section id="ch1" class="chapter">
+    <div class="orb"></div>
+    <div class="ch-inner">
+      <p class="ch-label reveal-up d1">Chapter I</p>
+      <h2 class="ch-heading reveal-up d2">
+        Born from<br/><em>the deep</em>
+      </h2>
+      <p class="ch-body reveal-up d3">
+        Every legend begins in silence — somewhere between the shimmer of light on water and the dark below where imagination lives.
+      </p>
+      <p class="ch-body reveal-up d3">
+        Sirena Asia was conjured from that exact place. A collective dream shared by women who knew that the sea holds more stories than the world above it. That magic, when performed with precision and artistry, can stop time.
+      </p>
+      <blockquote class="ch-quote reveal-up d4">
+        "We are not performers who play mermaids.<br/>
+        We are mermaids who perform."
+      </blockquote>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════
+       CHAPTER II — The Sirenas
+  ═══════════════════════════════════ -->
+  <section id="ch2" class="chapter">
+    <div class="orb"></div>
+    <div class="ch-inner">
+      <p class="ch-label reveal-up d1">Chapter II</p>
+      <h2 class="ch-heading reveal-up d2">
+        Seven<br/><em>Sirenas</em>
+      </h2>
+      <p class="ch-body reveal-up d3">
+        From across Asia, seven elite performers answered the call of the water. Each one trained, tested, and transformed — not just in body but in spirit.
+      </p>
+      <p class="ch-body reveal-up d3">
+        Fan, Ying, Minmin, Chen, Ronnie, Linda, Kita. Seven mermaids. Seven worlds. One collective voice that moves beneath the surface and surfaces wherever wonder is needed.
+      </p>
+      <p class="ch-body reveal-up d4">
+        Together they form something rare in this part of the world — a professional performance company that treats the ocean's mythology with the reverence it deserves.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════
+       CHAPTER III — The Experience
+  ═══════════════════════════════════ -->
+  <section id="ch3" class="chapter">
+    <div class="orb"></div>
+    <div class="ch-inner">
+      <p class="ch-label reveal-up d1">Chapter III</p>
+      <h2 class="ch-heading reveal-up d2">
+        An <em>experience</em><br/>like no other
+      </h2>
+      <p class="ch-body reveal-up d3">
+        They glide through pools at gala dinners where guests go silent mid-conversation. They appear at children's birthdays and make adults weep with something they can't name — nostalgia for a world they've never visited but somehow remember.
+      </p>
+      <p class="ch-body reveal-up d4">
+        Corporate retreats. Luxury brand activations. Intimate celebrations. The water is the stage, and every breath is choreographed. Nothing is accidental. Everything is felt.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════
+       CHAPTER IV — By the numbers
+  ═══════════════════════════════════ -->
+  <section id="ch4" class="chapter">
+    <div class="ch-inner" style="max-width:900px;">
+      <p class="ch-label reveal-up d1">Chapter IV</p>
+      <h2 class="ch-heading reveal-up d2" style="text-align:center;">
+        The <em>numbers</em><br/>speak quietly
+      </h2>
+      <div class="stats-row">
+        <div class="stat-item reveal-up d2">
+          <span class="stat-num" data-count="7">0</span>
+          <span class="stat-label">Elite Performers</span>
+        </div>
+        <div class="stat-item reveal-up d3">
+          <span class="stat-num" data-count="8">0</span>
+          <span class="stat-label">Countries Performed</span>
+        </div>
+        <div class="stat-item reveal-up d4">
+          <span class="stat-num" data-count="200" data-suffix="+">0</span>
+          <span class="stat-label">Events &amp; Shows</span>
+        </div>
+        <div class="stat-item reveal-up d5">
+          <span class="stat-num" data-count="100" data-suffix="%">0</span>
+          <span class="stat-label">Breathtaking</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════
+       FINALE — Enter the World
+  ═══════════════════════════════════ -->
+  <section id="finale">
+    <p class="ch-label reveal-up d1" style="text-align:center;">The tide is calling</p>
+    <h2 class="fin-title reveal-up d2">Now — step in.</h2>
+    <p class="fin-sub reveal-up d3">
+      The water is warm. The mermaids are waiting.<br/>
+      Your world is about to change.
+    </p>
+    <div class="fin-btns reveal-up d4">
+      <a href="performers.html" class="btn-primary">Meet the Sirenas</a>
+      <a href="shows.html" class="btn-ghost">View Shows</a>
+    </div>
+  </section>
+
+  <footer class="story-footer">
+    © 2025 Sirena Asia · Asia's Premier Mermaid Collective
+  </footer>
+
+
+  <script>
+    /* ═══════════════
+       BUBBLES
+    ═══════════════ */
+    const bc = document.getElementById('bubbles');
+    function spawnBubble() {
+      const b = document.createElement('div');
+      b.className = 'bbl';
+      const s = Math.random() * 3 + 0.8;
+      b.style.cssText = `
+        width:${s}px; height:${s}px; left:${Math.random()*100}%;
+        background: rgba(255,255,255,0.5);
+        box-shadow: 0 0 ${s*4}px rgba(0,229,255,0.3);
+        animation-duration:${Math.random()*12+8}s;
+        animation-delay:${Math.random()*8}s;
+      `;
+      bc.appendChild(b);
+      b.addEventListener('animationend', () => b.remove());
+    }
+    for (let i = 0; i < 18; i++) spawnBubble();
+    setInterval(spawnBubble, 1400);
+
+
+    /* ═══════════════
+       OPENING entrance — fires after brief delay
+    ═══════════════ */
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const opening = document.getElementById('opening');
+        opening.querySelector('.big-title').style.opacity = '1';
+        opening.querySelector('.big-title').style.transform = 'translateY(0)';
+        opening.querySelector('.sub-title').style.opacity = '1';
+        opening.querySelector('.sub-title').style.transform = 'translateY(0)';
+        opening.querySelector('.scroll-invite').style.opacity = '1';
+        opening.querySelector('.ch-label').style.opacity = '1';
+        opening.querySelector('.ch-label').style.transform = 'translateY(0)';
+      }, 180);
+    });
+
+
+    /* ═══════════════
+       SCROLL REVEAL
+    ═══════════════ */
+    const revealEls = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.18 });
+    revealEls.forEach(el => {
+      // Skip opening — handled separately
+      if (!el.closest('#opening')) revealObs.observe(el);
+    });
+
+
+    /* ═══════════════
+       CHAPTER RAIL
+    ═══════════════ */
+    const chIds   = ['opening', 'ch1', 'ch2', 'ch3', 'ch4', 'finale'];
+    const dots    = document.querySelectorAll('.rail-dot');
+    const sections = chIds.map(id => document.getElementById(id));
+
+    function updateRail() {
+      const mid = window.innerHeight / 2;
+      let active = 0;
+      sections.forEach((s, i) => {
+        const r = s.getBoundingClientRect();
+        if (r.top <= mid && r.bottom > 0) active = i;
+      });
+      dots.forEach((d, i) => d.classList.toggle('active', i === active));
+    }
+
+    dots.forEach((d, i) => d.addEventListener('click', () => {
+      sections[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }));
+
+    window.addEventListener('scroll', updateRail, { passive: true });
+    updateRail();
+
+
+    /* ═══════════════
+       STAT COUNTER
+    ═══════════════ */
+    const statEls = document.querySelectorAll('.stat-num[data-count]');
+    const statObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el     = e.target;
+        const target = +el.dataset.count;
+        const suffix = el.dataset.suffix || '';
+        const dur    = 1400;
+        const step   = 16;
+        const steps  = dur / step;
+        let cur = 0;
+        const inc = target / steps;
+        const timer = setInterval(() => {
+          cur = Math.min(cur + inc, target);
+          el.textContent = Math.round(cur) + suffix;
+          if (cur >= target) clearInterval(timer);
+        }, step);
+        statObs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    statEls.forEach(el => statObs.observe(el));
+  </script>
+</body>
+</html>
