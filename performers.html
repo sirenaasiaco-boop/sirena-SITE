@@ -96,8 +96,8 @@
     }
 
     .mag-outer {
-      max-width: 1400px; margin: 0 auto;
-      padding: 0 clamp(3rem, 5vw, 6rem);
+      max-width: 980px; margin: 0 auto;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
     }
 
     /* Perspective stage */
@@ -114,14 +114,12 @@
 
     .mag-spread {
       display: grid;
-      grid-template-columns: 42fr 58fr;
-      height: clamp(520px, 66vh, 780px);
+      grid-template-columns: 1fr 1.1fr;
+      height: clamp(480px, 60vh, 680px);
       position: relative;
       box-shadow:
-        0 60px 160px rgba(0,0,0,0.95),
-        0 28px 72px rgba(0,0,0,0.75),
-        0 8px 24px rgba(0,0,0,0.55),
-        0 0 0 1px rgba(255,255,255,0.04);
+        0 40px 120px rgba(0,0,0,0.9),
+        0 16px 48px rgba(0,0,0,0.6);
       transform-style: preserve-3d;
       transition: box-shadow 0.5s ease;
     }
@@ -130,9 +128,6 @@
     .mag-page-l {
       position: relative; overflow: hidden;
       background: #000;
-      transform: perspective(1400px) rotateY(9deg);
-      transform-origin: right center;
-      transition: transform 0.5s ease;
     }
     .mag-page-l img {
       width:100%; height:100%; object-fit:cover; display:block;
@@ -203,9 +198,6 @@
       background: rgba(4,11,28,0.99);
       padding: clamp(2rem,3.5vw,3.2rem) clamp(1.8rem,3vw,3rem) clamp(1.8rem,3vw,2.8rem);
       display:flex; flex-direction:column; justify-content:center;
-      transform: perspective(1400px) rotateY(-9deg);
-      transform-origin: left center;
-      transition: transform 0.5s ease;
     }
     /* Book spine shadow on right page */
     .mag-spine {
@@ -342,15 +334,16 @@
     /* ─── MOBILE MAGAZINE ─── */
     @media(max-width:768px) {
       #mag-section { padding: 2rem 0 3rem; }
-      .mag-outer { padding: 0 1rem; }
-      .mag-book-wrap { perspective: none; }
-      .mag-tilt-wrap { transform: none; }
+      .mag-outer { padding: 0 0.5rem; }
+      .mag-book-wrap { overflow: visible; }
+      .mag-tilt-wrap { transform: none; transform-style: flat; }
       .mag-spread {
         grid-template-columns:1fr; grid-template-rows:auto auto;
-        transform:none; height:auto; box-shadow:0 20px 60px rgba(0,0,0,0.8);
+        transform:none; transform-style:flat; height:auto;
+        box-shadow:0 16px 50px rgba(0,0,0,0.7);
       }
-      .mag-page-l { transform:none; height:72vw; max-height:340px; }
-      .mag-page-r { transform:none; padding:1.6rem 1.2rem; min-height:auto; }
+      .mag-page-l { height:72vw; max-height:320px; }
+      .mag-page-r { padding:1.6rem 1.2rem; min-height:auto; }
       .mag-spine { display:none; }
       .mag-name { font-size:clamp(1.6rem,8vw,2.4rem); }
       .mag-bio { font-size:0.9rem; }
@@ -547,7 +540,7 @@
     #site-footer { position:relative;z-index:2;background:#000814;border-top:1px solid rgba(34,211,238,0.08);padding:5rem clamp(2rem,6vw,7rem) 3rem; }
     .footer-top { display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:3rem;margin-bottom:4rem; }
     .footer-brand { display:flex;flex-direction:column;gap:1rem; }
-    .footer-brand img { height:40px;width:auto;align-self:flex-start;mix-blend-mode:screen;opacity:0.75; }
+    .footer-brand img { max-width:420px;width:auto;align-self:flex-start;mix-blend-mode:screen;opacity:0.75; }
     .footer-tagline { font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:rgba(224,247,250,0.35);line-height:1.6;max-width:220px; }
     .footer-nav-col { display:flex;flex-direction:column;gap:1.2rem; }
     .footer-nav-heading { font-family:'Outfit',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(34,211,238,0.5);margin-bottom:0.3rem; }
@@ -574,7 +567,7 @@
 
   <nav id="navbar">
     <a href="index.html">
-      <img src="/Collored Icon.png" alt="Sirena Asia" class="nav-logo" style="mix-blend-mode:screen;"/>
+      <img src="1.png" alt="Sirena Asia" class="nav-logo" style="mix-blend-mode:screen;"/>
     </a>
     <div id="nav-links">
       <a href="performers.html" class="nav-link active">Performers</a>
@@ -606,7 +599,7 @@
         <h1 class="intro-h1 rv d2">The<br/><em>Elites.</em></h1>
       </div>
       <div class="intro-right rv d3">
-        <p class="intro-desc">Elite athletes. Certified professionals. Digital icons. We've gathered the industry's finest to bring you the top mermaid talent in Asia.</p>
+        <p class="intro-desc">We've gathered the industry's finest to represent the top mermaid talent in Asia. They are elite athletes, certified instructors, and professional performers with a strong presence both in the water and online.</p>
         <div class="intro-meta">
           <div class="intro-stat">
             <span class="intro-stat-num">50+</span>
@@ -775,8 +768,8 @@
   <footer id="site-footer">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="/Logo Stacked White.png" alt="Sirena Asia" />
-        <p class="footer-tagline">Asia's Premier Mermaid Collective — where the ocean performs.</p>
+        <img src="2.png" alt="Sirena Asia" style="max-width:420px;mix-blend-mode:screen;" />
+        <p class="footer-tagline">Asia's Premier Mermaid Collective</p>
       </div>
       <div class="footer-nav-col">
         <p class="footer-nav-heading">Explore</p>
@@ -828,33 +821,37 @@
     {
       slug: 'fan', num: '01', name: 'Mermaid Fan', flag: 'tw',
       title: 'The Happy Mermaid',
-      bio: '<b>Competition</b><br>· 2024 Asia Cup: Silver Medalist<br>· 2025 Taiwan Open: 4th Place<br>· 2026 Korea Open: 4th Place<br>· 2025 Professional mermaid performer — India Project<br><br><b>Specializations &amp; Certifications</b><br>· Performance Special Training: Advanced training for underwater performance.<br>· Fundamental Skill Training: Core technical drills and conditioning.<br>· Mersoul Taiwan: Certified MFI Mermaid Instructor, Certified AIDA Freediving Instructor',
-      skills: ['Silver Medalist 2024', 'MFI Instructor', 'AIDA Freediving', 'Performance Trainer'],
+      bio: '<b>Competition &amp; Experience</b><br>· 2024 Asia Cup: Team Silver Medalist<br>· 2025 Taiwan Open: 4th Place<br>· 2026 Korea Open: 4th Place<br>· 2025 India Project: Professional Mermaid Performer<br><br><b>Specializations &amp; Certifications</b><br>· Performance Special Training: Advanced training for underwater performance<br>· Fundamental Skill Training: Core technical drills and conditioning<br>· Mersoul Taiwan: Certified MFI Mermaid Instructor, Certified AIDA Freediving Instructor<br><br><b>Network &amp; Reach</b><br>· Instagram: 11.5K+ Followers',
+      skills: ['Asia Cup Silver 2024', 'MFI Instructor', 'AIDA Freediving', '11.5K Instagram'],
       img: 'media/performers/fan/photo1.jpg',
       media: [
         { type: 'photo', src: 'media/performers/fan/photo1.jpg' },
         { type: 'photo', src: 'media/performers/fan/photo2.jpg' },
         { type: 'photo', src: 'media/performers/fan/photo3.jpg' },
+        { type: 'photo', src: 'media/performers/fan/photo4.jpg' },
+        { type: 'photo', src: 'media/performers/fan/photo5.jpg' },
+        { type: 'photo', src: 'media/performers/fan/photo6.jpg' },
         { type: 'video', src: 'media/performers/fan/reel1.mp4.mp4' },
       ],
       contact: 'Mermaid+Fan'
     },
     {
       slug: 'ying', num: '02', name: 'Mermaid Ying', flag: 'tw',
-      bio: 'Ying is a professional freediver and certified mermaid performer with a following across TikTok and Instagram. Known for her powerful underwater presence and precise aquatic acrobatics, she brings athletic credibility and visual impact to every performance she enters.',
-      skills: ['Certified Freediver', 'TikTok Creator', 'Aquatic Acrobatics', 'Brand Ambassador'],
+      bio: '<b>Competition &amp; Experience</b><br>· Award-winning athlete — consistent top-tier performer in aquatic circuits<br>· Specialized in elite-level cinematic aquarium shows<br>· Focused on the physiology and physics of "The Spirit of Mermaiding"<br><br><b>Specializations &amp; Certifications</b><br>· Professional Certified Freediver<br>· Specialist in technical aquatic maneuvers<br>· Elite Talent Coordinator — deeply integrated into the international professional network<br><br><b>Network &amp; Reach</b><br>· Instagram: 6.9K+ Followers<br>· Elite Global Aquatic Community &amp; Talent Collective',
+      skills: ['Certified Freediver', 'Aquatic Specialist', 'Talent Coordinator', '6.9K Instagram'],
       img: 'media/performers/ying/photo1.jpg',
       media: [
         { type: 'photo', src: 'media/performers/ying/photo1.jpg' },
-        { type: 'photo', src: 'media/performers/ying/photo2.jpg' },
+        { type: 'photo', src: 'media/performers/ying/photo2.PNG' },
+        { type: 'photo', src: 'media/performers/ying/photo3.jpg' },
         { type: 'video', src: 'media/performers/ying/reel1.mp4' },
       ],
       contact: 'Mermaid+Ying'
     },
     {
       slug: 'minmin', num: '03', name: 'Mermaid Minmin', flag: 'tw',
-      bio: 'A classically trained dancer and certified mermaid performer, Minmin holds professional accreditation from recognised mermaid training organisations. She teaches mermaid swimming and performance to students across Asia, and has performed at high-profile resort properties and luxury brand events.',
-      skills: ['Certified Mermaid', 'Performance Instructor', 'Classical Dance', 'Resort Specialist'],
+      bio: '<b>Competition &amp; Experience</b><br>· Water Dance Artist — specialized in underwater choreography and flow<br>· Expert in underwater makeup and aquatic visual styling<br>· Regional Leader: Lead instructor for community activations in Southern Taiwan<br><br><b>Specializations &amp; Certifications</b><br>· Level-based instruction: Expert in guiding students from beginner to advanced<br>· Underwater Photography: Specialist in helping performers capture their best side<br>· Fluidity Training: Focus on "the water\'s embrace" and immersive movement<br><br><b>Network &amp; Reach</b><br>· Instagram: 100K+ Followers',
+      skills: ['Water Dance Artist', 'Underwater Stylist', 'Performance Instructor', '100K Instagram'],
       img: 'media/performers/minmin/photo1.jpg',
       media: [
         { type: 'photo', src: 'media/performers/minmin/photo1.jpg' },
@@ -864,8 +861,9 @@
     },
     {
       slug: 'chen', num: '04', name: 'Mermaid Chen', flag: 'tw',
-      bio: 'Chen is a certified aquatic performance specialist and one of Sirena\'s most experienced members. With a background in synchronised swimming and event production, she trains and coaches other performers while simultaneously headlining the collective\'s most ambitious productions.',
-      skills: ['Sync Swimming', 'Performance Coach', 'Certified Instructor', 'Event Director'],
+      title: 'The Princess of Atlantis',
+      bio: '<b>Competition &amp; Experience</b><br>· Former Professional Mermaid at Farglory Ocean Park Hualien<br>· Expert in Land &amp; Underwater commercial brand photography<br>· Leading TikTok Live Star in the Taiwan aquatic community<br><br><b>Specializations &amp; Certifications</b><br>· MFI MMI: Master Mermaid Instructor<br>· MFI JMI: Junior Mermaid Instructor (Children\'s Specialist)<br>· Professional experience in cinematic aquatic production &amp; creative direction<br><br><b>Network &amp; Reach</b><br>· TikTok: 130K+ Followers<br>· Instagram: 16.6K+ Followers',
+      skills: ['Master Mermaid Instructor', 'TikTok 130K', 'Instagram 16.6K', 'Brand Photography'],
       img: 'media/performers/chen/photo1.jpg',
       media: [
         { type: 'photo', src: 'media/performers/chen/photo1.jpg' },
@@ -903,8 +901,8 @@
     },
     {
       slug: 'kita', num: '07', name: 'Mermaid Kita', flag: 'tw',
-      bio: 'Kita is a certified professional mermaid and content creator whose underwater photography and performance videos have amassed hundreds of thousands of views across social platforms. She is a trained marine educator and brings mission-driven authenticity to every stage she graces.',
-      skills: ['Certified Mermaid', 'Content Creator', 'Marine Educator', 'Underwater Photographer'],
+      bio: '<b>Competition &amp; Experience</b><br>· First Taiwan Mermaid Performer in India — historical performance milestone<br>· Former Professional Mermaid at Farglory Ocean Park (TW)<br>· 2024 Taiwan Freediving Mini-Pool Competition: Women\'s Rookie Champion (1st Place)<br>· 2025 Taiwan Farglory Mermaid Competition: Top 7 Finalist<br>· 2026 Taiwan Cup Freediving Depth Competition: CWTB Open Category Silver Medalist<br>· Multi-country international aquatic performer<br><br><b>Specializations &amp; Certifications</b><br>· Dual Certified Freediving &amp; Mermaid Instructor<br>· @befish_2026: Lead educator for specialized aquatic coursework<br>· Elite level competency in both depth freediving and aesthetic performance<br><br><b>Network &amp; Reach</b><br>· Instagram: 74K+ Followers',
+      skills: ['CWTB Silver 2026', 'Freediving Instructor', 'Mermaid Instructor', '74K Instagram'],
       img: 'media/performers/kita/photo1.jpg',
       media: [
         { type: 'photo', src: 'media/performers/kita/photo1.jpg' },

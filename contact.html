@@ -38,6 +38,32 @@
     .reveal.visible { opacity:1;transform:none; }
     .d1{transition-delay:0.05s;} .d2{transition-delay:0.12s;}
 
+    /* ── PERFORMER BANNER ── */
+    #performer-banner {
+      display: none;
+      background: linear-gradient(90deg, rgba(251,113,133,0.08), rgba(34,211,238,0.05));
+      border-bottom: 1px solid rgba(251,113,133,0.15);
+      padding: 0.9rem clamp(2rem,5vw,5rem);
+      align-items: center; gap: 1rem;
+    }
+    #performer-banner.show { display: flex; }
+    .pb-label {
+      font-family: 'Outfit', sans-serif; font-size: 0.55rem; font-weight: 600;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      color: rgba(255,107,157,0.65); white-space: nowrap;
+    }
+    .pb-name {
+      font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 700;
+      color: #fff; letter-spacing: -0.01em;
+    }
+    .pb-back {
+      margin-left: auto; font-family: 'Outfit', sans-serif; font-size: 0.55rem;
+      font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(224,247,250,0.3); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .pb-back:hover { color: var(--cyan); }
+
     /* ── PAGE HEADER ── */
     .page-header { padding:9rem clamp(2rem,5vw,5rem) 5rem;text-align:center;border-bottom:1px solid rgba(251,113,133,0.08);background:linear-gradient(180deg,rgba(3,13,31,1) 0%,rgba(13,31,69,0.1) 100%);position:relative;overflow:hidden; }
     .page-header::before { content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 100%,rgba(251,113,133,0.07),transparent);pointer-events:none; }
@@ -118,7 +144,7 @@
     #site-footer { position:relative;z-index:2;background:#000814;border-top:1px solid rgba(34,211,238,0.08);padding:5rem clamp(2rem,6vw,7rem) 3rem; }
     .footer-top { display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:3rem;margin-bottom:4rem; }
     .footer-brand { display:flex;flex-direction:column;gap:1rem; }
-    .footer-brand img { height:40px;width:auto;align-self:flex-start;mix-blend-mode:screen;opacity:0.75; }
+    .footer-brand img { max-width:420px;width:auto;align-self:flex-start;mix-blend-mode:screen;opacity:0.75; }
     .footer-tagline { font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:rgba(224,247,250,0.35);line-height:1.6;max-width:220px; }
     .footer-nav-col { display:flex;flex-direction:column;gap:1.2rem; }
     .footer-nav-heading { font-family:'Outfit',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(34,211,238,0.5);margin-bottom:0.3rem; }
@@ -145,7 +171,7 @@
 
   <nav id="navbar">
     <a href="index.html">
-      <img src="/Collored Icon.png" alt="Sirena Asia" class="nav-logo" style="mix-blend-mode:screen;" />
+      <img src="1.png" alt="Sirena Asia" class="nav-logo" style="mix-blend-mode:screen;" />
     </a>
     <div id="nav-links" style="display:flex;align-items:center;gap:2rem;">
       <a href="performers.html" class="nav-link">Performers</a>
@@ -166,6 +192,13 @@
     <a href="news.html"       class="mob-link">News</a>
     <a href="shop.html"       class="mob-link">Shop</a>
     <a href="contact.html"    class="mob-link" style="color:var(--coral);">Get in Touch</a>
+  </div>
+
+  <!-- PERFORMER BANNER -->
+  <div id="performer-banner">
+    <span class="pb-label">Enquiring for</span>
+    <span class="pb-name" id="pb-name"></span>
+    <a href="javascript:history.back()" class="pb-back">← Back</a>
   </div>
 
   <!-- PAGE HEADER -->
@@ -291,8 +324,8 @@
   <footer id="site-footer">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="/Logo Stacked White.png" alt="Sirena Asia" />
-        <p class="footer-tagline">Asia's Premier Mermaid Collective — where the ocean performs.</p>
+        <img src="2.png" alt="Sirena Asia" />
+        <p class="footer-tagline">Asia's Premier Mermaid Collective</p>
       </div>
       <div class="footer-nav-col">
         <p class="footer-nav-heading">Explore</p>
@@ -333,6 +366,18 @@
   </footer>
 
   <script>
+    // Pre-fill performer from URL param
+    (function() {
+      const param = new URLSearchParams(window.location.search).get('performer');
+      if (param) {
+        const name = decodeURIComponent(param.replace(/\+/g, ' '));
+        document.getElementById('pb-name').textContent = name;
+        document.getElementById('performer-banner').classList.add('show');
+        const inp = document.getElementById('performer');
+        if (inp) inp.value = name;
+      }
+    })();
+
     // Mobile menu
     const burger = document.getElementById('burger');
     const mobileMenu = document.getElementById('mobile-menu');
