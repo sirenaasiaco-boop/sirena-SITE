@@ -618,7 +618,7 @@
       width: 100%; overflow: hidden;
       margin: 1rem 0 3rem;
     }
-    /* Gallery photo grid */
+    /* Gallery photo + video grid */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -627,6 +627,22 @@
     }
     @media (min-width: 768px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
     @media (min-width: 1024px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
+    /* Video tiles */
+    .gallery-thumb.is-video video {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: saturate(0.6) brightness(0.7);
+      transition: filter 0.55s ease, transform 0.65s cubic-bezier(0.22,1,0.36,1);
+    }
+    .gallery-thumb.is-video:hover video { filter: saturate(1.05) brightness(0.88); transform: scale(1.08); }
+    .gallery-play-badge {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 42px; height: 42px; border-radius: 50%;
+      background: rgba(0,8,20,0.55); border: 1.5px solid rgba(255,107,157,0.7);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,107,157,0.9); font-size: 1rem;
+      transition: opacity 0.3s ease; z-index: 4; pointer-events: none;
+    }
+    .gallery-thumb.is-video:hover .gallery-play-badge { opacity: 0; }
     .gallery-thumb {
       position: relative; overflow: hidden; aspect-ratio: 3/4;
       background: var(--navy); cursor: pointer;
@@ -1455,6 +1471,9 @@
 
       /* Scroll cue size */
       .s-text { font-size: 0.6rem; letter-spacing: 0.3em; }
+
+      /* Footer logo — keep compact on mobile */
+      .footer-brand img { max-width: 160px !important; }
     }
 
     @media (max-width: 400px) {
@@ -1877,6 +1896,22 @@
               <span class="gallery-view-icon">→</span>
             </div>
           </div>
+          <div class="gallery-thumb is-video rv d3" onclick="location.href='gallery.html'">
+            <video src="media/gallery/videos/reel1.mp4" muted loop playsinline preload="metadata"></video>
+            <span class="gallery-play-badge">▶</span>
+            <div class="gallery-overlay">
+              <span class="gallery-label">Reel</span>
+              <span class="gallery-view-icon">▶</span>
+            </div>
+          </div>
+          <div class="gallery-thumb is-video rv d3" onclick="location.href='gallery.html'">
+            <video src="media/gallery/videos/reel2.mp4" muted loop playsinline preload="metadata"></video>
+            <span class="gallery-play-badge">▶</span>
+            <div class="gallery-overlay">
+              <span class="gallery-label">Reel</span>
+              <span class="gallery-view-icon">▶</span>
+            </div>
+          </div>
         </div>
         <div class="gallery-cta rv d3">
           <a href="gallery.html" class="btn-outline">View Full Gallery →</a>
@@ -2204,6 +2239,16 @@
       });
     }, { threshold: 0.14 });
     revealTargets.forEach(el => revObs.observe(el));
+
+    // Gallery video tiles — play on hover, pause on leave
+    document.querySelectorAll('.gallery-thumb.is-video').forEach(tile => {
+      const v = tile.querySelector('video');
+      if (!v) return;
+      tile.addEventListener('mouseenter', () => v.play());
+      tile.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
+      // Touch: tap to toggle
+      tile.addEventListener('touchstart', () => { if (v.paused) v.play(); else { v.pause(); v.currentTime = 0; } }, { passive: true });
+    });
 
 
     /* ══════════════════════
