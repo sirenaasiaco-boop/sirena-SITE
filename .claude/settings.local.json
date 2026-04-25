@@ -3,7 +3,23 @@
     "allow": [
       "Bash(cmd //c \"python --version 2>&1\")",
       "Bash(cmd //c \"python3 --version 2>&1\")",
-      "Bash(cmd //c \"py --version 2>&1\")"
+      "Bash(cmd //c \"py --version 2>&1\")",
+      "Bash(git *)",
+      "Bash(vercel *)"
+    ]
+  },
+  "hooks": {
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"/c/Users/Blue Moon PC 1/Desktop/SIRENA WEBSITE\" && git add -A && git diff --cached --quiet || (git commit -m \"Auto-save: $(date '+%Y-%m-%d %H:%M')\" && git push)",
+            "timeout": 60,
+            "statusMessage": "Auto-committing and pushing changes..."
+          }
+        ]
+      }
     ]
   }
 }
