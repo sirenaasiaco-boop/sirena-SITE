@@ -2349,7 +2349,7 @@
         { name: 'India',       lat: 19.0, lon: 72.8  },
       ];
 
-      let pulseT = 0, scanAngle = 0;
+      let pulseT = 0;
       let rotOffset = 0;
       let isDragging = false, dragStartX = 0, lastRot = 0;
       let animRunning = false;
@@ -2365,20 +2365,20 @@
         if (!animRunning) return;
         ctx.clearRect(0, 0, W, H);
 
-        // ── Deep ocean background ──
-        const bg = ctx.createRadialGradient(cx - R * 0.28, cy - R * 0.32, R * 0.04, cx, cy, R);
-        bg.addColorStop(0,   '#0a2040');
-        bg.addColorStop(0.5, '#040f24');
-        bg.addColorStop(1,   '#010508');
+        // ── Realistic ocean ──
+        const bg = ctx.createRadialGradient(cx - R * 0.3, cy - R * 0.32, R * 0.05, cx, cy, R);
+        bg.addColorStop(0,    '#2e7cb5');
+        bg.addColorStop(0.35, '#1a5a8a');
+        bg.addColorStop(0.7,  '#0d3d66');
+        bg.addColorStop(1,    '#051e36');
         ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2);
         ctx.fillStyle = bg; ctx.fill();
 
-        // ── Tactical grid — latitude lines ──
-        for (let lat = -75; lat <= 75; lat += 15) {
-          const isEquator = lat === 0;
+        // ── Subtle lat/lon grid (natural globe lines) ──
+        for (let lat = -60; lat <= 60; lat += 30) {
           ctx.beginPath();
-          ctx.strokeStyle = isEquator ? 'rgba(0,188,212,0.20)' : 'rgba(0,188,212,0.07)';
-          ctx.lineWidth = isEquator ? 0.8 : 0.4;
+          ctx.strokeStyle = lat === 0 ? 'rgba(255,255,255,0.13)' : 'rgba(255,255,255,0.055)';
+          ctx.lineWidth = lat === 0 ? 0.7 : 0.35;
           let first = true;
           for (let lon = -180; lon <= 180; lon += 2) {
             const p = project(lat, lon + rotOffset);
@@ -2388,11 +2388,10 @@
           }
           ctx.stroke();
         }
-        // ── Tactical grid — longitude lines ──
-        for (let lon = 0; lon < 360; lon += 15) {
+        for (let lon = 0; lon < 360; lon += 30) {
           ctx.beginPath();
-          ctx.strokeStyle = 'rgba(0,188,212,0.07)';
-          ctx.lineWidth = 0.4;
+          ctx.strokeStyle = 'rgba(255,255,255,0.055)';
+          ctx.lineWidth = 0.35;
           let first = true;
           for (let lat = -80; lat <= 80; lat += 2) {
             const p = project(lat, lon + rotOffset);
@@ -2403,7 +2402,7 @@
           ctx.stroke();
         }
 
-        // ── Land masses ──
+        // ── Land masses (realistic green) ──
         lands.forEach(poly => {
           const pts = poly.map(([la, lo]) => project(la, lo + rotOffset)).filter(Boolean);
           if (pts.length < 3) return;
@@ -2411,48 +2410,34 @@
           ctx.moveTo(pts[0].x, pts[0].y);
           pts.slice(1).forEach(p => ctx.lineTo(p.x, p.y));
           ctx.closePath();
-          ctx.fillStyle   = 'rgba(0,210,228,0.32)';
-          ctx.strokeStyle = 'rgba(34,211,238,0.75)';
-          ctx.lineWidth   = 1.2;
+          ctx.fillStyle   = 'rgba(72, 115, 50, 0.92)';
+          ctx.strokeStyle = 'rgba(52, 88, 36, 0.85)';
+          ctx.lineWidth   = 0.7;
           ctx.fill(); ctx.stroke();
         });
 
-        // ── Radar sweep ──
-        ctx.save();
-        ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.clip();
-        ctx.translate(cx, cy);
-        const sweepSpan = Math.PI / 5;
-        const steps = 32;
-        for (let i = 0; i < steps; i++) {
-          const a = scanAngle - (i / steps) * sweepSpan;
-          ctx.beginPath();
-          ctx.moveTo(0, 0);
-          ctx.arc(0, 0, R, a, a + sweepSpan / steps);
-          ctx.lineTo(0, 0);
-          ctx.fillStyle = `rgba(0,188,212,${0.06 * (1 - i / steps)})`;
-          ctx.fill();
-        }
-        ctx.beginPath();
-        ctx.moveTo(0, 0);
-        ctx.lineTo(R * Math.cos(scanAngle), R * Math.sin(scanAngle));
-        ctx.strokeStyle = 'rgba(0,229,255,0.55)';
-        ctx.lineWidth = 1;
-        ctx.stroke();
-        ctx.restore();
+        // ── Sunlight shading overlay ──
+        const light = ctx.createRadialGradient(cx - R * 0.32, cy - R * 0.32, 0, cx, cy, R);
+        light.addColorStop(0,   'rgba(255,248,220,0.16)');
+        light.addColorStop(0.45,'transparent');
+        light.addColorStop(1,   'rgba(0,5,20,0.42)');
+        ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2);
+        ctx.fillStyle = light; ctx.fill();
 
-        // ── Atmosphere rim ──
-        const atmos = ctx.createRadialGradient(cx, cy, R - 4, cx, cy, R + 10);
-        atmos.addColorStop(0, 'rgba(0,188,212,0.22)');
-        atmos.addColorStop(1, 'transparent');
-        ctx.beginPath(); ctx.arc(cx, cy, R + 10, 0, Math.PI * 2);
+        // ── Atmosphere glow (sky blue) ──
+        const atmos = ctx.createRadialGradient(cx, cy, R - 5, cx, cy, R + 16);
+        atmos.addColorStop(0,   'rgba(100,185,255,0.32)');
+        atmos.addColorStop(0.45,'rgba(70,145,230,0.10)');
+        atmos.addColorStop(1,   'transparent');
+        ctx.beginPath(); ctx.arc(cx, cy, R + 16, 0, Math.PI * 2);
         ctx.fillStyle = atmos; ctx.fill();
 
-        // ── Globe ring ──
+        // ── Globe rim ──
         ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2);
-        ctx.strokeStyle = 'rgba(0,188,212,0.38)';
-        ctx.lineWidth = 1.5; ctx.stroke();
+        ctx.strokeStyle = 'rgba(120,190,255,0.28)';
+        ctx.lineWidth = 1; ctx.stroke();
 
-        // ── Sirena logo markers ──
+        // ── Location markers ──
         pulseT += 0.04;
         locations.forEach((loc, i) => {
           const p = project(loc.lat, loc.lon + rotOffset);
@@ -2460,57 +2445,42 @@
           const pulse = (Math.sin(pulseT + i * 1.3) + 1) / 2;
           const iconR = 12;
 
-          // Coral glow rings
+          // Soft glow rings
           [22, 15].forEach((r, ri) => {
             ctx.beginPath();
             ctx.arc(p.x, p.y, r + pulse * (ri === 0 ? 7 : 4), 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(255,107,157,${[0.04, 0.08][ri] + pulse * 0.05})`;
+            ctx.fillStyle = `rgba(255,107,157,${[0.04, 0.09][ri] + pulse * 0.05})`;
             ctx.fill();
           });
 
-          // Sirena icon clipped to circle
+          // Sirena icon
           if (iconReady) {
             ctx.save();
             ctx.beginPath(); ctx.arc(p.x, p.y, iconR, 0, Math.PI * 2); ctx.clip();
             ctx.drawImage(markerIcon, p.x - iconR, p.y - iconR, iconR * 2, iconR * 2);
             ctx.restore();
-            // Icon border ring
             ctx.beginPath(); ctx.arc(p.x, p.y, iconR, 0, Math.PI * 2);
             ctx.strokeStyle = `rgba(255,107,157,${0.65 + pulse * 0.35})`;
             ctx.lineWidth = 1.8; ctx.stroke();
-            // Outer tactical ring
             ctx.beginPath(); ctx.arc(p.x, p.y, iconR + 4 + pulse * 2, 0, Math.PI * 2);
-            ctx.strokeStyle = `rgba(0,229,255,${0.2 + pulse * 0.2})`;
+            ctx.strokeStyle = `rgba(255,200,220,${0.18 + pulse * 0.15})`;
             ctx.lineWidth = 0.8; ctx.stroke();
           } else {
-            // Fallback
             ctx.beginPath(); ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
             ctx.fillStyle = '#ff6b9d'; ctx.fill();
           }
 
-          // Location name
+          // Location label
           ctx.save();
           ctx.font = '600 6px "Outfit", sans-serif';
-          ctx.fillStyle = `rgba(200,240,250,${0.55 + pulse * 0.35})`;
+          ctx.fillStyle = `rgba(255,255,255,${0.72 + pulse * 0.28})`;
           ctx.textAlign = 'center';
-          ctx.shadowColor = 'rgba(0,188,212,0.6)';
-          ctx.shadowBlur = 4;
+          ctx.shadowColor = 'rgba(0,0,0,0.9)';
+          ctx.shadowBlur = 3;
           ctx.fillText(loc.name.toUpperCase(), p.x, p.y + iconR + 9);
           ctx.restore();
         });
 
-        // ── HUD corner brackets (diagonal positions inside globe) ──
-        const blen = 13;
-        [[-0.707,-0.707],[0.707,-0.707],[-0.707,0.707],[0.707,0.707]].forEach(([nx, ny]) => {
-          const bx = cx + nx * (R - 10);
-          const by = cy + ny * (R - 10);
-          ctx.strokeStyle = 'rgba(0,229,255,0.4)';
-          ctx.lineWidth = 1.5;
-          ctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(bx + nx * blen, by); ctx.stroke();
-          ctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(bx, by + ny * blen); ctx.stroke();
-        });
-
-        scanAngle += 0.007;
         if (!isDragging) rotOffset += 0.04;
         requestAnimationFrame(drawGlobe);
       }
