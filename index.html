@@ -3,7 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sirena Asia</title>
+  <title>Sirena Asia — Asia's Premier Mermaid Performance Collective</title>
+  <meta name="description" content="Sirena Asia is Asia's premier mermaid performance collective. Elite mermaid performers for events, activations, resorts, and brand campaigns across Southeast Asia." />
+  <meta name="keywords" content="mermaid performer Asia, mermaid show, mermaid hire, Sirena Asia, mermaid event Philippines Taiwan Indonesia Malaysia" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://sirenaasia.com/" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sirenaasia.com/" />
+  <meta property="og:title" content="Sirena Asia — Asia's Premier Mermaid Performance Collective" />
+  <meta property="og:description" content="Elite mermaid performers for events, activations, resorts, and brand campaigns across Southeast Asia." />
+  <meta property="og:image" content="https://sirenaasia.com/media/gallery/photos/shows/DSC01877.jpg" />
+  <meta property="og:site_name" content="Sirena Asia" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sirena Asia — Asia's Premier Mermaid Performance Collective" />
+  <meta name="twitter:description" content="Elite mermaid performers for events, activations, resorts, and brand campaigns across Southeast Asia." />
+  <meta name="twitter:image" content="https://sirenaasia.com/media/gallery/photos/shows/DSC01877.jpg" />
+  <!-- JSON-LD -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Sirena Asia","description":"Asia's Premier Mermaid Performance Collective","url":"https://sirenaasia.com","logo":"https://sirenaasia.com/Logo Stacked Colored.png","email":"sirenaasia.co@gmail.com","areaServed":["Philippines","Taiwan","Indonesia","Malaysia","India"],"sameAs":["https://instagram.com/sirenaasia.co","https://facebook.com/sirenaasia.co","https://tiktok.com/@sirenaasia.co"]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,400&family=Outfit:wght@300;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
@@ -1403,6 +1421,45 @@
     /* Touch device — pause-state shows info */
     @media (hover: none) {
       .flip-card.playing .rv-photo { filter: brightness(0.45) saturate(0.7); }
+    }
+
+    /* ═══════════════════════════════════════
+       MOBILE POLISH
+    ═══════════════════════════════════════ */
+    @media (max-width: 600px) {
+      /* Globe — scale down canvas display to fit screen */
+      #globe-canvas { width: 300px !important; height: 300px !important; }
+      .globe-legend { gap: 0.75rem; }
+      .globe-loc { font-size: 0.58rem; }
+
+      /* Event diptych — stack on very small screens */
+      .event-diptych { grid-template-columns: 1fr; }
+
+      /* Latest Tides section padding */
+      .ns-news, .ns-shop { padding: 3rem 1.25rem; }
+
+      /* Contact section text */
+      .contact-big { font-size: clamp(2.2rem, 10vw, 4rem); }
+
+      /* Rising tides flip cards — touch friendly */
+      .flip-card { flex: 0 0 220px; }
+
+      /* Gallery grid on homepage — ensure first card doesn't dominate too much */
+      .gallery-thumb:first-child { aspect-ratio: 4/3; }
+
+      /* Music player safe-area on notched phones */
+      #music-player { bottom: env(safe-area-inset-bottom, 1.2rem); right: 1rem; }
+
+      /* Offer cards full width */
+      .offer-card { flex: 0 0 85vw; }
+
+      /* Scroll cue size */
+      .s-text { font-size: 0.6rem; letter-spacing: 0.3em; }
+    }
+
+    @media (max-width: 400px) {
+      #globe-canvas { width: 260px !important; height: 260px !important; }
+      .event-diptych { grid-template-columns: 1fr; }
     }
   </style>
 </head>
