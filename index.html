@@ -604,32 +604,60 @@
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.6rem;
-      padding: 0 clamp(1.5rem, 5vw, 5rem) clamp(4rem, 8vw, 7rem);
+      gap: 3px;
+      padding: 0 0 clamp(4rem, 8vw, 7rem);
     }
     @media (min-width: 768px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
     @media (min-width: 1024px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
     .gallery-thumb {
       position: relative; overflow: hidden; aspect-ratio: 3/4;
-      background: var(--navy);
+      background: var(--navy); cursor: pointer;
     }
+    .gallery-thumb:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
     .gallery-thumb img {
       width: 100%; height: 100%; object-fit: cover; display: block;
-      filter: saturate(0.7) brightness(0.75);
-      transition: filter 0.4s, transform 0.5s cubic-bezier(0.22,1,0.36,1);
+      filter: saturate(0.6) brightness(0.7);
+      transition: filter 0.55s ease, transform 0.65s cubic-bezier(0.22,1,0.36,1);
     }
-    .gallery-thumb:hover img { filter: saturate(1) brightness(0.9); transform: scale(1.06); }
-    .gallery-thumb:first-child {
-      grid-column: span 2; grid-row: span 2; aspect-ratio: auto;
+    .gallery-thumb:hover img { filter: saturate(1.05) brightness(0.88); transform: scale(1.08); }
+    /* Hover overlay */
+    .gallery-thumb::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(160deg, rgba(255,107,157,0.18) 0%, rgba(0,188,212,0.08) 100%);
+      opacity: 0; transition: opacity 0.4s ease;
     }
+    .gallery-thumb:hover::before { opacity: 1; }
+    /* Glow border on hover */
+    .gallery-thumb::after {
+      content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+      box-shadow: inset 0 0 0 1.5px rgba(255,107,157,0);
+      transition: box-shadow 0.35s ease;
+    }
+    .gallery-thumb:hover::after { box-shadow: inset 0 0 0 1.5px rgba(255,107,157,0.55); }
+    /* Label + view icon */
+    .gallery-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
+      padding: 2.5rem 1rem 1rem;
+      background: linear-gradient(0deg, rgba(0,5,18,0.92) 0%, transparent 100%);
+      display: flex; align-items: flex-end; justify-content: space-between;
+      transform: translateY(6px); opacity: 0;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .gallery-thumb:hover .gallery-overlay { opacity: 1; transform: translateY(0); }
     .gallery-label {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 0.7rem 0.9rem;
-      background: linear-gradient(0deg, rgba(0,8,20,0.9) 0%, transparent 100%);
-      font-family: 'Fraunces', serif; font-size: 0.58rem;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: rgba(232,244,248,0.55);
+      font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(232,244,248,0.75);
     }
+    .gallery-view-icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 1px solid rgba(255,107,157,0.55);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,107,157,0.9); font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+    /* Number badge on large first card */
+    .gallery-thumb:first-child .gallery-label { font-size: 0.72rem; }
     .gallery-cta {
       text-align: center;
       padding: 0 0 clamp(4rem, 8vw, 7rem);
@@ -1756,26 +1784,41 @@
         </div>
 
         <!-- Photo grid -->
-        <div class="gallery-grid">
-          <div class="gallery-thumb rv d1">
+        <div class="gallery-grid" id="home-gallery-grid">
+          <div class="gallery-thumb rv d1" onclick="location.href='gallery.html'">
             <img src="media/gallery/photos/events/1.jpg" alt="Performance" loading="lazy" />
-            <span class="gallery-label">Performance</span>
+            <div class="gallery-overlay">
+              <span class="gallery-label">Performance</span>
+              <span class="gallery-view-icon">→</span>
+            </div>
           </div>
-          <div class="gallery-thumb rv d2">
-            <img src="media/gallery/photos/Gig/2.jpg" alt="Show" loading="lazy" />
-            <span class="gallery-label">Show</span>
+          <div class="gallery-thumb rv d2" onclick="location.href='gallery.html'">
+            <img src="media/gallery/photos/Gig/2.jpg" alt="Gig" loading="lazy" />
+            <div class="gallery-overlay">
+              <span class="gallery-label">Gig</span>
+              <span class="gallery-view-icon">→</span>
+            </div>
           </div>
-          <div class="gallery-thumb rv d2">
-            <img src="media/gallery/photos/Gig/3.jpg" alt="Underwater" loading="lazy" />
-            <span class="gallery-label">Underwater</span>
+          <div class="gallery-thumb rv d2" onclick="location.href='gallery.html'">
+            <img src="media/gallery/photos/Gig/3.jpg" alt="Gig" loading="lazy" />
+            <div class="gallery-overlay">
+              <span class="gallery-label">Gig</span>
+              <span class="gallery-view-icon">→</span>
+            </div>
           </div>
-          <div class="gallery-thumb rv d3">
-            <img src="media/gallery/photos/Gig/4.jpg" alt="Training" loading="lazy" />
-            <span class="gallery-label">Training</span>
+          <div class="gallery-thumb rv d3" onclick="location.href='gallery.html'">
+            <img src="media/gallery/photos/Gig/4.jpg" alt="Gig" loading="lazy" />
+            <div class="gallery-overlay">
+              <span class="gallery-label">Gig</span>
+              <span class="gallery-view-icon">→</span>
+            </div>
           </div>
-          <div class="gallery-thumb rv d3">
+          <div class="gallery-thumb rv d3" onclick="location.href='gallery.html'">
             <img src="media/gallery/photos/events/5.jpg" alt="Event" loading="lazy" />
-            <span class="gallery-label">Event</span>
+            <div class="gallery-overlay">
+              <span class="gallery-label">Event</span>
+              <span class="gallery-view-icon">→</span>
+            </div>
           </div>
         </div>
         <div class="gallery-cta rv d3">
