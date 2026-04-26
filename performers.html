@@ -550,6 +550,60 @@
     #chat-send:hover { color:var(--cyan); background:rgba(34,211,238,0.05); }
     #chat-send svg { width:15px; height:15px; }
 
+    /* ─── RISING TIDES CARDS ─── */
+    #rising-section {
+      padding: 4rem clamp(1.5rem,6vw,7rem) 5rem;
+      background: linear-gradient(180deg, #000d26 0%, #000814 100%);
+    }
+    .rising-header {
+      display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2.5rem;
+    }
+    .rising-label {
+      font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,107,157,0.6);
+    }
+    .rising-title {
+      font-family: 'Cinzel', serif; font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 600; color: rgba(224,247,250,0.85); letter-spacing: 0.05em;
+    }
+    .rising-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1.2rem;
+    }
+    .rt-card {
+      position: relative; border-radius: 10px; overflow: hidden;
+      aspect-ratio: 3/4;
+      background: #001a4d;
+      border: 1px solid rgba(34,211,238,0.1);
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .rt-card:hover { border-color: rgba(34,211,238,0.35); transform: translateY(-3px); }
+    .rt-card img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: brightness(0.75) saturate(0.85);
+      transition: filter 0.35s;
+    }
+    .rt-card:hover img { filter: brightness(0.9) saturate(1); }
+    .rt-card-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 2rem 0.85rem 0.85rem;
+      background: linear-gradient(0deg, rgba(0,13,38,0.95) 0%, transparent 100%);
+    }
+    .rt-card-flag { margin-bottom: 0.3rem; }
+    .rt-card-name {
+      font-family: 'Cinzel', serif; font-size: 0.72rem; font-weight: 600;
+      color: rgba(224,247,250,0.92); letter-spacing: 0.05em; line-height: 1.3;
+    }
+    .rt-card-tag {
+      font-family: 'Outfit', sans-serif; font-size: 0.55rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(34,211,238,0.6); margin-top: 0.2rem;
+    }
+    @media(max-width:600px) {
+      .rising-grid { grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
+    }
+
     /* ─── FOOTER ─── */
     #site-footer { position:relative;z-index:2;background:#000814;border-top:1px solid rgba(34,211,238,0.08);padding:5rem clamp(2rem,6vw,7rem) 3rem; }
     .footer-top { display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:3rem;margin-bottom:4rem; }
@@ -780,6 +834,53 @@
     </div><!-- /.inq-layout -->
   </section>
 
+  <!-- ═══ RISING TIDES ═══ -->
+  <section id="rising-section">
+    <div class="rising-header rv d1">
+      <span class="rising-label">Rising Tides</span>
+      <span class="rising-title">The Next Wave</span>
+    </div>
+    <div class="rising-grid">
+
+      <div class="rt-card rv d1">
+        <img src="media/performers/rising/shinta/photo1.jpg" alt="Mermaid Shinta" onerror="this.style.display='none'" />
+        <div class="rt-card-overlay">
+          <div class="rt-card-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg></div>
+          <div class="rt-card-name">Mermaid Shinta</div>
+          <div class="rt-card-tag">Indonesia</div>
+        </div>
+      </div>
+
+      <div class="rt-card rv d2">
+        <img src="media/performers/rising/thia/photo1.jpg" alt="Mermaid Thia" onerror="this.style.display='none'" />
+        <div class="rt-card-overlay">
+          <div class="rt-card-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg></div>
+          <div class="rt-card-name">Mermaid Thia</div>
+          <div class="rt-card-tag">Indonesia</div>
+        </div>
+      </div>
+
+      <div class="rt-card rv d3">
+        <img src="media/performers/rising/indah/photo1.jpg" alt="Mermaid Indah" onerror="this.style.display='none'" />
+        <div class="rt-card-overlay">
+          <div class="rt-card-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg></div>
+          <div class="rt-card-name">Mermaid Indah</div>
+          <div class="rt-card-tag">Indonesia</div>
+        </div>
+      </div>
+
+      <div class="rt-card rv d4">
+        <img src="media/performers/rising/anel/photo1.jpg" alt="Mermaid Anel" onerror="this.style.display='none'" />
+        <div class="rt-card-overlay">
+          <div class="rt-card-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg></div>
+          <div class="rt-card-name">Mermaid Anel</div>
+          <div class="rt-card-tag">Indonesia</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ═══ FOOTER ═══ -->
   <footer id="site-footer">
     <div class="footer-top">
@@ -926,49 +1027,6 @@
         { type: 'photo', src: 'media/performers/kita/photo4.jpg' },
       ],
       contact: 'Mermaid+Kita'
-    },
-    /* ── RISING TIDES ── */
-    {
-      slug: 'shinta', num: '08', name: 'Mermaid Shinta', flag: 'id',
-      bio: '<b>Rising Tide — Indonesia</b>Shinta brings raw grace and island spirit to every performance. Trained in breath-hold disciplines, she moves through water with an effortless fluidity that belies her young career.<br><br><b>Competitions</b>Competitive freediver with regional podium finishes. Actively training for international circuits.<br><br><b>Performance</b>Resort pool shows, brand activations, underwater editorial shoots.',
-      skills: ['Freediver', 'Mermaid Performer', 'Resort Shows', 'Indonesia'],
-      img: 'media/performers/rising/shinta/photo1.jpg',
-      media: [
-        { type: 'photo', src: 'media/performers/rising/shinta/photo1.jpg' },
-      ],
-      contact: 'Mermaid+Shinta'
-    },
-    {
-      slug: 'thia', num: '09', name: 'Mermaid Thia', flag: 'id',
-      bio: '<b>Rising Tide — Indonesia</b>Thia is a dynamic performer whose energy lights up any stage. She combines competitive freediving with expressive underwater artistry for unforgettable shows.<br><br><b>Competitions</b>Active competitor in regional freediving events. Training toward national-level certification.<br><br><b>Performance</b>Live events, children\'s shows, corporate brand activations.',
-      skills: ['Freediver', 'Mermaid Performer', 'Live Events', 'Indonesia'],
-      img: 'media/performers/rising/thia/photo1.jpg',
-      media: [
-        { type: 'photo', src: 'media/performers/rising/thia/photo1.jpg' },
-        { type: 'video', src: 'media/performers/rising/thia/reel1.mp4' },
-      ],
-      contact: 'Mermaid+Thia'
-    },
-    {
-      slug: 'indah', num: '10', name: 'Mermaid Indah', flag: 'id',
-      bio: '<b>Rising Tide — Indonesia</b>Indah embodies the spirit of the Indonesian seas — warm, powerful, and endlessly expressive. Her connection to water is instinctive, shaped by years of coastal living and dedicated training.<br><br><b>Competitions</b>Regional freediving competitor. Pursuing advanced mermaid performance certifications.<br><br><b>Performance</b>Resort and hotel shows, cultural events, underwater photo and video productions.',
-      skills: ['Freediver', 'Mermaid Performer', 'Underwater Production', 'Indonesia'],
-      img: 'media/performers/rising/indah/photo1.jpg',
-      media: [
-        { type: 'photo', src: 'media/performers/rising/indah/photo1.jpg' },
-        { type: 'video', src: 'media/performers/rising/indah/reel2.mp4' },
-      ],
-      contact: 'Mermaid+Indah'
-    },
-    {
-      slug: 'anel', num: '11', name: 'Mermaid Anel', flag: 'id',
-      bio: '<b>Rising Tide — Indonesia</b>Anel is a spirited performer who carries the energy of the coral reefs in every dive. Her performances are vivid, soulful, and deeply connected to the ocean she calls home.<br><br><b>Training</b>Certified freediver and mermaid instructor-in-training. Focused on building an international performance career.<br><br><b>Performance</b>Pool shows, resort activations, underwater shoots, youth workshops.',
-      skills: ['Freediver', 'Mermaid Performer', 'Youth Workshops', 'Indonesia'],
-      img: 'media/performers/rising/anel/photo1.jpg',
-      media: [
-        { type: 'photo', src: 'media/performers/rising/anel/photo1.jpg' },
-      ],
-      contact: 'Mermaid+Anel'
     },
   ];
 
