@@ -99,37 +99,29 @@
     #mag-section {
       padding: 4rem 0 6rem;
       position: relative;
+      z-index: 5;
       background: rgba(255,255,255,0.03);
       border-top: 1px solid rgba(34,211,238,0.06);
       border-bottom: 1px solid rgba(34,211,238,0.06);
     }
 
     .mag-outer {
-      max-width: 980px; margin: 0 auto;
-      padding: 0 clamp(1.5rem, 4vw, 4rem);
+      max-width: min(1100px, 96vw); margin: 0 auto;
+      padding: 0 clamp(1rem, 3vw, 3rem);
     }
 
-    /* Perspective stage */
-    .mag-book-wrap {
-      perspective: 1400px;
-      perspective-origin: 50% 38%;
-    }
-
-    /* Static tilt layer — no movement */
-    .mag-tilt-wrap {
-      transform-style: preserve-3d;
-      transform: rotateX(4deg);
-    }
+    .mag-book-wrap { perspective: none; }
+    .mag-tilt-wrap { transform: none; }
 
     .mag-spread {
       display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      height: clamp(480px, 60vh, 680px);
+      grid-template-columns: 1fr 1.15fr;
+      height: auto;
+      min-height: clamp(500px, 70vh, 760px);
       position: relative;
       box-shadow:
         0 40px 120px rgba(0,0,0,0.9),
         0 16px 48px rgba(0,0,0,0.6);
-      transform-style: preserve-3d;
       transition: box-shadow 0.5s ease;
     }
 
@@ -201,117 +193,132 @@
       writing-mode:vertical-rl; text-orientation:mixed;
     }
 
-    /* RIGHT PAGE — content */
+    /* RIGHT PAGE — white editorial */
     .mag-page-r {
       position:relative;
-      background: rgba(4,11,28,0.99);
+      background: #f5f6fa;
       padding: clamp(2rem,3.5vw,3.2rem) clamp(1.8rem,3vw,3rem) clamp(1.8rem,3vw,2.8rem);
-      display:flex; flex-direction:column; justify-content:center;
+      display:flex; flex-direction:column; justify-content:flex-start;
+      overflow-y: auto;
     }
     /* Book spine shadow on right page */
     .mag-spine {
-      position:absolute; left:0; top:0; bottom:0; width:28px; pointer-events:none; z-index:2;
-      background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 40%, transparent 100%);
+      position:absolute; left:0; top:0; bottom:0; width:24px; pointer-events:none; z-index:2;
+      background: linear-gradient(to right, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.04) 50%, transparent 100%);
     }
 
-    /* Content typography */
+    /* Content typography — white page */
     .mag-issue-row {
       display:flex; align-items:center; gap:0.85rem;
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.6rem;
     }
     .mag-issue-num {
       font-family:'Fraunces',serif; font-size:3.5rem; font-weight:900;
-      color:rgba(34,211,238,0.06); line-height:1; letter-spacing:-0.04em;
+      color:rgba(0,30,80,0.06); line-height:1; letter-spacing:-0.04em;
       flex-shrink:0;
     }
     .mag-issue-meta { display:flex; flex-direction:column; gap:0.2rem; }
     .mag-issue-label {
-      font-family:'Outfit',sans-serif; font-size:0.52rem; font-weight:600;
+      font-family:'Outfit',sans-serif; font-size:0.52rem; font-weight:700;
       letter-spacing:0.28em; text-transform:uppercase;
-      color:rgba(34,211,238,0.38);
+      color:rgba(0,188,212,0.85);
     }
     .mag-issue-line {
-      width:100%; height:1px; background:rgba(34,211,238,0.1);
+      width:100%; height:1px; background:rgba(0,100,150,0.12);
     }
     .mag-name {
       font-family:'Fraunces',serif;
       font-size:clamp(2rem,4.2vw,3.6rem);
-      font-weight:900; letter-spacing:-0.03em; color:#fff; line-height:0.9;
+      font-weight:900; letter-spacing:-0.03em; color:#08142e; line-height:0.9;
       margin-bottom:0.55rem;
     }
     .mag-performer-title {
       font-family:'Cormorant Garamond',serif; font-style:italic;
-      font-size:0.88rem; color:rgba(34,211,238,0.6);
+      font-size:0.92rem; color:rgba(0,150,180,0.8);
       margin:-0.25rem 0 0.65rem; letter-spacing:0.04em;
     }
     .mag-divider {
-      width:32px; height:1px; background:rgba(251,113,133,0.55);
-      margin-bottom:1.3rem;
+      width:36px; height:2px; background:var(--coral);
+      margin-bottom:1.2rem;
     }
+    .mag-bio-scroll {
+      flex: 1; overflow-y: auto; padding-right: 6px; margin-bottom: 1.2rem;
+      max-height: clamp(200px, 32vh, 340px);
+      scrollbar-width: thin; scrollbar-color: rgba(0,100,150,0.2) transparent;
+    }
+    .mag-bio-scroll::-webkit-scrollbar { width: 3px; }
+    .mag-bio-scroll::-webkit-scrollbar-thumb { background: rgba(0,100,150,0.2); border-radius: 2px; }
     .mag-bio {
-      font-family:'Cormorant Garamond',serif; font-size:clamp(0.88rem,1.3vw,1.02rem);
-      line-height:1.85; color:rgba(224,247,250,0.6);
-      margin-bottom:1.6rem; flex:1;
+      font-family:'Outfit',sans-serif; font-size:clamp(0.82rem,1.1vw,0.92rem);
+      line-height:1.9; color:#2a3a5c;
     }
-    .mag-bio b { color:rgba(34,211,238,0.75); font-weight:600; font-style:normal; }
-    .mag-skills { display:flex; flex-wrap:wrap; gap:0.38rem; margin-bottom:1.8rem; }
+    .mag-bio b {
+      font-family:'Outfit',sans-serif; color:#ff6b9d; font-weight:700;
+      font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; font-style:normal;
+      display:block; margin-top:0.9rem; margin-bottom:0.25rem;
+    }
+    .mag-skills { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.4rem; }
     .mag-skill {
-      font-family:'Outfit',sans-serif; font-size:0.5rem; font-weight:500;
-      letter-spacing:0.14em; text-transform:uppercase;
-      color:rgba(34,211,238,0.58); border:1px solid rgba(34,211,238,0.14);
-      padding:0.23rem 0.62rem;
+      font-family:'Outfit',sans-serif; font-size:0.55rem; font-weight:600;
+      letter-spacing:0.1em; text-transform:uppercase;
+      color:#0d2a5a; background:rgba(0,30,90,0.06);
+      border:1px solid rgba(0,30,90,0.16);
+      padding:0.3rem 0.8rem; border-radius:2px;
     }
     .mag-cta {
       align-self:flex-start;
-      font-family:'Outfit',sans-serif; font-size:0.6rem; font-weight:600;
-      letter-spacing:0.22em; text-transform:uppercase;
-      color:var(--navy-deep); background:var(--cyan);
-      padding:0.75rem 1.9rem; text-decoration:none; display:inline-block;
-      transition:background 0.2s, transform 0.15s;
+      font-family:'Outfit',sans-serif; font-size:0.7rem; font-weight:700;
+      letter-spacing:0.18em; text-transform:uppercase;
+      color:#fff; background:var(--coral);
+      padding:0.95rem 2.2rem; text-decoration:none; display:inline-block;
+      box-shadow:0 4px 20px rgba(251,113,133,0.4);
+      transition:background 0.2s, transform 0.15s, box-shadow 0.2s;
     }
-    .mag-cta:hover { background:var(--cyan-glow); transform:translateY(-2px); }
+    .mag-cta:hover { background:#ff7096; transform:translateY(-2px); box-shadow:0 8px 30px rgba(251,113,133,0.55); }
 
     /* ─── SIDE NAV ARROWS (on the spread) ─── */
     .mag-side-arrow {
       position:absolute; top:50%; transform:translateY(-50%);
-      z-index:10; background:rgba(0,13,31,0.55);
-      border:1px solid rgba(34,211,238,0.25); color:rgba(34,211,238,0.85);
-      width:42px; height:42px; border-radius:50%;
+      z-index:10; background:rgba(3,13,31,0.88);
+      border:1.5px solid rgba(34,211,238,0.45); color:var(--cyan);
+      width:52px; height:52px; border-radius:50%;
       display:flex; align-items:center; justify-content:center;
-      cursor:pointer; font-size:1.2rem; line-height:1;
-      transition:background 0.2s, border-color 0.2s, opacity 0.2s;
-      backdrop-filter:blur(6px);
+      cursor:pointer; font-size:1.7rem; line-height:1;
+      transition:background 0.2s, border-color 0.2s, color 0.2s, opacity 0.2s;
+      backdrop-filter:blur(8px);
+      box-shadow:0 4px 20px rgba(0,0,0,0.5);
     }
-    .mag-side-arrow:hover { background:rgba(34,211,238,0.12); border-color:rgba(34,211,238,0.6); }
-    .mag-side-arrow:disabled { opacity:0.15; cursor:not-allowed; pointer-events:none; }
-    .mag-side-arrow-prev { left:-21px; }
-    .mag-side-arrow-next { right:-21px; }
+    .mag-side-arrow:hover { background:var(--cyan); border-color:var(--cyan); color:#000814; }
+    .mag-side-arrow:disabled { opacity:0.12; cursor:not-allowed; pointer-events:none; }
+    .mag-side-arrow-prev { left:-26px; }
+    .mag-side-arrow-next { right:-26px; }
     @media(max-width:768px) { .mag-side-arrow { display:none; } }
 
     /* ─── MAGAZINE NAVIGATION ─── */
     .mag-nav {
       display:flex; align-items:center; justify-content:space-between;
-      padding: 1.6rem 0 0;
+      padding: 1.8rem 0 0;
       gap: 1rem;
     }
     .mag-arrow-btn {
-      font-family:'Outfit',sans-serif; font-size:0.58rem; font-weight:500;
-      letter-spacing:0.16em; text-transform:uppercase;
-      color:rgba(34,211,238,0.8); background:rgba(34,211,238,0.04);
-      border:1px solid rgba(34,211,238,0.3);
-      padding:0.65rem 1.6rem; cursor:pointer;
-      display:flex; align-items:center; gap:0.55rem;
-      transition:border-color 0.2s,color 0.2s,background 0.2s;
+      font-family:'Outfit',sans-serif; font-size:0.68rem; font-weight:700;
+      letter-spacing:0.14em; text-transform:uppercase;
+      color:#fff; background:rgba(34,211,238,0.12);
+      border:1.5px solid rgba(34,211,238,0.5);
+      padding:0.95rem 2rem; cursor:pointer; min-width:130px;
+      display:flex; align-items:center; justify-content:center; gap:0.6rem;
+      transition:background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
     }
-    .mag-arrow-btn:hover { border-color:var(--cyan); color:var(--cyan-glow); background:rgba(34,211,238,0.05); }
-    .mag-arrow-btn:disabled { opacity:0.18; cursor:not-allowed; pointer-events:none; }
-    .mag-dots-row { display:flex; gap:0.55rem; align-items:center; }
+    .mag-arrow-btn:hover { background:var(--cyan); border-color:var(--cyan); color:#000814; transform:translateY(-1px); }
+    .mag-arrow-btn:disabled { opacity:0.15; cursor:not-allowed; pointer-events:none; transform:none; }
+    .mag-arrow-btn svg { flex-shrink:0; }
+    .mag-dots-row { display:flex; gap:0.5rem; align-items:center; }
     .mag-dot {
-      width:5px; height:5px; border-radius:50%;
-      background:rgba(34,211,238,0.18); border:none; cursor:pointer;
-      transition:background 0.25s,transform 0.25s;
+      width:8px; height:8px; border-radius:50%;
+      background:rgba(34,211,238,0.2); border:none; cursor:pointer;
+      transition:background 0.25s, width 0.25s, border-radius 0.25s;
     }
-    .mag-dot.active { background:var(--cyan); transform:scale(1.6); }
+    .mag-dot.active { background:var(--cyan); width:24px; border-radius:4px; }
     .mag-counter {
       font-family:'Outfit',sans-serif; font-size:0.6rem; letter-spacing:0.15em;
       color:rgba(224,247,250,0.22);
@@ -343,28 +350,26 @@
     /* ─── MOBILE MAGAZINE ─── */
     @media(max-width:768px) {
       #mag-section { padding: 2rem 0 3rem; }
-      .mag-outer { padding: 0 0.5rem; }
-      .mag-book-wrap { overflow: visible; }
-      .mag-tilt-wrap { transform: none; transform-style: flat; }
+      .mag-outer { padding: 0 0.75rem; max-width: 100%; }
       .mag-spread {
         grid-template-columns:1fr; grid-template-rows:auto auto;
-        transform:none; transform-style:flat; height:auto;
-        box-shadow:0 16px 50px rgba(0,0,0,0.7);
+        min-height:auto; box-shadow:0 16px 50px rgba(0,0,0,0.7);
       }
-      .mag-page-l { height:72vw; max-height:320px; }
-      .mag-page-r { padding:1.6rem 1.2rem; min-height:auto; }
+      .mag-page-l { height:72vw; max-height:300px; }
+      .mag-page-r { padding:1.6rem 1.4rem 1.8rem; max-height:none; overflow-y:visible; }
+      .mag-bio-scroll { max-height: none; overflow-y:visible; }
       .mag-spine { display:none; }
       .mag-name { font-size:clamp(1.6rem,8vw,2.4rem); }
-      .mag-bio { font-size:0.9rem; }
+      .mag-bio { font-size:0.88rem; }
       .mag-media-arrow { width:40px; height:56px; font-size:1.6rem; }
-      .mag-nav { padding: 1rem 0 0; }
-      .mag-arrow-btn { padding: 0.55rem 1rem; font-size:0.52rem; }
+      .mag-nav { padding: 1.2rem 0 0; gap: 0.75rem; }
+      .mag-arrow-btn { padding:0.8rem 1.2rem; font-size:0.62rem; min-width:0; flex:1; }
+      .mag-issue-num { display:none; }
+      .mag-cta { font-size:0.65rem; padding:0.85rem 1.6rem; }
       @keyframes turnOutNext { from{opacity:1;transform:translateX(0);} to{opacity:0;transform:translateX(-4%);} }
       @keyframes turnInNext  { from{opacity:0;transform:translateX(4%);}  to{opacity:1;transform:translateX(0);} }
       @keyframes turnOutPrev { from{opacity:1;transform:translateX(0);} to{opacity:0;transform:translateX(4%);} }
       @keyframes turnInPrev  { from{opacity:0;transform:translateX(-4%);} to{opacity:1;transform:translateX(0);} }
-      .mag-issue-num { display:none; }
-      .mag-cta { font-size:0.55rem; padding:0.65rem 1.4rem; }
     }
 
     /* ─── DIVIDER ─── */
@@ -668,7 +673,9 @@
             </div>
             <p class="mag-performer-title" id="mag-performer-title"></p>
             <div class="mag-divider"></div>
-            <p class="mag-bio" id="mag-bio">—</p>
+            <div class="mag-bio-scroll">
+              <p class="mag-bio" id="mag-bio">—</p>
+            </div>
             <div class="mag-skills" id="mag-skills"></div>
             <a class="mag-cta" id="mag-cta" href="#">Send Enquiry →</a>
           </div>
