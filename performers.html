@@ -36,8 +36,8 @@
     #nav-links { display:flex;align-items:center;gap:2rem; }
     .nav-link { font-family:'Outfit',sans-serif;font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(224,247,250,0.55);text-decoration:none;transition:color 0.2s; }
     .nav-link:hover,.nav-link.active { color:var(--cyan-glow); }
-    .btn-book { font-family:'Outfit',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.6rem 1.6rem;background:var(--coral);color:#fff;border:none;cursor:pointer;text-decoration:none;box-shadow:0 4px 20px rgba(251,113,133,0.35);transition:transform 0.2s,box-shadow 0.2s; }
-    .btn-book:hover { transform:translateY(-2px);box-shadow:0 8px 28px rgba(251,113,133,0.5); }
+    .btn-book { font-family:'Outfit',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.6rem 1.6rem;background:var(--coral);color:#fff;border:none;cursor:pointer;text-decoration:none;transition:transform 0.2s,opacity 0.2s; }
+    .btn-book:hover { transform:translateY(-2px);opacity:0.88; }
     #burger { display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px; }
     .bl { display:block;width:22px;height:1.5px;background:#fff;transition:transform 0.25s,opacity 0.25s; }
     #mobile-menu { display:none;position:fixed;inset:0;z-index:99;background:rgba(3,8,20,0.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem; }
@@ -106,18 +106,18 @@
     }
 
     .mag-outer {
-      max-width: min(1100px, 96vw); margin: 0 auto;
+      max-width: min(1240px, 97vw); margin: 0 auto;
       padding: 0 clamp(1rem, 3vw, 3rem);
     }
 
-    .mag-book-wrap { perspective: none; }
+    .mag-book-wrap { perspective: 1200px; }
     .mag-tilt-wrap { transform: none; }
 
     .mag-spread {
       display: grid;
       grid-template-columns: 1fr 1.15fr;
       height: auto;
-      min-height: clamp(500px, 70vh, 760px);
+      min-height: clamp(560px, 76vh, 860px);
       position: relative;
       box-shadow:
         0 40px 120px rgba(0,0,0,0.9),
@@ -153,8 +153,7 @@
       z-index:6; background:rgba(0,8,20,0.55); border:none; cursor:pointer;
       color:rgba(255,255,255,0.85); font-size:1.4rem; width:32px; height:48px;
       display:none; align-items:center; justify-content:center;
-      transition:background 0.2s,color 0.2s; backdrop-filter:blur(4px);
-    }
+      transition:background 0.2s,color 0.2s; backdrop-}
     .mag-media-arrow:hover { background:rgba(34,211,238,0.2); color:#fff; }
     .mag-media-arrow.show { display:flex; }
     .mag-media-arrow-prev { left:0; border-radius:0 4px 4px 0; }
@@ -193,13 +192,13 @@
       writing-mode:vertical-rl; text-orientation:mixed;
     }
 
-    /* RIGHT PAGE — white editorial */
+    /* RIGHT PAGE — dark editorial */
     .mag-page-r {
       position:relative;
-      background: #f5f6fa;
+      background: #0c1630;
       padding: clamp(2rem,3.5vw,3.2rem) clamp(1.8rem,3vw,3rem) clamp(1.8rem,3vw,2.8rem);
       display:flex; flex-direction:column; justify-content:flex-start;
-      overflow-y: auto;
+      overflow-y: visible;
     }
     /* Book spine shadow on right page */
     .mag-spine {
@@ -214,7 +213,7 @@
     }
     .mag-issue-num {
       font-family:'Fraunces',serif; font-size:3.5rem; font-weight:900;
-      color:rgba(0,30,80,0.06); line-height:1; letter-spacing:-0.04em;
+      color:rgba(255,255,255,0.04); line-height:1; letter-spacing:-0.04em;
       flex-shrink:0;
     }
     .mag-issue-meta { display:flex; flex-direction:column; gap:0.2rem; }
@@ -224,12 +223,12 @@
       color:rgba(0,188,212,0.85);
     }
     .mag-issue-line {
-      width:100%; height:1px; background:rgba(0,100,150,0.12);
+      width:100%; height:1px; background:rgba(34,211,238,0.12);
     }
     .mag-name {
       font-family:'Fraunces',serif;
       font-size:clamp(2rem,4.2vw,3.6rem);
-      font-weight:900; letter-spacing:-0.03em; color:#08142e; line-height:0.9;
+      font-weight:900; letter-spacing:-0.03em; color:#e0f7fa; line-height:0.9;
       margin-bottom:0.55rem;
     }
     .mag-performer-title {
@@ -242,15 +241,11 @@
       margin-bottom:1.2rem;
     }
     .mag-bio-scroll {
-      flex: 1; overflow-y: auto; padding-right: 6px; margin-bottom: 1.2rem;
-      max-height: clamp(200px, 32vh, 340px);
-      scrollbar-width: thin; scrollbar-color: rgba(0,100,150,0.2) transparent;
+      margin-bottom: 1.2rem;
     }
-    .mag-bio-scroll::-webkit-scrollbar { width: 3px; }
-    .mag-bio-scroll::-webkit-scrollbar-thumb { background: rgba(0,100,150,0.2); border-radius: 2px; }
     .mag-bio {
       font-family:'Outfit',sans-serif; font-size:clamp(0.82rem,1.1vw,0.92rem);
-      line-height:1.9; color:#2a3a5c;
+      line-height:1.9; color:rgba(176,210,230,0.78);
     }
     .mag-bio b {
       font-family:'Outfit',sans-serif; color:#ff6b9d; font-weight:700;
@@ -261,8 +256,8 @@
     .mag-skill {
       font-family:'Outfit',sans-serif; font-size:0.55rem; font-weight:600;
       letter-spacing:0.1em; text-transform:uppercase;
-      color:#0d2a5a; background:rgba(0,30,90,0.06);
-      border:1px solid rgba(0,30,90,0.16);
+      color:rgba(34,211,238,0.7); background:rgba(34,211,238,0.05);
+      border:1px solid rgba(34,211,238,0.18);
       padding:0.3rem 0.8rem; border-radius:2px;
     }
     .mag-cta {
@@ -327,25 +322,25 @@
 
     /* ─── PAGE TURN ANIMATION ─── */
     @keyframes turnOutNext {
-      0%   { opacity:1; transform: scale(1)    rotateY(0deg)   translateX(0); }
-      100% { opacity:0; transform: scale(0.94) rotateY(-24deg) translateX(-5%); }
+      0%   { opacity:1; transform: perspective(1400px) rotateY(0deg)   scale(1); }
+      100% { opacity:0; transform: perspective(1400px) rotateY(-28deg) scale(0.93); }
     }
     @keyframes turnInNext {
-      0%   { opacity:0; transform: scale(0.94) rotateY(24deg)  translateX(5%); }
-      100% { opacity:1; transform: scale(1)    rotateY(0deg)   translateX(0); }
+      0%   { opacity:0; transform: perspective(1400px) rotateY(28deg)  scale(0.93); }
+      100% { opacity:1; transform: perspective(1400px) rotateY(0deg)   scale(1); }
     }
     @keyframes turnOutPrev {
-      0%   { opacity:1; transform: scale(1)    rotateY(0deg)   translateX(0); }
-      100% { opacity:0; transform: scale(0.94) rotateY(24deg)  translateX(5%); }
+      0%   { opacity:1; transform: perspective(1400px) rotateY(0deg)   scale(1); }
+      100% { opacity:0; transform: perspective(1400px) rotateY(28deg)  scale(0.93); }
     }
     @keyframes turnInPrev {
-      0%   { opacity:0; transform: scale(0.94) rotateY(-24deg) translateX(-5%); }
-      100% { opacity:1; transform: scale(1)    rotateY(0deg)   translateX(0); }
+      0%   { opacity:0; transform: perspective(1400px) rotateY(-28deg) scale(0.93); }
+      100% { opacity:1; transform: perspective(1400px) rotateY(0deg)   scale(1); }
     }
-    .mag-spread.out-next { animation:turnOutNext 0.26s cubic-bezier(0.4,0,1,1) forwards; pointer-events:none; }
-    .mag-spread.in-next  { animation:turnInNext  0.46s cubic-bezier(0.16,1,0.3,1) both; }
-    .mag-spread.out-prev { animation:turnOutPrev 0.26s cubic-bezier(0.4,0,1,1) forwards; pointer-events:none; }
-    .mag-spread.in-prev  { animation:turnInPrev  0.46s cubic-bezier(0.16,1,0.3,1) both; }
+    .mag-spread.out-next { animation:turnOutNext 0.28s cubic-bezier(0.4,0,1,1) both; pointer-events:none; }
+    .mag-spread.in-next  { animation:turnInNext  0.42s cubic-bezier(0.16,1,0.3,1) both; }
+    .mag-spread.out-prev { animation:turnOutPrev 0.28s cubic-bezier(0.4,0,1,1) both; pointer-events:none; }
+    .mag-spread.in-prev  { animation:turnInPrev  0.42s cubic-bezier(0.16,1,0.3,1) both; }
 
     /* ─── MOBILE MAGAZINE ─── */
     @media(max-width:768px) {
@@ -355,7 +350,7 @@
         grid-template-columns:1fr; grid-template-rows:auto auto;
         min-height:auto; box-shadow:0 16px 50px rgba(0,0,0,0.7);
       }
-      .mag-page-l { height:72vw; max-height:300px; }
+      .mag-page-l { height:72vw; max-height:360px; }
       .mag-page-r { padding:1.6rem 1.4rem 1.8rem; max-height:none; overflow-y:visible; }
       .mag-bio-scroll { max-height: none; overflow-y:visible; }
       .mag-spine { display:none; }
@@ -366,10 +361,10 @@
       .mag-arrow-btn { padding:0.8rem 1.2rem; font-size:0.62rem; min-width:0; flex:1; }
       .mag-issue-num { display:none; }
       .mag-cta { font-size:0.65rem; padding:0.85rem 1.6rem; }
-      @keyframes turnOutNext { from{opacity:1;transform:translateX(0);} to{opacity:0;transform:translateX(-4%);} }
-      @keyframes turnInNext  { from{opacity:0;transform:translateX(4%);}  to{opacity:1;transform:translateX(0);} }
-      @keyframes turnOutPrev { from{opacity:1;transform:translateX(0);} to{opacity:0;transform:translateX(4%);} }
-      @keyframes turnInPrev  { from{opacity:0;transform:translateX(-4%);} to{opacity:1;transform:translateX(0);} }
+      @keyframes turnOutNext { from{opacity:1;transform:perspective(900px) rotateY(0deg) scale(1);} to{opacity:0;transform:perspective(900px) rotateY(-22deg) scale(0.93);} }
+      @keyframes turnInNext  { from{opacity:0;transform:perspective(900px) rotateY(22deg) scale(0.93);} to{opacity:1;transform:perspective(900px) rotateY(0deg) scale(1);} }
+      @keyframes turnOutPrev { from{opacity:1;transform:perspective(900px) rotateY(0deg) scale(1);} to{opacity:0;transform:perspective(900px) rotateY(22deg) scale(0.93);} }
+      @keyframes turnInPrev  { from{opacity:0;transform:perspective(900px) rotateY(-22deg) scale(0.93);} to{opacity:1;transform:perspective(900px) rotateY(0deg) scale(1);} }
     }
 
     /* ─── DIVIDER ─── */
@@ -630,8 +625,21 @@
     .footer-legal-link:hover { color:rgba(224,247,250,0.4); }
     @media(max-width:768px) { .footer-top{grid-template-columns:1fr;} .footer-contact-col{text-align:left;} .footer-social{justify-content:flex-start;} .footer-bottom{flex-direction:column;align-items:flex-start;} .footer-brand img{max-width:160px!important;} }
   </style>
-</head>
+  <!-- PRELOADER -->
+  <style>
+    #preloader{position:fixed;inset:0;z-index:10000;background:#000d26;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity 0.75s ease,visibility 0.75s ease;}
+    #preloader.pre-done{opacity:0;visibility:hidden;pointer-events:none;}
+    .pre-logo{width:160px;max-width:55vw;mix-blend-mode:screen;opacity:0;animation:preLogo 0.9s cubic-bezier(0.16,1,0.3,1) forwards 0.2s;}
+    @keyframes preLogo{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+    .pre-bar-wrap{width:160px;max-width:55vw;height:1px;background:rgba(0,188,212,0.18);margin-top:1.8rem;overflow:hidden;}
+    .pre-bar{height:100%;background:linear-gradient(90deg,rgba(0,188,212,0.5),#00e5ff);width:0%;animation:preBar 2.3s cubic-bezier(0.4,0,0.2,1) forwards 0.4s;box-shadow:0 0 10px rgba(0,230,255,0.45);}
+    @keyframes preBar{0%{width:0%;}65%{width:78%;}100%{width:100%;}}
+  </style></head>
 <body>
+  <div id="preloader" aria-hidden="true">
+    <img src="2.png" alt="" class="pre-logo"/>
+    <div class="pre-bar-wrap"><div class="pre-bar"></div></div>
+  </div>
 
   <nav id="navbar">
     <a href="index.html">
@@ -938,7 +946,7 @@
     /* ── ELITES ── */
     {
       slug: 'fan', num: '01', name: 'Mermaid Fan', flag: 'tw',
-      bio: '<b>Competition &amp; Experience</b><br>· 2024 Asia Cup: Team Silver Medalist<br>· Taiwan Open Competitor<br>· Korea Open Competitor<br>· 2025 India Project: Professional Mermaid Performer<br><br><b>Specializations &amp; Certifications</b><br>· Performance Special Training: Advanced training for underwater performance<br>· Fundamental Skill Training: Core technical drills and conditioning<br>· Mersoul Taiwan: Certified MFI Mermaid Instructor, Certified AIDA Freediving Instructor<br><br><b>Network &amp; Reach</b><br>· Instagram: 11.5K+ Followers',
+      bio: '<b>Competition &amp; Experience</b><br>· Team Silver Medalist, Asia Cup (2024)<br>· Medalist, Taiwan Open (Taiwan, 2025)<br>· Medalist, MFI Korea Open (South Korea, 2025)<br>· International Mermaid Performer, India (2025)<br><br><b>Specializations &amp; Certifications</b><br>· Mermaid Instructor, MFI (Mersoul Taiwan)<br>· Freediving Instructor, AIDA<br>· Advanced underwater performance training and technical conditioning<br><br><b>Network &amp; Reach</b><br>· Instagram: 11.5K+ Followers',
       skills: ['Asia Cup Silver 2024', 'MFI Instructor', 'AIDA Freediving', '11.5K Instagram'],
       img: 'media/performers/fan/photo1.jpg',
       media: [
@@ -954,8 +962,8 @@
     },
     {
       slug: 'ying', num: '02', name: 'Mermaid Ying', flag: 'tw',
-      bio: '<b>Competition &amp; Experience</b><br>· Award-winning athlete in international aquatic circuits<br>· Specialized in elite-level cinematic aquarium shows<br>· Focused on the physiology and physics of underwater performance<br><br><b>Specializations &amp; Certifications</b><br>· Professional Certified Freediver<br>· Specialist in technical aquatic maneuvers<br>· Elite Talent Coordinator — deeply integrated into the international professional network<br><br><b>Network &amp; Reach</b><br>· Instagram: 6.9K+ Followers<br>· Elite Global Aquatic Community &amp; Talent Collective',
-      skills: ['Certified Freediver', 'Aquatic Specialist', 'Talent Coordinator', '6.9K Instagram'],
+      bio: '<b>Competition &amp; Experience</b><br>· International aquatic athlete with competition background<br>· Team Medalist, MFI Korea Open (South Korea, 2025)<br>· Performer in cinematic aquarium productions<br>· International Mermaid Performer, India (2025)<br><br><b>Specializations &amp; Certifications</b><br>· Mermaid Instructor, MFI<br>· Technical aquatic movement and control<br>· Talent coordination within international aquatic networks<br><br><b>Network &amp; Reach</b><br>· Instagram: 6.9K+ Followers',
+      skills: ['Korea Open Medalist 2025', 'MFI Instructor', 'Talent Coordinator', '6.9K Instagram'],
       img: 'media/performers/ying/photo1.jpg',
       media: [
         { type: 'photo', src: 'media/performers/ying/photo1.jpg' },
@@ -967,8 +975,8 @@
     },
     {
       slug: 'minmin', num: '03', name: 'Mermaid Minmin', flag: 'tw',
-      bio: '<b>Artistry &amp; Experience</b><br>· Water Dance Artist — specialized in underwater choreography and flow<br>· Expert in underwater makeup and aquatic visual styling<br>· Regional Leader: Lead instructor for community activations in Southern Taiwan<br><br><b>Specializations &amp; Certifications</b><br>· Level-based instruction: Expert in guiding students from beginner to advanced<br>· Underwater Photography: Specialist in helping performers capture their best side<br>· Fluidity Training: Focus on immersive movement and underwater expression<br><br><b>Network &amp; Reach</b><br>· Instagram: 100K+ Followers',
-      skills: ['Water Dance Artist', 'Underwater Stylist', 'Performance Instructor', '100K Instagram'],
+      bio: '<b>Competition &amp; Experience</b><br>· Underwater dance artist specializing in choreography and flow<br>· Specialist in aquatic visual styling and performance aesthetics<br>· Regional Lead Instructor, Southern Taiwan<br>· Team Medalist, MFI Korea Open (South Korea, 2025)<br>· International Mermaid Performer, India (2025)<br><br><b>Specializations &amp; Certifications</b><br>· Mermaid Instructor, MFI<br>· Underwater photography and performer direction<br>· Fluidity-based movement training<br><br><b>Network &amp; Reach</b><br>· Instagram: 100K+ Followers',
+      skills: ['Korea Open Medalist 2025', 'MFI Instructor', 'Regional Lead Instructor', '100K Instagram'],
       img: 'media/performers/minmin/photo1.jpg',
       media: [
         { type: 'photo', src: 'media/performers/minmin/photo1.jpg' },
@@ -978,8 +986,8 @@
     },
     {
       slug: 'chen', num: '04', name: 'Mermaid Chen', flag: 'tw',
-      bio: '<b>Artistry &amp; Experience</b><br>· Former Professional Mermaid at Farglory Ocean Park Hualien<br>· Expert in Land &amp; Underwater commercial brand photography<br>· Leading TikTok Live presence in the Taiwan aquatic community<br><br><b>Specializations &amp; Certifications</b><br>· MFI MMI: Master Mermaid Instructor<br>· MFI JMI: Junior Mermaid Instructor (Children\'s Specialist)<br>· Professional experience in cinematic aquatic production &amp; creative direction<br><br><b>Network &amp; Reach</b><br>· TikTok: 130K+ Followers<br>· Instagram: 16.6K+ Followers',
-      skills: ['Master Mermaid Instructor', 'TikTok 130K', 'Instagram 16.6K', 'Brand Photography'],
+      bio: '<b>Competition &amp; Experience</b><br>· Former Professional Mermaid, Farglory Ocean Park<br>· Widely recognized as "Princess of Atlantis" on TikTok<br>· TikTok Live performer with a strong presence in the aquatic community<br>· Specialist in commercial underwater and lifestyle photography<br>· Bronze Medalist, MFI Korea Open (South Korea, 2025)<br>· Team Silver Medalist, Taiwan Mermaid Competition (Taiwan, 2024)<br>· Silver Medalist, Hong Kong Mermaid Competition (Hong Kong, 2025)<br>· Team Champion, Hong Kong Mermaid Competition (Hong Kong, 2025)<br>· International Mermaid Performer, India (2025)<br><br><b>Specializations &amp; Certifications</b><br>· Master Mermaid Instructor, MFI MMI<br>· Junior Mermaid Instructor, MFI JMI<br>· Cinematic aquatic production and creative direction<br><br><b>Network &amp; Reach</b><br>· TikTok: 130K+ Followers<br>· Instagram: 16.6K+ Followers',
+      skills: ['Master Mermaid Instructor', 'TikTok 130K', 'Instagram 16.6K', 'Korea Open Bronze 2025'],
       img: 'media/performers/chen/photo1.jpg',
       media: [
         { type: 'photo', src: 'media/performers/chen/photo1.jpg' },
@@ -993,8 +1001,8 @@
     },
     {
       slug: 'ronnie', num: '05', name: 'Mermaid Ronnie', flag: 'tw',
-      bio: '<b>Artistry &amp; Experience</b><br>· Multi-discipline performer: underwater, aerial, and fire<br>· Certified freediver with competition experience<br>· Content creator with a strong TikTok following in the aquatic arts community<br><br><b>Specializations</b><br>· Raw underwater intensity combined with technical precision<br>· Cross-discipline performance design<br>· Digital content and brand storytelling',
-      skills: ['Competition Athlete', 'TikTok Creator', 'Certified Freediver', 'Multi-discipline'],
+      bio: '<b>Competition &amp; Experience</b><br>· Silver Medalist, Taiwan Mermaid Competition (Taiwan, 2024)<br>· Silver Medalist, Asia Cup (2024)<br>· Mermaid Instructor, MFI<br>· Atlantis New Year Show (2024)<br>· Divecube, Aqua Festival (2024)<br>· Divecube, Mermaid Carnival (2025)<br>· International Mermaid Performer, India (2025)',
+      skills: ['Asia Cup Silver 2024', 'Taiwan Comp Silver 2024', 'MFI Instructor', 'India 2025'],
       img: 'media/performers/ronnie/photo1.jpg',
       media: [
         { type: 'photo', src: 'media/performers/ronnie/photo1.jpg' },
@@ -1006,8 +1014,8 @@
     },
     {
       slug: 'linda', num: '06', name: 'Mermaid Linda', flag: 'tw',
-      bio: '<b>Artistry &amp; Experience</b><br>· Certified professional mermaid with professional accreditation<br>· One of the few certified mermaid instructors in Asia<br>· Underwater theatre work featured across regional media and brand campaigns<br><br><b>Specializations &amp; Certifications</b><br>· Certified Mermaid Instructor<br>· Aquatic performance and theatre<br>· Brand collaboration and visual production',
-      skills: ['Certified Mermaid', 'Aquatic Instructor', 'Brand Campaigns', 'Underwater Theatre'],
+      bio: '<b>Competition &amp; Experience</b><br>· Aquatic performer with experience in underwater theatre and staged productions<br>· Featured in regional media and brand campaigns<br>· International Mermaid Performer, India (2025)<br><br><b>Specializations &amp; Certifications</b><br>· PADI Mermaid Instructor<br>· Aquatic performance and theatre<br>· Visual production and brand collaboration',
+      skills: ['PADI Mermaid Instructor', 'Underwater Theatre', 'Brand Campaigns', 'India 2025'],
       img: 'media/performers/linda/photo1.jpg',
       media: [
         { type: 'photo', src: 'media/performers/linda/photo1.jpg' },
@@ -1017,8 +1025,8 @@
     },
     {
       slug: 'kita', num: '07', name: 'Mermaid Kita', flag: 'tw',
-      bio: '<b>Competition &amp; Experience</b><br>· First Taiwan Mermaid Performer in India — historical milestone<br>· Former Professional Mermaid at Farglory Ocean Park<br>· 2024 Taiwan Freediving Competition: Rookie Champion<br>· 2026 Taiwan Cup Freediving: CWTB Silver Medalist<br>· International performer across multiple countries<br><br><b>Specializations &amp; Certifications</b><br>· Dual Certified: Freediving Instructor &amp; Mermaid Instructor<br>· @befish_2026: Lead educator for specialized aquatic coursework<br>· Elite-level competency in depth freediving and aesthetic performance<br><br><b>Network &amp; Reach</b><br>· Instagram: 74K+ Followers',
-      skills: ['CWTB Silver 2026', 'Freediving Instructor', 'Mermaid Instructor', '74K Instagram'],
+      bio: '<b>Competition &amp; Experience</b><br>· Former Professional Mermaid, Farglory Ocean Park<br>· Rookie Champion, Taiwan Freediving Competition (Taiwan, 2024)<br>· Silver Medalist, Taiwan Cup Freediving CWTB (Taiwan, 2026)<br>· International Mermaid Performer, India (2025)<br><br><b>Specializations &amp; Certifications</b><br>· Mermaid Instructor, MFI (Be Fish)<br>· Freediving Instructor, AIDA<br>· Lead educator for specialized aquatic training<br>· Advanced depth freediving and performance execution<br><br><b>Network &amp; Reach</b><br>· Instagram: 74K+ Followers',
+      skills: ['CWTB Silver 2026', 'Freediving Instructor AIDA', 'MFI Instructor', '74K Instagram'],
       img: 'media/performers/kita/photo1.jpg',
       media: [
         { type: 'photo', src: 'media/performers/kita/photo1.jpg' },
@@ -1208,11 +1216,10 @@
         updateDots();
         updateArrows();
         spread.classList.add(inClass);
-        spread.addEventListener('animationend', () => {
-          spread.classList.remove(inClass);
-          turning = false;
-        }, { once: true });
-      }, 260);
+        const finish = () => { spread.classList.remove(inClass); turning = false; };
+        spread.addEventListener('animationend', finish, { once: true });
+        setTimeout(finish, 550);
+      }, 300);
     }
 
     prevBtn.addEventListener('click', () => navigate(current - 1, 'prev'));
@@ -1238,6 +1245,45 @@
       const dx = e.changedTouches[0].clientX - tX0;
       if (Math.abs(dx) > 50) dx < 0 ? navigate(current + 1, 'next') : navigate(current - 1, 'prev');
     });
+
+
+    // 3D hover tilt on the spread
+    (function() {
+      const wrap = document.getElementById('mag-tilt-wrap');
+      const sp   = document.getElementById('mag-spread');
+      if (!wrap || !sp) return;
+      let raf = null;
+      let targetX = 0, targetY = 0, curX = 0, curY = 0;
+      const MAX = 6; // max tilt degrees
+
+      wrap.addEventListener('mousemove', e => {
+        if (sp.classList.contains('out-next') || sp.classList.contains('out-prev') ||
+            sp.classList.contains('in-next')  || sp.classList.contains('in-prev')) return;
+        const r   = wrap.getBoundingClientRect();
+        const nx  = (e.clientX - r.left) / r.width  - 0.5; // -0.5 to 0.5
+        const ny  = (e.clientY - r.top)  / r.height - 0.5;
+        targetY   =  nx * MAX;   // tilt left/right
+        targetX   = -ny * MAX;   // tilt up/down
+        if (!raf) raf = requestAnimationFrame(animateTilt);
+      }, { passive: true });
+
+      wrap.addEventListener('mouseleave', () => {
+        targetX = 0; targetY = 0;
+        if (!raf) raf = requestAnimationFrame(animateTilt);
+      });
+
+      function animateTilt() {
+        curX += (targetX - curX) * 0.10;
+        curY += (targetY - curY) * 0.10;
+        sp.style.transform = `perspective(1400px) rotateX(${curX.toFixed(2)}deg) rotateY(${curY.toFixed(2)}deg) scale(1.012)`;
+        if (Math.abs(targetX - curX) > 0.02 || Math.abs(targetY - curY) > 0.02) {
+          raf = requestAnimationFrame(animateTilt);
+        } else {
+          if (targetX === 0 && targetY === 0) sp.style.transform = '';
+          raf = null;
+        }
+      }
+    })();
 
     // Init
     populate(PERFORMERS[0]);
@@ -1287,7 +1333,7 @@
   ══════════════════════════════════════════════ */
   const rvObs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); rvObs.unobserve(e.target); } });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.01, rootMargin: '0px 0px -20px 0px' });
   document.querySelectorAll('.rv').forEach(el => rvObs.observe(el));
 
   /* ══════════════════════════════════════════════
@@ -1319,7 +1365,7 @@
              max_tokens: 350,
              system: `You are Sirena AI — the inquiry assistant for Sirena Asia, Asia's Premier Mermaid Performance Collective.
                       Be warm, concise (2–3 sentences max), and professional.
-                      Answer questions about performers (Fan, Ying, Minmin, Chen, Ronnie, Linda, Kita — elite tier; plus Rising Tides: Aiko, Luna, Zara, Mei, Isla, Nova, Sari, Shinta, Thia, Inda, Nanda).
+                      Answer questions about performers (Fan, Ying, Minmin, Chen, Ronnie, Linda, Kita — elite tier; plus Rising Tides: Shinta, Thia, Indah, Anel).
                       Events: weddings, corporate, resort pools, brand activations, children's parties, galas, private celebrations.
                       We operate across Asia and internationally. Based in Southeast Asia.
                       For pricing, contracts, and formal proposals always direct to contact.html or info@sirenaasia.com.
@@ -1374,8 +1420,8 @@
         reply: "Our Elite tier features seven exceptional performers: Fan, Ying, Minmin, Chen, Ronnie, Linda, and Kita — each from a different Asian country, each with her own signature style. Flip through the magazine above to meet them individually."
       },
       {
-        keys: ['rising','tide','new','upcoming','junior','shinta','thia','inda','nanda','aiko','luna','zara','mei','isla','nova','sari'],
-        reply: "Our Rising Tides are the next generation — eleven emerging performers from across Asia. Aiko, Luna, Zara, Mei, Isla, Nova, Sari, Shinta, Thia, Inda, and Nanda. Full artistry, all the wonder."
+        keys: ['rising','tide','new','upcoming','junior','shinta','thia','indah','anel'],
+        reply: "Our Rising Tides are the next generation — four emerging performers from Indonesia: Shinta, Thia, Indah, and Anel. Full artistry, all the wonder."
       },
       {
         keys: ['contact','email','reach','speak','human','person','talk'],
@@ -1465,5 +1511,16 @@
     });
   })();
   </script>
+  <script>
+    (function(){
+      var pre=document.getElementById('preloader');
+      if(!pre)return;
+      var t0=Date.now(), MIN=2600;
+      function hide(){ var r=Math.max(0,MIN-(Date.now()-t0)); setTimeout(function(){ pre.classList.add('pre-done'); },r); }
+      if(document.readyState==='complete'){ hide(); } else { window.addEventListener('load',hide); }
+    })();
+  </script>
 </body>
 </html>
+
+

@@ -201,10 +201,14 @@
     #img1 { opacity: 1; }
 
     /* Enter button cue */
+    @keyframes scrollCueReveal {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
     .scroll-cue {
       position: absolute; bottom: 48px; left: 50%; transform: translateX(-50%);
       display: flex; flex-direction: column; align-items: center; gap: 0;
-      opacity: 1;
+      animation: scrollCueReveal 1.2s ease both 10s;
       pointer-events: auto; cursor: pointer;
       z-index: 6;
     }
@@ -880,7 +884,7 @@
     }
     .s-line {
       width: 1.5px; height: 60px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.9), transparent);
+      background: linear-gradient(180deg, rgba(200,240,255,0.4), transparent);
       animation: spulse 2.4s ease-in-out infinite;
       transition: background 0.8s ease, box-shadow 0.8s ease;
     }
@@ -891,7 +895,7 @@
 
 
     /* ════════════════════════════════════════
-       INTERACTIVE GLOBE
+       TACTICAL WORLD MAP
     ════════════════════════════════════════ */
     .globe-section {
       display: flex; flex-direction: column; align-items: center;
@@ -902,49 +906,95 @@
       letter-spacing: 0.28em; text-transform: uppercase;
       color: var(--cyan); opacity: 0.65; margin-bottom: 1.2rem;
     }
-    .world-map-wrap {
-      position: relative; width: 100%; max-width: 480px;
-      border-radius: 10px; overflow: hidden;
-      border: 1px solid rgba(0,188,212,0.15);
-      box-shadow: 0 0 40px rgba(0,188,212,0.08);
+    /* Tactical frame */
+    .tac-frame {
+      position: relative; width: 100%;
+      border: 1px solid rgba(0,188,212,0.22);
+      box-shadow: 0 0 60px rgba(0,188,212,0.1), inset 0 0 30px rgba(0,0,0,0.3);
     }
-    .world-map-wrap img {
+    .tac-frame img {
       width: 100%; height: auto; display: block;
-      filter: brightness(0.9) saturate(1.1);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.12) 22%, rgba(0,0,0,0.7) 42%, black 58%);
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.12) 22%, rgba(0,0,0,0.7) 42%, black 58%);
     }
-    .world-map-markers {
-      position: absolute; inset: 0;
+    /* HUD corner brackets */
+    .tac-corner {
+      position: absolute; width: 14px; height: 14px; z-index: 4; pointer-events: none;
     }
-    .wm-marker {
-      position: absolute; transform: translate(-50%, -50%);
+    .tac-corner::before, .tac-corner::after {
+      content: ''; position: absolute; background: rgba(0,188,212,0.75);
     }
-    .wm-marker-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: #ff6b9d;
-      box-shadow: 0 0 8px rgba(255,107,157,0.9);
-      position: relative; z-index: 2;
+    .tac-corner::before { width: 100%; height: 1.5px; top: 0; left: 0; }
+    .tac-corner::after  { width: 1.5px; height: 100%; top: 0; left: 0; }
+    .tac-corner.tr { top: -1px; right: -1px; transform: scaleX(-1); }
+    .tac-corner.tl { top: -1px; left: -1px; }
+    .tac-corner.bl { bottom: -1px; left: -1px; transform: scaleY(-1); }
+    .tac-corner.br { bottom: -1px; right: -1px; transform: scale(-1,-1); }
+    /* HUD labels */
+    .tac-hud-top {
+      position: absolute; top: 5px; left: 50%; transform: translateX(-50%);
+      font-family: 'Outfit', sans-serif; font-size: 0.38rem; font-weight: 700;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: rgba(0,188,212,0.45); white-space: nowrap; z-index: 4; pointer-events: none;
     }
-    .wm-marker-ring {
+    .tac-hud-bot {
+      position: absolute; bottom: 5px; right: 8px;
+      font-family: 'Outfit', sans-serif; font-size: 0.38rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(0,188,212,0.35); z-index: 4; pointer-events: none;
+    }
+    /* Markers overlay */
+    .tac-markers { position: absolute; inset: 0; }
+    .tac-pin { position: absolute; transform: translate(-50%, -50%); }
+    /* Crosshair */
+    .tac-pin-cross {
       position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 8px; height: 8px; border-radius: 50%;
-      border: 1.5px solid rgba(255,107,157,0.7);
-      animation: markerPulse 2s ease-out infinite;
+      width: 16px; height: 16px;
+      transform: translate(-50%,-50%);
     }
-    .wm-marker:nth-child(2) .wm-marker-ring { animation-delay: 0.4s; }
-    .wm-marker:nth-child(3) .wm-marker-ring { animation-delay: 0.8s; }
-    .wm-marker:nth-child(4) .wm-marker-ring { animation-delay: 1.2s; }
-    .wm-marker:nth-child(5) .wm-marker-ring { animation-delay: 1.6s; }
-    @keyframes markerPulse {
-      0%   { width: 8px; height: 8px; opacity: 0.8; }
-      100% { width: 36px; height: 36px; opacity: 0; }
+    .tac-pin-cross::before {
+      content: ''; position: absolute;
+      width: 16px; height: 1px; background: rgba(255,107,157,0.85);
+      top: 50%; left: 0; transform: translateY(-50%);
     }
-    .wm-marker-label {
-      position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
-      font-family: 'Outfit', sans-serif; font-size: 0.52rem; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(255,255,255,0.85); white-space: nowrap;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.9);
+    .tac-pin-cross::after {
+      content: ''; position: absolute;
+      width: 1px; height: 16px; background: rgba(255,107,157,0.85);
+      left: 50%; top: 0; transform: translateX(-50%);
+    }
+    /* Center dot */
+    .tac-pin-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: #ff6b9d;
+      box-shadow: 0 0 6px rgba(255,107,157,1), 0 0 14px rgba(255,107,157,0.5);
+      position: relative; z-index: 3;
+    }
+    /* Expanding rings */
+    .tac-pin-ring {
+      position: absolute; top: 50%; left: 50%; border-radius: 50%;
+      border: 1px solid rgba(255,107,157,0.55);
+      animation: tacPulse 2.8s ease-out infinite;
+    }
+    .tac-pin-ring.r2 { animation-delay: 1.4s; }
+    .tac-pin:nth-child(2) .tac-pin-ring { animation-delay: 0.5s; }
+    .tac-pin:nth-child(2) .tac-pin-ring.r2 { animation-delay: 1.9s; }
+    .tac-pin:nth-child(3) .tac-pin-ring { animation-delay: 1.0s; }
+    .tac-pin:nth-child(3) .tac-pin-ring.r2 { animation-delay: 2.4s; }
+    .tac-pin:nth-child(4) .tac-pin-ring { animation-delay: 1.5s; }
+    .tac-pin:nth-child(4) .tac-pin-ring.r2 { animation-delay: 2.9s; }
+    .tac-pin:nth-child(5) .tac-pin-ring { animation-delay: 2.0s; }
+    .tac-pin:nth-child(5) .tac-pin-ring.r2 { animation-delay: 3.4s; }
+    @keyframes tacPulse {
+      0%   { width: 6px; height: 6px; transform: translate(-50%,-50%); opacity: 0.7; }
+      100% { width: 44px; height: 44px; transform: translate(-50%,-50%); opacity: 0; }
+    }
+    /* Label */
+    .tac-pin-label {
+      position: absolute; top: 11px; left: 9px;
+      font-family: 'Outfit', sans-serif; font-size: 0.44rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.9); white-space: nowrap;
+      text-shadow: 0 1px 5px rgba(0,0,0,0.95);
     }
 
     /* ════════════════════════════════════════
@@ -1506,8 +1556,21 @@
       .event-diptych { grid-template-columns: 1fr; }
     }
   </style>
-</head>
+  <!-- PRELOADER -->
+  <style>
+    #preloader{position:fixed;inset:0;z-index:10000;background:#000d26;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity 0.75s ease,visibility 0.75s ease;}
+    #preloader.pre-done{opacity:0;visibility:hidden;pointer-events:none;}
+    .pre-logo{width:160px;max-width:55vw;mix-blend-mode:screen;opacity:0;animation:preLogo 0.9s cubic-bezier(0.16,1,0.3,1) forwards 0.2s;}
+    @keyframes preLogo{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+    .pre-bar-wrap{width:160px;max-width:55vw;height:1px;background:rgba(0,188,212,0.18);margin-top:1.8rem;overflow:hidden;}
+    .pre-bar{height:100%;background:linear-gradient(90deg,rgba(0,188,212,0.5),#00e5ff);width:0%;animation:preBar 1.4s cubic-bezier(0.4,0,0.2,1) forwards 0.4s;box-shadow:0 0 10px rgba(0,230,255,0.45);}
+    @keyframes preBar{0%{width:0%;}65%{width:78%;}100%{width:100%;}}
+  </style></head>
 <body>
+  <div id="preloader" aria-hidden="true">
+    <img src="2.png" alt="" class="pre-logo"/>
+    <div class="pre-bar-wrap"><div class="pre-bar"></div></div>
+  </div>
 
   <!-- Mermaid cursor -->
 
@@ -1994,41 +2057,57 @@
             </p>
           </div>
 
-          <!-- Right: flat world map -->
+          <!-- Right: tactical world map -->
           <div class="globe-section rv d3">
-            <p class="globe-label">Our Home Waters</p>
-            <div class="world-map-wrap">
-              <img src="/world-map.svg" alt="World map" />
-              <div class="world-map-markers">
-                <!-- Philippines: lon=121.7, lat=12.8 → x=83.8%, y=48.4% -->
-                <div class="wm-marker" style="left:83.8%;top:48.4%">
-                  <div class="wm-marker-ring"></div>
-                  <div class="wm-marker-dot"></div>
-                  <div class="wm-marker-label">Philippines</div>
+            <p class="globe-label">Global Reach</p>
+            <div class="tac-frame">
+              <div class="tac-corner tl"></div>
+              <div class="tac-corner tr"></div>
+              <div class="tac-corner bl"></div>
+              <div class="tac-corner br"></div>
+              <span class="tac-hud-top">SIRENA ASIA · INDO-PACIFIC ZONE</span>
+              <span class="tac-hud-bot">5 ACTIVE LOCATIONS</span>
+              <img src="/world-map.svg" alt="Tactical world map" />
+              <div class="tac-markers">
+                <!-- Philippines: lon=121.7, lat=12.8 -->
+                <div class="tac-pin" style="left:83.8%;top:48.4%">
+                  <div class="tac-pin-cross"></div>
+                  <div class="tac-pin-dot"></div>
+                  <div class="tac-pin-ring r1"></div>
+                  <div class="tac-pin-ring r2"></div>
+                  <span class="tac-pin-label">Philippines</span>
                 </div>
-                <!-- Taiwan: lon=121.0, lat=23.5 → x=83.6%, y=36.9% -->
-                <div class="wm-marker" style="left:83.6%;top:36.9%">
-                  <div class="wm-marker-ring"></div>
-                  <div class="wm-marker-dot"></div>
-                  <div class="wm-marker-label">Taiwan</div>
+                <!-- Taiwan: lon=121.0, lat=23.5 -->
+                <div class="tac-pin" style="left:83.6%;top:36.9%">
+                  <div class="tac-pin-cross"></div>
+                  <div class="tac-pin-dot"></div>
+                  <div class="tac-pin-ring r1"></div>
+                  <div class="tac-pin-ring r2"></div>
+                  <span class="tac-pin-label">Taiwan</span>
                 </div>
-                <!-- Indonesia: lon=106.8, lat=-6.2 → x=79.7%, y=53.4% -->
-                <div class="wm-marker" style="left:79.7%;top:53.4%">
-                  <div class="wm-marker-ring"></div>
-                  <div class="wm-marker-dot"></div>
-                  <div class="wm-marker-label">Indonesia</div>
+                <!-- Indonesia: lon=106.8, lat=-6.2 -->
+                <div class="tac-pin" style="left:79.7%;top:53.4%">
+                  <div class="tac-pin-cross"></div>
+                  <div class="tac-pin-dot"></div>
+                  <div class="tac-pin-ring r1"></div>
+                  <div class="tac-pin-ring r2"></div>
+                  <span class="tac-pin-label">Indonesia</span>
                 </div>
-                <!-- Malaysia: lon=101.7, lat=3.1 → x=78.3%, y=48.3% -->
-                <div class="wm-marker" style="left:78.3%;top:48.3%">
-                  <div class="wm-marker-ring"></div>
-                  <div class="wm-marker-dot"></div>
-                  <div class="wm-marker-label">Malaysia</div>
+                <!-- Malaysia: lon=101.7, lat=3.1 -->
+                <div class="tac-pin" style="left:78.3%;top:48.3%">
+                  <div class="tac-pin-cross"></div>
+                  <div class="tac-pin-dot"></div>
+                  <div class="tac-pin-ring r1"></div>
+                  <div class="tac-pin-ring r2"></div>
+                  <span class="tac-pin-label">Malaysia</span>
                 </div>
-                <!-- India: lon=72.8, lat=19.0 → x=70.2%, y=39.4% -->
-                <div class="wm-marker" style="left:70.2%;top:39.4%">
-                  <div class="wm-marker-ring"></div>
-                  <div class="wm-marker-dot"></div>
-                  <div class="wm-marker-label">India</div>
+                <!-- India: lon=72.8, lat=19.0 -->
+                <div class="tac-pin" style="left:70.2%;top:39.4%">
+                  <div class="tac-pin-cross"></div>
+                  <div class="tac-pin-dot"></div>
+                  <div class="tac-pin-ring r1"></div>
+                  <div class="tac-pin-ring r2"></div>
+                  <span class="tac-pin-label">India</span>
                 </div>
               </div>
             </div>
@@ -2469,31 +2548,31 @@
     const performers = {
       fan:    { num:'01', name:'Mermaid Fan',    flag:'tw',
                 bio:'A certified professional mermaid, competition finalist, and one of Asia\'s few certified mermaid instructors. Fan has performed at prestigious venues across Asia and brings both technical mastery and artistic depth to every show.',
-                tags:['Competition Finalist','Certified Instructor','Breath-hold Specialist','Underwater Choreographer'],
+                tags:['Asia Cup Silver 2024','MFI Instructor','AIDA Freediving','11.5K Instagram'],
                 media:[{type:'photo',src:'media/performers/fan/photo1.jpg'},{type:'photo',src:'media/performers/fan/photo2.jpg'},{type:'photo',src:'media/performers/fan/photo3.jpg'},{type:'video',src:'media/performers/fan/reel1.mp4.mp4'}], contact:'Mermaid+Fan' },
       ying:   { num:'02', name:'Mermaid Ying',   flag:'tw',
                 bio:'Professional freediver, certified mermaid performer, and TikTok content creator with a dedicated following in the aquatic arts community. Ying\'s athletic precision and magnetic screen presence make her a standout on any stage.',
-                tags:['Certified Freediver','TikTok Creator','Aquatic Acrobatics','Brand Ambassador'],
+                tags:['Korea Open Medalist 2025','MFI Instructor','Talent Coordinator','6.9K Instagram'],
                 media:[{type:'photo',src:'media/performers/ying/photo1.jpg'},{type:'photo',src:'media/performers/ying/photo2.jpg'},{type:'video',src:'media/performers/ying/reel1.mp4'}], contact:'Mermaid+Ying' },
       minmin: { num:'03', name:'Mermaid Minmin', flag:'tw',
                 bio:'Certified professional mermaid and performance instructor who teaches mermaid swimming across Asia. With a classical dance background and accreditation from recognised mermaid training bodies, Minmin brings rare refinement to her performances.',
-                tags:['Certified Mermaid','Performance Instructor','Classical Dance','Resort Specialist'],
+                tags:['Korea Open Medalist 2025','MFI Instructor','Regional Lead','100K Instagram'],
                 media:[{type:'photo',src:'media/performers/minmin/photo1.jpg'},{type:'photo',src:'media/performers/minmin/photo2.jpg'}], contact:'Mermaid+Minmin' },
       chen:   { num:'04', name:'Mermaid Chen',   flag:'tw',
                 bio:'Certified aquatic performance specialist, synchronised swimming trained, and Sirena\'s lead performance coach. Chen trains and certifies other performers while directing the collective\'s most ambitious productions.',
-                tags:['Certified Instructor','Performance Coach','Sync Swimming','Event Director'],
+                tags:['MFI Master Instructor','TikTok 130K','Instagram 16.6K','Korea Open Bronze'],
                 media:[{type:'photo',src:'media/performers/chen/photo1.jpg'},{type:'photo',src:'media/performers/chen/photo2.jpeg'},{type:'photo',src:'media/performers/chen/photo3.jpg'},{type:'photo',src:'media/performers/chen/photo4.jpg'},{type:'photo',src:'media/performers/chen/photo5.jpg'},{type:'photo',src:'media/performers/chen/photo6.jpg'}], contact:'Mermaid+Chen' },
       ronnie: { num:'05', name:'Mermaid Ronnie', flag:'tw',
                 bio:'Competition winner, certified freediver, and TikTok star with a significant following in the mermaid and aquatic performance space. Ronnie is a multi-discipline performer — known for raw intensity and technical mastery across multiple disciplines.',
-                tags:['Competition Winner','TikTok Star','Certified Freediver','Content Creator'],
+                tags:['Asia Cup Silver 2024','Taiwan Comp Silver 2024','MFI Instructor','India 2025'],
                 media:[{type:'photo',src:'media/performers/ronnie/photo1.jpg'},{type:'photo',src:'media/performers/ronnie/photo2.jpg'},{type:'photo',src:'media/performers/ronnie/photo3.jpg'},{type:'photo',src:'media/performers/ronnie/photo4.jpg'}], contact:'Mermaid+Ronnie' },
       linda:  { num:'06', name:'Mermaid Linda',  flag:'tw',
                 bio:'Certified mermaid instructor and aquatic performance specialist. Linda holds professional accreditation and has been featured in brand campaigns and regional media. Her artistry and technical precision make her one of Asia\'s most sought-after performers.',
-                tags:['Certified Mermaid','Aquatic Instructor','Brand Campaigns','Underwater Theatre'],
+                tags:['PADI Mermaid Instructor','Underwater Theatre','Brand Campaigns','India 2025'],
                 media:[{type:'photo',src:'media/performers/linda/photo1.jpg'},{type:'photo',src:'media/performers/linda/photo2.jpg'}], contact:'Mermaid+Linda' },
       kita:   { num:'07', name:'Mermaid Kita',   flag:'tw',
                 bio:'Certified professional mermaid and content creator whose underwater photography and performance videos have amassed hundreds of thousands of views across social platforms. Kita brings mission-driven authenticity and creative vision to every performance.',
-                tags:['Certified Mermaid','Content Creator','Marine Educator','Underwater Photographer'],
+                tags:['CWTB Silver 2026','AIDA Freediving Instructor','MFI Instructor','74K Instagram'],
                 media:[{type:'photo',src:'media/performers/kita/photo1.jpg'},{type:'photo',src:'media/performers/kita/photo2.jpg'},{type:'photo',src:'media/performers/kita/photo3.jpg'},{type:'photo',src:'media/performers/kita/photo4.jpg'}], contact:'Mermaid+Kita' },
     };
 
@@ -2758,5 +2837,30 @@
   </script>
 
 
+  <script>
+    (function(){
+      var pre=document.getElementById('preloader');
+      if(!pre)return;
+      // Lock scroll while preloader is showing
+      document.documentElement.style.overflow='hidden';
+      document.body.style.overflow='hidden';
+      var t0=Date.now(), MIN=1400;
+      function hide(){
+        var r=Math.max(0,MIN-(Date.now()-t0));
+        setTimeout(function(){
+          // Snap to top, unlock scroll, then fade out
+          window.scrollTo(0,0);
+          document.documentElement.style.overflow='';
+          document.body.style.overflow='';
+          pre.classList.add('pre-done');
+        },r);
+      }
+      if(document.readyState==='complete'){ hide(); } else { window.addEventListener('load',hide); }
+    })();
+  </script>
 </body>
 </html>
+
+
+
+

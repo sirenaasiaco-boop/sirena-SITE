@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -159,8 +159,21 @@
     .footer-legal-link:hover { color:rgba(224,247,250,0.4); }
     @media(max-width:768px) { .footer-top{grid-template-columns:1fr;} .footer-contact-col{text-align:left;} .footer-social{justify-content:flex-start;} .footer-bottom{flex-direction:column;align-items:flex-start;} .footer-brand img{max-width:160px!important;} }
   </style>
-</head>
+  <!-- PRELOADER -->
+  <style>
+    #preloader{position:fixed;inset:0;z-index:10000;background:#000d26;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity 0.75s ease,visibility 0.75s ease;}
+    #preloader.pre-done{opacity:0;visibility:hidden;pointer-events:none;}
+    .pre-logo{width:160px;max-width:55vw;mix-blend-mode:screen;opacity:0;animation:preLogo 0.9s cubic-bezier(0.16,1,0.3,1) forwards 0.2s;}
+    @keyframes preLogo{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+    .pre-bar-wrap{width:160px;max-width:55vw;height:1px;background:rgba(0,188,212,0.18);margin-top:1.8rem;overflow:hidden;}
+    .pre-bar{height:100%;background:linear-gradient(90deg,rgba(0,188,212,0.5),#00e5ff);width:0%;animation:preBar 2.3s cubic-bezier(0.4,0,0.2,1) forwards 0.4s;box-shadow:0 0 10px rgba(0,230,255,0.45);}
+    @keyframes preBar{0%{width:0%;}65%{width:78%;}100%{width:100%;}}
+  </style></head>
 <body>
+  <div id="preloader" aria-hidden="true">
+    <img src="2.png" alt="" class="pre-logo"/>
+    <div class="pre-bar-wrap"><div class="pre-bar"></div></div>
+  </div>
 
   <nav id="navbar">
     <a href="index.html">
@@ -479,5 +492,16 @@
     }), { threshold:0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
+  <script>
+    (function(){
+      var pre=document.getElementById('preloader');
+      if(!pre)return;
+      var t0=Date.now(), MIN=2600;
+      function hide(){ var r=Math.max(0,MIN-(Date.now()-t0)); setTimeout(function(){ pre.classList.add('pre-done'); },r); }
+      if(document.readyState==='complete'){ hide(); } else { window.addEventListener('load',hide); }
+    })();
+  </script>
 </body>
 </html>
+
+
