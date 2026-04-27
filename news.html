@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -345,18 +345,15 @@
   </style>
   <!-- PRELOADER -->
   <style>
-    #preloader{position:fixed;inset:0;z-index:10000;background:#000d26;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity 0.75s ease,visibility 0.75s ease;}
+    #preloader{position:fixed;inset:0;z-index:10000;background:#000d26;display:flex;align-items:center;justify-content:center;transition:opacity 0.75s ease,visibility 0.75s ease;}.pre-inner{display:flex;flex-direction:column;align-items:center;gap:0.4rem;}
     #preloader.pre-done{opacity:0;visibility:hidden;pointer-events:none;}
     .pre-logo{width:160px;max-width:55vw;mix-blend-mode:screen;opacity:0;animation:preLogo 0.9s cubic-bezier(0.16,1,0.3,1) forwards 0.2s;}
     @keyframes preLogo{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
-    .pre-bar-wrap{width:160px;max-width:55vw;height:1px;background:rgba(0,188,212,0.18);margin-top:1.8rem;overflow:hidden;}
-    .pre-bar{height:100%;background:linear-gradient(90deg,rgba(0,188,212,0.5),#00e5ff);width:0%;animation:preBar 2.3s cubic-bezier(0.4,0,0.2,1) forwards 0.4s;box-shadow:0 0 10px rgba(0,230,255,0.45);}
-    @keyframes preBar{0%{width:0%;}65%{width:78%;}100%{width:100%;}}
+    .pre-gif{width:112px;height:112px;object-fit:contain;display:block;opacity:0;animation:preLogo 0.9s cubic-bezier(0.16,1,0.3,1) forwards 0.6s;}
   </style></head>
 <body>
   <div id="preloader" aria-hidden="true">
-    <img src="2.png" alt="" class="pre-logo"/>
-    <div class="pre-bar-wrap"><div class="pre-bar"></div></div>
+    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTkwc3MyYnVtb2prNnpzOTZmaGgwbWdtMnltZGh3dWd6MzFvcThjMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/A8oJtHgIcFdl4d2d8i/giphy.gif" class="pre-gif" alt="" crossorigin="anonymous"/>
   </div>
 
   <nav id="navbar">
@@ -438,43 +435,8 @@
       <h2 class="news-section-title">Underwater <em>News</em></h2>
     </div>
 
-    <div class="news-grid">
-      <a href="#" class="news-card reveal d1">
-        <img src="https://placehold.co/640x360/030d1f/22d3ee?text=Marina+Bay+Sands" alt="Marina Bay Sands" class="card-img" loading="lazy" />
-        <div class="card-body">
-          <span class="news-tag tag-event">Event Recap</span>
-          <h3 class="card-title">Sirena Asia Debuts at Marina Bay Sands</h3>
-          <p class="card-excerpt">An evening the guests won't forget — our most ambitious show yet, beneath the stars of Singapore.</p>
-          <div class="card-meta">
-            <span class="news-date">April 2025</span>
-            <span class="read-more">Read →</span>
-          </div>
-        </div>
-      </a>
-      <a href="#" class="news-card reveal d2">
-        <img src="https://placehold.co/640x360/0d1f45/fb7185?text=Bangkok+Training" alt="Bangkok Training" class="card-img" loading="lazy" />
-        <div class="card-body">
-          <span class="news-tag tag-update">Update</span>
-          <h3 class="card-title">New Training Program Launches in Bangkok</h3>
-          <p class="card-excerpt">Applications are now open for the next cohort of rising mermaid performers across Southeast Asia.</p>
-          <div class="card-meta">
-            <span class="news-date">March 2025</span>
-            <span class="read-more">Read →</span>
-          </div>
-        </div>
-      </a>
-      <a href="#" class="news-card reveal d3">
-        <img src="https://placehold.co/640x360/030d1f/a5f3fc?text=Resort+Partnership" alt="Resort Partnership" class="card-img" loading="lazy" />
-        <div class="card-body">
-          <span class="news-tag tag-press">Press</span>
-          <h3 class="card-title">Sirena × Luxury Resort Partnership Announced</h3>
-          <p class="card-excerpt">Exclusive residency announced with a leading resort group — bringing Sirena performances across Southeast Asia.</p>
-          <div class="card-meta">
-            <span class="news-date">February 2025</span>
-            <span class="read-more">Read →</span>
-          </div>
-        </div>
-      </a>
+    <div class="news-grid" id="news-grid">
+      <!-- Cards rendered by JS from NEWS array above the footer -->
     </div>
   </section>
 
@@ -482,7 +444,7 @@
   <footer id="site-footer">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="2.png" alt="Sirena Asia" style="mix-blend-mode:screen;max-width:420px;" />
+        <img src="2.png" alt="Sirena Asia" style="mix-blend-mode:screen;max-width:160px;" />
         <p class="footer-tagline">Asia's Premier Mermaid Collective</p>
       </div>
       <div class="footer-nav-col">
@@ -509,7 +471,7 @@
     </div>
     <div class="footer-divider"></div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 Sirena Asia · Asia's Premier Mermaid Collective</p>
+      <p class="footer-copy">© 2026 Sirena Asia · Asia's Premier Mermaid Collective</p>
       <div class="footer-legal">
         <a href="#" class="footer-legal-link">Privacy Policy</a>
         <a href="#" class="footer-legal-link">Terms of Use</a>
@@ -518,6 +480,94 @@
   </footer>
 
   <script>
+    /* ═══════════════════════════════════════════════════════════
+       NEWS DATA — add a new object here to publish a news card.
+       Cards render newest-first automatically (sorted by date).
+
+       Fields:
+         date     — 'YYYY-MM-DD'  (required, used for sorting + display)
+         category — 'Event' | 'Training' | 'Partnership' | 'Press' | 'Update'
+         title    — card headline
+         excerpt  — one–two sentence description shown on the card
+         image    — relative path to image, or null for a colour placeholder
+         link     — URL to open on click, or null
+
+       To add a story — copy this block, fill it in, and paste at the TOP of NEWS:
+       {
+         date: '2025-07-01',
+         category: 'Event',
+         title: 'New Show Title',
+         excerpt: 'Short description here.',
+         image: 'media/gallery/photos/shows/10.jpg',
+         link: null
+       },
+    ═══════════════════════════════════════════════════════════ */
+    const NEWS = [
+      {
+        date: '2025-04-01',
+        category: 'Event',
+        title: 'Sirena Asia Debuts at Marina Bay Sands',
+        excerpt: 'An evening the guests won\'t forget — our most ambitious show yet, beneath the stars of Singapore.',
+        image: null,
+        link: null
+      },
+      {
+        date: '2025-03-01',
+        category: 'Training',
+        title: 'New Training Program Launches in Bangkok',
+        excerpt: 'Applications are now open for the next cohort of rising mermaid performers across Southeast Asia.',
+        image: null,
+        link: null
+      },
+      {
+        date: '2025-02-01',
+        category: 'Partnership',
+        title: 'Sirena × Luxury Resort Partnership Announced',
+        excerpt: 'Exclusive residency announced with a leading resort group — bringing Sirena performances across Southeast Asia.',
+        image: null,
+        link: null
+      }
+    ];
+
+    /* ── helpers ── */
+    const TAG_CLASS = { Event:'tag-event', Training:'tag-update', Partnership:'tag-press', Press:'tag-press', Update:'tag-update' };
+    const PH_COLORS = { Event:'030d1f/22d3ee', Training:'0d1f45/fb7185', Partnership:'030d1f/a5f3fc', Press:'0d1f45/fb7185', Update:'030d1f/22d3ee' };
+    function fmtDate(iso) {
+      const [y,m] = iso.split('-');
+      return new Date(+y,+m-1,1).toLocaleString('en-US',{month:'long',year:'numeric'});
+    }
+
+    const obs = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    }), { threshold: 0.06 });
+
+    function renderNews() {
+      const sorted = [...NEWS].sort((a,b) => b.date.localeCompare(a.date));
+      const grid = document.getElementById('news-grid');
+      grid.innerHTML = sorted.map((item,i) => {
+        const cls   = TAG_CLASS[item.category] || 'tag-update';
+        const delay = ['d1','d2','d3','d4'][i % 4];
+        const imgSrc = item.image
+          ? item.image
+          : `https://placehold.co/640x360/${PH_COLORS[item.category]||'030d1f/22d3ee'}?text=${encodeURIComponent(item.title.slice(0,28))}`;
+        const href = item.link || '#';
+        const target = item.link ? ' target="_blank" rel="noopener"' : '';
+        return `<a href="${href}" class="news-card reveal ${delay}"${target}>
+          <img src="${imgSrc}" alt="${item.title}" class="card-img" loading="lazy" />
+          <div class="card-body">
+            <span class="news-tag ${cls}">${item.category}</span>
+            <h3 class="card-title">${item.title}</h3>
+            <p class="card-excerpt">${item.excerpt}</p>
+            <div class="card-meta">
+              <span class="news-date">${fmtDate(item.date)}</span>
+              <span class="read-more">Read →</span>
+            </div>
+          </div>
+        </a>`;
+      }).join('');
+      grid.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    }
+
     const burger = document.getElementById('burger');
     const mobileMenu = document.getElementById('mobile-menu');
     let menuOpen = false;
@@ -534,10 +584,9 @@
       menuOpen = false; mobileMenu.classList.remove('open'); document.body.style.overflow = '';
       burger.querySelectorAll('.bl').forEach(b => { b.style.transform=''; b.style.opacity='1'; });
     }));
-    const obs = new IntersectionObserver(entries => entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-    }), { threshold: 0.06 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    renderNews();
   </script>
   <script>
     (function(){

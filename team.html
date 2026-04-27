@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -43,7 +43,7 @@
     .btn-outline:hover { background:rgba(34,211,238,0.07);border-color:var(--cyan-glow);transform:translateY(-2px); }
 
     /* ── PAGE HEADER ── */
-    .page-header { padding:9rem clamp(2rem,5vw,5rem) 5rem;text-align:center;border-bottom:1px solid rgba(251,113,133,0.08);background:linear-gradient(rgba(0,13,38,0.65),rgba(0,13,38,0.9)),url("media/gallery/photos/shows/DSC01877.jpg") center/cover no-repeat;position:relative;overflow:hidden; }
+    .page-header { padding:9rem clamp(2rem,5vw,5rem) 5rem;text-align:center;border-bottom:1px solid rgba(251,113,133,0.08);background:linear-gradient(rgba(0,13,38,0.65),rgba(0,13,38,0.9)),url("media/gallery/photos/shows/9.jpg") center/cover no-repeat;position:relative;overflow:hidden; }
     .page-header::before { content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 100%,rgba(251,113,133,0.07),transparent);pointer-events:none; }
     .page-header .sec-label { margin-bottom:1.2rem;color:rgba(251,113,133,0.7); }
     .page-header h1 { font-family:'Fraunces',serif;font-size:clamp(3rem,8vw,6rem);font-weight:900;line-height:0.95;letter-spacing:-0.02em;color:#fff;margin-bottom:1.2rem; }
@@ -56,8 +56,8 @@
     .flip-hint { font-family:'Outfit',sans-serif;font-size:0.62rem;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:rgba(34,211,238,0.35);text-align:center;margin-bottom:3rem;display:flex;align-items:center;justify-content:center;gap:0.75rem; }
     .flip-hint::before,.flip-hint::after { content:'';display:block;width:48px;height:1px;background:rgba(34,211,238,0.15); }
 
-    .flip-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:1.2rem; }
-    @media(min-width:900px) { .flip-grid{grid-template-columns:repeat(7,1fr);} }
+    .flip-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.4rem; }
+    @media(min-width:900px) { .flip-grid{grid-template-columns:repeat(4,1fr);} }
     @media(max-width:640px) { .flip-grid{grid-template-columns:repeat(2,1fr);gap:0.85rem;} }
 
     /* ── FLOATING ANIMATION ── */
@@ -137,7 +137,7 @@
     #site-footer { position:relative;z-index:2;background:#000814;border-top:1px solid rgba(34,211,238,0.08);padding:5rem clamp(2rem,6vw,7rem) 3rem; }
     .footer-top { display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:3rem;margin-bottom:4rem; }
     .footer-brand { display:flex;flex-direction:column;gap:1rem; }
-    .footer-brand img { max-width:420px;width:auto;align-self:flex-start;mix-blend-mode:screen;opacity:0.75; }
+    .footer-brand img { max-width:160px;width:auto;align-self:flex-start;mix-blend-mode:screen;opacity:0.85; }
     .footer-tagline { font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:rgba(224,247,250,0.35);line-height:1.6;max-width:220px; }
     .footer-nav-col { display:flex;flex-direction:column;gap:1.2rem; }
     .footer-nav-heading { font-family:'Outfit',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(34,211,238,0.5);margin-bottom:0.3rem; }
@@ -161,18 +161,15 @@
   </style>
   <!-- PRELOADER -->
   <style>
-    #preloader{position:fixed;inset:0;z-index:10000;background:#000d26;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity 0.75s ease,visibility 0.75s ease;}
+    #preloader{position:fixed;inset:0;z-index:10000;background:#000d26;display:flex;align-items:center;justify-content:center;transition:opacity 0.75s ease,visibility 0.75s ease;}.pre-inner{display:flex;flex-direction:column;align-items:center;gap:0.4rem;}
     #preloader.pre-done{opacity:0;visibility:hidden;pointer-events:none;}
     .pre-logo{width:160px;max-width:55vw;mix-blend-mode:screen;opacity:0;animation:preLogo 0.9s cubic-bezier(0.16,1,0.3,1) forwards 0.2s;}
     @keyframes preLogo{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
-    .pre-bar-wrap{width:160px;max-width:55vw;height:1px;background:rgba(0,188,212,0.18);margin-top:1.8rem;overflow:hidden;}
-    .pre-bar{height:100%;background:linear-gradient(90deg,rgba(0,188,212,0.5),#00e5ff);width:0%;animation:preBar 2.3s cubic-bezier(0.4,0,0.2,1) forwards 0.4s;box-shadow:0 0 10px rgba(0,230,255,0.45);}
-    @keyframes preBar{0%{width:0%;}65%{width:78%;}100%{width:100%;}}
+    .pre-gif{width:112px;height:112px;object-fit:contain;display:block;opacity:0;animation:preLogo 0.9s cubic-bezier(0.16,1,0.3,1) forwards 0.6s;}
   </style></head>
 <body>
   <div id="preloader" aria-hidden="true">
-    <img src="2.png" alt="" class="pre-logo"/>
-    <div class="pre-bar-wrap"><div class="pre-bar"></div></div>
+    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTkwc3MyYnVtb2prNnpzOTZmaGgwbWdtMnltZGh3dWd6MzFvcThjMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/A8oJtHgIcFdl4d2d8i/giphy.gif" class="pre-gif" alt="" crossorigin="anonymous"/>
   </div>
 
   <nav id="navbar">
@@ -214,184 +211,106 @@
 
     <div class="flip-grid">
 
-      <!-- 1: Aiko (Japan) -->
-      <div class="flip-card reveal d1" data-name="Aiko">
+      <!-- 1: Shinta -->
+      <div class="flip-card reveal d1" data-name="Shinta">
         <div class="flip-inner">
           <div class="flip-front">
-            <img src="https://placehold.co/300x400/0d1f45/22d3ee?text=Aiko" alt="Mermaid Aiko" loading="lazy" />
+            <img src="media/performers/rising/shinta/photo1.jpg" alt="Mermaid Shinta" loading="lazy" />
             <div class="flip-front-overlay">
               <p class="flip-front-num">01 · Rising</p>
-              <p class="flip-front-name">Mermaid Aiko</p>
-            </div>
-            <span class="flip-front-hint">Flip →</span>
-          </div>
-          <div class="flip-back">
-            <p class="flip-flag">🇯🇵</p>
-            <p class="flip-back-name">Mermaid Aiko</p>
-            <p class="flip-back-title">Whisper of the East</p>
-            <p class="flip-back-origin">Japan</p>
-            <p class="flip-back-desc">Aiko brings serene, meditative grace from Japan's coastal traditions — stillness that commands attention.</p>
-            <div class="flip-tags">
-              <span class="flip-tag">Poolside</span>
-              <span class="flip-tag">Children</span>
-            </div>
-            <a href="contact.html?performer=Mermaid+Aiko" class="flip-book">Enquire →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2: Luna (Thailand) -->
-      <div class="flip-card reveal d2" data-name="Luna">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <img src="https://placehold.co/300x400/030d1f/fb7185?text=Luna" alt="Mermaid Luna" loading="lazy" />
-            <div class="flip-front-overlay">
-              <p class="flip-front-num">02 · Rising</p>
-              <p class="flip-front-name">Mermaid Luna</p>
-            </div>
-            <span class="flip-front-hint">Flip →</span>
-          </div>
-          <div class="flip-back">
-            <p class="flip-flag">🇹🇭</p>
-            <p class="flip-back-name">Mermaid Luna</p>
-            <p class="flip-back-title">Moonlit Current</p>
-            <p class="flip-back-origin">Thailand</p>
-            <p class="flip-back-desc">Luna's fluid movement echoes the Thai classical arts — every gesture deliberate, every pause filled with intention.</p>
-            <div class="flip-tags">
-              <span class="flip-tag">Stage</span>
-              <span class="flip-tag">Private</span>
-            </div>
-            <a href="contact.html?performer=Mermaid+Luna" class="flip-book">Enquire →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3: Zara (Singapore) -->
-      <div class="flip-card reveal d3" data-name="Zara">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <img src="https://placehold.co/300x400/0d1f45/a5f3fc?text=Zara" alt="Mermaid Zara" loading="lazy" />
-            <div class="flip-front-overlay">
-              <p class="flip-front-num">03 · Rising</p>
-              <p class="flip-front-name">Mermaid Zara</p>
-            </div>
-            <span class="flip-front-hint">Flip →</span>
-          </div>
-          <div class="flip-back">
-            <p class="flip-flag">🇸🇬</p>
-            <p class="flip-back-name">Mermaid Zara</p>
-            <p class="flip-back-title">City Beneath the Sea</p>
-            <p class="flip-back-origin">Singapore</p>
-            <p class="flip-back-desc">Zara blends urban precision with oceanic freedom — a performer who thrives in corporate activations and luxury venues.</p>
-            <div class="flip-tags">
-              <span class="flip-tag">Corporate</span>
-              <span class="flip-tag">Brand</span>
-            </div>
-            <a href="contact.html?performer=Mermaid+Zara" class="flip-book">Enquire →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4: Mei (China) -->
-      <div class="flip-card reveal d4" data-name="Mei">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <img src="https://placehold.co/300x400/030d1f/22d3ee?text=Mei" alt="Mermaid Mei" loading="lazy" />
-            <div class="flip-front-overlay">
-              <p class="flip-front-num">04 · Rising</p>
-              <p class="flip-front-name">Mermaid Mei</p>
-            </div>
-            <span class="flip-front-hint">Flip →</span>
-          </div>
-          <div class="flip-back">
-            <p class="flip-flag">🇨🇳</p>
-            <p class="flip-back-name">Mermaid Mei</p>
-            <p class="flip-back-title">Plum Blossom Tide</p>
-            <p class="flip-back-origin">China</p>
-            <p class="flip-back-desc">Mei's background in wushu gives her performances an unexpected power — graceful, but with the coiled strength of a wave about to break.</p>
-            <div class="flip-tags">
-              <span class="flip-tag">Underwater</span>
-              <span class="flip-tag">Acrobatics</span>
-            </div>
-            <a href="contact.html?performer=Mermaid+Mei" class="flip-book">Enquire →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 5: Isla (Vietnam) -->
-      <div class="flip-card reveal d1" data-name="Isla">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <img src="https://placehold.co/300x400/0d1f45/fb7185?text=Isla" alt="Mermaid Isla" loading="lazy" />
-            <div class="flip-front-overlay">
-              <p class="flip-front-num">05 · Rising</p>
-              <p class="flip-front-name">Mermaid Isla</p>
-            </div>
-            <span class="flip-front-hint">Flip →</span>
-          </div>
-          <div class="flip-back">
-            <p class="flip-flag">🇻🇳</p>
-            <p class="flip-back-name">Mermaid Isla</p>
-            <p class="flip-back-title">Delta Dreamer</p>
-            <p class="flip-back-origin">Vietnam</p>
-            <p class="flip-back-desc">Raised near the Mekong Delta, Isla has an instinctive relationship with water that translates into performances of rare, quiet beauty.</p>
-            <div class="flip-tags">
-              <span class="flip-tag">Poolside</span>
-              <span class="flip-tag">Photography</span>
-            </div>
-            <a href="contact.html?performer=Mermaid+Isla" class="flip-book">Enquire →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 6: Nova (Korea) -->
-      <div class="flip-card reveal d2" data-name="Nova">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <img src="https://placehold.co/300x400/030d1f/a5f3fc?text=Nova" alt="Mermaid Nova" loading="lazy" />
-            <div class="flip-front-overlay">
-              <p class="flip-front-num">06 · Rising</p>
-              <p class="flip-front-name">Mermaid Nova</p>
-            </div>
-            <span class="flip-front-hint">Flip →</span>
-          </div>
-          <div class="flip-back">
-            <p class="flip-flag">🇰🇷</p>
-            <p class="flip-back-name">Mermaid Nova</p>
-            <p class="flip-back-title">Neon Deep</p>
-            <p class="flip-back-origin">Korea</p>
-            <p class="flip-back-desc">Nova brings a modern, high-energy approach to performance — she's at home in film sets, live concerts, and theatrical productions.</p>
-            <div class="flip-tags">
-              <span class="flip-tag">Film</span>
-              <span class="flip-tag">Stage</span>
-            </div>
-            <a href="contact.html?performer=Mermaid+Nova" class="flip-book">Enquire →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 7: Sari (Indonesia) -->
-      <div class="flip-card reveal d3" data-name="Sari">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <img src="https://placehold.co/300x400/0d1f45/22d3ee?text=Sari" alt="Mermaid Sari" loading="lazy" />
-            <div class="flip-front-overlay">
-              <p class="flip-front-num">07 · Rising</p>
-              <p class="flip-front-name">Mermaid Sari</p>
+              <p class="flip-front-name">Mermaid Shinta</p>
             </div>
             <span class="flip-front-hint">Flip →</span>
           </div>
           <div class="flip-back">
             <p class="flip-flag">🇮🇩</p>
-            <p class="flip-back-name">Mermaid Sari</p>
-            <p class="flip-back-title">Spirit of the Archipelago</p>
+            <p class="flip-back-name">Mermaid Shinta</p>
+            <p class="flip-back-title">Rising Tide</p>
             <p class="flip-back-origin">Indonesia</p>
-            <p class="flip-back-desc">Drawing from 17,000 islands of myth and tradition, Sari's performances feel ancient — as if the sea itself is telling a story through her.</p>
+            <p class="flip-back-desc">Shinta trained under Sirena's free program and built a career from the water up. Natural presence, grounded performance.</p>
+            <div class="flip-tags">
+              <span class="flip-tag">Poolside</span>
+              <span class="flip-tag">Events</span>
+            </div>
+            <a href="contact.html?performer=Mermaid+Shinta" class="flip-book">Enquire →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2: Thia -->
+      <div class="flip-card reveal d2" data-name="Thia">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <img src="media/performers/rising/thia/photo1.jpg" alt="Mermaid Thia" loading="lazy" />
+            <div class="flip-front-overlay">
+              <p class="flip-front-num">02 · Rising</p>
+              <p class="flip-front-name">Mermaid Thia</p>
+            </div>
+            <span class="flip-front-hint">Flip →</span>
+          </div>
+          <div class="flip-back">
+            <p class="flip-flag">🇮🇩</p>
+            <p class="flip-back-name">Mermaid Thia</p>
+            <p class="flip-back-title">Deep Current</p>
+            <p class="flip-back-origin">Indonesia</p>
+            <p class="flip-back-desc">From zero experience to performing at partner venues — Thia's journey is what the Rising Tides program is built for.</p>
             <div class="flip-tags">
               <span class="flip-tag">Underwater</span>
+              <span class="flip-tag">Shows</span>
+            </div>
+            <a href="contact.html?performer=Mermaid+Thia" class="flip-book">Enquire →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3: Indah -->
+      <div class="flip-card reveal d3" data-name="Indah">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <img src="media/performers/rising/indah/photo1.jpg" alt="Mermaid Indah" loading="lazy" />
+            <div class="flip-front-overlay">
+              <p class="flip-front-num">03 · Rising</p>
+              <p class="flip-front-name">Mermaid Indah</p>
+            </div>
+            <span class="flip-front-hint">Flip →</span>
+          </div>
+          <div class="flip-back">
+            <p class="flip-flag">🇮🇩</p>
+            <p class="flip-back-name">Mermaid Indah</p>
+            <p class="flip-back-title">Still Waters</p>
+            <p class="flip-back-origin">Indonesia</p>
+            <p class="flip-back-desc">Indah found the water through Sirena's Bali program and hasn't left. Fluid, focused, and quietly powerful in the pool.</p>
+            <div class="flip-tags">
+              <span class="flip-tag">Poolside</span>
               <span class="flip-tag">Versatile</span>
             </div>
-            <a href="contact.html?performer=Mermaid+Sari" class="flip-book">Enquire →</a>
+            <a href="contact.html?performer=Mermaid+Indah" class="flip-book">Enquire →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4: Anel -->
+      <div class="flip-card reveal d4" data-name="Anel">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <img src="media/performers/rising/anel/photo1.jpg" alt="Mermaid Anel" loading="lazy" />
+            <div class="flip-front-overlay">
+              <p class="flip-front-num">04 · Rising</p>
+              <p class="flip-front-name">Mermaid Anel</p>
+            </div>
+            <span class="flip-front-hint">Flip →</span>
+          </div>
+          <div class="flip-back">
+            <p class="flip-flag">🇮🇩</p>
+            <p class="flip-back-name">Mermaid Anel</p>
+            <p class="flip-back-title">First Wave</p>
+            <p class="flip-back-origin">Indonesia</p>
+            <p class="flip-back-desc">Anel came in with no background and earned her place. Energetic, expressive, and always ready for the next show.</p>
+            <div class="flip-tags">
+              <span class="flip-tag">Events</span>
+              <span class="flip-tag">Training</span>
+            </div>
+            <a href="contact.html?performer=Mermaid+Anel" class="flip-book">Enquire →</a>
           </div>
         </div>
       </div>
@@ -416,7 +335,7 @@
   <footer id="site-footer">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="2.png" alt="Sirena Asia" style="max-width:420px;mix-blend-mode:screen;" />
+        <img src="2.png" alt="Sirena Asia" style="max-width:160px;mix-blend-mode:screen;" />
         <p class="footer-tagline">Asia's Premier Mermaid Collective</p>
       </div>
       <div class="footer-nav-col">
@@ -449,7 +368,7 @@
     </div>
     <div class="footer-divider"></div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 Sirena Asia · Asia's Premier Mermaid Collective</p>
+      <p class="footer-copy">© 2026 Sirena Asia · Asia's Premier Mermaid Collective</p>
       <div class="footer-legal">
         <a href="#" class="footer-legal-link">Privacy Policy</a>
         <a href="#" class="footer-legal-link">Terms of Use</a>
