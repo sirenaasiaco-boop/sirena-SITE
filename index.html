@@ -895,37 +895,56 @@
     ════════════════════════════════════════ */
     .globe-section {
       display: flex; flex-direction: column; align-items: center;
-      padding: 0; position: relative; z-index: 2;
+      padding: 0; position: relative; z-index: 2; width: 100%;
     }
     .globe-label {
       font-family: 'Outfit', sans-serif; font-size: 0.62rem; font-weight: 500;
       letter-spacing: 0.28em; text-transform: uppercase;
-      color: var(--cyan); opacity: 0.65; margin-bottom: 1.4rem;
+      color: var(--cyan); opacity: 0.65; margin-bottom: 1.2rem;
     }
-    #globe-canvas {
-      border-radius: 50%;
-      box-shadow:
-        0 0 60px rgba(34,211,238,0.15),
-        0 0 120px rgba(34,211,238,0.06),
-        inset 0 0 40px rgba(6,8,15,0.6);
-      cursor: grab;
+    .world-map-wrap {
+      position: relative; width: 100%; max-width: 480px;
+      border-radius: 10px; overflow: hidden;
+      border: 1px solid rgba(0,188,212,0.15);
+      box-shadow: 0 0 40px rgba(0,188,212,0.08);
     }
-    #globe-canvas:active { cursor: grabbing; }
-    .globe-legend {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem;
-      margin-top: 1.8rem; max-width: 420px;
+    .world-map-wrap img {
+      width: 100%; height: auto; display: block;
+      filter: brightness(0.9) saturate(1.1);
     }
-    .globe-loc {
-      display: flex; align-items: center; gap: 0.5rem;
-      font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 400;
+    .world-map-markers {
+      position: absolute; inset: 0;
+    }
+    .wm-marker {
+      position: absolute; transform: translate(-50%, -50%);
+    }
+    .wm-marker-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #ff6b9d;
+      box-shadow: 0 0 8px rgba(255,107,157,0.9);
+      position: relative; z-index: 2;
+    }
+    .wm-marker-ring {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px; height: 8px; border-radius: 50%;
+      border: 1.5px solid rgba(255,107,157,0.7);
+      animation: markerPulse 2s ease-out infinite;
+    }
+    .wm-marker:nth-child(2) .wm-marker-ring { animation-delay: 0.4s; }
+    .wm-marker:nth-child(3) .wm-marker-ring { animation-delay: 0.8s; }
+    .wm-marker:nth-child(4) .wm-marker-ring { animation-delay: 1.2s; }
+    .wm-marker:nth-child(5) .wm-marker-ring { animation-delay: 1.6s; }
+    @keyframes markerPulse {
+      0%   { width: 8px; height: 8px; opacity: 0.8; }
+      100% { width: 36px; height: 36px; opacity: 0; }
+    }
+    .wm-marker-label {
+      position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+      font-family: 'Outfit', sans-serif; font-size: 0.52rem; font-weight: 600;
       letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(224,247,250,0.45);
-    }
-    .globe-loc-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--cyan);
-      box-shadow: 0 0 6px var(--cyan);
-      flex-shrink: 0;
+      color: rgba(255,255,255,0.85); white-space: nowrap;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.9);
     }
 
     /* ════════════════════════════════════════
@@ -1454,11 +1473,6 @@
        MOBILE POLISH
     ═══════════════════════════════════════ */
     @media (max-width: 600px) {
-      /* Globe — scale down canvas display to fit screen */
-      #globe-canvas { width: 300px !important; height: 300px !important; }
-      .globe-legend { gap: 0.75rem; }
-      .globe-loc { font-size: 0.58rem; }
-
       /* Event diptych — stack on very small screens */
       .event-diptych { grid-template-columns: 1fr; }
 
@@ -1980,16 +1994,43 @@
             </p>
           </div>
 
-          <!-- Right: globe -->
+          <!-- Right: flat world map -->
           <div class="globe-section rv d3">
             <p class="globe-label">Our Home Waters</p>
-            <canvas id="globe-canvas" width="420" height="420"></canvas>
-            <div class="globe-legend">
-              <span class="globe-loc"><span class="globe-loc-dot"></span>Philippines</span>
-              <span class="globe-loc"><span class="globe-loc-dot"></span>Taiwan</span>
-              <span class="globe-loc"><span class="globe-loc-dot"></span>Indonesia</span>
-              <span class="globe-loc"><span class="globe-loc-dot"></span>Malaysia</span>
-              <span class="globe-loc"><span class="globe-loc-dot"></span>India</span>
+            <div class="world-map-wrap">
+              <img src="/world-map.svg" alt="World map" />
+              <div class="world-map-markers">
+                <!-- Philippines: lon=121.7, lat=12.8 → x=83.8%, y=48.4% -->
+                <div class="wm-marker" style="left:83.8%;top:48.4%">
+                  <div class="wm-marker-ring"></div>
+                  <div class="wm-marker-dot"></div>
+                  <div class="wm-marker-label">Philippines</div>
+                </div>
+                <!-- Taiwan: lon=121.0, lat=23.5 → x=83.6%, y=36.9% -->
+                <div class="wm-marker" style="left:83.6%;top:36.9%">
+                  <div class="wm-marker-ring"></div>
+                  <div class="wm-marker-dot"></div>
+                  <div class="wm-marker-label">Taiwan</div>
+                </div>
+                <!-- Indonesia: lon=106.8, lat=-6.2 → x=79.7%, y=53.4% -->
+                <div class="wm-marker" style="left:79.7%;top:53.4%">
+                  <div class="wm-marker-ring"></div>
+                  <div class="wm-marker-dot"></div>
+                  <div class="wm-marker-label">Indonesia</div>
+                </div>
+                <!-- Malaysia: lon=101.7, lat=3.1 → x=78.3%, y=48.3% -->
+                <div class="wm-marker" style="left:78.3%;top:48.3%">
+                  <div class="wm-marker-ring"></div>
+                  <div class="wm-marker-dot"></div>
+                  <div class="wm-marker-label">Malaysia</div>
+                </div>
+                <!-- India: lon=72.8, lat=19.0 → x=70.2%, y=39.4% -->
+                <div class="wm-marker" style="left:70.2%;top:39.4%">
+                  <div class="wm-marker-ring"></div>
+                  <div class="wm-marker-dot"></div>
+                  <div class="wm-marker-label">India</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -2050,9 +2091,6 @@
     </div><!-- /#page-2 -->
   </div><!-- /#page-body -->
 
-
-  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/d3-geo@3/dist/d3-geo.min.js"></script>
 
   <script>
     /* ══════════════════════
@@ -2373,159 +2411,7 @@
 
 
 
-    /* ══════════════════════
-       GLOBE CANVAS — d3-geo + topojson
-    ══════════════════════ */
-    (function initGlobe() {
-      const canvas = document.getElementById('globe-canvas');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      const W = canvas.width, H = canvas.height;
-      const cx = W / 2, cy = H / 2, R = W / 2 - 8;
-
-      // Preload Sirena icon for markers
-      const markerIcon = new Image();
-      markerIcon.src = 'Collored Icon.png';
-      let iconReady = false;
-      markerIcon.onload = () => { iconReady = true; };
-
-
-
-      const locations = [
-        { name: 'Philippines', lat: 12.8, lon: 121.7 },
-        { name: 'Taiwan',      lat: 23.5, lon: 121.0 },
-        { name: 'Indonesia',   lat: -6.2, lon: 106.8 },
-        { name: 'Malaysia',    lat: 3.1,  lon: 101.7 },
-        { name: 'India',       lat: 19.0, lon: 72.8  },
-      ];
-
-      // d3-geo orthographic projection centred on SE Asia
-      const sphere = { type: 'Sphere' };
-      let landData = null;
-      let graticuleData = null;
-      let rotLon = 108; // current rotation longitude (increases = spin east)
-      let pulseT = 0;
-      let isDragging = false, dragStartX = 0, lastRot = 108;
-      let animRunning = false;
-
-      // Build projection + path generator
-      const projection = d3.geoOrthographic()
-        .scale(R).translate([cx, cy]).clipAngle(90)
-        .rotate([-108, -8, 0]);
-      const path = d3.geoPath().context(ctx).projection(projection);
-
-      // Drag interaction
-      canvas.addEventListener('mousedown', e => { isDragging = true; dragStartX = e.clientX; lastRot = rotLon; });
-      window.addEventListener('mouseup', () => { isDragging = false; });
-      window.addEventListener('mousemove', e => { if (isDragging) rotLon = lastRot - (e.clientX - dragStartX) * 0.3; });
-      canvas.addEventListener('touchstart', e => { isDragging = true; dragStartX = e.touches[0].clientX; lastRot = rotLon; }, { passive: true });
-      window.addEventListener('touchend', () => { isDragging = false; });
-      window.addEventListener('touchmove', e => { if (isDragging) rotLon = lastRot - (e.touches[0].clientX - dragStartX) * 0.3; }, { passive: true });
-
-      function isOnFront(lon, lat) {
-        const r = projection.rotate();
-        const cLon = -r[0], cLat = -r[1];
-        const dLon = (lon - cLon) * Math.PI / 180;
-        return (Math.sin(cLat * Math.PI / 180) * Math.sin(lat * Math.PI / 180) +
-                Math.cos(cLat * Math.PI / 180) * Math.cos(lat * Math.PI / 180) * Math.cos(dLon)) > 0;
-      }
-
-      function drawGlobe() {
-        if (!animRunning) return;
-        projection.rotate([-rotLon, -8, 0]);
-        ctx.clearRect(0, 0, W, H);
-
-        // Ocean
-        const bg = ctx.createRadialGradient(cx - R * 0.3, cy - R * 0.32, R * 0.05, cx, cy, R);
-        bg.addColorStop(0,    '#2e7cb5');
-        bg.addColorStop(0.35, '#1a5a8a');
-        bg.addColorStop(0.7,  '#0d3d66');
-        bg.addColorStop(1,    '#051e36');
-        ctx.beginPath(); path(sphere); ctx.fillStyle = bg; ctx.fill();
-
-        // Graticule
-        if (graticuleData) {
-          ctx.beginPath(); path(graticuleData);
-          ctx.strokeStyle = 'rgba(255,255,255,0.06)'; ctx.lineWidth = 0.35; ctx.stroke();
-        }
-
-        // Land
-        if (landData) {
-          ctx.beginPath(); path(landData);
-          ctx.fillStyle = 'rgba(72,115,50,0.92)';
-          ctx.strokeStyle = 'rgba(52,88,36,0.75)';
-          ctx.lineWidth = 0.5; ctx.fill(); ctx.stroke();
-        }
-
-        // Sunlight overlay
-        const light = ctx.createRadialGradient(cx - R * 0.32, cy - R * 0.32, 0, cx, cy, R);
-        light.addColorStop(0,    'rgba(255,248,220,0.16)');
-        light.addColorStop(0.45, 'transparent');
-        light.addColorStop(1,    'rgba(0,5,20,0.40)');
-        ctx.beginPath(); path(sphere); ctx.fillStyle = light; ctx.fill();
-
-        // Atmosphere
-        const atmos = ctx.createRadialGradient(cx, cy, R - 5, cx, cy, R + 16);
-        atmos.addColorStop(0,    'rgba(100,185,255,0.30)');
-        atmos.addColorStop(0.5,  'rgba(70,145,230,0.08)');
-        atmos.addColorStop(1,    'transparent');
-        ctx.beginPath(); ctx.arc(cx, cy, R + 16, 0, Math.PI * 2); ctx.fillStyle = atmos; ctx.fill();
-
-        // Globe rim
-        ctx.beginPath(); path(sphere);
-        ctx.strokeStyle = 'rgba(120,190,255,0.28)'; ctx.lineWidth = 1; ctx.stroke();
-
-        // Location markers
-        pulseT += 0.04;
-        locations.forEach((loc, i) => {
-          if (!isOnFront(loc.lon, loc.lat)) return;
-          const [px, py] = projection([loc.lon, loc.lat]);
-          const pulse = (Math.sin(pulseT + i * 1.3) + 1) / 2;
-          const iconR = 12;
-          [22, 15].forEach((r, ri) => {
-            ctx.beginPath(); ctx.arc(px, py, r + pulse * (ri === 0 ? 7 : 4), 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(255,107,157,${[0.04, 0.09][ri] + pulse * 0.05})`; ctx.fill();
-          });
-          if (iconReady) {
-            ctx.save();
-            ctx.beginPath(); ctx.arc(px, py, iconR, 0, Math.PI * 2); ctx.clip();
-            ctx.drawImage(markerIcon, px - iconR, py - iconR, iconR * 2, iconR * 2);
-            ctx.restore();
-            ctx.beginPath(); ctx.arc(px, py, iconR, 0, Math.PI * 2);
-            ctx.strokeStyle = `rgba(255,107,157,${0.65 + pulse * 0.35})`; ctx.lineWidth = 1.8; ctx.stroke();
-          } else {
-            ctx.beginPath(); ctx.arc(px, py, 4, 0, Math.PI * 2); ctx.fillStyle = '#ff6b9d'; ctx.fill();
-          }
-          ctx.save();
-          ctx.font = '600 6px "Outfit",sans-serif';
-          ctx.fillStyle = `rgba(255,255,255,${0.72 + pulse * 0.28})`;
-          ctx.textAlign = 'center'; ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = 3;
-          ctx.fillText(loc.name.toUpperCase(), px, py + iconR + 9);
-          ctx.restore();
-        });
-
-        if (!isDragging) rotLon += 0.04;
-        requestAnimationFrame(drawGlobe);
-      }
-
-      function startGlobe() {
-        graticuleData = d3.geoGraticule()();
-        const globeObs = new IntersectionObserver(entries => {
-          if (entries[0].isIntersecting && !animRunning) { animRunning = true; drawGlobe(); }
-          else if (!entries[0].isIntersecting) { animRunning = false; }
-        }, { threshold: 0.1 });
-        globeObs.observe(canvas);
-      }
-
-      // Fetch world land data from CDN
-      fetch('/land-110m.json')
-        .then(r => r.json())
-        .then(world => {
-          landData = topojson.feature(world, world.objects.land);
-          startGlobe();
-        })
-        .catch(() => { startGlobe(); }); // start without land if fetch fails
-    })();
+    /* World map markers — CSS pulse animation only */
 
 
     /* ══════════════════════
