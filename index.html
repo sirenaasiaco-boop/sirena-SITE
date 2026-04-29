@@ -1152,7 +1152,7 @@
     }
     .footer-top {
       display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      grid-template-columns: 1fr auto auto 1fr;
       align-items: start;
       gap: 3rem;
       margin-bottom: 4rem;
@@ -1179,6 +1179,10 @@
       transition: color 0.2s;
     }
     .footer-link:hover { color: var(--cyan); }
+    .footer-partner-col { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-partner-name { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; color: rgba(224,247,250,0.6); }
+    .footer-partner-credits { list-style: none; padding: 0; margin: 0.2rem 0 0; display: flex; flex-direction: column; gap: 0.35rem; }
+    .footer-partner-credits li { font-family: 'Outfit', sans-serif; font-size: 0.57rem; color: rgba(224,247,250,0.27); letter-spacing: 0.04em; line-height: 1.5; }
     .footer-contact-col { display: flex; flex-direction: column; gap: 1rem; text-align: right; }
     .footer-contact-label {
       font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 600;
@@ -2044,20 +2048,20 @@
           <div class="photo-strip">
             <div class="strip-inner">
               <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/shows/9.jpg" alt="Show" loading="lazy"/><span class="strip-label">Shows</span></a>
-              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/events/1.jpg" alt="Event" loading="lazy"/><span class="strip-label">Event</span></a>
-              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/Gig/2.jpg" alt="Performance" loading="lazy"/><span class="strip-label">Performance</span></a>
-              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/Gig/3.jpg" alt="Performance" loading="lazy"/><span class="strip-label">Performance</span></a>
-              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/Gig/4.jpg" alt="Performance" loading="lazy"/><span class="strip-label">Performance</span></a>
-              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/events/5.jpg" alt="Event" loading="lazy"/><span class="strip-label">Event</span></a>
-              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/performances/10.jpg" alt="Underwater" loading="lazy"/><span class="strip-label">Underwater</span></a>
+              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/shows/show.jpg" alt="Show" loading="lazy"/><span class="strip-label">Shows</span></a>
+              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/Opportunities/2.jpg" alt="Event" loading="lazy"/><span class="strip-label">Event</span></a>
+              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/Opportunities/3.jpg" alt="Event" loading="lazy"/><span class="strip-label">Event</span></a>
+              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/Opportunities/4.jpg" alt="Event" loading="lazy"/><span class="strip-label">Event</span></a>
+              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/shows/kita.jpg" alt="Show" loading="lazy"/><span class="strip-label">Shows</span></a>
+              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/performances/9.jpg" alt="Underwater" loading="lazy"/><span class="strip-label">Underwater</span></a>
               <!-- duplicate for seamless loop -->
               <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/shows/9.jpg" alt="Show" loading="lazy"/><span class="strip-label">Shows</span></a>
-              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/events/1.jpg" alt="Event" loading="lazy"/><span class="strip-label">Event</span></a>
-              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/Gig/2.jpg" alt="Performance" loading="lazy"/><span class="strip-label">Performance</span></a>
-              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/Gig/3.jpg" alt="Performance" loading="lazy"/><span class="strip-label">Performance</span></a>
-              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/Gig/4.jpg" alt="Performance" loading="lazy"/><span class="strip-label">Performance</span></a>
-              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/events/5.jpg" alt="Event" loading="lazy"/><span class="strip-label">Event</span></a>
-              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/performances/10.jpg" alt="Underwater" loading="lazy"/><span class="strip-label">Underwater</span></a>
+              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/shows/show.jpg" alt="Show" loading="lazy"/><span class="strip-label">Shows</span></a>
+              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/Opportunities/2.jpg" alt="Event" loading="lazy"/><span class="strip-label">Event</span></a>
+              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/Opportunities/3.jpg" alt="Event" loading="lazy"/><span class="strip-label">Event</span></a>
+              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/Opportunities/4.jpg" alt="Event" loading="lazy"/><span class="strip-label">Event</span></a>
+              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/shows/kita.jpg" alt="Show" loading="lazy"/><span class="strip-label">Shows</span></a>
+              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/performances/9.jpg" alt="Underwater" loading="lazy"/><span class="strip-label">Underwater</span></a>
             </div>
           </div>
 
@@ -2067,14 +2071,14 @@
               <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/training/6.jpg" alt="Training" loading="lazy"/><span class="strip-label">Training</span></a>
               <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/training/7.jpg" alt="Training" loading="lazy"/><span class="strip-label">Training</span></a>
               <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/training/8.jpg" alt="Training" loading="lazy"/><span class="strip-label">Training</span></a>
-              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/events/11.jpg" alt="Event" loading="lazy"/><span class="strip-label">Event</span></a>
+              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/training/1.jpg" alt="Event" loading="lazy"/><span class="strip-label">Event</span></a>
               <a href="gallery.html" class="strip-item">
                 <video src="media/gallery/videos/reel1.mp4" muted loop playsinline preload="metadata"></video>
                 <span class="strip-play-badge">▶</span>
                 <span class="strip-label">Reel</span>
               </a>
               <a href="gallery.html" class="strip-item">
-                <video src="media/gallery/videos/reel2.mp4" muted loop playsinline preload="metadata"></video>
+                <video src="media/gallery/photos/shows/reel2.mp4" muted loop playsinline preload="metadata"></video>
                 <span class="strip-play-badge">▶</span>
                 <span class="strip-label">Reel</span>
               </a>
@@ -2082,14 +2086,14 @@
               <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/training/6.jpg" alt="Training" loading="lazy"/><span class="strip-label">Training</span></a>
               <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/training/7.jpg" alt="Training" loading="lazy"/><span class="strip-label">Training</span></a>
               <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/training/8.jpg" alt="Training" loading="lazy"/><span class="strip-label">Training</span></a>
-              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/events/11.jpg" alt="Event" loading="lazy"/><span class="strip-label">Event</span></a>
+              <a href="gallery.html" class="strip-item"><img src="media/gallery/photos/training/1.jpg" alt="Event" loading="lazy"/><span class="strip-label">Event</span></a>
               <a href="gallery.html" class="strip-item">
                 <video src="media/gallery/videos/reel1.mp4" muted loop playsinline preload="metadata"></video>
                 <span class="strip-play-badge">▶</span>
                 <span class="strip-label">Reel</span>
               </a>
               <a href="gallery.html" class="strip-item">
-                <video src="media/gallery/videos/reel2.mp4" muted loop playsinline preload="metadata"></video>
+                <video src="media/gallery/photos/shows/reel2.mp4" muted loop playsinline preload="metadata"></video>
                 <span class="strip-play-badge">▶</span>
                 <span class="strip-label">Reel</span>
               </a>
@@ -2246,6 +2250,17 @@
               <a href="news.html"       class="footer-link">News</a>
               <a href="contact.html"    class="footer-link">Contact</a>
             </nav>
+          </div>
+
+          <div class="footer-partner-col">
+            <p class="footer-nav-heading">Media Partner</p>
+            <p class="footer-partner-name">Nio</p>
+            <ul class="footer-partner-credits">
+              <li>SIRENA India Production, 2025</li>
+              <li>Sanya Atlantis Aquarium, China, 2025</li>
+              <li>Nikon Taiwan Official Collaboration, 2024</li>
+              <li>Underwater Cinematography Instructor</li>
+            </ul>
           </div>
 
           <div class="footer-contact-col">
@@ -2663,7 +2678,7 @@
                 tags:['Asia Cup Silver 2024','MFI Instructor','AIDA Freediving','11.5K Instagram'],
                 media:[{type:'photo',src:'media/performers/fan/photo1.jpg'},{type:'photo',src:'media/performers/fan/photo2.jpg'},{type:'photo',src:'media/performers/fan/photo3.jpg'},{type:'video',src:'media/performers/fan/reel1.mp4.mp4'}], contact:'Mermaid+Fan' },
       ying:   { num:'02', name:'Mermaid Ying',   flag:'tw',
-                bio:'Professional freediver, certified mermaid performer, and TikTok content creator with a dedicated following in the aquatic arts community. Ying\'s athletic precision and magnetic screen presence make her a standout on any stage.',
+                bio:'Professional freediver and certified mermaid performer with a dedicated following in the aquatic arts community. Ying\'s athletic precision and magnetic screen presence make her a standout on any stage.',
                 tags:['Korea Open Medalist 2025','MFI Instructor','Talent Coordinator','6.9K Instagram'],
                 media:[{type:'photo',src:'media/performers/ying/photo1.jpg'},{type:'photo',src:'media/performers/ying/photo2.jpg'},{type:'video',src:'media/performers/ying/reel1.mp4'}], contact:'Mermaid+Ying' },
       minmin: { num:'03', name:'Mermaid Minmin', flag:'tw',
@@ -2675,7 +2690,7 @@
                 tags:['MFI Master Instructor','TikTok 130K','Instagram 16.6K','Korea Open Bronze'],
                 media:[{type:'photo',src:'media/performers/chen/photo1.jpg'},{type:'photo',src:'media/performers/chen/photo2.jpeg'},{type:'photo',src:'media/performers/chen/photo3.jpg'},{type:'photo',src:'media/performers/chen/photo4.jpg'},{type:'photo',src:'media/performers/chen/photo5.jpg'},{type:'photo',src:'media/performers/chen/photo6.jpg'}], contact:'Mermaid+Chen' },
       ronnie: { num:'05', name:'Mermaid Ronnie', flag:'tw',
-                bio:'Competition winner, certified freediver, and TikTok star with a significant following in the mermaid and aquatic performance space. Ronnie is a multi-discipline performer, known for raw intensity and technical mastery across multiple disciplines.',
+                bio:'Competition winner and certified freediver with a significant following in the mermaid and aquatic performance space. Ronnie is a multi-discipline performer, known for raw intensity and technical mastery across multiple disciplines.',
                 tags:['Asia Cup Silver 2024','Taiwan Comp Silver 2024','MFI Instructor','India 2025'],
                 media:[{type:'photo',src:'media/performers/ronnie/photo1.jpg'},{type:'photo',src:'media/performers/ronnie/photo2.jpg'},{type:'photo',src:'media/performers/ronnie/photo3.jpg'},{type:'photo',src:'media/performers/ronnie/photo4.jpg'}], contact:'Mermaid+Ronnie' },
       linda:  { num:'06', name:'Mermaid Linda',  flag:'tw',

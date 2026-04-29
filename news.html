@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>News — Sirena Asia</title>
+  <title>News, Sirena Asia</title>
   <meta name="description" content="Stories, events, and dispatches from the Sirena Asia collective." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://sirenaasia.com/news.html" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sirenaasia.com/news.html" />
-  <meta property="og:title" content="News — Sirena Asia" />
+  <meta property="og:title" content="News, Sirena Asia" />
   <meta property="og:description" content="Events, highlights and stories from Asia's premier mermaid collective." />
   <meta property="og:image" content="https://sirenaasia.com/News1.jpeg" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -317,7 +317,7 @@
 
     /* ── FOOTER ── */
     #site-footer { position:relative;z-index:2;background:#000814;border-top:1px solid rgba(34,211,238,0.08);padding:5rem clamp(2rem,6vw,7rem) 3rem; }
-    .footer-top { display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:3rem;margin-bottom:4rem; }
+    .footer-top { display:grid;grid-template-columns:1fr auto auto 1fr;align-items:start;gap:3rem;margin-bottom:4rem; }
     .footer-brand { display:flex;flex-direction:column;gap:1rem; }
     .footer-brand img { height:40px;width:auto;align-self:flex-start;mix-blend-mode:screen; }
     .footer-tagline { font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:rgba(224,247,250,0.35);line-height:1.6;max-width:220px; }
@@ -326,6 +326,10 @@
     .footer-links { display:flex;flex-direction:column;gap:0.75rem; }
     .footer-link { font-family:'Outfit',sans-serif;font-size:0.72rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:rgba(224,247,250,0.35);text-decoration:none;transition:color 0.2s; }
     .footer-link:hover { color:var(--cyan); }
+    .footer-partner-col { display:flex;flex-direction:column;gap:0.6rem; }
+    .footer-partner-name { font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:rgba(224,247,250,0.6); }
+    .footer-partner-credits { list-style:none;padding:0;margin:0.2rem 0 0;display:flex;flex-direction:column;gap:0.35rem; }
+    .footer-partner-credits li { font-family:'Outfit',sans-serif;font-size:0.57rem;color:rgba(224,247,250,0.27);letter-spacing:0.04em;line-height:1.5; }
     .footer-contact-col { display:flex;flex-direction:column;gap:1rem;text-align:right; }
     .footer-contact-label { font-family:'Outfit',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(34,211,238,0.5); }
     .footer-contact-email { font-family:'Cormorant Garamond',serif;font-size:1rem;color:rgba(224,247,250,0.5);text-decoration:none;transition:color 0.2s; }
@@ -403,18 +407,18 @@
       <!-- Braveeer Mergala — diptych (both flyer + itinerary) -->
       <a href="#" class="pin-diptych reveal d2">
         <div class="diptych-images">
-          <img src="News1.jpeg" alt="Braveeer Mergala — Mermaid Island Getaway" class="diptych-img" />
-          <img src="News2.jpeg" alt="Braveeer Mergala — Event Itinerary" class="diptych-img" />
+          <img src="News1.jpeg" alt="Braveeer Mergala, Mermaid Island Getaway" class="diptych-img" />
+          <img src="News2.jpeg" alt="Braveeer Mergala, Event Itinerary" class="diptych-img" />
         </div>
         <div class="diptych-body">
           <div class="diptych-row">
             <div>
-              <p class="diptych-title">Braveeer Mergala —<br/><em>Mermaid Island Getaway</em></p>
+              <p class="diptych-title">Braveeer Mergala,<br/><em>Mermaid Island Getaway</em></p>
             </div>
             <p class="diptych-price">RM 3,200+</p>
           </div>
           <p class="diptych-desc">
-            Purchase a silicone mermaid tail and receive a free 3-day, 2-night island stay at Lantenga Island Summerbay Resort — all meals included, direct delivery to the jetty. Day 1–3 program includes mermaid styling, ocean snorkelling, drone photoshoots, and a farewell dance party.
+            Purchase a silicone mermaid tail and receive a free 3-day, 2-night island stay at Lantenga Island Summerbay Resort. All meals included, direct delivery to the jetty. Program includes mermaid styling, ocean snorkelling, drone photoshoots, and a farewell dance party.
           </p>
           <div class="diptych-meta">
             <span class="diptych-badge">Event · Malaysia</span>
@@ -457,6 +461,16 @@
           <a href="news.html"       class="footer-link">News</a>
           <a href="contact.html"    class="footer-link">Contact</a>
         </nav>
+      </div>
+      <div class="footer-partner-col">
+        <p class="footer-nav-heading">Media Partner</p>
+        <p class="footer-partner-name">Nio</p>
+        <ul class="footer-partner-credits">
+          <li>SIRENA India Production, 2025</li>
+          <li>Sanya Atlantis Aquarium, China, 2025</li>
+          <li>Nikon Taiwan Official Collaboration, 2024</li>
+          <li>Underwater Cinematography Instructor</li>
+        </ul>
       </div>
       <div class="footer-contact-col">
         <p class="footer-contact-label">Get in touch</p>
@@ -507,7 +521,7 @@
         date: '2025-04-01',
         category: 'Event',
         title: 'Sirena Asia Debuts at Marina Bay Sands',
-        excerpt: 'An evening the guests won\'t forget — our most ambitious show yet, beneath the stars of Singapore.',
+        excerpt: 'An evening the guests won\'t forget. Our most ambitious show yet, beneath the stars of Singapore.',
         image: null,
         link: null
       },
@@ -523,7 +537,7 @@
         date: '2025-02-01',
         category: 'Partnership',
         title: 'Sirena × Luxury Resort Partnership Announced',
-        excerpt: 'Exclusive residency announced with a leading resort group — bringing Sirena performances across Southeast Asia.',
+        excerpt: 'Exclusive residency announced with a leading resort group, bringing Sirena performances across Southeast Asia.',
         image: null,
         link: null
       }
