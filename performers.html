@@ -691,152 +691,11 @@
     </div>
   </section>
 
-  <!-- ═══ MAGAZINE VIEWER ═══ -->
-  <section id="mag-section">
-    <div class="mag-outer rv d1">
-      <div class="mag-book-wrap" style="position:relative;">
-        <button class="mag-side-arrow mag-side-arrow-prev" id="mag-side-prev" aria-label="Previous performer">&#8249;</button>
-        <button class="mag-side-arrow mag-side-arrow-next" id="mag-side-next" aria-label="Next performer">&#8250;</button>
-        <div class="mag-tilt-wrap" id="mag-tilt-wrap">
-        <div class="mag-spread" id="mag-spread">
-
-          <!-- LEFT: Photo/Media page -->
-          <div class="mag-page-l" id="mag-page-l">
-            <img id="mag-photo" src="" alt="" />
-            <div id="mag-media-gallery" style="display:none;position:absolute;inset:0;"></div>
-            <div class="mag-photo-vign"></div>
-            <div class="mag-photo-base"></div>
-            <div class="mag-ghost-n" id="mag-ghost-n">01</div>
-            <div class="mag-corner-mark"></div>
-            <span class="mag-series-tag">SIRENA ELITE · 2025</span>
-            <!-- Media nav dots -->
-            <div id="mag-media-dots" style="position:absolute;bottom:3.2rem;left:50%;transform:translateX(-50%);display:none;gap:5px;z-index:5;"></div>
-            <!-- Media nav arrows -->
-            <button class="mag-media-arrow mag-media-arrow-prev" id="mag-media-prev-btn" aria-label="Previous media">&#8249;</button>
-            <button class="mag-media-arrow mag-media-arrow-next" id="mag-media-next-btn" aria-label="Next media">&#8250;</button>
-          </div>
-
-          <!-- RIGHT: Content page -->
-          <div class="mag-page-r" id="mag-page-r">
-            <div class="mag-spine"></div>
-            <div class="mag-issue-row">
-              <div class="mag-issue-num" id="mag-issue-num">01</div>
-              <div class="mag-issue-meta">
-                <span class="mag-issue-label" id="mag-issue-label">Issue 01 · Sirena Elite</span>
-                <div class="mag-issue-line"></div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.4rem;">
-              <h2 class="mag-name" id="mag-name">—</h2>
-              <span class="mag-flag" id="mag-flag" style="line-height:1;"></span>
-            </div>
-            <p class="mag-performer-title" id="mag-performer-title"></p>
-            <div class="mag-divider"></div>
-            <div class="mag-bio-scroll">
-              <p class="mag-bio" id="mag-bio">—</p>
-            </div>
-            <div class="mag-skills" id="mag-skills"></div>
-            <a class="mag-cta" id="mag-cta" href="#">Send Enquiry →</a>
-          </div>
-
-        </div><!-- /.mag-spread -->
-        </div><!-- /.mag-tilt-wrap -->
-      </div><!-- /.mag-book-wrap -->
-
-      <!-- Navigation row -->
-      <nav class="mag-nav" aria-label="Performer navigation">
-        <button class="mag-arrow-btn" id="mag-prev" aria-label="Previous performer">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 2L3 6l4 4"/></svg>
-          Prev
-        </button>
-
-        <div class="mag-dots-row" id="mag-dots" role="tablist" aria-label="Performer pages"></div>
-
-        <button class="mag-arrow-btn" id="mag-next" aria-label="Next performer">
-          Next
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2l4 4-4 4"/></svg>
-        </button>
-      </nav>
-    </div><!-- /.mag-outer -->
-  </section>
-
-  <div class="sec-divide"></div>
-
-  <!-- ═══ AI INQUIRY SECTION ═══ -->
-  <section id="inquiry-section">
-    <div class="inq-layout">
-
-      <!-- Left: Info -->
-      <div class="inq-info rv d1">
-        <p class="inq-label">Direct Line</p>
-        <h2 class="inq-heading">Message<br/><em>Us.</em></h2>
-        <p class="inq-body">Ask anything about our performers, show formats, or how to bring Sirena to your event. Our AI handles the first conversation — your human team handles the rest.</p>
-
-        <div class="inq-bullets">
-          <div class="inq-bullet">
-            <div class="inq-bullet-mark"></div>
-            <div class="inq-bullet-body">
-              <strong>Instant answers</strong>
-              Questions about performers, availability, and event types answered immediately.
-            </div>
-          </div>
-          <div class="inq-bullet">
-            <div class="inq-bullet-mark"></div>
-            <div class="inq-bullet-body">
-              <strong>Lead qualification</strong>
-              Tell us about your event and we'll route your enquiry to the right team.
-            </div>
-          </div>
-          <div class="inq-bullet">
-            <div class="inq-bullet-mark"></div>
-            <div class="inq-bullet-body">
-              <strong>24 / 7 availability</strong>
-              We're in multiple time zones. The AI never sleeps.
-            </div>
-          </div>
-        </div>
-
-        <div class="inq-formal">
-          <p class="inq-formal-note">Ready to make it official?</p>
-          <a href="contact.html" class="btn-enquire">Send Formal Enquiry →</a>
-        </div>
-      </div>
-
-      <!-- Right: Chat -->
-      <div class="chat-panel rv d2">
-
-        <div class="chat-head">
-          <div class="chat-online"></div>
-          <span class="chat-head-name">Sirena AI</span>
-          <span class="chat-head-tag">Powered by Claude</span>
-        </div>
-
-        <div class="chat-sugs" id="chat-sugs">
-          <button class="sug" data-q="How do I book a mermaid performance?">How to book</button>
-          <button class="sug" data-q="What events do you perform at?">Event types</button>
-          <button class="sug" data-q="How many performers can I hire at once?">Group shows</button>
-          <button class="sug" data-q="Do you perform internationally?">International</button>
-          <button class="sug" data-q="Tell me about your elite performers">The Elites</button>
-        </div>
-
-        <div class="chat-msgs" id="chat-msgs">
-          <div class="cmsg bot">
-            <div class="cmsg-ava">S</div>
-            <div class="cmsg-bubble">Hi — I'm the Sirena AI. Ask me anything about our performers, shows, or how to bring us to your event. For formal proposals I'll point you in the right direction.</div>
-          </div>
-        </div>
-
-        <div class="chat-input-row">
-          <input type="text" id="chat-input" placeholder="Ask about Sirena…" autocomplete="off" />
-          <button id="chat-send" aria-label="Send">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 8H2M14 8L9 3M14 8L9 13"/>
-            </svg>
-          </button>
-        </div>
-
-      </div><!-- /.chat-panel -->
-    </div><!-- /.inq-layout -->
+  <!-- ═══ GET IN TOUCH ═══ -->
+  <section style="text-align:center;padding:5rem 2rem;background:var(--navy-deep);">
+    <p style="color:rgba(255,107,157,0.7);font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:1rem;">Contact</p>
+    <h2 style="font-family:'Cinzel',serif;color:#e8f4f8;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;margin-bottom:1.8rem;">Get in Touch</h2>
+    <a href="contact.html" style="display:inline-block;padding:0.9rem 2.8rem;background:transparent;border:1px solid rgba(255,107,157,0.4);color:#ff6b9d;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.12em;text-decoration:none;" onmouseover="this.style.borderColor='rgba(255,107,157,0.8)'" onmouseout="this.style.borderColor='rgba(255,107,157,0.4)'">Summon a Sirena &rarr;</a>
   </section>
 
   <!-- ═══ RISING TIDES ═══ -->
@@ -850,36 +709,28 @@
       <div class="rt-card rv d1">
         <img src="media/performers/rising/shinta/photo1.jpg" alt="Mermaid Shinta" onerror="this.style.display='none'" />
         <div class="rt-card-overlay">
-          <div class="rt-card-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg></div>
           <div class="rt-card-name">Mermaid Shinta</div>
-          <div class="rt-card-tag">Indonesia</div>
         </div>
       </div>
 
       <div class="rt-card rv d2">
         <img src="media/performers/rising/thia/photo1.jpg" alt="Mermaid Thia" onerror="this.style.display='none'" />
         <div class="rt-card-overlay">
-          <div class="rt-card-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg></div>
           <div class="rt-card-name">Mermaid Thia</div>
-          <div class="rt-card-tag">Indonesia</div>
         </div>
       </div>
 
       <div class="rt-card rv d3">
         <img src="media/performers/rising/indah/photo1.jpg" alt="Mermaid Indah" onerror="this.style.display='none'" />
         <div class="rt-card-overlay">
-          <div class="rt-card-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg></div>
           <div class="rt-card-name">Mermaid Indah</div>
-          <div class="rt-card-tag">Indonesia</div>
         </div>
       </div>
 
       <div class="rt-card rv d4">
         <img src="media/performers/rising/anel/photo1.jpg" alt="Mermaid Anel" onerror="this.style.display='none'" />
         <div class="rt-card-overlay">
-          <div class="rt-card-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg></div>
           <div class="rt-card-name">Mermaid Anel</div>
-          <div class="rt-card-tag">Indonesia</div>
         </div>
       </div>
 
