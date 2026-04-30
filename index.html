@@ -878,9 +878,14 @@
       display: grid;
       grid-template-columns: 1fr;
     }
+    @media (min-width: 900px) { .ns-grid { grid-template-columns: 1fr 1fr; } }
     .ns-news {
       padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem);
       max-width: 720px;
+    }
+    .ns-shop {
+      padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem);
+      background: rgba(255,107,157,0.02);
     }
     .news-items { margin-top: 2rem; display: flex; flex-direction: column; gap: 0; }
     .news-item {
@@ -2198,6 +2203,18 @@
               </div>
             </a>
             <a href="news.html" class="see-all-link rv-l d5">All News →</a>
+          </div>
+          <div class="ns-shop">
+            <p class="sec-label rv-r d1">Mermaid Shop</p>
+            <h2 class="sec-heading rv-r d2" style="font-size:clamp(1.8rem,3.5vw,2.8rem);">The <em>Shop</em></h2>
+            <div class="shop-featured rv-r d3">
+              <img src="https://placehold.co/600x450/001a4d/ff6b9d?text=Sirena+Merch" alt="Shop Featured" loading="lazy" />
+              <div class="shop-featured-label">
+                <span class="shop-item-name">Sirena Signature Tail</span>
+                <span class="shop-item-price">From USD 380</span>
+              </div>
+            </div>
+            <a href="shop.html" class="btn-coral rv-r d4" style="display:inline-block;">Explore the Shop →</a>
           </div>
         </div>
       </section>
