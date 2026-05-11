@@ -371,24 +371,24 @@
 
     /* Scroll reveal */
     .rv {
-      opacity: 0; transform: translateY(32px);
-      transition: opacity 0.85s cubic-bezier(0.22,1,0.36,1),
-                  transform 0.85s cubic-bezier(0.22,1,0.36,1);
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1),
+                  transform 0.55s cubic-bezier(0.22,1,0.36,1);
     }
     .rv.in { opacity: 1; transform: translateY(0); }
-    .rv-l { opacity: 0; transform: translateX(-32px);
-      transition: opacity 0.85s cubic-bezier(0.22,1,0.36,1),
-                  transform 0.85s cubic-bezier(0.22,1,0.36,1); }
+    .rv-l { opacity: 0; transform: translateX(-24px);
+      transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1),
+                  transform 0.55s cubic-bezier(0.22,1,0.36,1); }
     .rv-l.in { opacity: 1; transform: translateX(0); }
-    .rv-r { opacity: 0; transform: translateX(32px);
-      transition: opacity 0.85s cubic-bezier(0.22,1,0.36,1),
-                  transform 0.85s cubic-bezier(0.22,1,0.36,1); }
+    .rv-r { opacity: 0; transform: translateX(24px);
+      transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1),
+                  transform 0.55s cubic-bezier(0.22,1,0.36,1); }
     .rv-r.in { opacity: 1; transform: translateX(0); }
     .d1 { transition-delay: 0s; }
-    .d2 { transition-delay: 0.1s; }
-    .d3 { transition-delay: 0.2s; }
-    .d4 { transition-delay: 0.32s; }
-    .d5 { transition-delay: 0.44s; }
+    .d2 { transition-delay: 0.07s; }
+    .d3 { transition-delay: 0.14s; }
+    .d4 { transition-delay: 0.21s; }
+    .d5 { transition-delay: 0.28s; }
 
     /* ════════════════════════════════════════
        001 / THE COLLECTIVE
@@ -1157,7 +1157,7 @@
     }
     .footer-top {
       display: grid;
-      grid-template-columns: 1fr auto auto 1fr;
+      grid-template-columns: 1fr auto 1fr;
       align-items: start;
       gap: 3rem;
       margin-bottom: 4rem;
@@ -1671,7 +1671,7 @@
   </style>
   <!-- PRELOADER -->
   <style>
-    #preloader{position:fixed;inset:0;z-index:10000;background:#000d26;display:flex;align-items:center;justify-content:center;transition:opacity 0.75s ease,visibility 0.75s ease;}.pre-inner{display:flex;flex-direction:column;align-items:center;gap:0.4rem;}
+    #preloader{position:fixed;inset:0;z-index:10000;background:#000d26;display:flex;align-items:center;justify-content:center;transition:opacity 0.45s ease,visibility 0.45s ease;}.pre-inner{display:flex;flex-direction:column;align-items:center;gap:0.4rem;}
     #preloader.pre-done{opacity:0;visibility:hidden;pointer-events:none;}
     .pre-logo{width:160px;max-width:55vw;mix-blend-mode:screen;opacity:0;animation:preLogo 0.9s cubic-bezier(0.16,1,0.3,1) forwards 0.2s;}
     @keyframes preLogo{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
@@ -2267,17 +2267,6 @@
               <a href="news.html"       class="footer-link">News</a>
               <a href="contact.html"    class="footer-link">Contact</a>
             </nav>
-          </div>
-
-          <div class="footer-partner-col">
-            <p class="footer-nav-heading">Media Partner</p>
-            <p class="footer-partner-name">Nio</p>
-            <ul class="footer-partner-credits">
-              <li>SIRENA India Production, 2025</li>
-              <li>Sanya Atlantis Aquarium, China, 2025</li>
-              <li>Nikon Taiwan Official Collaboration, 2024</li>
-              <li>Underwater Cinematography Instructor</li>
-            </ul>
           </div>
 
           <div class="footer-contact-col">
@@ -2985,17 +2974,27 @@
     (function(){
       var pre=document.getElementById('preloader');
       if(!pre)return;
-      // Lock scroll while preloader is showing
       document.documentElement.style.overflow='hidden';
       document.body.style.overflow='hidden';
-      var t0=Date.now(), MIN=1400;
+      var t0=Date.now(), MIN=800;
       function hide(){
         var r=Math.max(0,MIN-(Date.now()-t0));
         setTimeout(function(){
-          // Snap to top, unlock scroll, then fade out
           window.scrollTo(0,0);
           document.documentElement.style.overflow='';
           document.body.style.overflow='';
+          // Instantly reveal all elements already in view — no stagger
+          document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(function(el){
+            var rect=el.getBoundingClientRect();
+            if(rect.top < window.innerHeight && rect.bottom > 0){
+              el.style.transition='none';
+              el.style.transitionDelay='0s';
+              el.classList.add('in');
+              requestAnimationFrame(function(){ requestAnimationFrame(function(){
+                el.style.transition=''; el.style.transitionDelay='';
+              }); });
+            }
+          });
           pre.classList.add('pre-done');
         },r);
       }
