@@ -1,0 +1,56 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          script: |
+            # Install nginx + git if missing
+            if ! command -v nginx &>/dev/null; then
+              apt-get update -y && apt-get install -y nginx git
+            fi
+            if ! command -v git &>/dev/null; then
+              apt-get update -y && apt-get install -y git
+            fi
+
+            # Clone repo first time, or pull updates
+            if [ -d "/var/www/sirena-site/.git" ]; then
+              cd /var/www/sirena-site && git fetch origin && git reset --hard origin/main
+            else
+              git clone https://github.com/sirenaasiaco-boop/sirena-SITE.git /var/www/sirena-site
+            fi
+
+            # Write nginx config
+            cat > /etc/nginx/sites-available/sirena <<'NGINXCONF'
+            server {
+                listen 80;
+                server_name sirenaasia.com www.sirenaasia.com _;
+                root /var/www/sirena-site;
+                index index.html;
+
+                location / {
+                    try_files $uri $uri/ =404;
+                }
+
+                # Cache static assets
+                location ~* \.(jpg|jpeg|png|gif|mp4|webp|svg|ico|css|js|woff2?)$ {
+                    expires 7d;
+                    add_header Cache-Control "public, immutable";
+                }
+            }
+            NGINXCONF
+
+            ln -sf /etc/nginx/sites-available/sirena /etc/nginx/sites-enabled/sirena
+            rm -f /etc/nginx/sites-enabled/default
+            nginx -t && systemctl reload nginx
+            echo "Deploy complete."
