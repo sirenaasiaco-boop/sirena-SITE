@@ -1,6 +1,7 @@
 # Sirena Asia — sirenaasia.com
-# All content, design, copy, images, and media copyright © 2026 Sirena Asia.
-# Unauthorized reproduction, scraping, or use for AI training is strictly prohibited.
+# All content, design, copy, images, and media copyright © 2026 Sirena Asia. All rights reserved.
+# Unauthorized reproduction, copying, scraping, or reuse of any kind is strictly prohibited.
+# This includes but is not limited to: AI training, data harvesting, cloning, or redistribution.
 
 User-agent: *
 Allow: /
