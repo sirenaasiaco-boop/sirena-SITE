@@ -1,14 +1,18 @@
 # Sirena Asia — sirenaasia.com
-# All content copyright © 2026 Sirena Asia. Unauthorized reproduction prohibited.
+# All content, design, copy, images, and media copyright © 2026 Sirena Asia.
+# Unauthorized reproduction, scraping, or use for AI training is strictly prohibited.
 
 User-agent: *
 Allow: /
 
-# Block AI training crawlers
+# ── AI TRAINING CRAWLERS ──────────────────────────────────────────
 User-agent: GPTBot
 Disallow: /
 
 User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: OAI-SearchBot
 Disallow: /
 
 User-agent: Google-Extended
@@ -23,6 +27,9 @@ Disallow: /
 User-agent: Claude-Web
 Disallow: /
 
+User-agent: ClaudeBot
+Disallow: /
+
 User-agent: cohere-ai
 Disallow: /
 
@@ -32,14 +39,67 @@ Disallow: /
 User-agent: Diffbot
 Disallow: /
 
-User-agent: FacebookBot
+User-agent: Bytespider
 Disallow: /
 
-User-agent: Bytespider
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: FacebookBot
 Disallow: /
 
 User-agent: omgili
 Disallow: /
 
-User-agent: Amazonbot
+User-agent: omgilibot
 Disallow: /
+
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: img2dataset
+Disallow: /
+
+User-agent: Scrapy
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: YouBot
+Disallow: /
+
+User-agent: ICC-Crawler
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: Meta-ExternalFetcher
+Disallow: /
+
+User-agent: Timpibot
+Disallow: /
+
+User-agent: Seekr
+Disallow: /
+
+User-agent: peer39_crawler
+Disallow: /
+
+User-agent: isodope
+Disallow: /
+
+User-agent: Kangaroo Bot
+Disallow: /
+
+User-agent: AI2Bot
+Disallow: /
+
+Sitemap: https://sirenaasia.com/sitemap.xml
