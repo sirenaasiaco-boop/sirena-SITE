@@ -1,3 +1,11 @@
 .vercel
 .env*.local
 .claude/settings.local.json
+
+# Video and large media files — host externally, never commit to git
+*.mp4
+*.mov
+*.webm
+*.heic
+*.avi
+*.mkv
