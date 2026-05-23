@@ -614,6 +614,10 @@
       filter: saturate(0.8) brightness(0.65);
       z-index: 0;
     }
+    #s-about {
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0,188,212,0.18) 0%, rgba(0,13,38,0.95) 70%),
+                  linear-gradient(180deg, #000d26 0%, #001a4d 50%, #000d26 100%);
+    }
     #s-about::before {
       content: '';
       position: absolute; inset: 0; pointer-events: none; z-index: 1;
@@ -881,6 +885,10 @@
       opacity: 0; z-index: 0;
       transition: opacity 1.2s ease;
       pointer-events: none;
+    }
+    #s-contact {
+      background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(255,107,157,0.12) 0%, rgba(0,13,38,0.98) 65%),
+                  linear-gradient(180deg, #000d26 0%, #00091a 100%);
     }
     #contact-video-bg.playing { opacity: 0.4; }
     #s-contact::before {
