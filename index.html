@@ -543,19 +543,6 @@
       font-weight: 300; font-size: 0.88rem;
       color: rgba(34,211,238,0.6); margin-top: 0.2rem;
     }
-    .elite-corner {
-      position: absolute; top: 10px; right: 10px;
-      width: 18px; height: 18px;
-      border-top: 1px solid var(--coral);
-      border-right: 1px solid var(--coral);
-      transition: width 0.3s, height 0.3s, border-color 0.3s, box-shadow 0.3s;
-      box-shadow: 2px -2px 8px rgba(251,113,133,0.3);
-    }
-    .elite-card:hover .elite-corner {
-      width: 26px; height: 26px;
-      border-color: var(--coral);
-      box-shadow: 3px -3px 14px rgba(251,113,133,0.55);
-    }
 
     /* Carousel arrows */
     .c-arrows {
@@ -1380,12 +1367,12 @@
     .carousel-wrap { perspective: 1400px; }
     @keyframes cardFloat3d {
       0%,100% {
-        transform: scale(1) translateY(0) rotateX(0deg);
-        box-shadow: 0 8px 40px rgba(0,229,255,0.12), 0 0 0 1px rgba(0,229,255,0.25);
+        transform: scale(1) translateY(0px);
+        box-shadow: 0 8px 40px rgba(0,229,255,0.10), 0 0 0 1px rgba(0,229,255,0.2);
       }
       50% {
-        transform: scale(1.012) translateY(-20px) rotateX(3deg);
-        box-shadow: 0 40px 90px rgba(0,229,255,0.28), 0 0 0 1px rgba(0,229,255,0.5);
+        transform: scale(1.008) translateY(-10px);
+        box-shadow: 0 24px 60px rgba(0,229,255,0.2), 0 0 0 1px rgba(0,229,255,0.4);
       }
     }
     .elite-card.active {
@@ -1393,13 +1380,11 @@
       filter: brightness(1) saturate(1);
       opacity: 1;
       border-color: rgba(0,229,255,0.5);
-      animation: cardFloat3d 3.6s ease-in-out infinite;
-      box-shadow: 0 8px 40px rgba(0,229,255,0.12), 0 0 0 1px rgba(0,229,255,0.25);
+      animation: cardFloat3d 5s ease-in-out infinite;
+      box-shadow: 0 8px 40px rgba(0,229,255,0.10), 0 0 0 1px rgba(0,229,255,0.2);
       cursor: pointer;
-      transform-style: preserve-3d;
     }
-    .elite-card.active .elite-corner { width: 24px; height: 24px; border-color: var(--coral); box-shadow: 3px -3px 16px rgba(251,113,133,0.6); }
-    .elite-card.active:hover { animation-play-state: paused; transform: scale(1.02) translateY(-6px) rotateX(6deg); }
+    .elite-card.active:hover { animation-play-state: paused; transform: scale(1.02) translateY(-6px); }
 
     /* ════════════════════════════════════════
        PERFORMER PROFILE MODAL
@@ -1741,11 +1726,9 @@
     #preloader.pre-done{opacity:0;visibility:hidden;pointer-events:none;}
     .pre-logo{width:160px;max-width:55vw;mix-blend-mode:screen;opacity:0;animation:preLogo 0.9s cubic-bezier(0.16,1,0.3,1) forwards 0.2s;}
     @keyframes preLogo{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
-    .pre-gif{width:112px;height:112px;object-fit:contain;display:block;opacity:0;animation:preLogo 0.9s cubic-bezier(0.16,1,0.3,1) forwards 0.6s;}
   </style></head>
 <body>
   <div id="preloader" aria-hidden="true">
-    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTkwc3MyYnVtb2prNnpzOTZmaGgwbWdtMnltZGh3dWd6MzFvcThjMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/A8oJtHgIcFdl4d2d8i/giphy.gif" class="pre-gif" alt="" crossorigin="anonymous"/>
   </div>
 
   <!-- Mermaid cursor -->
@@ -1759,7 +1742,7 @@
       <svg id="ico-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
       <svg id="ico-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
     </button>
-    <audio id="bg-audio" loop preload="auto">
+    <audio id="bg-audio" loop preload="none">
       <source src="music/background.mp3" type="audio/mpeg">
     </audio>
   </div>
@@ -1888,7 +1871,6 @@
 
             <div class="elite-card" data-id="fan">
               <img src="media/performers/fan/photo1.jpg" alt="Mermaid Fan" loading="lazy" />
-              <div class="elite-corner"></div>
               <div class="elite-card-overlay">
                 
                 <p class="elite-name">Mermaid Fan</p>
@@ -1897,7 +1879,6 @@
 
             <div class="elite-card" data-id="ying">
               <img src="media/performers/ying/photo1.jpg" alt="Mermaid Ying" loading="lazy" />
-              <div class="elite-corner"></div>
               <div class="elite-card-overlay">
                 
                 <p class="elite-name">Mermaid Ying</p>
@@ -1906,7 +1887,6 @@
 
             <div class="elite-card" data-id="minmin">
               <img src="media/performers/minmin/photo1.jpg" alt="Mermaid Minmin" loading="lazy" />
-              <div class="elite-corner"></div>
               <div class="elite-card-overlay">
                 
                 <p class="elite-name">Mermaid Minmin</p>
@@ -1915,7 +1895,6 @@
 
             <div class="elite-card" data-id="chen">
               <img src="media/performers/chen/photo1.jpg" alt="Mermaid Chen" loading="lazy" />
-              <div class="elite-corner"></div>
               <div class="elite-card-overlay">
                 
                 <p class="elite-name">Mermaid Chen</p>
@@ -1924,7 +1903,6 @@
 
             <div class="elite-card" data-id="ronnie">
               <img src="media/performers/ronnie/photo1.jpg" alt="Mermaid Ronnie" loading="lazy" />
-              <div class="elite-corner"></div>
               <div class="elite-card-overlay">
                 
                 <p class="elite-name">Mermaid Ronnie</p>
@@ -1933,7 +1911,6 @@
 
             <div class="elite-card" data-id="linda">
               <img src="media/performers/linda/photo1.jpg" alt="Mermaid Linda" loading="lazy" />
-              <div class="elite-corner"></div>
               <div class="elite-card-overlay">
                 
                 <p class="elite-name">Mermaid Linda</p>
@@ -1942,7 +1919,6 @@
 
             <div class="elite-card" data-id="kita">
               <img src="media/performers/kita/photo1.jpg" alt="Mermaid Kita" loading="lazy" />
-              <div class="elite-corner"></div>
               <div class="elite-card-overlay">
                 
                 <p class="elite-name">Mermaid Kita</p>
@@ -2748,7 +2724,7 @@
       fan:    { num:'01', name:'Mermaid Fan',    flag:'tw',
                 bio:'A certified professional mermaid, competition finalist, and one of Asia\'s few certified mermaid instructors. Fan has performed at prestigious venues across Asia and brings both technical mastery and artistic depth to every show.',
                 tags:['Asia Cup Silver 2024','MFI Instructor','AIDA Freediving','11.5K Instagram'],
-                media:[{type:'photo',src:'media/performers/fan/photo1.jpg'},{type:'photo',src:'media/performers/fan/photo2.jpg'},{type:'photo',src:'media/performers/fan/photo3.jpg'},{type:'video',src:'media/performers/fan/reel1.mp4.mp4'}], contact:'Mermaid+Fan' },
+                media:[{type:'photo',src:'media/performers/fan/photo1.jpg'},{type:'photo',src:'media/performers/fan/photo2.jpg'},{type:'photo',src:'media/performers/fan/photo3.jpg'},{type:'video',src:'media/performers/fan/reel1.mp4'}], contact:'Mermaid+Fan' },
       ying:   { num:'02', name:'Mermaid Ying',   flag:'tw',
                 bio:'Professional freediver and certified mermaid performer with a dedicated following in the aquatic arts community. Ying\'s athletic precision and magnetic screen presence make her a standout on any stage.',
                 tags:['Korea Open Medalist 2025','MFI Instructor','Talent Coordinator','6.9K Instagram'],
@@ -2760,7 +2736,7 @@
       chen:   { num:'04', name:'Mermaid Chen',   flag:'tw',
                 bio:'Certified aquatic performance specialist, synchronised swimming trained, and Sirena\'s lead performance coach. Chen trains and certifies other performers while directing the collective\'s most ambitious productions.',
                 tags:['MFI Master Instructor','TikTok 130K','Instagram 16.6K','Korea Open Bronze'],
-                media:[{type:'photo',src:'media/performers/chen/photo1.jpg'},{type:'photo',src:'media/performers/chen/photo2.jpeg'},{type:'photo',src:'media/performers/chen/photo3.jpg'},{type:'photo',src:'media/performers/chen/photo4.jpg'},{type:'photo',src:'media/performers/chen/photo5.jpg'},{type:'photo',src:'media/performers/chen/photo6.jpg'}], contact:'Mermaid+Chen' },
+                media:[{type:'photo',src:'media/performers/chen/photo1.jpg'},{type:'photo',src:'media/performers/chen/photo2.jpg'},{type:'photo',src:'media/performers/chen/photo3.jpeg'},{type:'photo',src:'media/performers/chen/photo4.jpg'},{type:'photo',src:'media/performers/chen/photo5.jpg'},{type:'photo',src:'media/performers/chen/photo6.jpg'}], contact:'Mermaid+Chen' },
       ronnie: { num:'05', name:'Mermaid Ronnie', flag:'tw',
                 bio:'Competition winner and certified freediver with a significant following in the mermaid and aquatic performance space. Ronnie is a multi-discipline performer, known for raw intensity and technical mastery across multiple disciplines.',
                 tags:['Asia Cup Silver 2024','Taiwan Comp Silver 2024','MFI Instructor','India 2025'],
@@ -2900,11 +2876,10 @@
         const idx = eliteCards.indexOf(card);
         if (idx === -1) return;
         if (card.classList.contains('active')) {
-          openModal(card.dataset.id);
+          window.location.href = 'performers.html#' + card.dataset.id;
         } else {
-          // scroll to center, then open
           scrollToCard(idx);
-          setTimeout(() => openModal(card.dataset.id), 380);
+          setTimeout(() => { window.location.href = 'performers.html#' + card.dataset.id; }, 380);
         }
       });
 
@@ -2926,7 +2901,7 @@
         if (modal.classList.contains('open')) return;
         if (e.key === 'ArrowRight') scrollToCard(activeIdx + 1);
         if (e.key === 'ArrowLeft')  scrollToCard(activeIdx - 1);
-        if (e.key === 'Enter') { const card = eliteCards[activeIdx]; if (card) openModal(card.dataset.id); }
+        if (e.key === 'Enter') { const card = eliteCards[activeIdx]; if (card) window.location.href = 'performers.html#' + card.dataset.id; }
       });
     })();
 

@@ -652,12 +652,11 @@
   </style></head>
 <body>
   <div id="preloader" aria-hidden="true">
-    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTkwc3MyYnVtb2prNnpzOTZmaGgwbWdtMnltZGh3dWd6MzFvcThjMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/A8oJtHgIcFdl4d2d8i/giphy.gif" class="pre-gif" alt="" crossorigin="anonymous"/>
   </div>
 
   <nav id="navbar">
     <a href="index.html">
-      <img src="1.png" alt="Sirena Asia" class="nav-logo" style="mix-blend-mode:screen;"/>
+      <img src="1.png" alt="Sirena Asia" class="nav-logo" style="mix-blend-mode:screen;" loading="lazy"/>
     </a>
     <div id="nav-links">
       <a href="performers.html" class="nav-link active">Performers</a>
@@ -719,7 +718,7 @@
 
           <!-- LEFT: Photo/Media page -->
           <div class="mag-page-l" id="mag-page-l">
-            <img id="mag-photo" src="" alt="" />
+            <img id="mag-photo" src="" alt="" loading="lazy" />
             <div id="mag-media-gallery" style="display:none;position:absolute;inset:0;"></div>
             <div class="mag-photo-vign"></div>
             <div class="mag-photo-base"></div>
@@ -795,28 +794,28 @@
     <div class="rising-grid">
 
       <div class="rt-card rv d1">
-        <img src="media/performers/rising/shinta/photo1.jpg" alt="Mermaid Shinta" onerror="this.style.display='none'" />
+        <img src="media/performers/rising/shinta/photo1.jpg" alt="Mermaid Shinta" onerror="this.style.display='none'" loading="lazy" />
         <div class="rt-card-overlay">
           <div class="rt-card-name">Mermaid Shinta</div>
         </div>
       </div>
 
       <div class="rt-card rv d2">
-        <img src="media/performers/rising/thia/photo1.jpg" alt="Mermaid Thia" onerror="this.style.display='none'" />
+        <img src="media/performers/rising/thia/photo1.jpg" alt="Mermaid Thia" onerror="this.style.display='none'" loading="lazy" />
         <div class="rt-card-overlay">
           <div class="rt-card-name">Mermaid Thia</div>
         </div>
       </div>
 
       <div class="rt-card rv d3">
-        <img src="media/performers/rising/indah/photo1.jpg" alt="Mermaid Indah" onerror="this.style.display='none'" />
+        <img src="media/performers/rising/indah/photo1.jpg" alt="Mermaid Indah" onerror="this.style.display='none'" loading="lazy" />
         <div class="rt-card-overlay">
           <div class="rt-card-name">Mermaid Indah</div>
         </div>
       </div>
 
       <div class="rt-card rv d4">
-        <img src="media/performers/rising/anel/photo1.jpg" alt="Mermaid Anel" onerror="this.style.display='none'" />
+        <img src="media/performers/rising/anel/photo1.jpg" alt="Mermaid Anel" onerror="this.style.display='none'" loading="lazy" />
         <div class="rt-card-overlay">
           <div class="rt-card-name">Mermaid Anel</div>
         </div>
@@ -829,7 +828,7 @@
   <footer id="site-footer">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="2.png" alt="Sirena Asia" style="max-width:160px;mix-blend-mode:screen;" />
+        <img src="2.png" alt="Sirena Asia" style="max-width:160px;mix-blend-mode:screen;" loading="lazy" />
         <p class="footer-tagline">Asia's Premier Mermaid Collective</p>
       </div>
       <div class="footer-nav-col">
@@ -892,7 +891,7 @@
         { type: 'photo', src: 'media/performers/fan/photo4.jpg' },
         { type: 'photo', src: 'media/performers/fan/photo5.jpg' },
         { type: 'photo', src: 'media/performers/fan/photo6.jpg' },
-        { type: 'video', src: 'media/performers/fan/reel1.mp4.mp4' },
+        { type: 'video', src: 'media/performers/fan/reel1.mp4' },
       ],
       contact: 'Mermaid+Fan'
     },
@@ -903,7 +902,7 @@
       img: 'media/performers/ying/photo1.jpg',
       media: [
         { type: 'photo', src: 'media/performers/ying/photo1.jpg' },
-        { type: 'photo', src: 'media/performers/ying/photo2.PNG' },
+        { type: 'photo', src: 'media/performers/ying/photo2.jpg' },
         { type: 'photo', src: 'media/performers/ying/photo3.jpg' },
         { type: 'video', src: 'media/performers/ying/reel1.mp4' },
       ],
@@ -927,8 +926,8 @@
       img: 'media/performers/chen/photo1.jpg',
       media: [
         { type: 'photo', src: 'media/performers/chen/photo1.jpg' },
-        { type: 'photo', src: 'media/performers/chen/photo2.jpeg' },
-        { type: 'photo', src: 'media/performers/chen/photo3.jpg' },
+        { type: 'photo', src: 'media/performers/chen/photo2.jpg' },
+        { type: 'photo', src: 'media/performers/chen/photo3.jpeg' },
         { type: 'photo', src: 'media/performers/chen/photo4.jpg' },
         { type: 'photo', src: 'media/performers/chen/photo5.jpg' },
         { type: 'photo', src: 'media/performers/chen/photo6.jpg' },
@@ -1066,7 +1065,7 @@
               item.innerHTML = `<iframe src="${m.src}" allowfullscreen allow="autoplay; encrypted-media" frameborder="0"></iframe>`;
             }
           } else {
-            item.innerHTML = `<img src="${m.src}" alt="${p.name}" />`;
+            item.innerHTML = `<img src="${m.src}" alt="${p.name}" loading="lazy" />`;
           }
           mediaGallery.appendChild(item);
 
