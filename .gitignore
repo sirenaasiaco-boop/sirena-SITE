@@ -1,3 +1,11 @@
 .vercel
 .env*.local
 .claude/settings.local.json
+
+# Video files — keep out of git (use R2/CDN instead)
+# Exceptions: aboutus.mp4, bottom.mp4, media/general/hero.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.heic
