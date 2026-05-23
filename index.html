@@ -196,7 +196,7 @@
       background: var(--hero-teal);
     }
 
-    #video-wrap, #video-wrap2 {
+    #video-wrap {
       position: absolute; inset: -5%;
       will-change: transform;
     }
@@ -204,9 +204,6 @@
       width: 100%; height: 100%;
       object-fit: cover; display: block;
       transition: opacity 1.4s ease;
-    }
-    #hero-video2 {
-      opacity: 0;
     }
 
     /* Light shimmer */
@@ -1826,15 +1823,9 @@
   <div id="hero">
     <!-- Video 1: hero.mp4 plays once -->
     <div id="video-wrap">
-      <video id="hero-video" autoplay muted playsinline preload="metadata" fetchpriority="high"
+      <video id="hero-video" autoplay muted loop playsinline preload="metadata" fetchpriority="high"
              style="background:#2CA0BC;">
         <source src="/media/general/hero.mp4" type="video/mp4" />
-      </video>
-    </div>
-    <!-- Video 2: video2.mp4 loops in hero after video1 ends -->
-    <div id="video-wrap2">
-      <video id="hero-video2" muted loop playsinline preload="none">
-        <source src="/video2.mp4" type="video/mp4" />
       </video>
     </div>
 
@@ -2364,10 +2355,8 @@
     /* ══════════════════════
        VIDEO
     ══════════════════════ */
-    const video   = document.getElementById('hero-video');
-    const video2  = document.getElementById('hero-video2');
-    const bgVideo2 = document.getElementById('bg-video2');
-    const img1    = document.getElementById('img1');
+    const video = document.getElementById('hero-video');
+    const img1  = document.getElementById('img1');
 
     document.getElementById('scroll-cue').classList.add('show');
 
@@ -2377,72 +2366,19 @@
     });
 
     // Slow, cinematic playback
-    video.playbackRate  = 0.75;
-    video2.playbackRate = 0.75;
+    video.playbackRate = 0.75;
 
-    let heroEnded = false;
-
-    // Pre-buffer video2 when hero is 70% through
-    video.addEventListener('timeupdate', () => {
-      if (video.duration && video.currentTime / video.duration > 0.7 && video2.preload === 'none') {
-        video2.preload = 'auto';
-        video2.load();
-      }
-    }, { passive: true });
-
-    // When hero.mp4 ends: play video2 in hero, crossfade, light up scroll cue
+    // Light up scroll cue after first loop
     video.addEventListener('ended', () => {
-      heroEnded = true;
-      video2.playbackRate = 0.75;
-      video2.play().then(() => {
-        video.style.opacity  = '0';
-        video2.style.opacity = '1';
-      }).catch(() => {
-        video.style.opacity  = '0';
-        video2.style.opacity = '1';
-      });
       document.getElementById('scroll-cue').classList.add('lit');
     });
-
-    // Pause hero-video2 when page-2 covers hero, resume when scrolled back up
-    window.addEventListener('scroll', () => {
-      if (!heroEnded) return;
-      if (window.scrollY >= window.innerHeight * 0.9) {
-        if (!video2.paused) video2.pause();
-      } else {
-        if (video2.paused) video2.play().catch(() => {});
-      }
-    }, { passive: true });
-
-    // Start/pause bg-video2 based on page-2 visibility, synced to hero-video2
-    let bgLoaded = false;
-    const page2Observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && heroEnded) {
-        if (!bgLoaded) {
-          bgLoaded = true;
-          bgVideo2.load();
-          bgVideo2.addEventListener('canplay', () => {
-            bgVideo2.currentTime = video2.currentTime;
-            bgVideo2.playbackRate = 0.75;
-            bgVideo2.play().catch(() => {});
-          }, { once: true });
-        } else {
-          bgVideo2.currentTime = video2.currentTime;
-          bgVideo2.play().catch(() => {});
-        }
-      } else {
-        bgVideo2.pause();
-      }
-    }, { threshold: 0.1 });
-    page2Observer.observe(document.getElementById('page-2'));
 
 
 
     /* ══════════════════════
        MOUSE PARALLAX — video + logo
     ══════════════════════ */
-    const videoWrap  = document.getElementById('video-wrap');
-    const videoWrap2 = document.getElementById('video-wrap2');
+    const videoWrap = document.getElementById('video-wrap');
     const logoStack  = document.querySelector('.sirena-stack');
 
     // Video target / current
@@ -2482,8 +2418,7 @@
       // Video parallax — both wraps move together
       cx += (tx - cx) * 0.07;
       cy += (ty - cy) * 0.07;
-      videoWrap.style.transform  = `translate(${cx}px, ${cy}px)`;
-      videoWrap2.style.transform = `translate(${cx}px, ${cy}px)`;
+      videoWrap.style.transform = `translate(${cx}px, ${cy}px)`;
 
       // Logo: mouse parallax + autonomous organic float + subtle tilt
       lcx += (lx - lcx) * 0.035;
