@@ -1,12 +1,24 @@
 # Sirena Asia — sirenaasia.com
-# All content, design, copy, images, and media copyright © 2026 Sirena Asia. All rights reserved.
-# Unauthorized reproduction, copying, scraping, or reuse of any kind is strictly prohibited.
-# This includes but is not limited to: AI training, data harvesting, cloning, or redistribution.
+# Copyright © 2026 Sirena Asia. All rights reserved.
+# ALL copying, scraping, cloning, crawling, or reproduction of any kind is strictly prohibited.
+# No AI tool, bot, or automated system may access, copy, or use this content in any form.
 
-User-agent: *
+# ── BLOCK ALL NON-SEARCH BOTS ENTIRELY ───────────────────────────
+# Allow only legitimate search engines
+User-agent: Googlebot
 Allow: /
 
-# ── AI TRAINING CRAWLERS ──────────────────────────────────────────
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block everything else by default
+User-agent: *
+Disallow: /
+
+# ── OPENAI ───────────────────────────────────────────────────────
 User-agent: GPTBot
 Disallow: /
 
@@ -16,12 +28,7 @@ Disallow: /
 User-agent: OAI-SearchBot
 Disallow: /
 
-User-agent: Google-Extended
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
+# ── ANTHROPIC ────────────────────────────────────────────────────
 User-agent: anthropic-ai
 Disallow: /
 
@@ -31,22 +38,56 @@ Disallow: /
 User-agent: ClaudeBot
 Disallow: /
 
-User-agent: cohere-ai
+# ── GOOGLE AI ────────────────────────────────────────────────────
+User-agent: Google-Extended
 Disallow: /
 
-User-agent: PerplexityBot
+User-agent: Googlebot-Image
 Disallow: /
 
-User-agent: Diffbot
+# ── COMMON CRAWL (feeds most AI training datasets) ───────────────
+User-agent: CCBot
 Disallow: /
 
-User-agent: Bytespider
+# ── META / FACEBOOK ──────────────────────────────────────────────
+User-agent: FacebookBot
 Disallow: /
 
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: Meta-ExternalFetcher
+Disallow: /
+
+# ── APPLE ────────────────────────────────────────────────────────
+User-agent: Applebot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+# ── AMAZON ───────────────────────────────────────────────────────
 User-agent: Amazonbot
 Disallow: /
 
-User-agent: FacebookBot
+# ── BYTEDANCE / TIKTOK ───────────────────────────────────────────
+User-agent: Bytespider
+Disallow: /
+
+# ── COHERE ───────────────────────────────────────────────────────
+User-agent: cohere-ai
+Disallow: /
+
+# ── PERPLEXITY ───────────────────────────────────────────────────
+User-agent: PerplexityBot
+Disallow: /
+
+# ── DIFFBOT ──────────────────────────────────────────────────────
+User-agent: Diffbot
+Disallow: /
+
+# ── SCRAPERS & DATA HARVESTERS ───────────────────────────────────
+User-agent: Scrapy
 Disallow: /
 
 User-agent: omgili
@@ -61,9 +102,6 @@ Disallow: /
 User-agent: img2dataset
 Disallow: /
 
-User-agent: Scrapy
-Disallow: /
-
 User-agent: DataForSeoBot
 Disallow: /
 
@@ -74,15 +112,6 @@ User-agent: YouBot
 Disallow: /
 
 User-agent: ICC-Crawler
-Disallow: /
-
-User-agent: Applebot-Extended
-Disallow: /
-
-User-agent: Meta-ExternalAgent
-Disallow: /
-
-User-agent: Meta-ExternalFetcher
 Disallow: /
 
 User-agent: Timpibot
@@ -101,6 +130,81 @@ User-agent: Kangaroo Bot
 Disallow: /
 
 User-agent: AI2Bot
+Disallow: /
+
+User-agent: Webzio-Extended
+Disallow: /
+
+User-agent: Nicecrawler
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: magpie-crawler
+Disallow: /
+
+User-agent: Meltwater
+Disallow: /
+
+User-agent: news-please
+Disallow: /
+
+User-agent: newspaper
+Disallow: /
+
+User-agent: archive.org_bot
+Disallow: /
+
+User-agent: ia_archiver
+Disallow: /
+
+User-agent: Wget
+Disallow: /
+
+User-agent: curl
+Disallow: /
+
+User-agent: python-requests
+Disallow: /
+
+User-agent: Go-http-client
+Disallow: /
+
+User-agent: libwww-perl
+Disallow: /
+
+User-agent: HTTrack
+Disallow: /
+
+User-agent: SiteSnagger
+Disallow: /
+
+User-agent: WebCopier
+Disallow: /
+
+User-agent: WebReaper
+Disallow: /
+
+User-agent: WebStripper
+Disallow: /
+
+User-agent: Offline Explorer
+Disallow: /
+
+User-agent: TeleportPro
 Disallow: /
 
 Sitemap: https://sirenaasia.com/sitemap.xml
