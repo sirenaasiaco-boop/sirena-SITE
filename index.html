@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Angelica Balbuena Portfolio</title>
+<meta name="description" content="Angelica Balbuena, Mermaid Angel. Mermaid performer, Head Mermaid and PADI Mermaid Instructor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="img/sirena-logo.jpg">
+<style>
+:root{
+  /* Editorial descent: a full-bleed opener, then quiet sections ruled with gold hairlines; a depth readout tracks the scroll from the surface to 10 m. */
+  --ink:#06121d;
+  --navy:#0c2337;
+  --pearl:#efe8dc;
+  --mist:#97a8b1;
+  --gold:#c9ad78;
+  --dim:#16304a;
+  --hair:rgba(239,232,220,.14);
+  --display:"Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
+  --body:"Manrope", "Helvetica Neue", Arial, sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--pearl);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:1px solid var(--gold);outline-offset:4px}
+.wrap{max-width:1320px;margin:0 auto;padding:0 20px}
+.label{font:600 11px/1.2 var(--body);letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+h2{font-family:var(--display);font-weight:300;font-size:clamp(44px,7vw,92px);line-height:.98;letter-spacing:-.015em;text-wrap:balance}
+h2 em,h1 em{font-style:italic;color:var(--gold)}
+.ul{display:inline-block;font:600 11px/1 var(--body);letter-spacing:.28em;text-transform:uppercase;text-decoration:none;padding-bottom:8px;border-bottom:1px solid var(--gold);background:none;border-top:0;border-left:0;border-right:0;color:var(--pearl);cursor:pointer}
+.ul:hover{color:var(--gold)}
+
+/* header */
+.bar{position:fixed;top:0;left:0;right:0;z-index:20;transition:background .5s,border-color .5s;border-bottom:1px solid transparent}
+.bar.solid{background:rgba(6,18,29,.84);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:var(--hair)}
+.bar .in{max-width:1320px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font:600 11px/1 var(--body);letter-spacing:.32em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+.right{display:flex;align-items:center;gap:26px}
+.depth{font:500 11px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--mist);font-variant-numeric:tabular-nums;white-space:nowrap}
+.depth b{color:var(--pearl);font-weight:500}
+.sound{display:flex;align-items:center;gap:10px;background:none;border:0;color:var(--pearl);font:600 11px/1 var(--body);letter-spacing:.28em;text-transform:uppercase;cursor:pointer;padding:10px 0}
+.eq{display:flex;align-items:flex-end;gap:2px;height:12px}
+.eq i{display:block;width:2px;height:3px;background:var(--gold)}
+.sound[aria-pressed="true"] .eq i{animation:eq 1.1s ease-in-out infinite}
+.sound[aria-pressed="true"] .eq i:nth-child(2){animation-delay:.25s}
+.sound[aria-pressed="true"] .eq i:nth-child(3){animation-delay:.5s}
+@keyframes eq{0%,100%{height:3px}50%{height:12px}}
+
+/* hero */
+.hero{position:relative}
+.hero-photo{position:relative;margin:0;height:min(92svh,800px);min-height:540px;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 28%}
+.hero-photo::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(6,18,29,.6) 0%,rgba(6,18,29,0) 18%,rgba(6,18,29,0) 42%,rgba(6,18,29,.88) 80%,var(--ink) 100%)}
+.id{display:flex;align-items:center;gap:16px}
+.mini{flex:none;margin:0;width:76px;aspect-ratio:4/5;border-radius:999px 999px 4px 4px;overflow:hidden;border:1px solid var(--gold)}
+.mini img{width:100%;height:100%;object-fit:cover}
+.hero-photo canvas{position:absolute;inset:0;width:100%;height:100%;z-index:2}
+.hero-photo figcaption{position:absolute;z-index:3;top:88px;right:16px;writing-mode:vertical-rl;font:600 10px/1 var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--pearl)}
+.hero-text{position:relative;z-index:4;margin-top:-290px;padding:0 20px 72px;display:grid;gap:22px}
+.hero h1{font-family:var(--display);font-weight:300;font-size:clamp(68px,18vw,176px);line-height:.84;letter-spacing:-.025em}
+.hero h1 span{display:block}
+.hero h1 em{display:block;padding-left:.42em}
+.nw{white-space:nowrap}
+.role-line{font:600 11px/1.8 var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.lede{font-family:var(--display);font-size:clamp(22px,2.6vw,30px);line-height:1.25;font-weight:300;max-width:22ch}
+.hero .links{display:flex;gap:30px;margin-top:6px}
+
+/* marquee */
+.marquee{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);overflow:hidden;padding:24px 0}
+.track{display:flex;width:max-content;animation:slide 48s linear infinite}
+.track span{font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(24px,3vw,34px);white-space:nowrap;padding:0 28px;display:flex;align-items:center;gap:56px}
+.track span::after{content:"";width:6px;height:6px;transform:rotate(45deg);background:var(--gold);display:block}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* sections */
+section.s{padding:clamp(96px,13vw,168px) 0}
+.shead{display:grid;gap:22px;margin-bottom:clamp(48px,7vw,88px)}
+
+.intro{font-family:var(--display);font-weight:300;font-size:clamp(22px,2.6vw,32px);line-height:1.3;max-width:36ch;margin-bottom:clamp(56px,8vw,96px)}
+.sides{display:grid;gap:72px}
+.side h3{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-bottom:18px;border-bottom:1px solid var(--gold);font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(30px,3.4vw,40px);line-height:1}
+.side h3 small{font:600 10px/1 var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--mist);font-style:normal}
+.fact{display:grid;grid-template-columns:minmax(0,10.5rem) minmax(0,1fr);gap:18px;align-items:baseline;padding:24px 0;border-bottom:1px solid var(--hair)}
+.fact .v{font-family:var(--display);font-weight:300;font-size:clamp(44px,5vw,60px);line-height:.9;font-variant-numeric:lining-nums;white-space:nowrap}
+.fact .k{color:var(--mist);font-size:15px;line-height:1.5}
+.duties{margin-top:26px;font:600 10px/2.2 var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+
+.sirena{display:grid;gap:40px;align-items:center}
+.sirena-logo{width:56px;height:56px;border-radius:50%;margin-bottom:28px}
+.sirena-lede{font-family:var(--display);font-weight:300;font-size:clamp(24px,3vw,36px);line-height:1.25;max-width:30ch;margin-bottom:36px}
+.sfacts{display:grid;border-top:1px solid var(--hair);margin-bottom:36px}
+.sfacts div{display:grid;grid-template-columns:minmax(0,6.5rem) minmax(0,1fr);gap:18px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--hair)}
+.sfacts .v{font-family:var(--display);font-weight:300;font-size:clamp(40px,4.6vw,56px);line-height:.9;color:var(--gold)}
+.sfacts .k{color:var(--mist);font-size:15px}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.g{position:relative;overflow:hidden;margin:0;background:var(--navy)}
+.g img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.g:hover img{transform:scale(1.035)}
+.g.wide{grid-column:1/-1;aspect-ratio:16/9}
+.g.tall{aspect-ratio:3/4}
+.g.drop{margin-top:56px}
+.g.feature{grid-column:1/-1;aspect-ratio:4/5}
+.diptych{display:grid;grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr);gap:14px;max-width:680px;margin:0 auto clamp(64px,9vw,112px)}
+.dp{margin:0}
+.dp img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.dp.dry{margin-top:44px}
+.dp figcaption{display:flex;flex-direction:column;gap:6px;margin-top:14px}
+.dp figcaption em{font-family:var(--display);font-weight:300;font-size:clamp(20px,2.4vw,28px);line-height:1}
+.dp figcaption span{font:600 10px/1 var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.glass{position:relative;background:linear-gradient(180deg,transparent,var(--gold) 15%,var(--gold) 85%,transparent);overflow:hidden}
+.glass::after{content:"";position:absolute;left:0;right:0;height:30%;top:-30%;background:linear-gradient(180deg,transparent,#fff,transparent);animation:sheen 4.5s ease-in-out infinite}
+.glass span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-90deg);white-space:nowrap;font:600 9px/1 var(--body);letter-spacing:.34em;text-transform:uppercase;color:var(--gold);background:var(--ink);padding:6px 10px}
+@keyframes sheen{to{top:100%}}
+.g figcaption{position:absolute;left:14px;bottom:12px;font:600 10px/1.4 var(--body);letter-spacing:.26em;text-transform:uppercase;color:var(--pearl);text-shadow:0 1px 12px rgba(0,0,0,.6)}
+
+.reels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.reel{position:relative;aspect-ratio:9/16;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:18px;text-decoration:none;border:1px solid var(--hair);background:linear-gradient(180deg,#123250 0%,#0a1d2f 55%,#071422 100%);transition:border-color .5s}
+.reel::before{content:"";position:absolute;inset:-20%;background:repeating-linear-gradient(105deg,rgba(239,232,220,.045) 0 10px,transparent 10px 44px);transition:transform 2.4s ease}
+.reel:hover{border-color:var(--gold)}
+.reel:hover::before{transform:translateX(30px)}
+.reel .n{position:relative;font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(48px,6vw,64px);line-height:.9;color:var(--gold)}
+.reel .pl{position:relative;align-self:center;width:58px;height:58px;border:1px solid var(--pearl);border-radius:50%;display:grid;place-items:center}
+.reel .pl::after{content:"";border-left:13px solid var(--pearl);border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px}
+.reel .w{position:relative;font:600 10px/1.4 var(--body);letter-spacing:.26em;text-transform:uppercase;color:var(--mist)}
+
+.roles{border-top:1px solid var(--hair)}
+.r{display:grid;gap:8px;padding:28px 0;border-bottom:1px solid var(--hair)}
+.r .y{font:600 11px/1 var(--body);letter-spacing:.26em;color:var(--gold);font-variant-numeric:tabular-nums}
+.r .t{font-family:var(--display);font-weight:400;font-size:clamp(30px,3.6vw,44px);line-height:1.05;transition:color .4s}
+.r:hover .t{color:var(--gold);font-style:italic}
+.r .v{display:flex;align-items:center;gap:12px;color:var(--mist);font-size:15px}
+.r .v img{width:30px;height:30px;border-radius:50%;flex:none}
+
+.chapters{display:grid;gap:12px}
+.ch{border-top:1px solid var(--gold);padding:24px 0 36px;display:grid;gap:10px}
+.ch .y{font:600 11px/1 var(--body);letter-spacing:.26em;color:var(--gold);text-transform:uppercase}
+.ch h3{font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(52px,7vw,96px);line-height:.9}
+.ch .role{font-size:17px;font-weight:500}
+.ch .tags{font:600 10px/2 var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--mist)}
+.certs{display:grid;border-top:1px solid var(--hair)}
+.c{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:20px 0;border-bottom:1px solid var(--hair);font-size:16px}
+.c span{font:600 11px/1 var(--body);letter-spacing:.24em;color:var(--gold);white-space:nowrap}
+
+.offer-tags{font:600 11px/2.2 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--gold);max-width:70ch;margin-bottom:48px}
+.mail{display:block;font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(24px,7vw,84px);line-height:1.05;word-break:break-word;margin:8px 0 22px}
+.contact-rows{display:grid;margin-top:56px;border-top:1px solid var(--hair)}
+.cr{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 24px;padding:22px 0;border-bottom:1px solid var(--hair)}
+.cr .k{font:600 10px/1 var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--mist);min-width:120px}
+.cr .val{font-size:17px;flex:1}
+.cr .val a{text-decoration:none;border-bottom:1px solid var(--hair)}
+
+footer{padding:40px 0 48px;border-top:1px solid var(--hair);overflow:hidden}
+.mark{font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(72px,17vw,260px);line-height:.82;letter-spacing:-.03em;color:var(--dim);white-space:nowrap}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;margin-top:28px;font:600 10px/1.6 var(--body);letter-spacing:.26em;text-transform:uppercase;color:var(--mist)}
+
+@media (max-width:520px){ .depth{display:none} }
+@media (min-width:900px){
+  .wrap,.bar .in{padding:0 40px}
+  .hero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));max-width:1320px;margin:0 auto;padding:110px 40px 90px;align-items:end}
+  .hero-photo{grid-column:6/13;grid-row:1;height:min(84vh,860px);min-height:620px}
+  .hero-photo::after{background:linear-gradient(90deg,rgba(6,18,29,.55) 0%,rgba(6,18,29,0) 30%),linear-gradient(0deg,rgba(6,18,29,.35) 0%,rgba(6,18,29,0) 30%)}
+  .hero-photo figcaption{top:auto;bottom:22px;right:22px}
+  .hero-text{grid-column:1/9;grid-row:1;margin:0;padding:0 0 32px}
+  .mini{width:104px}
+  .shead{grid-template-columns:minmax(0,3fr) minmax(0,9fr);align-items:start}
+  .shead .label{padding-top:18px}
+  .sides{grid-template-columns:repeat(2,minmax(0,1fr));gap:96px}
+  .sirena{margin-left:25%}
+  .gallery{gap:24px;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+  .g.drop{margin-top:120px}
+  .g.feature{grid-column:auto;aspect-ratio:3/4}
+  .diptych{gap:28px}
+  .dp.dry{margin-top:80px}
+  .reels{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+  .r{grid-template-columns:minmax(0,2fr) minmax(0,5fr) minmax(0,5fr);align-items:baseline;gap:24px}
+  .r .v{justify-content:flex-end;text-align:right}
+  .certs{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:96px}
+  .chapters{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:96px}
+  .indent{margin-left:25%}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .track{animation:none}
+  .glass::after{animation:none;display:none}
+  .sound[aria-pressed="true"] .eq i{animation:none;height:10px}
+  .g img,.reel::before,.r .t{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="bar" id="bar">
+  <div class="in">
+    <a class="brand" href="#top">Angelica Balbuena</a>
+    <div class="right">
+      <span class="depth" aria-hidden="true">Depth <b id="depth">0.0</b> m</span>
+      <button class="sound" id="sound" type="button" aria-pressed="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span id="soundLabel">Sound</span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="Introduction">
+    <figure class="hero-photo">
+      <img src="img/atlantis-school.jpg" alt="Angelica performing as a mermaid in a green tail, with bubbles and a school of fish above">
+      <canvas id="sea" aria-hidden="true"></canvas>
+      <figcaption>Mermaid Angel</figcaption>
+    </figure>
+    <div class="hero-text">
+      <p class="role-line"><span class="nw">Founder, Sirena Asia ·</span> <span class="nw">Operations Manager ·</span> <span class="nw">PADI Mermaid Instructor ·</span> <span class="nw">Underwater Performer and Freediver</span></p>
+      <h1><span>Angelica</span><em>Balbuena</em></h1>
+      <div class="links">
+        <a class="ul" href="#reels">View reels</a>
+        <a class="ul" href="#contact">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-label="Places performed">
+    <div class="track">
+      <span>Bangalore</span><span>Mumbai</span><span>Kochi</span><span>Thrissur</span><span>Manjeri</span><span>Kolkata</span><span>Nagpur</span><span>Nepal</span><span>Dubai</span>
+      <span aria-hidden="true">Bangalore</span><span aria-hidden="true">Mumbai</span><span aria-hidden="true">Kochi</span><span aria-hidden="true">Thrissur</span><span aria-hidden="true">Manjeri</span><span aria-hidden="true">Kolkata</span><span aria-hidden="true">Nagpur</span><span aria-hidden="true">Nepal</span><span aria-hidden="true">Dubai</span>
+    </div>
+  </div>
+
+  <section class="s" id="sirena">
+    <div class="wrap">
+      <div class="shead">
+        <p class="label">Founder</p>
+        <h2>Sirena <em>Asia</em></h2>
+      </div>
+      <div class="sirena">
+        <div>
+          <img class="sirena-logo" src="img/sirena-logo.jpg" alt="Sirena Asia logo">
+          <p class="sirena-lede">A global community of freelance professional mermaids, founded in 2025. Its members include some of the top names in the industry: competition mermaids, instructors and content creators, all vetted and trained to one standard.</p>
+          <div class="sfacts">
+            <div><span class="v">7</span><span class="k">Countries with Sirena teams: Philippines, Indonesia, Taiwan, Malaysia, Hong Kong, India, Nepal</span></div>
+            <div><span class="v">50+</span><span class="k">Mermaids trained from zero to performer</span></div>
+          </div>
+          <a class="ul" href="https://www.sirenaasia.com" target="_blank" rel="noopener">Visit sirenaasia.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="work" style="padding-top:0">
+    <div class="wrap">
+      <div class="shead">
+        <p class="label">About</p>
+        <h2>Both sides of <em>the glass</em></h2>
+      </div>
+      <p class="intro indent">Angelica Balbuena is a Filipina mermaid professional and operations manager. She has set up and run mermaid show operations for large aquariums, small shows and expos across India, Nepal and Dubai, from SOPs and casting to training and daily shows, leading teams of 80+ performers.</p>
+      <div class="diptych">
+        <figure class="dp"><img src="img/formal.jpg" alt="Formal portrait of Angelica in a black blazer"><figcaption><em>Behind the show</em><span>Management</span></figcaption></figure>
+        <div class="glass" aria-hidden="true"></div>
+        <figure class="dp dry"><img src="img/portrait-water.jpg" alt="Angelica underwater, lit in pink"><figcaption><em>In the water</em><span>Performer</span></figcaption></figure>
+      </div>
+      <div class="sides">
+        <div class="side">
+          <h3>Behind the show <small>Management</small></h3>
+          <div class="fact"><span class="v">80+</span><span class="k">Performers of mixed nationalities led: casting, training, agreements and scheduling</span></div>
+          <div class="fact"><span class="v">30</span><span class="k">Venues across India and Nepal, from large aquariums like India's largest to small shows and expos, run on one operating system</span></div>
+          <div class="fact"><span class="v">100+</span><span class="k">Performers managed over 15+ years of city concerts and festivals</span></div>
+          <p class="duties">Show rotations · SOPs · Casting · Costumes · Contracts · Travel</p>
+        </div>
+        <div class="side">
+          <h3>In the water <small>Performer</small></h3>
+          <div class="fact"><span class="v">8</span><span class="k">Tour stops across India and Nepal</span></div>
+          <div class="fact"><span class="v">3</span><span class="k">Countries performed in: India, Nepal and the UAE</span></div>
+          <div class="fact"><span class="v">2024</span><span class="k">Performing underwater since</span></div>
+          <div class="fact"><span class="v">7</span><span class="k">Certifications in mermaid, freediving and first aid</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="gallery" style="padding-top:0">
+    <div class="wrap">
+      <div class="shead">
+        <p class="label">Gallery</p>
+        <h2>In the <em>blue</em></h2>
+      </div>
+      <div class="gallery">
+        <figure class="g tall feature"><img src="img/freedive.jpg" style="object-position:50% 48%" alt="Angelica freediving beneath nurse sharks, surrounded by a school of fish"><figcaption>Freediving</figcaption></figure>
+        <figure class="g tall"><img src="img/live-show.jpg" alt="Angelica performing a live mermaid show behind aquarium glass, the audience in silhouette"><figcaption>Live show</figcaption></figure>
+        <figure class="g tall drop"><img src="img/atlantis-bubbles.jpg" alt="Angelica in a green mermaid tail performing beside a moray eel and live fish"><figcaption>With live marine life</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="reels" style="padding-top:0">
+    <div class="wrap">
+      <div class="shead">
+        <p class="label">Reels</p>
+        <h2>In <em>motion</em></h2>
+      </div>
+      <div class="reels">
+        <a class="reel" href="https://youtube.com/shorts/vykQoa4db0s" target="_blank" rel="noopener"><span class="n">01</span><span class="pl" aria-hidden="true"></span><span class="w">Watch on YouTube</span></a>
+        <a class="reel" href="https://youtube.com/shorts/PMACS8jhiJY" target="_blank" rel="noopener"><span class="n">02</span><span class="pl" aria-hidden="true"></span><span class="w">Watch on YouTube</span></a>
+        <a class="reel" href="https://youtube.com/shorts/yEAznNkp1uI" target="_blank" rel="noopener"><span class="n">03</span><span class="pl" aria-hidden="true"></span><span class="w">Watch on YouTube</span></a>
+        <a class="reel" href="https://youtube.com/shorts/Rlpsl3q4Gj0" target="_blank" rel="noopener"><span class="n">04</span><span class="pl" aria-hidden="true"></span><span class="w">Watch on YouTube</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="roles" style="padding-top:0">
+    <div class="wrap">
+      <div class="shead">
+        <p class="label">Experience</p>
+        <h2>Where I've <em>worked</em></h2>
+      </div>
+      <div class="chapters">
+        <article class="ch"><span class="y">2026</span><h3>Dubai</h3><p class="role">Head Mermaid Diver · Atlantis The Palm</p><p class="tags">Mermaid Dive Team · Daily shows · Rotations · Safety · Training</p></article>
+        <article class="ch"><span class="y">2024–2026</span><h3>India</h3><p class="role">Talent and Operations Manager · Aquariums and entertainment venues</p><p class="tags">Large aquariums · Small shows and expos · 80+ performers · 30 venues · Brand activations · Kids' programs</p></article>
+        <article class="ch"><span class="y">2025–now</span><h3>Global</h3><p class="role">Founder · Sirena Asia</p><p class="tags">7 countries · Vetting and training standard · Client referrals</p></article>
+        <article class="ch"><span class="y">2008–2025</span><h3>Philippines</h3><p class="role">Event Head and Adviser · Talents Guild</p><p class="tags">City-wide concerts and festivals · 100+ performers · City Government and Tourism Office</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="certs" style="padding-top:0">
+    <div class="wrap">
+      <div class="shead">
+        <p class="label">Certified</p>
+        <h2><em>Certifications</em></h2>
+      </div>
+      <div class="certs">
+        <div class="c">PADI Mermaid Instructor<span>2026</span></div>
+        <div class="c">PADI Advanced Mermaid<span>2026</span></div>
+        <div class="c">PADI Mermaid<span>2026</span></div>
+        <div class="c">AIDA 2 Freediver<span>2025</span></div>
+        <div class="c">Professional Underwater Performer<span></span></div>
+        <div class="c">MFI Mermaid M1<span>2025</span></div>
+        <div class="c">EFR CPR, First Aid and Care for Children with AED<span>2026</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="shead">
+        <p class="label">Contact</p>
+        <h2>Anything <em>underwater</em></h2>
+      </div>
+      <p class="offer-tags indent">Mermaid talent, solo to full teams · Aquarium and resort shows · Brand activations · Luxury and private events · Expos and conferences · Mermaid team setup and training · PADI Mermaid courses · Underwater photo and video</p>
+      <div class="indent">
+        <span class="mail">balbuenangelica@yahoo.com</span>
+        <button class="ul" type="button" id="copyEmail" data-copy="balbuenangelica@yahoo.com">Copy email</button>
+        <div class="contact-rows">
+          <div class="cr"><span class="k">WhatsApp</span><span class="val"><a href="https://wa.me/971585692265" target="_blank" rel="noopener">+971 58 569 2265</a></span><button class="ul" type="button" id="copyPhone" data-copy="+971585692265">Copy</button></div>
+          <div class="cr"><span class="k">Instagram</span><span class="val"><a href="https://www.instagram.com/sirenaasia.co" target="_blank" rel="noopener">@sirenaasia.co</a></span></div>
+          <div class="cr"><span class="k">Website</span><span class="val"><a href="https://www.sirenaasia.com" target="_blank" rel="noopener">sirenaasia.com</a></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="mark" aria-hidden="true">Mermaid Angel</div>
+    <div class="foot"><span>Operations manager for mermaid shows, aquariums and live entertainment</span><span>Available worldwide</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* header + depth */
+  var bar = document.getElementById('bar'), dEl = document.getElementById('depth');
+  function onScroll(){
+    var y = window.scrollY, max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.classList.toggle('solid', y > 40);
+    dEl.textContent = (max > 0 ? Math.min(10, Math.max(0, y / max * 10)) : 0).toFixed(1);
+  }
+  window.addEventListener('scroll', onScroll, {passive: true}); onScroll();
+
+  /* bubbles over the hero photo */
+  var cv = document.getElementById('sea'), c = cv.getContext('2d'), W = 0, H = 0, bubbles = [];
+  function size(){
+    var r = cv.getBoundingClientRect(), d = Math.min(2, window.devicePixelRatio || 1);
+    W = r.width; H = r.height; cv.width = Math.round(W * d); cv.height = Math.round(H * d);
+    c.setTransform(d, 0, 0, d, 0, 0);
+    bubbles = [];
+    var n = Math.max(12, Math.round(W / 34));
+    for (var i = 0; i < n; i++) bubbles.push({x: Math.random() * W, y: Math.random() * H, r: .8 + Math.random() * 3, s: .15 + Math.random() * .5, p: Math.random() * 6.28});
+  }
+  function frame(t){
+    c.clearRect(0, 0, W, H);
+    c.strokeStyle = 'rgba(239,232,220,.45)'; c.lineWidth = .8;
+    for (var k = 0; k < bubbles.length; k++){
+      var b = bubbles[k];
+      if (!reduce){ b.y -= b.s; if (b.y < -8){ b.y = H + 8; b.x = Math.random() * W; } }
+      c.beginPath(); c.arc(b.x + Math.sin(t * .0011 + b.p) * 3, b.y, b.r, 0, 6.283); c.stroke();
+    }
+    if (!reduce) requestAnimationFrame(frame);
+  }
+  size();
+  window.addEventListener('resize', function(){ size(); if (reduce) frame(0); });
+  if (reduce) frame(0); else requestAnimationFrame(frame);
+
+  /* sound: deep-water ambience generated live in the browser */
+  var btn = document.getElementById('sound'), lab = document.getElementById('soundLabel');
+  var ctx = null, master = null, on = false;
+  function build(){
+    var AC = window.AudioContext || window.webkitAudioContext;
+    ctx = new AC();
+    master = ctx.createGain(); master.gain.value = 0; master.connect(ctx.destination);
+    var len = ctx.sampleRate * 4, buf = ctx.createBuffer(1, len, ctx.sampleRate), d = buf.getChannelData(0), last = 0;
+    for (var i = 0; i < len; i++){ var w = Math.random() * 2 - 1; last = (last + .02 * w) / 1.02; d[i] = last * 3.2; }
+    var src = ctx.createBufferSource(); src.buffer = buf; src.loop = true;
+    var lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 360;
+    var swell = ctx.createGain(); swell.gain.value = .55;
+    var lfo = ctx.createOscillator(); lfo.frequency.value = .07;
+    var lfoG = ctx.createGain(); lfoG.gain.value = .3;
+    lfo.connect(lfoG); lfoG.connect(swell.gain);
+    src.connect(lp); lp.connect(swell); swell.connect(master);
+    [110, 164.81, 246.94].forEach(function(f, i){
+      var o = ctx.createOscillator(); o.type = 'sine'; o.frequency.value = f; o.detune.value = (i - 1) * 5;
+      var g = ctx.createGain(); g.gain.value = .026 - i * .006;
+      o.connect(g); g.connect(master); o.start();
+    });
+    src.start(); lfo.start();
+    (function loop(){
+      setTimeout(function(){
+        if (on){
+          var n = 1 + Math.floor(Math.random() * 3);
+          for (var j = 0; j < n; j++) setTimeout(function(){
+            var t = ctx.currentTime, f = 450 + Math.random() * 650, o = ctx.createOscillator(), g = ctx.createGain();
+            o.type = 'sine'; o.frequency.setValueAtTime(f, t); o.frequency.exponentialRampToValueAtTime(f * 2.3, t + .09);
+            g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.04, t + .01); g.gain.exponentialRampToValueAtTime(.0001, t + .13);
+            o.connect(g); g.connect(master); o.start(t); o.stop(t + .16);
+          }, j * 95);
+        }
+        loop();
+      }, 1600 + Math.random() * 3400);
+    })();
+  }
+  btn.addEventListener('click', function(){
+    try {
+      if (!ctx) build();
+      var now = ctx.currentTime;
+      master.gain.cancelScheduledValues(now); master.gain.setValueAtTime(master.gain.value, now);
+      if (!on){
+        if (ctx.resume) ctx.resume();
+        master.gain.linearRampToValueAtTime(.7, now + 1.6);
+        on = true; btn.setAttribute('aria-pressed', 'true'); lab.textContent = 'Sound off';
+      } else {
+        master.gain.linearRampToValueAtTime(0, now + .8);
+        on = false; btn.setAttribute('aria-pressed', 'false'); lab.textContent = 'Sound';
+      }
+    } catch (e) { lab.textContent = 'No sound'; }
+  });
+
+  /* copy */
+  ['copyEmail', 'copyPhone'].forEach(function(id){
+    var b = document.getElementById(id), orig = b.textContent;
+    b.addEventListener('click', function(){
+      function done(m){ b.textContent = m; setTimeout(function(){ b.textContent = orig; }, 1600); }
+      try { navigator.clipboard.writeText(b.getAttribute('data-copy')).then(function(){ done('Copied'); }, function(){ done('Select and copy'); }); }
+      catch (e) { done('Select and copy'); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
