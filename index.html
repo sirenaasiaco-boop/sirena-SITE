@@ -2077,7 +2077,7 @@
               <span class="strip-info"><span class="strip-tag">PADI Mermaid Instructor</span><span class="strip-name">Mermaid <em>Linda</em></span><span class="strip-cta">View profile →</span></span>
             </button>
         </div>
-        <div class="strips-foot rv d3"><span class="strips-hint">Hover or tap a strip to meet her</span><a href="performers.html" class="see-all-link" style="margin-top:0;">All Performers →</a></div>
+        <div class="strips-foot rv d3"><span class="strips-hint">Hover or tap to meet her, tap again for her profile</span><a href="performers.html" class="see-all-link" style="margin-top:0;">All Performers →</a></div>
 
         <!-- Rising Tides -->
         <div class="rising-section">
@@ -2694,9 +2694,13 @@
     function lightStrip(el){ strips.forEach(x=>x.classList.toggle('on', x===el)); }
     if (strips.length) {
       lightStrip(strips[Math.floor(Math.random()*strips.length)]);
+      // Touch taps also fire mouseenter/focus; ignore those so a tap expands first instead of jumping to the profile
+      let lastPointer='mouse';
+      document.addEventListener('pointerdown',e=>{ lastPointer=e.pointerType; },true);
+      window.__stripTouch=()=>lastPointer!=='mouse' || matchMedia('(hover: none)').matches;
       strips.forEach(st=>{
-        st.addEventListener('mouseenter',()=>lightStrip(st));
-        st.addEventListener('focus',()=>lightStrip(st));
+        st.addEventListener('mouseenter',()=>{ if(!window.__stripTouch()) lightStrip(st); });
+        st.addEventListener('focus',()=>{ if(!window.__stripTouch()) lightStrip(st); });
       });
       const box=document.getElementById('elite-strips');
       box.addEventListener('pointermove',e=>{ if(e.pointerType!=='mouse')return; const el=document.elementFromPoint(e.clientX,e.clientY); const st=el&&el.closest('.strip'); if(st&&!st.classList.contains('on')) lightStrip(st); });
@@ -2934,8 +2938,13 @@
       // Strip click: first tap lights it (touch), then opens the profile
       document.querySelectorAll('#elite-strips .strip').forEach(st => {
         st.addEventListener('click', e => {
-          if (matchMedia('(hover: none)').matches && !st.classList.contains('on')) { document.querySelectorAll('#elite-strips .strip').forEach(x=>x.classList.toggle('on',x===st)); return; }
-          openModal(st.dataset.id);
+          if (window.__stripTouch && window.__stripTouch() && !st.classList.contains('on')) {
+            document.querySelectorAll('#elite-strips .strip').forEach(x=>x.classList.toggle('on',x===st));
+            setTimeout(()=>st.scrollIntoView({behavior:'smooth',block:'center'}),450);
+            return;
+          }
+          // One profile only: go straight to her full page on Performers
+          window.location.href='performers.html#'+st.dataset.id;
         });
       });
 
