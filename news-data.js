@@ -22,6 +22,56 @@
    ═══════════════════════════════════════════════════════════════════ */
 window.NEWS = [
   {
+    slug: 'first-mermaid-competition-malaysia-2026',
+    type: 'Contest',
+    date: '2026-12-13',
+    upcoming: true,
+    featured: false,
+    title: 'The First Mermaid Competition in Malaysia: 13 December 2026',
+    excerpt: 'Malaysia\'s first mermaid competition comes to Selamberr Dive Training Pool, Dengkil, on 13 December 2026, 3pm to 6pm, with a PADI Mermaid Instructor course in the champion\'s prize.',
+    body: [
+      'Malaysia is getting its first mermaid competition. On 13 December 2026, from 3pm to 6pm, mermaids will compete at Selamberr Dive Training Pool in Dengkil, hosted with Merveille League Mermaid Society and PADI Mermaid, with Sirena Asia among the supporting partners.',
+      'The Pro Mermaid category carries a serious prize table. The Champion takes home a Braveeer silicone mermaid outfit and accessories, a Kayasuba mermaid tail, a Merveille League duffle bag and Apnea\'s Life Journey dive log, plus a PADI Mermaid Instructor course with processing fee included.',
+      'First Runner-up wins a Kayasuba mermaid tail, a Rainy Gooi designer tail and tail bag, a Merveille League duffle bag and dive log, and a PADI Mermaid Performer course. Second Runner-up wins a Rainy Gooi designer tail and tail bag, a Merveille League duffle bag and dive log, and a PADI Mermaid Performer course.',
+      'Partners include PADI, Braveeer, Kayasuba, Rainy Gooi, Merveille League and Sirena Asia. Mermaids, mark the date.'
+    ],
+    image: 'media/news/first-mermaid-competition-malaysia-2026.jpg',
+    people: [],
+    link: null
+  },
+  {
+    slug: 'first-mermaid-camp-malaysia-2026',
+    type: 'Event',
+    date: '2026-10-17',
+    featured: false,
+    title: 'The First Mermaid Camp in Malaysia',
+    excerpt: 'Two days of skills, pool sessions, a mini match and a PADI sharing session at Selamberr Dive Training Pool, Dengkil, on 17 and 18 October 2026.',
+    body: [
+      'Before the competition came the camp. On 17 and 18 October 2026, mermaids gathered at Selamberr Dive Training Pool in Dengkil for The First Mermaid Camp in Malaysia, with Sirena Asia among the partners alongside Merveille League Mermaid Society, PADI Mermaid, Mermaid Mystery, Mahina Mermaid and M.R. Yuner.',
+      'Day one opened with a group photo and a skills review against competition criteria, then a pool session to sharpen skills and a mini match. In the evening, PADI Regional Consultant Mr. Ferdy led a mermaid course sharing session before the prize ceremony and a BBQ night.',
+      'Mini match winners took home Mermaid Mystery prizes: a hybrid silicone mermaid tail and underwater dance costume for the champion, and mermaid outfits and underwater dance costumes for the runners-up. Day two was all about mermaid craft making, mermaid makeup and a final group photo.'
+    ],
+    image: 'media/news/first-mermaid-camp-malaysia-2026.jpg',
+    people: [],
+    link: null
+  },
+  {
+    slug: 'chen-korea-international-mermaid-open-2026-bronze',
+    type: 'Win',
+    date: '2026-03',
+    featured: false,
+    title: 'Chen Takes Bronze at the 2026 Korea International Mermaid Open',
+    excerpt: 'Sirena Elite Chen placed third at the 2026 Korea International Mermaid Open with her "Night Shanghai" routine.',
+    body: [
+      'Mermaid Chen finished third at the 2026 Korea International Mermaid Open, bringing home bronze with a routine inspired by the glamour of old Shanghai nights.',
+      'Chen trains in Hualien, on Taiwan\'s east coast, where she says resources are scarce and preparing for international competition is hard and costly. She thanked everyone behind her for letting her give it everything without worry.',
+      'It adds to a competition record that includes Team Champion and Silver at the Hong Kong Mermaid Competition (2025).'
+    ],
+    image: 'media/news/chen-korea-international-mermaid-open-2026.jpg',
+    people: ['chen'],
+    link: 'https://www.instagram.com/chenc0213/'
+  },
+  {
     slug: 'kita-cmas-mermaid-world-cup-2026-silver',
     type: 'Win',
     date: '2026-08-30',
