@@ -38,38 +38,6 @@ window.NEWS = [
     link: null
   },
   {
-    slug: 'sporti-joins-sirena-elites',
-    type: 'Announcement',
-    date: '2026-11',
-    featured: false,
-    title: 'Mermaid SporTi Joins the Sirena Elites',
-    excerpt: 'IUPC 2026 Muse Mermaid 1st Runner-up and PADI Mermaid Instructor SporTi is the newest face of the Sirena Elites, now based in Dubai.',
-    body: [
-      'Sirena Asia welcomes Mermaid SporTi to the Sirena Elites. A competition mermaid, instructor and lifeguard, she brings both stage presence and serious water credentials to the collective.',
-      'SporTi is a PADI Mermaid Instructor, PADI Underwater Dance Instructor, AIDA3 freediver, rescue diver and certified lifeguard. On the competition stage she placed 1st Runner-up at the IUPC 2026 Muse Mermaid Competition and 6th in the International Category at the CMAS Mermaids World Cup.',
-      'Now based in Dubai, she is available for underwater shows, activations and mermaid instruction in the UAE and beyond.'
-    ],
-    image: 'media/performers/sporti/photo2.jpg',
-    people: ['sporti'],
-    link: null
-  },
-  {
-    slug: 'sporti-iupc-2026-muse-mermaid',
-    type: 'Win',
-    date: '2026',
-    featured: true,
-    title: 'SporTi Takes 1st Runner-up at the IUPC 2026 Muse Mermaid Competition',
-    excerpt: 'Sirena Elite SporTi finished 1st Runner-up at the IUPC 2026 Muse Mermaid Competition.',
-    body: [
-      'Mermaid SporTi of the Sirena Elites placed 1st Runner-up at the IUPC 2026 Muse Mermaid Competition.',
-      'It adds to an international record that already includes 6th place in the International Category at the CMAS Mermaids World Cup.',
-      'Outside competition, SporTi teaches as a PADI Mermaid Instructor and PADI Underwater Dance Instructor. Follow her journey at @mywaterjourney.'
-    ],
-    image: 'media/performers/sporti/photo1.jpg',
-    people: ['sporti'],
-    link: null
-  },
-  {
     slug: 'kita-taiwan-cup-cwtb-silver-2026',
     type: 'Win',
     date: '2026',
@@ -133,7 +101,7 @@ window.NEWS = [
     slug: 'mfi-korea-open-2025-team-medals',
     type: 'Win',
     date: '2025',
-    featured: false,
+    featured: true,
     title: 'Team Sirena Medals at the MFI Korea Open',
     excerpt: 'Ying and Minmin were Team Medalists, Chen took Bronze and Fan medalled at the MFI Korea Open in South Korea (2025).',
     body: [
