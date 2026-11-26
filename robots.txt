@@ -14,6 +14,31 @@ Allow: /
 User-agent: Slurp
 Allow: /
 
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# ── LINK PREVIEWS (WhatsApp, FB, IG, LinkedIn, X, Telegram) ──
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
 # Block everything else by default
 User-agent: *
 Disallow: /
@@ -42,9 +67,6 @@ Disallow: /
 User-agent: Google-Extended
 Disallow: /
 
-User-agent: Googlebot-Image
-Disallow: /
-
 # ── COMMON CRAWL (feeds most AI training datasets) ───────────────
 User-agent: CCBot
 Disallow: /
@@ -60,9 +82,6 @@ User-agent: Meta-ExternalFetcher
 Disallow: /
 
 # ── APPLE ────────────────────────────────────────────────────────
-User-agent: Applebot
-Disallow: /
-
 User-agent: Applebot-Extended
 Disallow: /
 
