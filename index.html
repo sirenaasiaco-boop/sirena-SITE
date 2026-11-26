@@ -1092,7 +1092,7 @@
     @media (prefers-reduced-motion: reduce) { .strip, .strip img, .strip-info { transition:none; } }
 
     /* ── Next Wave: hover reveals a mini profile with a second photo ── */
-    .rising-grid { grid-template-columns:repeat(auto-fit,minmax(180px,230px)) !important; justify-content:center !important; gap:1rem !important; max-width:1240px; margin-left:auto !important; margin-right:auto !important; }
+    .rising-grid { grid-template-columns:repeat(auto-fit,minmax(150px,190px)) !important; justify-content:center !important; gap:1.4rem !important; padding:3rem 0 !important; max-width:1240px; margin-left:auto !important; margin-right:auto !important; }
     .tide { position:relative; aspect-ratio:3/4; border-radius:14px; overflow:hidden; background:#081826; cursor:pointer; box-shadow:0 10px 36px rgba(0,13,38,0.6); isolation:isolate; }
     .tide-main { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 25%; transition:transform 1s cubic-bezier(0.22,1,0.36,1), opacity .6s ease; }
     .tide::after { content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, transparent 50%, rgba(6,18,29,0.9)); transition:opacity .5s ease; }
@@ -1106,7 +1106,13 @@
     .tide-enquire { align-self:flex-start; margin-top:0.3rem; font-family:'Manrope',system-ui,sans-serif; font-size:0.74rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; padding:0.6rem 1rem; border-radius:999px; background:#ff6b9d; color:#06121d; text-decoration:none; transition:transform .25s ease, box-shadow .25s ease; }
     .tide-enquire:hover { transform:translateY(-2px); box-shadow:0 6px 24px rgba(255,107,157,0.35); }
     .tide-enquire:focus-visible, .tide:focus-visible { outline:2px solid #4fd8eb; outline-offset:3px; }
-    .tide:hover .tide-main, .tide.open .tide-main, .tide:focus-within .tide-main { transform:scale(1.08); opacity:0.55; }
+    .tide:hover .tide-main, .tide.open .tide-main, .tide:focus-within .tide-main { opacity:0.5; }
+    /* Small at rest, grows big when you reach her */
+    #rising-grid .tide-alt { flex:1 1 auto; min-height:0; aspect-ratio:auto; height:auto; object-position:center 30%; }
+    #rising-grid .tide-reveal { justify-content:flex-start; padding-top:0.8rem; }
+    #rising-grid .tide { transition:opacity .8s ease, transform .6s cubic-bezier(0.22,1,0.36,1), box-shadow .6s ease; }
+    @media (hover:hover) { #rising-grid .tide:hover, #rising-grid .tide:focus-within { transform:scale(1.28); z-index:6; box-shadow:0 0 0 1px rgba(245,196,81,0.45), 0 30px 70px rgba(0,0,0,0.75), 0 0 60px rgba(79,216,235,0.18); } }
+    @media (hover:none) { #rising-grid .tide.open { transform:scale(1.06); z-index:6; box-shadow:0 0 0 1px rgba(245,196,81,0.45), 0 20px 50px rgba(0,0,0,0.7); } }
     .tide:hover .tide-reveal, .tide.open .tide-reveal, .tide:focus-within .tide-reveal { opacity:1; transform:none; }
     .tide:hover .tide-alt, .tide.open .tide-alt, .tide:focus-within .tide-alt { transform:scale(1) rotate(0); }
     .tide:hover .tide-name-bar, .tide.open .tide-name-bar, .tide:focus-within .tide-name-bar { opacity:0; transform:translateY(10px); }
@@ -2050,7 +2056,7 @@
               <img src="media/performers/chen/photo4.jpg" alt="Mermaid Chen" loading="lazy" />
               <span class="strip-num">04</span>
               <span class="strip-v">Chen</span>
-              <span class="strip-info"><span class="strip-tag">Korea Open Bronze 2026</span><span class="strip-name">Mermaid <em>Chen</em></span><span class="strip-cta">View profile →</span></span>
+              <span class="strip-info"><span class="strip-tag">TikTok Star · 130K</span><span class="strip-name">Mermaid <em>Chen</em></span><span class="strip-cta">View profile →</span></span>
             </button>
             <button class="strip" type="button" data-id="kita" aria-label="View Mermaid Kita's profile">
               <img src="media/performers/kita/hero.jpg" alt="Mermaid Kita" loading="lazy" />
@@ -2800,7 +2806,7 @@
                 media:[{type:'photo',src:'media/performers/minmin/photo1.jpg'},{type:'photo',src:'media/performers/minmin/photo2.jpg'}], contact:'Mermaid+Minmin' },
       chen:   { num:'04', name:'Mermaid Chen',   flag:'tw',
                 bio:'Master Mermaid Instructor and former professional mermaid at Farglory Ocean Park, known on TikTok as the "Princess of Atlantis". Doubles Champion and Women\'s Solo Runner-up at the Hong Kong Mermaid Competition (2025), and 3rd in Women\'s Solo at the Korea International Mermaid Open (2026).',
-                tags:['Korea Open Bronze 2026','Hong Kong Doubles Champion 2025','MFI Master Instructor','Instagram 21K'],
+                tags:['TikTok Star · 130K','TikTok Live Performer','MFI Master Instructor','Instagram 21K'],
                 media:[{type:'photo',src:'media/performers/chen/photo4.jpg'},{type:'photo',src:'media/performers/chen/photo1.jpg'},{type:'photo',src:'media/performers/chen/photo2.jpg'},{type:'photo',src:'media/performers/chen/photo3.jpeg'},{type:'photo',src:'media/performers/chen/photo5.jpg'},{type:'photo',src:'media/performers/chen/photo6.jpg'}], contact:'Mermaid+Chen' },
       ronnie: { num:'06', name:'Mermaid Ronnie', flag:'tw',
                 bio:'Silver Medalist at both the Taiwan Mermaid Competition and the Asia Cup (2024). Show experience includes the Atlantis New Year Show, Divecube Aqua Festival and Divecube Mermaid Carnival.',

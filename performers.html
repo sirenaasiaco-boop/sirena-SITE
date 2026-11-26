@@ -651,6 +651,36 @@
     .footer-legal-link:hover { color:rgba(224,247,250,0.4); }
     @media(max-width:768px) { .footer-top{grid-template-columns:1fr;} .footer-contact-col{text-align:left;} .footer-social{justify-content:flex-start;} .footer-bottom{flex-direction:column;align-items:flex-start;} .footer-brand img{max-width:160px!important;} }
     #mag-section { scroll-margin-top:96px; }
+    /* ── Polished full profile: one portrait, structured story ── */
+    .mag-page-l #mag-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 30%; filter:brightness(0.95) saturate(1.02); }
+    #mag-media-gallery, #mag-media-dots, .mag-media-arrow, .mag-ghost-n { display:none !important; }
+    .mag-photo-vign { background:linear-gradient(90deg, transparent 70%, rgba(6,18,29,0.55)); }
+    .mag-photo-base { height:30%; background:linear-gradient(0deg, rgba(6,18,29,0.75), transparent); }
+    .mag-page-r { background:linear-gradient(180deg,#0b1a2e,#081420); }
+    .mag-issue-num { color:rgba(245,196,81,0.18); }
+    .mag-issue-label { font-size:0.7rem; letter-spacing:0.24em; color:#4fd8eb; }
+    .mag-name { font-weight:600; letter-spacing:-0.01em; color:#fff; }
+    .mag-divider { background:#f5c451; width:48px; height:1px; margin:0.4rem 0 1.4rem; }
+    .mag-skills { order:0; margin:0 0 1.6rem; gap:0.5rem; }
+    .mag-skill { font-size:0.7rem; letter-spacing:0.12em; color:#e0f7fa; background:rgba(79,216,235,0.06); border:1px solid rgba(79,216,235,0.28); padding:0.45rem 0.85rem; border-radius:999px; }
+    .mag-skill:first-child { color:#2a1d02; background:#f5c451; border-color:#f5c451; font-weight:700; }
+    .mag-bio { font-size:1rem; line-height:1.6; color:#c9d6df; }
+    .pf-sec { padding:1.1rem 0 1.2rem; border-top:1px solid rgba(79,216,235,0.12); }
+    .pf-sec h4 { margin:0 0 0.7rem; font-family:'Manrope',system-ui,sans-serif; font-size:0.7rem; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:#f5c451; }
+    .pf-sec ul { list-style:none; margin:0; padding:0; display:grid; gap:0.5rem; }
+    .pf-sec li { position:relative; padding-left:1.15rem; font-family:'Manrope',system-ui,sans-serif; font-size:0.95rem; line-height:1.5; color:#c9d6df; }
+    .pf-sec li::before { content:""; position:absolute; left:0; top:0.62em; width:5px; height:5px; border-radius:50%; background:#4fd8eb; }
+    .pf-sec li.win { color:#fff; font-weight:500; }
+    .pf-sec li.win::before { width:7px; height:7px; top:0.55em; border-radius:1px; transform:rotate(45deg); background:#f5c451; }
+    .pf-links { display:flex; flex-wrap:wrap; gap:0.55rem; }
+    .pf-links a, .pf-links span { font-family:'Manrope',system-ui,sans-serif; font-size:0.85rem; font-weight:600; color:#e0f7fa; text-decoration:none; padding:0.55rem 1rem; border-radius:999px; border:1px solid rgba(79,216,235,0.35); transition:transform .25s ease, background-color .25s ease, color .25s ease; }
+    .pf-links span { border-style:dashed; color:#93a8b8; font-weight:500; }
+    .pf-links a:hover { background-color:#4fd8eb; color:#06121d; transform:translateY(-2px); }
+    .pf-links a:focus-visible { outline:2px solid #f5c451; outline-offset:3px; }
+    .pf-links a:active { transform:translateY(0); }
+    .mag-cta { margin-top:1.2rem; border-radius:999px; }
+    @media (min-width:769px) { .mag-spread { min-height:clamp(640px,82vh,900px); } }
+    @media (max-width:768px) { .mag-page-l { height:118vw !important; max-height:560px !important; } .mag-bio { font-size:0.95rem; } }
 </style>
   <!-- PRELOADER -->
   <style>
@@ -737,7 +767,7 @@
             <div class="mag-photo-base"></div>
             <div class="mag-ghost-n" id="mag-ghost-n">01</div>
             <div class="mag-corner-mark"></div>
-            <span class="mag-series-tag">SIRENA ELITE · 2025</span>
+            <span class="mag-series-tag">SIRENA ELITE · 2026</span>
             <!-- Media nav dots -->
             <div id="mag-media-dots" style="position:absolute;bottom:3.2rem;left:50%;transform:translateX(-50%);display:none;gap:5px;z-index:5;"></div>
             <!-- Media nav arrows -->
@@ -761,10 +791,10 @@
             </div>
             <p class="mag-performer-title" id="mag-performer-title"></p>
             <div class="mag-divider"></div>
-            <div class="mag-bio-scroll">
-              <p class="mag-bio" id="mag-bio">—</p>
-            </div>
             <div class="mag-skills" id="mag-skills"></div>
+            <div class="mag-bio-scroll">
+              <div class="mag-bio" id="mag-bio">—</div>
+            </div>
             <a class="mag-cta" id="mag-cta" href="#">Send Enquiry &rarr;</a>
           </div>
 
@@ -954,8 +984,8 @@
     {
       slug: 'chen', num: '04', name: 'Mermaid Chen', flag: 'tw',
       bio: '<b>Competition &amp; Experience</b><br>· Former Professional Mermaid, Farglory Ocean Park<br>· Widely recognized as "Princess of Atlantis" on TikTok<br>· TikTok Live performer with a strong presence in the aquatic community<br>· Specialist in commercial underwater and lifestyle photography<br>· 3rd Place, Women\'s Solo, Korea International Mermaid Open (South Korea, 2026)<br>· Champion, Doubles, Hong Kong Mermaid Competition (Hong Kong, 2025)<br>· Runner-up, Women\'s Solo, Hong Kong Mermaid Competition (Hong Kong, 2025)<br>· Team Silver Medalist, Taiwan Mermaid Competition (Taiwan, 2024)<br>· International Mermaid Performer, India (2025)<br><br><b>Specializations &amp; Certifications</b><br>· Master Mermaid Instructor, MFI MMI<br>· Junior Mermaid Instructor, MFI JMI<br>· Cinematic aquatic production and creative direction<br><br><b>Network &amp; Reach</b><br>· TikTok: 130K+ Followers<br>· Instagram: 21K+ Followers<br><br><b>Follow</b><br>· <a href="https://www.instagram.com/chenc0213/" target="_blank" rel="noopener">Instagram @chenc0213</a><br>· <a href="https://www.tiktok.com/@chenhsi.lu" target="_blank" rel="noopener">TikTok @chenhsi.lu</a>',
-      skills: ['Korea Open Bronze 2026', 'Hong Kong Doubles Champion 2025', 'Master Mermaid Instructor', 'Instagram 21K'],
-      img: 'media/performers/chen/photo4.jpg',
+      skills: ['TikTok Star · 130K', 'TikTok Live Performer', 'Master Mermaid Instructor', 'Instagram 21K'],
+      img: 'media/performers/chen/photo1.jpg',
       media: [
         { type: 'photo', src: 'media/performers/chen/photo1.jpg' },
         { type: 'photo', src: 'media/performers/chen/photo2.jpg' },
@@ -1159,10 +1189,21 @@
       const flagEl = document.getElementById('mag-flag');
       if (flagEl) flagEl.innerHTML = flagSVG(p.flag || 'tw');
       if (perfTitle) perfTitle.textContent = p.title || '';
-      bio.innerHTML       = p.bio;
+      bio.innerHTML       = renderBio(p.bio);
       skillsEl.innerHTML  = p.skills.map(s => `<span class="mag-skill">${s}</span>`).join('');
       cta.href            = 'contact.html?performer=' + p.contact;
-      buildMediaGallery(p);
+      stopActiveVideo();
+      photo.style.display = 'block'; photo.src = p.img; photo.alt = p.name;
+    }
+
+    // Turn the bio into clean sections: wins get a gold mark, links become pills
+    function renderBio(html) {
+      const win=/champion|medal|place|runner-up|silver|gold|bronze|winner|all-around/i;
+      return html.split('<b>').filter(x=>x.trim()).map(part=>{
+        const i=part.indexOf('</b>'); const head=part.slice(0,i); const lines=part.slice(i+4).split(/<br\s*\/?>/).map(l=>l.trim().replace(/^·\s*/,'')).filter(Boolean);
+        if (/follow/i.test(head)) return '<div class="pf-sec"><h4>'+head+'</h4><div class="pf-links">'+lines.map(l=>/<a /.test(l)?l:'<span>'+l+'</span>').join('')+'</div></div>';
+        return '<div class="pf-sec"><h4>'+head+'</h4><ul>'+lines.map(l=>'<li'+(win.test(l)?' class="win"':'')+'>'+l+'</li>').join('')+'</ul></div>';
+      }).join('');
     }
 
     function updateDots() {
