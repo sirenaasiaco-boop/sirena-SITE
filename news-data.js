@@ -22,6 +22,39 @@
    ═══════════════════════════════════════════════════════════════════ */
 window.NEWS = [
   {
+    slug: 'kita-cmas-mermaid-world-cup-2026-silver',
+    type: 'Win',
+    date: '2026-08-30',
+    featured: true,
+    title: 'Kita Takes Silver at the First CMAS Mermaid World Cup',
+    excerpt: 'Representing Taiwan in her first world competition, Kita finished Women\'s All-Around Runner-up at the inaugural CMAS Mermaid World Cup in Hainan, China.',
+    body: [
+      'Mermaid Kita is now second in the world. At the First World Underwater Federation (CMAS) Mermaid World Cup and 2026 China Mermaid Open in Lingshui, Hainan, she finished Women\'s All-Around Runner-up, taking home silver and a ¥12,000 prize.',
+      'The field brought together athletes from 12 countries and hundreds of competitors, split into skill and performance events. Kita reached the final in both and placed third in each: third in the Adult Women\'s Solo Mermaid Dance and third in the Adult Women\'s Solo Skill event, where she climbed from fifth in the preliminaries by adding 38 points. Those two podium finishes added up to silver overall.',
+      'It was her first world competition, and in her own words she became the first female athlete from Taiwan to finish in the top three at a world competition in China. Her favourite routine of the event was her Cruella character, rebuilt with new choreography and music for the deep pool.',
+      'The silver capped a breakout 2026 season that also brought a championship title in May and a bronze medal in Hangzhou in July. Her message after the podium: next year, she goes again.'
+    ],
+    image: 'media/news/kita-cmas-mermaid-world-cup-2026.jpg',
+    people: ['kita'],
+    link: 'https://www.instagram.com/cloud_kita/'
+  },
+  {
+    slug: 'ying-co-champion-mfi-taiwan-championship-2026',
+    type: 'Win',
+    date: '2026-10',
+    featured: false,
+    title: 'Ying Crowned Co-Champion at the 2026 MFI Taiwan Mermaid Championship',
+    excerpt: 'Out of around 30 competitors, Ying shared first place in the Female Mermaid division with a Día de los Muertos routine.',
+    body: [
+      'Mermaid Ying is a champion. At the 2026 MFI Taiwan Mermaid and Underwater Dancing Championship, the Female Mermaid division drew around 30 strong competitors, and the title was shared by two athletes. Ying was one of them.',
+      'Her winning routine drew on Mexico\'s Día de los Muertos: marigold crown, sugar-skull makeup, a flower-lined hoop and a burst of bubbles above her head. Photographers at the event described it as a performance full of tension and striking visual style.',
+      'Ying also took to the water with a Mulan-inspired sword routine during the championship. A PADI Mermaid Instructor and Team Medalist at the MFI Korea Open (2025), she says she will keep carrying that love to the next stage.'
+    ],
+    image: 'media/news/ying-mfi-taiwan-championship-2026.jpg',
+    people: ['ying'],
+    link: 'https://www.instagram.com/shuying__0513/'
+  },
+  {
     slug: 'founder-head-mermaid-diver',
     type: 'Announcement',
     date: '2026-09',
@@ -101,7 +134,7 @@ window.NEWS = [
     slug: 'mfi-korea-open-2025-team-medals',
     type: 'Win',
     date: '2025',
-    featured: true,
+    featured: false,
     title: 'Team Sirena Medals at the MFI Korea Open',
     excerpt: 'Ying and Minmin were Team Medalists, Chen took Bronze and Fan medalled at the MFI Korea Open in South Korea (2025).',
     body: [
