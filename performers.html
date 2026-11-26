@@ -652,7 +652,9 @@
     @media(max-width:768px) { .footer-top{grid-template-columns:1fr;} .footer-contact-col{text-align:left;} .footer-social{justify-content:flex-start;} .footer-bottom{flex-direction:column;align-items:flex-start;} .footer-brand img{max-width:160px!important;} }
     #mag-section { scroll-margin-top:96px; }
     /* ── Polished full profile: one portrait, structured story ── */
-    .mag-page-l #mag-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 30%; filter:brightness(0.95) saturate(1.02); }
+    .mag-page-l #mag-photo { position:absolute; inset:0; z-index:1; width:100%; height:100%; object-fit:contain; object-position:center center !important; filter:none; }
+    .mag-page-l::before { content:""; position:absolute; inset:-8%; z-index:0; background:var(--pf-bg) center/cover no-repeat; filter:blur(34px) saturate(1.15) brightness(0.55); }
+    .mag-photo-vign, .mag-photo-base, .mag-corner-mark, .mag-series-tag { z-index:2; }
     #mag-media-gallery, #mag-media-dots, .mag-media-arrow, .mag-ghost-n { display:none !important; }
     .mag-photo-vign { background:linear-gradient(90deg, transparent 70%, rgba(6,18,29,0.55)); }
     .mag-photo-base { height:30%; background:linear-gradient(0deg, rgba(6,18,29,0.75), transparent); }
@@ -1192,7 +1194,7 @@
       skillsEl.innerHTML  = p.skills.map(s => `<span class="mag-skill">${s}</span>`).join('');
       cta.href            = 'contact.html?performer=' + p.contact;
       stopActiveVideo();
-      photo.style.display = 'block'; photo.src = p.img; photo.alt = p.name; photo.style.objectPosition = p.pos || '';
+      photo.style.display = 'block'; photo.src = p.img; photo.alt = p.name; document.getElementById('mag-page-l').style.setProperty('--pf-bg', "url('"+p.img+"')");
     }
 
     // Turn the bio into clean sections: wins get a gold mark, links become pills
