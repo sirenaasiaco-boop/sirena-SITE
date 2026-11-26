@@ -2,7 +2,7 @@
 
 ## Identity
 - **Full Name:** Sirena Asia
-- **Tagline:** Global Community of Professional Mermaids
+- **Tagline:** Born in Asia. Performing Worldwide.
 - **What we do:** A collective of elite professional mermaid performers available for private events, corporate experiences, and live shows across Asia.
 - **Email:** info@sirenaasia.com
 

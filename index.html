@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sirena Asia, Global Community of Professional Mermaids</title>
+  <title>Sirena Asia · Professional Mermaids, Born in Asia, Performing Worldwide</title>
   <link rel="icon" type="image/png" sizes="48x48" href="/brand/logo/favicon-48.png" />
   <link rel="icon" type="image/png" sizes="512x512" href="/brand/logo/favicon-512.png" />
   <link rel="apple-touch-icon" href="/brand/logo/apple-touch-icon.png" />
 
-  <meta name="description" content="Sirena Asia is a global community of professional mermaids, born in Asia and performing worldwide. Hire certified mermaid performers for events, resorts, brand activations and underwater shoots, and follow our competition wins." />
+  <meta name="description" content="Sirena Asia is a non-profit collective of professional mermaids, born in Asia and performing worldwide. Hire certified mermaid performers for events, resorts, brand activations and underwater shoots, and follow our competition wins." />
   <meta name="robots" content="index, follow, noai, noimageai" />
   <meta name="copyright" content="© 2026 Sirena Asia. All rights reserved." />
   <meta name="license" content="All rights reserved. No copying, scraping, reuse, or reproduction of any kind permitted without written consent from Sirena Asia." />
@@ -25,7 +25,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.sirenaasia.com/" />
-  <meta property="og:title" content="Sirena Asia — Global Community of Professional Mermaids" />
+  <meta property="og:title" content="Sirena Asia · Born in Asia. Performing Worldwide." />
   <meta property="og:description" content="Professional mermaid performers for hire across Asia. Events, resorts, brand campaigns, underwater productions, and live shows. The original. The standard." />
   <meta property="og:image" content="https://www.sirenaasia.com/media/gallery/photos/shows/10.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -35,7 +35,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@sirenaasia" />
-  <meta name="twitter:title" content="Sirena Asia — Global Community of Professional Mermaids" />
+  <meta name="twitter:title" content="Sirena Asia · Born in Asia. Performing Worldwide." />
   <meta name="twitter:description" content="Professional mermaid performers for hire across Asia. The original. The standard." />
   <meta name="twitter:image" content="https://www.sirenaasia.com/media/gallery/photos/shows/10.jpg" />
   <!-- JSON-LD: Organization -->
@@ -60,7 +60,7 @@
       {"@type": "Country", "name": "India"},
       {"@type": "Country", "name": "China"}
     ],
-    "slogan": "Global Community of Professional Mermaids",
+    "slogan": "Born in Asia. Performing Worldwide.",
     "sameAs": [
       "https://www.instagram.com/sirenaasia.co/"
     ]
@@ -1089,6 +1089,54 @@
       .strip.on .strip-num { top:1rem; transform:none; }
     }
     @media (prefers-reduced-motion: reduce) { .strip, .strip img, .strip-info { transition:none; } }
+
+    /* ── Next Wave: hover reveals a mini profile with a second photo ── */
+    .rising-grid { grid-template-columns:repeat(auto-fit,minmax(200px,1fr)) !important; gap:1rem !important; max-width:1240px; }
+    .tide { position:relative; aspect-ratio:3/4; border-radius:14px; overflow:hidden; background:#081826; cursor:pointer; box-shadow:0 10px 36px rgba(0,13,38,0.6); isolation:isolate; }
+    .tide-main { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 25%; transition:transform 1s cubic-bezier(0.22,1,0.36,1), opacity .6s ease; }
+    .tide::after { content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, transparent 50%, rgba(6,18,29,0.9)); transition:opacity .5s ease; }
+    .tide-name-bar { position:absolute; left:1rem; bottom:1rem; z-index:2; display:flex; align-items:center; gap:0.5rem; font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:1.3rem; color:#fff; transition:opacity .35s ease, transform .5s ease; }
+    .tide-reveal { position:absolute; inset:0; z-index:3; display:flex; flex-direction:column; justify-content:flex-end; gap:0.45rem; padding:1rem; background:linear-gradient(180deg, rgba(6,18,29,0.25), rgba(6,18,29,0.94) 55%); opacity:0; transform:translateY(18px); transition:opacity .45s ease, transform .6s cubic-bezier(0.22,1,0.36,1); }
+    .tide-alt { width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:10px; box-shadow:0 0 0 1px rgba(245,196,81,0.45), 0 12px 30px rgba(0,0,0,0.5); transform:scale(0.92) rotate(-2deg); transition:transform .7s cubic-bezier(0.22,1,0.36,1) .05s; margin-bottom:0.4rem; }
+    .tide-country { display:flex; align-items:center; gap:0.45rem; font-family:'Manrope',system-ui,sans-serif; font-size:0.72rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#4fd8eb; }
+    .tide-name { margin:0; font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:1.55rem; line-height:1.05; color:#fff; }
+    .tide-name em { font-style:italic; font-weight:500; color:#4fd8eb; }
+    .tide-line { margin:0; font-family:'Manrope',system-ui,sans-serif; font-size:0.88rem; line-height:1.5; color:#c9d6df; }
+    .tide-enquire { align-self:flex-start; margin-top:0.3rem; font-family:'Manrope',system-ui,sans-serif; font-size:0.74rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; padding:0.6rem 1rem; border-radius:999px; background:#ff6b9d; color:#06121d; text-decoration:none; transition:transform .25s ease, box-shadow .25s ease; }
+    .tide-enquire:hover { transform:translateY(-2px); box-shadow:0 6px 24px rgba(255,107,157,0.35); }
+    .tide-enquire:focus-visible, .tide:focus-visible { outline:2px solid #4fd8eb; outline-offset:3px; }
+    .tide:hover .tide-main, .tide.open .tide-main, .tide:focus-within .tide-main { transform:scale(1.08); opacity:0.55; }
+    .tide:hover .tide-reveal, .tide.open .tide-reveal, .tide:focus-within .tide-reveal { opacity:1; transform:none; }
+    .tide:hover .tide-alt, .tide.open .tide-alt, .tide:focus-within .tide-alt { transform:scale(1) rotate(0); }
+    .tide:hover .tide-name-bar, .tide.open .tide-name-bar, .tide:focus-within .tide-name-bar { opacity:0; transform:translateY(10px); }
+    @media (prefers-reduced-motion: reduce) { .tide *, .tide::after { transition:none !important; } }
+
+    /* ── Reach: numbers, places, partners, support ── */
+    #s-reach { position:relative; background:radial-gradient(60% 80% at 15% 0%, rgba(79,216,235,0.10), transparent 60%), #06121d; }
+    .reach-wrap { max-width:1240px; margin:0 auto; padding:clamp(3.5rem,7vw,6rem) clamp(1.25rem,5vw,5rem); display:grid; gap:2.8rem; }
+    .reach-stats { display:grid; grid-template-columns:repeat(2,1fr); gap:1.6rem; }
+    @media (min-width:900px) { .reach-stats { grid-template-columns:repeat(4,1fr); } }
+    .reach-stat { border-top:1px solid rgba(245,196,81,0.4); padding-top:1rem; }
+    .reach-num { display:block; font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:clamp(3rem,6vw,4.6rem); line-height:1; color:#fff; text-shadow:0 0 36px rgba(79,216,235,0.35); }
+    .reach-lbl { display:block; margin-top:0.5rem; font-family:'Manrope',system-ui,sans-serif; font-size:0.95rem; line-height:1.5; color:#c9d6df; }
+    .reach-k { margin:0 0 0.8rem; font-family:'Manrope',system-ui,sans-serif; font-size:0.78rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:#4fd8eb; }
+    .reach-list { margin:0; font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:clamp(1.5rem,3vw,2.3rem); line-height:1.3; color:#fff; }
+    .reach-list i { font-style:normal; color:#f5c451; padding:0 0.2em; }
+    .reach-logos { display:grid; grid-template-columns:repeat(2,1fr); gap:0.8rem; }
+    @media (min-width:900px) { .reach-logos { grid-template-columns:repeat(4,1fr); } }
+    .pt { display:flex; flex-direction:column; gap:0.3rem; padding:1.2rem 1.3rem; border-radius:12px; background:#0b1d2e; border:1px solid rgba(224,247,250,0.12); }
+    .pt b { font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:1.45rem; color:#fff; }
+    .pt small { font-family:'Manrope',system-ui,sans-serif; font-size:0.75rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#93a8b8; }
+    .reach-support { display:grid; gap:1.6rem; align-items:center; padding:clamp(1.8rem,4vw,3rem); border-radius:18px; background:linear-gradient(120deg, rgba(245,196,81,0.10), rgba(79,216,235,0.08)); border:1px solid rgba(245,196,81,0.35); }
+    @media (min-width:900px) { .reach-support { grid-template-columns:1.6fr 1fr; } }
+    .reach-support h3 { margin:0 0 0.8rem; font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:clamp(1.9rem,3.4vw,2.8rem); line-height:1.08; color:#fff; }
+    .reach-support h3 em { font-style:italic; font-weight:500; color:#4fd8eb; }
+    .reach-support p { margin:0; font-family:'Manrope',system-ui,sans-serif; font-size:1.02rem; line-height:1.7; color:#c9d6df; max-width:52ch; }
+    .reach-cta { display:flex; gap:0.8rem; flex-wrap:wrap; justify-content:flex-start; }
+    @media (min-width:900px) { .reach-cta { justify-content:flex-end; } }
+    .reach-ghost { display:inline-block; font-family:'Manrope',system-ui,sans-serif; font-size:0.8rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; padding:0.95rem 1.6rem; border-radius:999px; border:1px solid #f5c451; color:#f5c451; text-decoration:none; transition:transform .25s ease, box-shadow .25s ease; }
+    .reach-ghost:hover { transform:translateY(-2px); box-shadow:0 0 28px rgba(245,196,81,0.3); }
+    .reach-ghost:focus-visible { outline:2px solid #f5c451; outline-offset:3px; }
     /* Shop teaser (unused) */
     .shop-featured {
       position: relative; overflow: hidden;
@@ -1918,7 +1966,7 @@
        HERO
   ═══════════════════════════════════════════ -->
   <div id="hero">
-    <h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Sirena Asia, Global Community of Professional Mermaids</h1>
+    <h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Sirena Asia, Born in Asia. Performing Worldwide.</h1>
     <!-- Video 1: hero.mp4 plays once -->
     <div id="video-wrap">
       <video id="hero-video" autoplay muted loop playsinline preload="metadata" fetchpriority="high"
@@ -2031,52 +2079,59 @@
                Floating animation delays cycle automatically for up to 10 cards via nth-child CSS.
           ──────────────────────────────────── -->
           <div class="rising-grid" id="rising-grid">
-
-            <!-- 01 · Shinta -->
-            <div class="flip-card rv d1" tabindex="0" aria-label="Mermaid Shinta">
-              <img src="media/performers/rising/shinta/photo1.jpg" alt="Mermaid Shinta" loading="lazy" class="rv-photo" />
-              <div class="rv-overlay"></div>
-              <span class="rv-hint">Tap to play</span>
-              <div class="rv-info">
-                <span class="rv-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg></span>
-                <p class="rv-name">Mermaid Shinta</p>
-                <a href="contact.html?performer=Mermaid+Shinta" class="rv-enquire" onclick="event.stopPropagation()">Enquire →</a>
+            <div class="tide rv d1" tabindex="0" aria-label="Mermaid Shinta, Indonesia">
+              <img src="media/performers/rising/shinta/photo1.jpg" alt="Mermaid Shinta" loading="lazy" class="tide-main" />
+              <span class="tide-name-bar"><span class="tide-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg></span>Mermaid Shinta</span>
+              <div class="tide-reveal">
+                <img src="media/performers/rising/shinta/photo2.jpg" alt="Mermaid Shinta, second photo" loading="lazy" class="tide-alt" />
+                <span class="tide-country"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg><span>Indonesia</span></span>
+                <p class="tide-name">Mermaid <em>Shinta</em></p>
+                <p class="tide-line">Advanced mermaid performer, trained with Sirena</p>
+                <a href="contact.html?performer=Mermaid+Shinta" class="tide-enquire">Enquire →</a>
               </div>
             </div>
-
-            <!-- 02 · Thia -->
-            <div class="flip-card rv d2" tabindex="0" aria-label="Mermaid Thia">
-              <img src="media/performers/rising/thia/photo1.jpg" alt="Mermaid Thia" loading="lazy" class="rv-photo" />
-              <div class="rv-overlay"></div>
-              <span class="rv-hint">Tap to play</span>
-              <div class="rv-info">
-                <span class="rv-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg></span>
-                <p class="rv-name">Mermaid Thia</p>
-                <a href="contact.html?performer=Mermaid+Thia" class="rv-enquire" onclick="event.stopPropagation()">Enquire →</a>
+            <div class="tide rv d2" tabindex="0" aria-label="Mermaid Thia, Indonesia">
+              <img src="media/performers/rising/thia/photo1.jpg" alt="Mermaid Thia" loading="lazy" class="tide-main" />
+              <span class="tide-name-bar"><span class="tide-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg></span>Mermaid Thia</span>
+              <div class="tide-reveal">
+                <img src="media/performers/rising/thia/photo2.jpg" alt="Mermaid Thia, second photo" loading="lazy" class="tide-alt" />
+                <span class="tide-country"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg><span>Indonesia</span></span>
+                <p class="tide-name">Mermaid <em>Thia</em></p>
+                <p class="tide-line">Advanced mermaid performer, India stage experience</p>
+                <a href="contact.html?performer=Mermaid+Thia" class="tide-enquire">Enquire →</a>
               </div>
             </div>
-
-            <!-- 03 · Indah -->
-            <div class="flip-card rv d3" tabindex="0" aria-label="Mermaid Indah">
-              <img src="media/performers/rising/indah/photo1.jpg" alt="Mermaid Indah" loading="lazy" class="rv-photo" />
-              <div class="rv-overlay"></div>
-              <span class="rv-hint">Tap to play</span>
-              <div class="rv-info">
-                <span class="rv-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg></span>
-                <p class="rv-name">Mermaid Indah</p>
-                <a href="contact.html?performer=Mermaid+Indah" class="rv-enquire" onclick="event.stopPropagation()">Enquire →</a>
+            <div class="tide rv d3" tabindex="0" aria-label="Mermaid Indah, Indonesia">
+              <img src="media/performers/rising/indah/photo1.jpg" alt="Mermaid Indah" loading="lazy" class="tide-main" />
+              <span class="tide-name-bar"><span class="tide-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg></span>Mermaid Indah</span>
+              <div class="tide-reveal">
+                <img src="media/performers/rising/indah/photo2.jpg" alt="Mermaid Indah, second photo" loading="lazy" class="tide-alt" />
+                <span class="tide-country"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg><span>Indonesia</span></span>
+                <p class="tide-name">Mermaid <em>Indah</em></p>
+                <p class="tide-line">Advanced mermaid performer, trained with Sirena</p>
+                <a href="contact.html?performer=Mermaid+Indah" class="tide-enquire">Enquire →</a>
               </div>
             </div>
-
-            <!-- 04 · Anel -->
-            <div class="flip-card rv d4" tabindex="0" aria-label="Mermaid Anel">
-              <img src="media/performers/rising/anel/photo1.jpg" alt="Mermaid Anel" loading="lazy" class="rv-photo" />
-              <div class="rv-overlay"></div>
-              <span class="rv-hint">Tap to play</span>
-              <div class="rv-info">
-                <span class="rv-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg></span>
-                <p class="rv-name">Mermaid Anel</p>
-                <a href="contact.html?performer=Mermaid+Anel" class="rv-enquire" onclick="event.stopPropagation()">Enquire →</a>
+            <div class="tide rv d4" tabindex="0" aria-label="Mermaid Anel, Indonesia">
+              <img src="media/performers/rising/anel/photo1.jpg" alt="Mermaid Anel" loading="lazy" class="tide-main" />
+              <span class="tide-name-bar"><span class="tide-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg></span>Mermaid Anel</span>
+              <div class="tide-reveal">
+                <img src="media/performers/rising/anel/photo2.jpg" alt="Mermaid Anel, second photo" loading="lazy" class="tide-alt" />
+                <span class="tide-country"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 3 2" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="3" height="1" fill="#CE1126"/><rect y="1" width="3" height="1" fill="#fff"/></svg><span>Indonesia</span></span>
+                <p class="tide-name">Mermaid <em>Anel</em></p>
+                <p class="tide-line">Advanced mermaid performer, trained with Sirena</p>
+                <a href="contact.html?performer=Mermaid+Anel" class="tide-enquire">Enquire →</a>
+              </div>
+            </div>
+            <div class="tide rv d4" tabindex="0" aria-label="Mermaid Kiwa, Hong Kong">
+              <img src="media/performers/rising/kiwa/photo1.jpg" alt="Mermaid Kiwa" loading="lazy" class="tide-main" />
+              <span class="tide-name-bar"><span class="tide-flag"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 30 20" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="30" height="20" fill="#DE2910"/><g fill="#fff" transform="translate(15 10)"><circle r="1.2"/><g id="p"><path d="M0-1.4C1.8-3 3.6-5.4 1.6-7.6 0.6-5.6-1-4.4-1.2-2.6z"/></g><use href="#p" transform="rotate(72)"/><use href="#p" transform="rotate(144)"/><use href="#p" transform="rotate(216)"/><use href="#p" transform="rotate(288)"/></g></svg></span>Mermaid Kiwa</span>
+              <div class="tide-reveal">
+                <img src="media/performers/rising/kiwa/photo2.jpg" alt="Mermaid Kiwa, second photo" loading="lazy" class="tide-alt" />
+                <span class="tide-country"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 30 20" style="border-radius:2px;vertical-align:middle;display:inline-block;"><rect width="30" height="20" fill="#DE2910"/><g fill="#fff" transform="translate(15 10)"><circle r="1.2"/><g id="p"><path d="M0-1.4C1.8-3 3.6-5.4 1.6-7.6 0.6-5.6-1-4.4-1.2-2.6z"/></g><use href="#p" transform="rotate(72)"/><use href="#p" transform="rotate(144)"/><use href="#p" transform="rotate(216)"/><use href="#p" transform="rotate(288)"/></g></svg><span>Hong Kong</span></span>
+                <p class="tide-name">Mermaid <em>Kiwa</em></p>
+                <p class="tide-line">Professional mermaid performer, Hong Kong team</p>
+                <a href="contact.html?performer=Mermaid+Kiwa" class="tide-enquire">Enquire →</a>
               </div>
             </div>
 
@@ -2097,10 +2152,10 @@
             <p class="sec-label rv-l d1" style="color:rgba(251,113,133,0.65);">002 / About Us</p>
             <h2 class="sec-heading rv-l d2">Who<br/><em>Are We</em></h2>
             <p class="sec-body rv-l d3" style="margin-top:1.6rem;">
-              Sirena Asia is a global community of professional mermaids, born in Asia and performing worldwide: a curated group of elite artists trained in underwater breath-hold, character performance, and live spectacle design. We are also an organization with members across Asia and beyond, supporting performers and the broader ocean community.
+              Sirena Asia is a non-profit collective of professional mermaids, born in Asia and performing worldwide. Our girls are certified instructors, competition medalists and stage-tested performers, with teams in Taiwan, Indonesia, the Philippines, Malaysia, Hong Kong, India, Nepal and the UAE.
             </p>
             <p class="sec-body rv-l d4" style="margin-top:1rem;">
-              Founded on the belief that the ocean holds the world's oldest magic, we bring that magic above the surface, into your events, activations, and celebrations.
+              This site exists for them: to give their work a home beyond Instagram, and to bring them their next stage. Mermaid teams, built to your needs, for a season, an event or an activation.
             </p>
           </div>
           <div class="about-offer">
@@ -2110,29 +2165,43 @@
               <div class="offer-item rv-r d2">
                 <div class="offer-icon">✦</div>
                 <div>
-                  <p class="offer-title">Live Mermaid Shows</p>
-                  <p class="offer-desc">Choreographed underwater performances for pools, aquariums, and open water venues.</p>
-                </div>
-              </div>
-              <div class="offer-item rv-r d3">
-                <div class="offer-icon">◈</div>
-                <div>
-                  <p class="offer-title">Private Events</p>
-                  <p class="offer-desc">Birthdays, galas, corporate retreats. A Sirena transforms any gathering into a myth.</p>
+                  <p class="offer-title">Aquarium &amp; Resort Shows</p>
+                  <p class="offer-desc">Choreographed underwater shows for aquariums, resorts and pools, by the season or the night.</p>
                 </div>
               </div>
               <div class="offer-item rv-r d3">
                 <div class="offer-icon">⊕</div>
                 <div>
                   <p class="offer-title">Brand Activations</p>
-                  <p class="offer-desc">Luxury brand campaigns, product launches, and immersive marketing experiences.</p>
+                  <p class="offer-desc">Launches and campaigns built around an underwater mermaid moment people film and share.</p>
+                </div>
+              </div>
+              <div class="offer-item rv-r d4">
+                <div class="offer-icon">◈</div>
+                <div>
+                  <p class="offer-title">Private &amp; Luxury Events</p>
+                  <p class="offer-desc">Galas, weddings and private parties with a tank or pool, styled to your theme.</p>
+                </div>
+              </div>
+              <div class="offer-item rv-r d4">
+                <div class="offer-icon">◇</div>
+                <div>
+                  <p class="offer-title">Expos &amp; Conferences</p>
+                  <p class="offer-desc">Show-stopping stage and tank appearances that pull a crowd to your booth.</p>
                 </div>
               </div>
               <div class="offer-item rv-r d4">
                 <div class="offer-icon">◎</div>
                 <div>
-                  <p class="offer-title">Training &amp; Workshops</p>
-                  <p class="offer-desc">Professional mermaid training programs for aspiring performers across Asia.</p>
+                  <p class="offer-title">Mermaid Team Setup &amp; Training</p>
+                  <p class="offer-desc">Casting, SOPs, training and daily show running for venues starting a mermaid programme.</p>
+                </div>
+              </div>
+              <div class="offer-item rv-r d4">
+                <div class="offer-icon">✧</div>
+                <div>
+                  <p class="offer-title">PADI Mermaid Courses</p>
+                  <p class="offer-desc">From Discover Mermaid for first-timers to instructor-led certification, kids and adults.</p>
                 </div>
               </div>
             </div>
@@ -2141,6 +2210,42 @@
       </section>
 
       <div class="sec-divider"></div>
+
+      <!-- ─── 002b / SIRENA IN NUMBERS, WHERE WE SWIM, PARTNERS, SUPPORT ─── -->
+      <section id="s-reach" aria-label="Sirena in numbers">
+        <div class="reach-wrap">
+          <div class="reach-stats">
+            <div class="reach-stat rv d1"><span class="reach-num">80+</span><span class="reach-lbl">Performers led across shows and venues</span></div>
+            <div class="reach-stat rv d2"><span class="reach-num">50+</span><span class="reach-lbl">Mermaids trained from zero to stage</span></div>
+            <div class="reach-stat rv d3"><span class="reach-num">30</span><span class="reach-lbl">Venues across India and Nepal</span></div>
+            <div class="reach-stat rv d4"><span class="reach-num">8</span><span class="reach-lbl">Countries with Sirena teams</span></div>
+          </div>
+          <div class="reach-places rv d2">
+            <p class="reach-k">Where we swim</p>
+            <p class="reach-list">Taiwan <i>·</i> Indonesia <i>·</i> Philippines <i>·</i> Malaysia <i>·</i> Hong Kong <i>·</i> India <i>·</i> Nepal <i>·</i> UAE</p>
+          </div>
+          <div class="reach-partners rv d3">
+            <p class="reach-k">Partners</p>
+            <div class="reach-logos">
+              <span class="pt"><b>PADI</b><small>Certification</small></span>
+              <span class="pt"><b>PADI Mermaid</b><small>Mermaid programmes</small></span>
+              <span class="pt"><b>Merveille League</b><small>Malaysia</small></span>
+              <span class="pt"><b>My Water Journey</b><small>Hong Kong</small></span>
+            </div>
+          </div>
+          <div class="reach-support rv d4">
+            <div>
+              <p class="reach-k" style="color:#f5c451;">Non-profit, powered by people</p>
+              <h3>Help a mermaid reach her <em>next stage</em>.</h3>
+              <p>Sirena is a non-profit. This site runs on donations and sponsors, and it exists to give our girls visibility, bookings and a path to the next competition.</p>
+            </div>
+            <div class="reach-cta">
+              <a href="contact.html?type=sponsor" class="btn-coral">Become a sponsor</a>
+              <a href="contact.html?type=donation" class="reach-ghost">Donate</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- ─── 003 / GALLERY ─── -->
       <section id="s-gallery">
@@ -2367,7 +2472,7 @@
       <span style="flex:1;height:1px;background:linear-gradient(90deg,#f5c451,transparent);"></span>
     </div>
     <img src="brand/logo/sirena-s-white.png" alt="Sirena Asia" style="height:54px;width:auto;margin:1.3rem auto 0.8rem;display:block;" loading="lazy" />
-    <p style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;font-size:1.35rem;color:#4fd8eb;margin:0;">Global Community of Professional Mermaids</p>
+    <p style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;font-size:1.35rem;color:#4fd8eb;margin:0;">Born in Asia. Performing Worldwide.</p>
     <p style="font-family:'Manrope',system-ui,sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:#93a8b8;margin:0.6rem 0 0;">sirenaasia.com</p>
   </div>
       <footer id="site-footer">
@@ -2375,7 +2480,7 @@
         <div class="footer-top">
           <div class="footer-brand">
             <img src="brand/logo/sirena-s-white.png" alt="Sirena Asia" style="height:72px;width:auto;filter:drop-shadow(0 0 14px rgba(79,216,235,0.35));" loading="lazy" />
-            <p class="footer-tagline">Global Community of Professional Mermaids</p>
+            <p class="footer-tagline">Born in Asia. Performing Worldwide.</p>
           </div>
 
           <div class="footer-nav-col">
@@ -2412,7 +2517,8 @@
 
         <!-- Bottom row: copyright + legal -->
         <div class="footer-bottom">
-          <p class="footer-copy">© 2026 Sirena Asia · Global Community of Professional Mermaids</p>
+          <p class="footer-copy">© 2026 Sirena Asia · Born in Asia. Performing Worldwide.</p>
+      <p class="footer-copy" style="opacity:.75;margin-top:.4rem;">Photos and videos are used with each performer's consent. Please don't copy or reuse them without written permission from Sirena Asia.</p>
           <div class="footer-legal">
             <a href="#" class="footer-legal-link">Privacy Policy</a>
             <a href="#" class="footer-legal-link">Terms of Use</a>
@@ -2835,41 +2941,11 @@
 
 
     /* ══════════════════════
-       RISING TIDES — hover/tap video
+       NEXT WAVE: tap opens the mini profile on touch screens
     ══════════════════════ */
     (function() {
-      const cards = document.querySelectorAll('#rising-grid .flip-card');
-      cards.forEach(card => {
-        const video = card.querySelector('.rv-reel');
-        if (!video) return;
-
-        // Desktop: play on hover
-        card.addEventListener('mouseenter', () => { video.play().catch(() => {}); });
-        card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
-
-        // Mobile: tap to toggle, only one at a time
-        card.addEventListener('click', e => {
-          if (e.target.closest('.rv-enquire')) return;
-          const wasPlaying = card.classList.contains('playing');
-          cards.forEach(c => {
-            c.classList.remove('playing');
-            const v = c.querySelector('.rv-reel');
-            if (v) { v.pause(); v.currentTime = 0; }
-          });
-          if (!wasPlaying) {
-            card.classList.add('playing');
-            video.play().catch(() => {});
-          }
-        });
-
-        // Keyboard
-        card.addEventListener('keydown', e => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            card.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-          }
-        });
-      });
+      const tides=[...document.querySelectorAll('#rising-grid .tide')];
+      tides.forEach(t=>t.addEventListener('click',e=>{ if(e.target.closest('.tide-enquire'))return; const was=t.classList.contains('open'); tides.forEach(x=>x.classList.remove('open')); if(!was)t.classList.add('open'); }));
     })();
 
 
@@ -3003,6 +3079,11 @@
       box.innerHTML=html;
     })();
   </script>
+<!-- Sirena content guard: photos and videos are the performers' work, used with their consent -->
+<style>img,video{-webkit-user-drag:none;user-select:none;-webkit-touch-callout:none;}</style>
+<script>(function(){function m(e){return e.target&&e.target.closest&&e.target.closest('img,video,picture,.strip,.tide,.win-card,.elite-card');}
+document.addEventListener('contextmenu',function(e){if(m(e))e.preventDefault();});
+document.addEventListener('dragstart',function(e){if(m(e))e.preventDefault();});})();</script>
 </body>
 </html>
 

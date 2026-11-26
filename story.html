@@ -419,7 +419,7 @@
   <section id="opening">
     <p class="ch-label reveal-up d1">A story from beneath the surface</p>
     <h1 class="big-title">Sirena<br/>Asia</h1>
-    <p class="sub-title">Global Community of Professional Mermaids</p>
+    <p class="sub-title">Born in Asia. Performing Worldwide.</p>
     <div class="scroll-invite">
       <span>Begin</span>
       <div class="s-thread"></div>
@@ -549,11 +549,11 @@
       <span style="flex:1;height:1px;background:linear-gradient(90deg,#f5c451,transparent);"></span>
     </div>
     <img src="brand/logo/sirena-s-white.png" alt="Sirena Asia" style="height:54px;width:auto;margin:1.3rem auto 0.8rem;display:block;" loading="lazy" />
-    <p style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;font-size:1.35rem;color:#4fd8eb;margin:0;">Global Community of Professional Mermaids</p>
+    <p style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;font-size:1.35rem;color:#4fd8eb;margin:0;">Born in Asia. Performing Worldwide.</p>
     <p style="font-family:'Manrope',system-ui,sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:#93a8b8;margin:0.6rem 0 0;">sirenaasia.com</p>
   </div>
   <footer class="story-footer">
-    © 2026 Sirena Asia · Global Community of Professional Mermaids
+    © 2026 Sirena Asia · Born in Asia. Performing Worldwide.<br/><span style="opacity:.75">Photos and videos are used with each performer's consent. Please don't copy or reuse them without written permission from Sirena Asia.</span>
   </footer>
 
 
@@ -665,5 +665,10 @@
     }, { threshold: 0.5 });
     statEls.forEach(el => statObs.observe(el));
   </script>
+<!-- Sirena content guard: photos and videos are the performers' work, used with their consent -->
+<style>img,video{-webkit-user-drag:none;user-select:none;-webkit-touch-callout:none;}</style>
+<script>(function(){function m(e){return e.target&&e.target.closest&&e.target.closest('img,video,picture,.strip,.tide,.win-card,.elite-card');}
+document.addEventListener('contextmenu',function(e){if(m(e))e.preventDefault();});
+document.addEventListener('dragstart',function(e){if(m(e))e.preventDefault();});})();</script>
 </body>
 </html>
