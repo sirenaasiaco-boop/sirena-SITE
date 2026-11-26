@@ -62,6 +62,7 @@ window.NEWS = [
 
   {
     slug: 'chen-korea-international-mermaid-open-2026-bronze',
+    medal: 'bronze',
     type: 'Win',
     date: '2026-03',
     featured: false,
@@ -72,13 +73,14 @@ window.NEWS = [
       'Chen trains in Hualien, on Taiwan\'s east coast, where she says resources are scarce and preparing for international competition is hard and costly. She thanked everyone behind her for letting her give it everything without worry.',
       'It adds to a competition record that includes the Doubles title and Women\'s Solo runner-up at the Hong Kong Mermaid Competition (2025).'
     ],
-    image: 'media/news/chen-korea-international-mermaid-open-2026.jpg',
+    image: 'media/news/chen-korea-international-mermaid-open-2026-portrait.jpg',
     people: ['chen'],
     link: 'https://www.instagram.com/chenc0213/'
   },
 
   {
     slug: 'kita-2026-the-year-nobody-saw-coming',
+    medal: 'silver',
     type: 'Win',
     date: '2026-08-30',
     featured: true,
@@ -100,6 +102,7 @@ window.NEWS = [
 
   {
     slug: 'south-taiwan-tropical-fish-team-champion-mfi-taiwan-2026',
+    medal: 'gold',
     type: 'Win',
     date: '2026-10-03',
     featured: false,
@@ -117,6 +120,7 @@ window.NEWS = [
 
   {
     slug: 'ying-co-champion-mfi-taiwan-championship-2026',
+    medal: 'gold',
     type: 'Win',
     date: '2026-10',
     featured: false,

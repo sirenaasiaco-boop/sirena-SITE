@@ -815,12 +815,12 @@
     }
     .comm-right { position:relative; }
     .comm-imgs {
-      display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;
+      display:grid; grid-template-columns:repeat(6,1fr); gap:0.75rem;
     }
     .comm-img {
-      overflow:hidden; aspect-ratio:3/4;
+      overflow:hidden; aspect-ratio:4/5; grid-column:span 2;
     }
-    .comm-img:first-child { grid-column:1/-1; aspect-ratio:16/9; }
+    .comm-img:nth-child(-n+2) { grid-column:span 3; }
     .comm-img { border-radius:14px; box-shadow:0 8px 32px rgba(0,13,38,0.6); }
     .comm-img img {
       width:100%; height:100%; object-fit:cover; display:block;
@@ -1088,6 +1088,7 @@
       .strip-num { top:50%; left:1.2rem; transform:translateY(-50%); }
       .strip.on .strip-num { top:1rem; transform:none; }
     }
+    @media (hover:none) { .strip.glow img { filter:none; transform:scale(1); } .strip.glow { box-shadow:0 0 0 1px rgba(245,196,81,0.35); } }
     @media (prefers-reduced-motion: reduce) { .strip, .strip img, .strip-info { transition:none; } }
 
     /* ── Next Wave: hover reveals a mini profile with a second photo ── */
@@ -1136,6 +1137,12 @@
     .reach-support h3 { margin:0 0 0.8rem; font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:clamp(1.9rem,3.4vw,2.8rem); line-height:1.08; color:#fff; }
     .reach-support h3 em { font-style:italic; font-weight:500; color:#4fd8eb; }
     .reach-support p { margin:0; font-family:'Manrope',system-ui,sans-serif; font-size:1.02rem; line-height:1.7; color:#c9d6df; max-width:52ch; }
+    .support-quiet { position:relative; z-index:3; background:#06121d; padding:2.4rem 1.25rem 0; text-align:center; }
+    .support-quiet p { margin:0 auto; max-width:60ch; font-family:'Manrope',system-ui,sans-serif; font-size:0.88rem; line-height:1.7; color:#93a8b8; }
+    .support-quiet a { color:#e0f7fa; text-decoration:none; border-bottom:1px solid rgba(245,196,81,0.5); padding-bottom:1px; transition:color .25s ease, border-color .25s ease; }
+    .support-quiet a:hover { color:#f5c451; border-color:#f5c451; }
+    .support-quiet a:focus-visible { outline:2px solid #f5c451; outline-offset:3px; border-radius:2px; }
+    .support-quiet a:active { opacity:0.8; }
     .reach-cta { display:flex; gap:0.8rem; flex-wrap:wrap; justify-content:flex-start; }
     @media (min-width:900px) { .reach-cta { justify-content:flex-end; } }
     .reach-ghost { display:inline-block; font-family:'Manrope',system-ui,sans-serif; font-size:0.8rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; padding:0.95rem 1.6rem; border-radius:999px; border:1px solid #f5c451; color:#f5c451; text-decoration:none; transition:transform .25s ease, box-shadow .25s ease; }
@@ -2238,17 +2245,6 @@
               <span class="pt pt-logo"><img src="brand/partners/divers-down-white.png" alt="Divers Down" loading="lazy" style="height:70px" /><small>UAE</small></span>
             </div>
           </div>
-          <div class="reach-support rv d4">
-            <div>
-              <p class="reach-k" style="color:#f5c451;">Non-profit, powered by people</p>
-              <h3>Help a mermaid reach her <em>next stage</em>.</h3>
-              <p>Sirena is a non-profit. This site runs on donations and sponsors, and it exists to give our girls visibility, bookings and a path to the next competition.</p>
-            </div>
-            <div class="reach-cta">
-              <a href="contact.html?type=sponsor" class="btn-coral">Become a sponsor</a>
-              <a href="contact.html?type=donation" class="reach-ghost">Donate</a>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -2432,7 +2428,7 @@
           </div>
           <div id="home-upcoming"></div>
           <div class="podium">
-            <span class="podium-word" aria-hidden="true">Gold</span>
+            <span class="podium-word" aria-hidden="true">2026</span>
             <div class="podium-head"><h3>Crowned <em>underwater</em></h3><p>Every medal, every title, and the mermaids who earned them. 2026.</p></div>
             <div id="home-tales" class="wins-grid"></div>
           </div>
@@ -2467,6 +2463,11 @@
 
         </div>
       </section>
+
+      <!-- Quiet support line -->
+      <aside class="support-quiet" aria-label="Support Sirena">
+        <p>Sirena is a non-profit, kept afloat by donations and sponsors. <a href="contact.html?type=sponsor">Sponsor a mermaid</a> <span aria-hidden="true">·</span> <a href="contact.html?type=donation">Donate</a></p>
+      </aside>
 
       <!-- ─── FOOTER ─── -->
   <!-- SIRENA SIGNATURE -->
@@ -2951,6 +2952,14 @@
     (function() {
       const tides=[...document.querySelectorAll('#rising-grid .tide')];
       tides.forEach(t=>t.addEventListener('click',e=>{ if(e.target.closest('.tide-enquire'))return; const was=t.classList.contains('open'); tides.forEach(x=>x.classList.remove('open')); if(!was)t.classList.add('open'); }));
+      // Touch screens have no hover: whatever swims through the middle of the screen lights up on its own
+      if (matchMedia('(hover: none)').matches && 'IntersectionObserver' in window) {
+        const band={ rootMargin:'-42% 0px -42% 0px' };
+        const io=new IntersectionObserver(es=>es.forEach(en=>en.target.classList.toggle('open', en.isIntersecting)), band);
+        tides.forEach(t=>io.observe(t));
+        const sio=new IntersectionObserver(es=>es.forEach(en=>en.target.classList.toggle('glow', en.isIntersecting)), band);
+        document.querySelectorAll('#elite-strips .strip').forEach(st=>sio.observe(st));
+      }
     })();
 
 
@@ -3068,18 +3077,17 @@
           +'<span class="up-title">'+esc(up.title)+'</span><span class="up-ex">'+esc(up.excerpt)+'</span><span class="up-more">Read the story →</span></div>'
           +(up.image?'<div class="up-poster"><img src="'+esc(up.image)+'" alt="'+esc(up.title)+'" loading="lazy" /></div>':'')+'</a>';
       }
-      var tier=function(t){ if(/bronze|3rd|third/i.test(t)) return ['Bronze','#d6a274','rgba(214,162,116,0.45)'];
-        if(/silver|runner-up/i.test(t)) return ['Silver','#d7e1ea','rgba(215,225,234,0.4)'];
-        return [/co-champion/i.test(t)?'Co-Champion':'Gold','#f5c451','rgba(245,196,81,0.5)',1]; };
-      var medal=function(c,label){ return '<svg class="medal" viewBox="0 0 84 110" aria-hidden="true"><path d="M24 0h14l8 34H32z" fill="#4fd8eb"/><path d="M46 0h14L52 34H38z" fill="#ff6b9d"/>'
+      var TIERS={gold:['#f5c451','rgba(245,196,81,0.5)'],silver:['#d7e1ea','rgba(215,225,234,0.4)'],bronze:['#d6a274','rgba(214,162,116,0.45)']};
+      var tier=function(n){ var k=n.medal||(/bronze|3rd|third/i.test(n.title)?'bronze':/silver|runner-up|no\. 2/i.test(n.title)?'silver':'gold'); return TIERS[k]; };
+      var medal=function(c){ return '<svg class="medal" viewBox="0 0 84 110" aria-hidden="true"><path d="M24 0h14l8 34H32z" fill="#4fd8eb"/><path d="M46 0h14L52 34H38z" fill="#ff6b9d"/>'
         +'<circle cx="42" cy="66" r="34" fill="'+c+'"/><circle cx="42" cy="66" r="27" fill="none" stroke="rgba(6,18,29,0.35)" stroke-width="1.5"/>'
-        +'<text x="42" y="'+(label.length>7?'70':'72')+'" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="700" font-size="'+(label.length>7?'11':'15')+'" fill="#06121d">'+label.toUpperCase()+'</text></svg>'; };
+        +'<path d="M42 50l4.6 9.4 10.4 1.5-7.5 7.3 1.8 10.3L42 73.6l-9.3 4.9 1.8-10.3-7.5-7.3 10.4-1.5z" fill="rgba(6,18,29,0.28)"/></svg>'; };
       var wins=window.winsNews().filter(function(n){return n.image;}).slice(0,4);
       var html='';
-      wins.forEach(function(n,i){ var t=tier(n.title);
-        html+='<a href="news.html#'+esc(n.slug)+'" class="win-card" style="--tier:'+t[1]+';--tier-glow:'+t[2]+'">'
-          +medal(t[1],t[3]?'Gold':t[0])+'<div class="wimg" style="--wimg:url(\''+esc(n.image)+'\')"><span class="wbg"></span><img src="'+esc(n.image)+'" alt="'+esc(n.title)+'" loading="lazy" onload="if(this.naturalHeight>=this.naturalWidth*1.1)this.classList.add(\'portrait\')" /></div>'
-          +'<span class="win-no">No. '+String(i+1).padStart(2,'0')+' · '+t[0]+'</span><span class="win-title">'+esc(n.title)+'</span><span class="win-date">'+esc(fmtNewsDate(n.date))+'</span></a>';
+      wins.forEach(function(n,i){ var t=tier(n);
+        html+='<a href="news.html#'+esc(n.slug)+'" class="win-card" style="--tier:'+t[0]+';--tier-glow:'+t[1]+'">'
+          +medal(t[0])+'<div class="wimg" style="--wimg:url(\''+esc(n.image)+'\')"><span class="wbg"></span><img src="'+esc(n.image)+'" alt="'+esc(n.title)+'" loading="lazy" onload="if(this.naturalHeight>=this.naturalWidth*1.1)this.classList.add(\'portrait\')" /></div>'
+          +'<span class="win-no">No. '+String(i+1).padStart(2,'0')+'</span><span class="win-title">'+esc(n.title)+'</span><span class="win-date">'+esc(fmtNewsDate(n.date))+'</span></a>';
       });
       box.innerHTML=html;
     })();
