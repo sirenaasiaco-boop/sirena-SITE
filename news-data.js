@@ -19,10 +19,12 @@
      image    path to image in /media (or null)
      people   performer slugs mentioned, e.g. ['sporti']
      link     optional external link (registration, tickets, source)
+     poster   true if the image is a flyer/poster (shown whole, not cropped)
    ═══════════════════════════════════════════════════════════════════ */
 window.NEWS = [
   {
     slug: 'first-mermaid-competition-malaysia-2026',
+    poster: true,
     type: 'Contest',
     date: '2026-12-13',
     upcoming: true,
@@ -35,12 +37,13 @@ window.NEWS = [
       'First Runner-up wins a Kayasuba mermaid tail, a Rainy Gooi designer tail and tail bag, a Merveille League duffle bag and dive log, and a PADI Mermaid Performer course. Second Runner-up wins a Rainy Gooi designer tail and tail bag, a Merveille League duffle bag and dive log, and a PADI Mermaid Performer course.',
       'Partners include PADI, Braveeer, Kayasuba, Rainy Gooi, Merveille League and Sirena Asia. Mermaids, mark the date.'
     ],
-    image: 'media/news/first-mermaid-competition-malaysia-2026.jpg',
+    image: 'media/news/first-mermaid-competition-malaysia-2026-sirena.jpg',
     people: [],
     link: null
   },
   {
     slug: 'first-mermaid-camp-malaysia-2026',
+    poster: true,
     type: 'Event',
     date: '2026-10-17',
     featured: false,
@@ -51,7 +54,7 @@ window.NEWS = [
       'Day one opened with a group photo and a skills review against competition criteria, then a pool session to sharpen skills and a mini match. In the evening, PADI Regional Consultant Mr. Ferdy led a mermaid course sharing session before the prize ceremony and a BBQ night.',
       'Mini match winners took home Mermaid Mystery prizes: a hybrid silicone mermaid tail and underwater dance costume for the champion, and mermaid outfits and underwater dance costumes for the runners-up. Day two was all about mermaid craft making, mermaid makeup and a final group photo.'
     ],
-    image: 'media/news/first-mermaid-camp-malaysia-2026.jpg',
+    image: 'media/news/first-mermaid-camp-malaysia-2026-sirena.jpg',
     people: [],
     link: null
   },
