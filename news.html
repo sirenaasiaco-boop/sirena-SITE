@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mermaid News and Events — Sirena Asia</title>
+  <title>Underwater Tales, Mermaid News · Sirena Asia</title>
   <meta name="description" content="Stories, events, and dispatches from the Sirena Asia collective." />
   <meta name="description" content="Latest news, events, and stories from Sirena Asia — Asia's original mermaid performance collective." />
   <meta name="robots" content="index, follow, noai, noimageai" />
@@ -355,6 +355,99 @@
     .btn-coral { font-family:'Outfit',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.7rem 1.8rem;background:var(--coral);color:#fff;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 4px 20px rgba(251,113,133,0.35); }
     .btn-coral:hover { transform:translateY(-2px);box-shadow:0 8px 28px rgba(251,113,133,0.5); }
     @media(max-width:768px) { .footer-top{grid-template-columns:1fr;} .footer-contact-col{text-align:left;} .footer-social{justify-content:flex-start;} .footer-bottom{flex-direction:column;align-items:flex-start;} .footer-brand img{max-width:160px!important;} }
+    /* ═══ UNDERWATER TALES ═══ */
+    :root { --gold:#f5c451; --gold-deep:#3a2a05; }
+    .ut-header { padding: 8.5rem clamp(1.25rem,5vw,5rem) 2.5rem; position:relative; overflow:hidden; }
+    .ut-header::before { content:'TALES'; position:absolute; right:-2vw; bottom:-3vw; font-family:'Fraunces',serif; font-weight:900; font-size:clamp(7rem,20vw,17rem); line-height:1; color:rgba(34,211,238,0.035); letter-spacing:-0.04em; pointer-events:none; }
+    .ut-header h1 { font-family:'Fraunces',serif; font-weight:900; font-size:clamp(3rem,8vw,6.5rem); line-height:0.92; letter-spacing:-0.03em; color:#fff; margin-top:0.8rem; }
+    .ut-header h1 em { font-style:italic; font-weight:400; color:var(--cyan); }
+    .ut-header p.ut-sub { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(1.1rem,2vw,1.4rem); color:rgba(224,247,250,0.6); margin-top:1rem; max-width:34rem; }
+
+    .ut-ticker { display:flex; align-items:stretch; border-top:1px solid rgba(34,211,238,0.12); border-bottom:1px solid rgba(34,211,238,0.12); background:rgba(3,13,31,0.85); overflow:hidden; }
+    .ut-ticker-label { flex:none; display:flex; align-items:center; gap:0.5rem; padding:0.7rem 1.1rem; background:var(--coral); color:#fff; font-size:0.62rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; }
+    .ut-ticker-label::before { content:''; width:7px; height:7px; border-radius:50%; background:#fff; animation:utPulse 1.4s ease-in-out infinite; }
+    @keyframes utPulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.35;transform:scale(0.7);} }
+    .ut-ticker-track { flex:1; overflow:hidden; position:relative; mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent); }
+    .ut-ticker-run { display:inline-flex; white-space:nowrap; gap:3rem; padding:0.7rem 1.5rem; animation:utRun 40s linear infinite; }
+    .ut-ticker:hover .ut-ticker-run { animation-play-state:paused; }
+    .ut-ticker-run a { color:rgba(224,247,250,0.78); text-decoration:none; font-size:0.82rem; letter-spacing:0.02em; transition:color 0.2s; }
+    .ut-ticker-run a:hover, .ut-ticker-run a:focus-visible { color:var(--cyan-glow); outline:none; }
+    .ut-ticker-run b { color:var(--gold); font-weight:600; margin-right:0.35rem; }
+    @keyframes utRun { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+    .ut-badge { display:inline-flex; align-items:center; gap:0.35rem; font-size:0.6rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; padding:0.35rem 0.7rem; }
+    .ut-badge.t-Win { background:var(--gold); color:var(--gold-deep); }
+    .ut-badge.t-Contest { background:var(--coral); color:#3d0a17; }
+    .ut-badge.t-Promo { background:var(--cyan); color:#032a33; }
+    .ut-badge.t-Event { background:#1e3a7a; color:#dbe7ff; }
+    .ut-badge.t-Announcement { background:var(--mist); color:#0d1f45; }
+
+    .ut-hero { position:relative; display:block; min-height:clamp(420px,72vh,720px); overflow:hidden; text-decoration:none; color:#fff; isolation:isolate; }
+    .ut-hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 22%; z-index:-2; transform:scale(1.04); transition:transform 1.2s cubic-bezier(0.16,1,0.3,1); }
+    .ut-hero:hover img, .ut-hero:focus-visible img { transform:scale(1.08); }
+    .ut-hero::after { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg, rgba(3,13,31,0.15) 0%, rgba(3,13,31,0.35) 40%, rgba(3,13,31,0.96) 100%), radial-gradient(ellipse at 20% 100%, rgba(255,107,157,0.22), transparent 55%); }
+    .ut-hero-inner { position:absolute; left:0; right:0; bottom:0; padding:clamp(1.5rem,5vw,4.5rem); max-width:62rem; }
+    .ut-hero-kicker { display:flex; align-items:center; gap:0.9rem; flex-wrap:wrap; margin-bottom:1rem; }
+    .ut-hero-kicker .ut-break { font-size:0.62rem; font-weight:600; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); }
+    .ut-hero h2 { font-family:'Fraunces',serif; font-weight:900; font-size:clamp(2.1rem,5.6vw,4.8rem); line-height:0.98; letter-spacing:-0.025em; text-shadow:0 2px 30px rgba(0,0,0,0.45); }
+    .ut-hero p { font-size:clamp(0.95rem,1.4vw,1.1rem); font-weight:300; line-height:1.7; color:rgba(224,247,250,0.82); margin-top:1rem; max-width:40rem; }
+    .ut-hero .ut-read { display:inline-block; margin-top:1.4rem; font-size:0.7rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#fff; padding-bottom:0.25rem; border-bottom:1px solid var(--coral); }
+    .ut-hero:focus-visible { outline:2px solid var(--cyan); outline-offset:-2px; }
+
+    .ut-section { padding:3.5rem clamp(1.25rem,5vw,5rem) 6rem; }
+    .ut-filters { display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:2.2rem; }
+    .ut-chip { font-family:'Outfit',sans-serif; font-size:0.66rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; padding:0.55rem 1rem; background:transparent; color:rgba(224,247,250,0.6); border:1px solid rgba(34,211,238,0.18); cursor:pointer; transition:color 0.2s, border-color 0.2s, background-color 0.2s; }
+    .ut-chip:hover { color:#fff; border-color:rgba(34,211,238,0.45); }
+    .ut-chip:focus-visible { outline:2px solid var(--cyan); outline-offset:2px; }
+    .ut-chip:active { transform:scale(0.97); }
+    .ut-chip.on { background:var(--cyan); border-color:var(--cyan); color:#032a33; }
+
+    .ut-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr)); gap:1.6rem; }
+    .ut-card { display:flex; flex-direction:column; text-decoration:none; color:inherit; background:rgba(13,31,69,0.35); border:1px solid rgba(34,211,238,0.08); transition:transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s, border-color 0.35s; }
+    .ut-card:hover { transform:translateY(-4px); border-color:rgba(34,211,238,0.3); box-shadow:0 12px 40px rgba(0,0,0,0.35), 0 4px 24px rgba(255,107,157,0.12); }
+    .ut-card:focus-visible { outline:2px solid var(--cyan); outline-offset:3px; }
+    .ut-card:active { transform:translateY(-1px); }
+    .ut-card-img { position:relative; aspect-ratio:4/5; overflow:hidden; background:radial-gradient(ellipse at 30% 20%, rgba(34,211,238,0.22), transparent 60%), radial-gradient(ellipse at 80% 90%, rgba(251,113,133,0.2), transparent 55%), #081428; }
+    .ut-card-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+    .ut-card:hover .ut-card-img img { transform:scale(1.05); }
+    .ut-card-img::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent 40%, rgba(0,13,38,0.95)); }
+    .ut-card-img .ut-badge { position:absolute; top:0.9rem; left:0.9rem; z-index:1; }
+    .ut-card-body { padding:1.2rem 1.3rem 1.4rem; display:flex; flex-direction:column; gap:0.55rem; flex:1; margin-top:-4.5rem; position:relative; z-index:1; }
+    .ut-card h3 { font-family:'Fraunces',serif; font-weight:700; font-size:1.3rem; line-height:1.15; color:#fff; }
+    .ut-card p { font-size:0.86rem; font-weight:300; line-height:1.65; color:rgba(224,247,250,0.6); }
+    .ut-date { font-size:0.6rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:rgba(224,247,250,0.4); margin-top:auto; padding-top:0.4rem; }
+    .ut-empty { color:rgba(224,247,250,0.5); font-style:italic; font-family:'Cormorant Garamond',serif; font-size:1.2rem; }
+
+    /* Story overlay */
+    .ut-story { position:fixed; inset:0; z-index:200; background:rgba(3,13,31,0.94); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); overflow-y:auto; opacity:0; visibility:hidden; transition:opacity 0.35s, visibility 0.35s; }
+    .ut-story.open { opacity:1; visibility:visible; }
+    .ut-story-inner { max-width:46rem; margin:0 auto; padding:5.5rem 1.4rem 5rem; transform:translateY(16px); transition:transform 0.45s cubic-bezier(0.16,1,0.3,1); }
+    .ut-story.open .ut-story-inner { transform:none; }
+    .ut-story-close { position:fixed; top:1.2rem; right:1.2rem; width:44px; height:44px; background:rgba(13,31,69,0.8); border:1px solid rgba(34,211,238,0.25); color:#fff; font-size:1.4rem; cursor:pointer; transition:border-color 0.2s, transform 0.2s; }
+    .ut-story-close:hover { border-color:var(--cyan); }
+    .ut-story-close:focus-visible { outline:2px solid var(--cyan); outline-offset:2px; }
+    .ut-story-close:active { transform:scale(0.95); }
+    .ut-story-img { width:100%; max-height:70vh; object-fit:cover; margin:1.2rem 0 1.8rem; }
+    .ut-story h2 { font-family:'Fraunces',serif; font-weight:900; font-size:clamp(2rem,5vw,3.2rem); line-height:1.02; letter-spacing:-0.02em; color:#fff; margin-top:1rem; }
+    .ut-story .ut-story-body p { font-size:1.05rem; font-weight:300; line-height:1.8; color:rgba(224,247,250,0.82); margin-bottom:1.1rem; }
+    .ut-story .ut-story-body p:first-child::first-letter { font-family:'Fraunces',serif; font-weight:900; float:left; font-size:3.4rem; line-height:0.9; padding:0.25rem 0.5rem 0 0; color:var(--coral); }
+    .ut-story-link { display:inline-block; margin-top:0.5rem; color:var(--cyan-glow); }
+    .ut-story-meta { display:flex; gap:0.9rem; align-items:center; flex-wrap:wrap; }
+    .ut-proud { padding:3rem clamp(1.25rem,5vw,5rem) 0; }
+    .ut-proud-head { display:flex; align-items:baseline; justify-content:space-between; gap:1rem; margin-bottom:1.2rem; }
+    .ut-proud-head h2 { font-family:'Fraunces',serif; font-weight:900; font-size:clamp(1.8rem,3.6vw,2.6rem); color:#fff; line-height:1; }
+    .ut-proud-head h2 em { font-style:italic; font-weight:400; color:var(--gold); }
+    .ut-proud-row { display:grid; grid-auto-flow:column; grid-auto-columns:minmax(220px,260px); gap:1rem; overflow-x:auto; padding-bottom:1rem; scroll-snap-type:x mandatory; scrollbar-width:thin; }
+    .ut-proud-card { position:relative; aspect-ratio:3/4; overflow:hidden; text-decoration:none; color:#fff; scroll-snap-align:start; border:1px solid rgba(245,196,81,0.18); transition:transform 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.35s, box-shadow 0.35s; }
+    .ut-proud-card:hover { transform:translateY(-4px); border-color:rgba(245,196,81,0.55); box-shadow:0 10px 32px rgba(245,196,81,0.14); }
+    .ut-proud-card:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+    .ut-proud-card:active { transform:translateY(-1px); }
+    .ut-proud-card img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 25%; }
+    .ut-proud-card::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent 35%, rgba(0,13,38,0.96)); }
+    .ut-proud-card .ut-proud-txt { position:absolute; left:0; right:0; bottom:0; z-index:1; padding:1rem; }
+    .ut-proud-card .ut-proud-yr { font-family:'Fraunces',serif; font-weight:900; font-size:1.6rem; color:var(--gold); line-height:1; }
+    .ut-proud-card h3 { font-family:'Fraunces',serif; font-weight:700; font-size:1.02rem; line-height:1.2; margin-top:0.4rem; }
+    @media (prefers-reduced-motion: reduce) { .ut-ticker-run { animation:none; } .ut-hero img, .ut-card-img img { transition:none; } }
   </style>
   <!-- PRELOADER -->
   <style>
@@ -393,71 +486,49 @@
     <a href="contact.html"    class="mob-link" style="color:var(--coral);">Get in Touch</a>
   </div>
 
-  <!-- ═══ PAGE HEADER ═══ -->
-  <header class="page-header">
-    <p class="sec-label reveal d1">Dispatches</p>
-    <h1 class="reveal d2">From<br/><em>the Deep</em></h1>
-    <p class="reveal d3">Stories, events, and dispatches from the Sirena collective.</p>
+  <!-- ═══ UNDERWATER TALES HEADER ═══ -->
+  <header class="ut-header">
+    <p class="sec-label pink reveal d1">Sirena News Desk</p>
+    <h1 class="reveal d2">Underwater<br/><em>Tales</em></h1>
+    <p class="ut-sub reveal d3">Wins, contests, events and announcements from our global community of professional mermaids.</p>
   </header>
 
-  <div class="divider"></div>
+  <!-- ═══ TICKER ═══ -->
+  <div class="ut-ticker" aria-label="Latest headlines">
+    <span class="ut-ticker-label">Latest</span>
+    <div class="ut-ticker-track"><div class="ut-ticker-run" id="ut-ticker"></div></div>
+  </div>
 
-  <!-- ═══ BULLETIN BOARD ═══ -->
-  <section class="bulletin-section">
-    <div class="bulletin-header reveal d1">
-      <span class="pin-icon"></span>
-      <span class="bulletin-label">Pinned · Highlights</span>
-      <span class="bulletin-rule"></span>
+  <!-- ═══ HEADLINE STORY ═══ -->
+  <a class="ut-hero" id="ut-hero" href="#"></a>
+
+
+  <!-- ═══ PROUD MOMENTS (all wins) ═══ -->
+  <section class="ut-proud" aria-labelledby="ut-proud-title">
+    <div class="ut-proud-head reveal d1">
+      <h2 id="ut-proud-title">Proud <em>Moments</em></h2>
+      <p class="sec-label" style="color:rgba(245,196,81,0.7);">🏆 Wins from our mermaids</p>
     </div>
-
-    <div class="bulletin-board">
-
-      <!-- Braveeer Mergala — diptych (both flyer + itinerary) -->
-      <a href="#" class="pin-diptych reveal d2">
-        <div class="diptych-images">
-          <img src="News1.jpeg" alt="Braveeer Mergala, Mermaid Island Getaway" class="diptych-img" loading="lazy" />
-          <img src="News1.jpeg" alt="Braveeer Mergala, Event Itinerary" class="diptych-img" loading="lazy" />
-        </div>
-        <div class="diptych-body">
-          <div class="diptych-row">
-            <div>
-              <p class="diptych-title">Braveeer Mergala,<br/><em>Mermaid Island Getaway</em></p>
-            </div>
-            <p class="diptych-price">RM 3,200+</p>
-          </div>
-          <p class="diptych-desc">
-            Purchase a silicone mermaid tail and receive a free 3-day, 2-night island stay at Lantenga Island Summerbay Resort. All meals included, direct delivery to the jetty. Program includes mermaid styling, ocean snorkelling, drone photoshoots, and a farewell dance party.
-          </p>
-          <div class="diptych-meta">
-            <span class="diptych-badge">Event · Malaysia</span>
-            <span class="diptych-loc">Lantenga Island · 2025</span>
-          </div>
-        </div>
-      </a>
-
-    </div>
+    <div class="ut-proud-row" id="ut-proud"></div>
   </section>
 
-  <div class="divider"></div>
-
-  <!-- ═══ LATEST NEWS GRID ═══ -->
-  <section class="news-section">
-    <div class="news-section-header reveal d1">
-      <p class="sec-label pink" style="white-space:nowrap;">Latest</p>
-      <h2 class="news-section-title">Underwater <em>News</em></h2>
-    </div>
-
-    <div class="news-grid" id="news-grid">
-      <!-- Cards rendered by JS from NEWS array above the footer -->
-    </div>
+  <!-- ═══ ALL STORIES ═══ -->
+  <section class="ut-section">
+    <div class="ut-filters" id="ut-filters" role="group" aria-label="Filter stories"></div>
+    <div class="ut-grid" id="ut-grid"></div>
   </section>
 
+  <!-- ═══ STORY READER ═══ -->
+  <div class="ut-story" id="ut-story" role="dialog" aria-modal="true" aria-labelledby="ut-story-title">
+    <button class="ut-story-close" id="ut-story-close" aria-label="Close story">&times;</button>
+    <article class="ut-story-inner" id="ut-story-inner"></article>
+  </div>
   <!-- ═══ FOOTER ═══ -->
   <footer id="site-footer">
     <div class="footer-top">
       <div class="footer-brand">
         <img src="2.png" alt="Sirena Asia" style="mix-blend-mode:screen;max-width:160px;" loading="lazy" />
-        <p class="footer-tagline">Asia's Premier Mermaid Collective</p>
+        <p class="footer-tagline">Global Community of Professional Mermaids</p>
       </div>
       <div class="footer-nav-col">
         <p class="footer-nav-heading">Explore</p>
@@ -483,7 +554,7 @@
     </div>
     <div class="footer-divider"></div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2026 Sirena Asia · Asia's Premier Mermaid Collective</p>
+      <p class="footer-copy">© 2026 Sirena Asia · Global Community of Professional Mermaids</p>
       <div class="footer-legal">
         <a href="#" class="footer-legal-link">Privacy Policy</a>
         <a href="#" class="footer-legal-link">Terms of Use</a>
@@ -491,95 +562,99 @@
     </div>
   </footer>
 
+  <script src="news-data.js"></script>
   <script>
-    /* ═══════════════════════════════════════════════════════════
-       NEWS DATA — add a new object here to publish a news card.
-       Cards render newest-first automatically (sorted by date).
-
-       Fields:
-         date     — 'YYYY-MM-DD'  (required, used for sorting + display)
-         category — 'Event' | 'Training' | 'Partnership' | 'Press' | 'Update'
-         title    — card headline
-         excerpt  — one–two sentence description shown on the card
-         image    — relative path to image, or null for a colour placeholder
-         link     — URL to open on click, or null
-
-       To add a story — copy this block, fill it in, and paste at the TOP of NEWS:
-       {
-         date: '2025-07-01',
-         category: 'Event',
-         title: 'New Show Title',
-         excerpt: 'Short description here.',
-         image: 'media/gallery/photos/shows/10.jpg',
-         link: null
-       },
-    ═══════════════════════════════════════════════════════════ */
-    const NEWS = [
-      {
-        date: '2025-04-01',
-        category: 'Event',
-        title: 'Sirena Asia Debuts at Marina Bay Sands',
-        excerpt: 'An evening the guests won\'t forget. Our most ambitious show yet, beneath the stars of Singapore.',
-        image: null,
-        link: null
-      },
-      {
-        date: '2025-03-01',
-        category: 'Training',
-        title: 'New Training Program Launches in Bangkok',
-        excerpt: 'Applications are now open for the next cohort of rising mermaid performers across Southeast Asia.',
-        image: null,
-        link: null
-      },
-      {
-        date: '2025-02-01',
-        category: 'Partnership',
-        title: 'Sirena × Luxury Resort Partnership Announced',
-        excerpt: 'Exclusive residency announced with a leading resort group, bringing Sirena performances across Southeast Asia.',
-        image: null,
-        link: null
-      }
-    ];
-
-    /* ── helpers ── */
-    const TAG_CLASS = { Event:'tag-event', Training:'tag-update', Partnership:'tag-press', Press:'tag-press', Update:'tag-update' };
-    const PH_COLORS = { Event:'030d1f/22d3ee', Training:'0d1f45/fb7185', Partnership:'030d1f/a5f3fc', Press:'0d1f45/fb7185', Update:'030d1f/22d3ee' };
-    function fmtDate(iso) {
-      const [y,m] = iso.split('-');
-      return new Date(+y,+m-1,1).toLocaleString('en-US',{month:'long',year:'numeric'});
-    }
+    const T = window.NEWS_TYPES;
+    const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    const badge = t => `<span class="ut-badge t-${esc(t)}">${(T[t]||{}).icon||''} ${esc((T[t]||{label:t}).label)}</span>`;
+    const all = window.sortedNews();
 
     const obs = new IntersectionObserver(entries => entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
     }), { threshold: 0.06 });
 
-    function renderNews() {
-      const sorted = [...NEWS].sort((a,b) => b.date.localeCompare(a.date));
-      const grid = document.getElementById('news-grid');
-      grid.innerHTML = sorted.map((item,i) => {
-        const cls   = TAG_CLASS[item.category] || 'tag-update';
-        const delay = ['d1','d2','d3','d4'][i % 4];
-        const imgSrc = item.image
-          ? item.image
-          : `https://placehold.co/640x360/${PH_COLORS[item.category]||'030d1f/22d3ee'}?text=${encodeURIComponent(item.title.slice(0,28))}`;
-        const href = item.link || '#';
-        const target = item.link ? ' target="_blank" rel="noopener"' : '';
-        return `<a href="${href}" class="news-card reveal ${delay}"${target}>
-          <img src="${imgSrc}" alt="${item.title}" class="card-img" loading="lazy" />
-          <div class="card-body">
-            <span class="news-tag ${cls}">${item.category}</span>
-            <h3 class="card-title">${item.title}</h3>
-            <p class="card-excerpt">${item.excerpt}</p>
-            <div class="card-meta">
-              <span class="news-date">${fmtDate(item.date)}</span>
-              <span class="read-more">Read →</span>
-            </div>
+    /* Ticker (duplicated for seamless loop) */
+    const tick = all.map(n => `<a href="#${esc(n.slug)}"><b>${(T[n.type]||{}).icon||''} ${esc(n.type)}</b>${esc(n.title)}</a>`).join('');
+    document.getElementById('ut-ticker').innerHTML = tick + tick;
+
+    /* Headline */
+    const lead = all[0];
+    const hero = document.getElementById('ut-hero');
+    if (lead) {
+      hero.href = '#' + lead.slug;
+      hero.innerHTML = `${lead.image ? `<img src="${esc(lead.image)}" alt="${esc(lead.title)}" />` : ''}
+        <div class="ut-hero-inner">
+          <div class="ut-hero-kicker">${badge(lead.type)}<span class="ut-break">${lead.upcoming ? 'Coming up' : (lead.type === 'Win' ? 'Breaking' : 'Headline')} · ${esc(fmtNewsDate(lead.date))}</span></div>
+          <h2>${esc(lead.title)}</h2>
+          <p>${esc(lead.excerpt)}</p>
+          <span class="ut-read">Read the story →</span>
+        </div>`;
+    } else { hero.style.display = 'none'; }
+
+
+    /* Proud moments */
+    document.getElementById('ut-proud').innerHTML = window.winsNews().map(n => `
+      <a href="#${esc(n.slug)}" class="ut-proud-card">
+        ${n.image ? `<img src="${esc(n.image)}" alt="${esc(n.title)}" loading="lazy" />` : ''}
+        <div class="ut-proud-txt"><div class="ut-proud-yr">${esc((n.date||'').slice(0,4))}</div><h3>${esc(n.title)}</h3></div>
+      </a>`).join('');
+
+    /* Filters + grid */
+    const types = ['All', ...Object.keys(T).filter(t => all.some(n => n.type === t))];
+    let current = 'All';
+    const filters = document.getElementById('ut-filters');
+    function drawFilters() {
+      filters.innerHTML = types.map(t => `<button class="ut-chip${t===current?' on':''}" data-t="${t}" aria-pressed="${t===current}">${t==='All'?'All stories':(T[t].icon+' '+T[t].label+'s')}</button>`).join('');
+    }
+    function drawGrid() {
+      const list = (current === 'All' ? all.slice(1) : all.filter(n => n.type === current));
+      const grid = document.getElementById('ut-grid');
+      grid.innerHTML = list.length ? list.map((n,i) => `
+        <a href="#${esc(n.slug)}" class="ut-card reveal d${(i%4)+1}">
+          <div class="ut-card-img">${badge(n.type)}${n.image ? `<img src="${esc(n.image)}" alt="${esc(n.title)}" loading="lazy" />` : ''}</div>
+          <div class="ut-card-body">
+            <h3>${esc(n.title)}</h3>
+            <p>${esc(n.excerpt)}</p>
+            <span class="ut-date">${esc(fmtNewsDate(n.date))}</span>
           </div>
-        </a>`;
-      }).join('');
+        </a>`).join('') : `<p class="ut-empty">No stories here yet. The tide is turning.</p>`;
       grid.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     }
+    filters.addEventListener('click', e => {
+      const b = e.target.closest('.ut-chip'); if (!b) return;
+      current = b.dataset.t; drawFilters(); drawGrid();
+    });
+    drawFilters(); drawGrid();
 
+    /* Story reader (opens from #slug, so stories are shareable) */
+    const story = document.getElementById('ut-story');
+    const inner = document.getElementById('ut-story-inner');
+    function openStory(slug) {
+      const n = all.find(x => x.slug === slug);
+      if (!n) { story.classList.remove('open'); document.body.style.overflow = ''; return; }
+      inner.innerHTML = `
+        <div class="ut-story-meta">${badge(n.type)}<span class="ut-date" style="padding:0;">${esc(fmtNewsDate(n.date))}</span></div>
+        <h2 id="ut-story-title">${esc(n.title)}</h2>
+        ${n.image ? `<img class="ut-story-img" src="${esc(n.image)}" alt="${esc(n.title)}" />` : '<div style="height:1.5rem"></div>'}
+        <div class="ut-story-body">${(n.body||[n.excerpt]).map(p => `<p>${esc(p)}</p>`).join('')}</div>
+        ${n.link ? `<a class="ut-story-link" href="${esc(n.link)}" target="_blank" rel="noopener">More details →</a>` : ''}
+        <p style="margin-top:2.5rem;"><a href="contact.html" class="btn-book" style="display:inline-block;">Book Sirena Mermaids</a></p>`;
+      story.classList.add('open'); story.scrollTop = 0; document.body.style.overflow = 'hidden';
+      document.title = n.title + ' · Underwater Tales · Sirena Asia';
+      document.getElementById('ut-story-close').focus();
+    }
+    function closeStory() {
+      if (location.hash) history.pushState('', document.title, location.pathname + location.search);
+      story.classList.remove('open'); document.body.style.overflow = '';
+      document.title = 'Underwater Tales, Mermaid News · Sirena Asia';
+    }
+    document.getElementById('ut-story-close').addEventListener('click', closeStory);
+    story.addEventListener('click', e => { if (e.target === story) closeStory(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && story.classList.contains('open')) closeStory(); });
+    window.addEventListener('hashchange', () => openStory(location.hash.slice(1)));
+    if (location.hash) openStory(location.hash.slice(1));
+
+    /* Nav (unchanged behaviour) */
     const burger = document.getElementById('burger');
     const mobileMenu = document.getElementById('mobile-menu');
     let menuOpen = false;
@@ -597,8 +672,6 @@
       burger.querySelectorAll('.bl').forEach(b => { b.style.transform=''; b.style.opacity='1'; });
     }));
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-    renderNews();
   </script>
   <script>
     (function(){
