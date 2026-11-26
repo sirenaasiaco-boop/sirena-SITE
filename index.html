@@ -1003,7 +1003,27 @@
 
 
 
-    /* Shop teaser */
+
+    .wins-wrap { padding: clamp(4rem,8vw,7rem) clamp(1.25rem,5vw,5rem); max-width:1280px; margin:0 auto; }
+    .wins-head { display:flex; justify-content:space-between; align-items:flex-end; gap:2rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+    .wins-sub { font-family:'Manrope',system-ui,sans-serif; font-size:1.05rem; line-height:1.7; color:#c9d6df; max-width:46ch; margin-top:0.8rem; }
+    .wins-grid { display:grid; gap:1.25rem; grid-template-columns:1fr; }
+    @media (min-width:900px) { .wins-grid { grid-template-columns:1.4fr 1fr 1fr; grid-auto-rows:minmax(0,auto); } .wins-grid .win-card.lead { grid-row:span 2; } }
+    .win-card { position:relative; display:block; text-decoration:none; border-radius:14px; overflow:hidden; background:#0b1d2e; border:1px solid rgba(245,196,81,0.28); box-shadow:0 8px 32px rgba(0,13,38,0.6); transition:transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s ease; }
+    .win-card:hover { transform:translateY(-4px); box-shadow:0 0 32px rgba(245,196,81,0.28), 0 12px 40px rgba(0,13,38,0.7); }
+    .win-card:active { transform:translateY(-1px); }
+    .win-card:focus-visible { outline:2px solid #f5c451; outline-offset:3px; }
+    .win-card .wimg { aspect-ratio:4/3; overflow:hidden; }
+    .win-card.lead .wimg { aspect-ratio:4/5; }
+    .win-card img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.6s ease; }
+    .win-card:hover img { transform:scale(1.04); }
+    .win-card .wbody { position:absolute; inset:auto 0 0 0; padding:1.4rem 1.3rem 1.2rem; background:linear-gradient(180deg, transparent, rgba(6,18,29,0.92) 38%); }
+    .win-badge { display:inline-block; font-family:'Manrope',system-ui,sans-serif; font-size:0.72rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; padding:0.4rem 0.6rem; border-radius:4px; background:#f5c451; color:#2a1d02; }
+    .win-date { font-family:'Manrope',system-ui,sans-serif; font-size:0.8rem; font-weight:500; color:#93a8b8; margin-left:0.6rem; }
+    .win-title { display:block; margin-top:0.6rem; font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:1.45rem; line-height:1.12; color:#fff; }
+    .win-card.lead .win-title { font-size:clamp(1.8rem,2.6vw,2.4rem); }
+    .win-ex { display:block; margin-top:0.5rem; font-family:'Manrope',system-ui,sans-serif; font-size:0.95rem; line-height:1.6; color:#c9d6df; }
+    /* Shop teaser (unused) */
     .shop-featured {
       position: relative; overflow: hidden;
       margin-top: 2rem; margin-bottom: 1.8rem;
@@ -2240,27 +2260,18 @@
 
       <div class="sec-divider"></div>
 
-      <!-- ─── 005 / NEWS + SHOP ─── -->
+      <!-- ─── 005 / WINS ─── -->
       <section id="s-news-shop">
-        <div class="ns-grid">
-          <div class="ns-news">
-            <p class="sec-label rv-l d1" style="color:rgba(251,113,133,0.65);">005 / Underwater News</p>
-            <h2 class="sec-heading rv-l d2" style="font-size:clamp(1.8rem,3.5vw,2.8rem);">Underwater<br/><em>Tales</em></h2>
-            <div id="home-tales"></div>
-            <a href="news.html" class="see-all-link rv-l d5">All Underwater Tales →</a>
-          </div>
-          <div class="ns-shop">
-            <p class="sec-label rv-r d1">Mermaid Shop</p>
-            <h2 class="sec-heading rv-r d2" style="font-size:clamp(1.8rem,3.5vw,2.8rem);">The <em>Shop</em></h2>
-            <div class="shop-featured rv-r d3">
-              <img src="https://placehold.co/600x450/001a4d/ff6b9d?text=Sirena+Merch" alt="Shop Featured" loading="lazy" />
-              <div class="shop-featured-label">
-                <span class="shop-item-name">Sirena Signature Tail</span>
-                <span class="shop-item-price">From USD 380</span>
-              </div>
+        <div class="wins-wrap">
+          <div class="wins-head">
+            <div>
+              <p class="sec-label rv-l d1" style="color:#f5c451;">005 / Underwater Tales</p>
+              <h2 class="sec-heading rv-l d2" style="font-size:clamp(2.2rem,4.5vw,3.6rem);">Our <em>wins</em></h2>
+              <p class="wins-sub rv-l d3">Medals, titles and firsts from our mermaids, on stages across the world.</p>
             </div>
-            <a href="shop.html" class="btn-coral rv-r d4" style="display:inline-block;">Explore the Shop →</a>
+            <a href="news.html" class="see-all-link rv-r d3">All Underwater Tales →</a>
           </div>
+          <div id="home-tales" class="wins-grid"></div>
         </div>
       </section>
 
@@ -2308,7 +2319,6 @@
               <a href="performers.html" class="footer-link">Performers</a>
               <a href="shows.html"      class="footer-link">Shows</a>
               <a href="gallery.html"    class="footer-link">Gallery</a>
-              <a href="shop.html"       class="footer-link">Shop</a>
               <a href="news.html"       class="footer-link">News</a>
               <a href="contact.html"    class="footer-link">Contact</a>
             </nav>
@@ -2995,15 +3005,13 @@
     (function(){
       var box=document.getElementById('home-tales'); if(!box||!window.NEWS)return;
       var esc=function(v){return String(v==null?'':v).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};
-      var T=window.NEWS_TYPES, list=window.sortedNews(), lead=list[0]; if(!lead)return;
-      var b=function(t){return '<span class="ht-badge t-'+esc(t)+'">'+((T[t]||{}).icon||'')+' '+esc(t)+'</span>';};
-      var html='<a href="news.html#'+esc(lead.slug)+'" class="event-feature">'
-        +'<div class="event-diptych">'+b(lead.type)+(lead.image?'<img src="'+esc(lead.image)+'" alt="'+esc(lead.title)+'" loading="lazy" />':'')+'</div>'
-        +'<div class="event-caption"><span class="news-date">'+esc(fmtNewsDate(lead.date))+'</span>'
-        +'<span class="news-title">'+esc(lead.title)+'</span><span class="news-excerpt">'+esc(lead.excerpt)+'</span></div></a>';
-      list.slice(1,3).forEach(function(n){
-        html+='<a href="news.html#'+esc(n.slug)+'" class="ht-more"><span class="news-date">'+((T[n.type]||{}).icon||'')+' '+esc(n.type)+' · '+esc(fmtNewsDate(n.date))+'</span>'
-          +'<span class="news-title" style="display:block;margin-top:0.25rem;">'+esc(n.title)+'</span></a>';
+      var wins=window.winsNews().filter(function(n){return n.image;}).slice(0,5); if(!wins.length)return;
+      var html='';
+      wins.forEach(function(n,i){
+        html+='<a href="news.html#'+esc(n.slug)+'" class="win-card'+(i===0?' lead':'')+'">'
+          +'<div class="wimg"><img src="'+esc(n.image)+'" alt="'+esc(n.title)+'" loading="lazy" /></div>'
+          +'<div class="wbody"><span class="win-badge">Win</span><span class="win-date">'+esc(fmtNewsDate(n.date))+'</span>'
+          +'<span class="win-title">'+esc(n.title)+'</span>'+(i===0?'<span class="win-ex">'+esc(n.excerpt)+'</span>':'')+'</div></a>';
       });
       box.innerHTML=html;
     })();

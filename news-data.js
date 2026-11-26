@@ -225,7 +225,7 @@ window.NEWS = [
       'Mermaid Kita made her mark in competitive freediving as Rookie Champion at the Taiwan Freediving Competition in 2024.',
       'Two years later she followed it with a Silver Medal at the Taiwan Cup Freediving CWTB (2026).'
     ],
-    image: 'media/performers/kita/photo2.jpg',
+    image: 'media/performers/kita/hero.jpg',
     people: ['kita'],
     link: null
   }
