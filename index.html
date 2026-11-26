@@ -1035,19 +1035,22 @@
     .podium-head p { font-family:'Manrope',system-ui,sans-serif; font-size:1rem; color:#c9d6df; margin:0; }
     .wins-grid { position:relative; z-index:1; display:grid; gap:2.2rem 1.6rem; grid-template-columns:1fr; }
     @media (min-width:700px) { .wins-grid { grid-template-columns:repeat(2,1fr); } }
-    @media (min-width:1000px) { .wins-grid { grid-template-columns:repeat(3,1fr); } .wins-grid .win-card:nth-child(3n+2) { margin-top:4.5rem; } }
+    @media (min-width:1000px) { .wins-grid { grid-template-columns:repeat(4,1fr); } .wins-grid .win-card:nth-child(even) { margin-top:4.5rem; } }
     .win-card { position:relative; display:block; text-decoration:none; transition:transform 0.45s cubic-bezier(0.22,1,0.36,1); }
     .win-card:hover { transform:translateY(-6px); }
     .win-card:active { transform:translateY(-2px); }
     .win-card:focus-visible { outline:2px solid #f5c451; outline-offset:6px; border-radius:16px; }
     .win-card .wimg { position:relative; aspect-ratio:4/5; overflow:hidden; border-radius:16px; box-shadow:0 0 0 1px var(--tier), 0 18px 50px rgba(0,13,38,0.7); }
-    .win-card .wimg::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 55%, rgba(6,18,29,0.7)); }
-    .win-card img { width:100%; height:100%; object-fit:cover; object-position:center 30%; display:block; transition:transform 0.7s ease; }
+    .win-card .wimg::after { content:""; position:absolute; inset:0; z-index:2; background:linear-gradient(180deg, transparent 55%, rgba(6,18,29,0.7)); }
+    .win-card .wimg { background:#081826; }
+    .win-card .wimg .wbg { position:absolute; inset:-10%; background:var(--wimg) center/cover no-repeat; filter:blur(28px) saturate(1.2); opacity:0.6; }
+    .win-card img { position:relative; z-index:1; width:100%; height:100%; object-fit:contain; display:block; transition:transform 0.7s ease; }
+    .win-card img.portrait { object-fit:cover; object-position:center 30%; }
     .win-card:hover img { transform:scale(1.05); }
     .medal { position:absolute; top:-26px; right:22px; z-index:2; width:84px; height:110px; filter:drop-shadow(0 8px 18px rgba(0,0,0,0.45)) drop-shadow(0 0 18px var(--tier-glow)); transition:transform .45s cubic-bezier(0.22,1,0.36,1); }
     .win-card:hover .medal { transform:rotate(-8deg) translateY(-3px); }
     .win-no { display:block; margin-top:1.1rem; font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; font-size:1.05rem; color:var(--tier); }
-    .win-title { display:block; margin-top:0.2rem; font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:1.6rem; line-height:1.12; color:#fff; }
+    .win-title { display:block; margin-top:0.2rem; font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:1.45rem; line-height:1.12; color:#fff; }
     .win-date { display:block; margin-top:0.45rem; font-family:'Manrope',system-ui,sans-serif; font-size:0.85rem; font-weight:500; color:#93a8b8; }
     @media (prefers-reduced-motion: reduce) { .up-poster, .up-kicker .pulse { animation:none; } }
     /* Shop teaser (unused) */
@@ -2290,8 +2293,8 @@
         <div class="wins-wrap">
           <div class="wins-head">
             <div>
-              <p class="sec-label rv-l d1" style="color:#f5c451;">005 / Underwater Tales</p>
-              <h2 class="sec-heading rv-l d2" style="font-size:clamp(2.2rem,4.5vw,3.6rem);">News from <em>the deep</em></h2>
+              <p class="sec-label rv-l d1" style="color:#f5c451;">005 / News from the deep</p>
+              <h2 class="sec-heading rv-l d2" style="font-size:clamp(2.2rem,4.5vw,3.6rem);">Underwater <em>Tales</em></h2>
             </div>
             <a href="news.html" class="see-all-link rv-r d3">All Underwater Tales →</a>
           </div>
@@ -3064,11 +3067,11 @@
       var medal=function(c,label){ return '<svg class="medal" viewBox="0 0 84 110" aria-hidden="true"><path d="M24 0h14l8 34H32z" fill="#4fd8eb"/><path d="M46 0h14L52 34H38z" fill="#ff6b9d"/>'
         +'<circle cx="42" cy="66" r="34" fill="'+c+'"/><circle cx="42" cy="66" r="27" fill="none" stroke="rgba(6,18,29,0.35)" stroke-width="1.5"/>'
         +'<text x="42" y="'+(label.length>7?'70':'72')+'" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="700" font-size="'+(label.length>7?'11':'15')+'" fill="#06121d">'+label.toUpperCase()+'</text></svg>'; };
-      var wins=window.winsNews().filter(function(n){return n.image;}).slice(0,6);
+      var wins=window.winsNews().filter(function(n){return n.image;}).slice(0,4);
       var html='';
       wins.forEach(function(n,i){ var t=tier(n.title);
         html+='<a href="news.html#'+esc(n.slug)+'" class="win-card" style="--tier:'+t[1]+';--tier-glow:'+t[2]+'">'
-          +medal(t[1],t[3]?'Gold':t[0])+'<div class="wimg"><img src="'+esc(n.image)+'" alt="'+esc(n.title)+'" loading="lazy" /></div>'
+          +medal(t[1],t[3]?'Gold':t[0])+'<div class="wimg" style="--wimg:url(\''+esc(n.image)+'\')"><span class="wbg"></span><img src="'+esc(n.image)+'" alt="'+esc(n.title)+'" loading="lazy" onload="if(this.naturalHeight>=this.naturalWidth*1.1)this.classList.add(\'portrait\')" /></div>'
           +'<span class="win-no">No. '+String(i+1).padStart(2,'0')+' · '+t[0]+'</span><span class="win-title">'+esc(n.title)+'</span><span class="win-date">'+esc(fmtNewsDate(n.date))+'</span></a>';
       });
       box.innerHTML=html;

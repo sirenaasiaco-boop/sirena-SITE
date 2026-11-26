@@ -85,6 +85,7 @@ window.NEWS = [
     title: 'Kita Takes Silver at the First CMAS Mermaid World Cup',
     excerpt: 'Representing Taiwan in her first world competition, Kita finished Women\'s All-Around Runner-up at the inaugural CMAS Mermaid World Cup in Hainan, China.',
     body: [
+      '"I wanted to prove the version of me nobody believed in." Kita learned mermaid in May 2024, with no dance background, and makes her own choreography, music, costumes, props and makeup.',
       'Mermaid Kita is now second in the world. At the First World Underwater Federation (CMAS) Mermaid World Cup and 2026 China Mermaid Open in Lingshui, Hainan, she finished Women\'s All-Around Runner-up, taking home silver and a ¥12,000 prize.',
       'The field brought together athletes from 12 countries and hundreds of competitors, split into skill and performance events. Kita reached the final in both and placed third in each: third in the Adult Women\'s Solo Mermaid Dance and third in the Adult Women\'s Solo Skill event, where she climbed from fifth in the preliminaries by adding 38 points. Those two podium finishes added up to silver overall.',
       'It was her first world competition, and in her own words she became the first female athlete from Taiwan to finish in the top three at a world competition in China. Her favourite routine of the event was her Cruella character, rebuilt with new choreography and music for the deep pool.',
@@ -92,7 +93,7 @@ window.NEWS = [
     ],
     image: 'media/news/kita-cmas-mermaid-world-cup-2026.jpg',
     people: ['kita'],
-    link: 'https://www.instagram.com/cloud_kita/'
+    link: 'https://www.instagram.com/p/Dcu9LpaEUoj/'
   },
 
   {
@@ -100,16 +101,16 @@ window.NEWS = [
     type: 'Win',
     date: '2026-10-03',
     featured: false,
-    title: 'Ying and Minmin Win Team Gold at the 2026 MFI Taiwan Championship',
+    title: 'Ying, Minmin and Team South Taiwan Tropical Fish Take Team Gold',
     excerpt: 'Team "South Taiwan Tropical Fish", with Sirena Elites Ying and Minmin, took first place in the team event with their Mulan routine.',
     body: [
-      'Sirena Elites Ying and Minmin are team champions. Competing as "South Taiwan Tropical Fish" with a third teammate, they took first place in the team event at the 2026 MFI Taiwan mermaid championship, staged at Farglory Ocean Park.',
+      'Sirena Elites Ying and Minmin are team champions. Competing as "South Taiwan Tropical Fish" with their teammate, a merman from the same southern crew, they took first place in the team event at the 2026 MFI Taiwan mermaid championship, staged at Farglory Ocean Park.',
       'Their Mulan-inspired routine was built the hard way: props they designed themselves, music edited over late nights, and practice sessions squeezed in around three busy schedules. In Minmin\'s words, they brought the championship back to the south, proof that talent can make up for scarce resources.',
       'All three are based in southern Taiwan, and they are now ambassadors inviting divers to train in Kaohsiung\'s 5-metre pool.'
     ],
-    image: null,
+    image: 'media/news/south-taiwan-tropical-fish-team-champion-2026.jpg',
     people: ['ying','minmin'],
-    link: 'https://www.instagram.com/minmin_girl_0107/'
+    link: 'https://www.instagram.com/p/DeBe6QYPZcF/'
   },
 
   {
