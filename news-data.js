@@ -66,7 +66,7 @@ window.NEWS = [
     type: 'Win',
     date: '2026-03',
     featured: false,
-    title: 'Night Shanghai Glamour: Chen Takes Bronze in Korea',
+    title: 'TikTok Star Chen Brings Home Bronze from Korea',
     excerpt: 'TikTok star Mermaid Chen placed third in Women\'s Solo at the 2026 Korea International Mermaid Open with her "Night Shanghai" routine.',
     body: [
       'Mermaid Chen finished third at the 2026 Korea International Mermaid Open, bringing home bronze with a routine inspired by the glamour of old Shanghai nights.',
