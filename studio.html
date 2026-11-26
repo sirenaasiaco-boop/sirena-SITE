@@ -368,6 +368,16 @@
     .st-num { font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; font-size:1.6rem; color:#f5c451; }
     .st-card h3 { font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:1.55rem; color:#fff; margin:0.5rem 0 0.6rem; line-height:1.15; }
     .st-card p { font-family:'Manrope',system-ui,sans-serif; font-size:1rem; line-height:1.65; color:#c9d6df; }
+    .st-crew { display:grid; gap:2rem; align-items:center; margin-top:2.6rem; }
+    @media (min-width:860px) { .st-crew { grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr); gap:3.5rem; } }
+    .st-crew-photos { display:grid; grid-template-columns:1.25fr 1fr; gap:0.8rem; align-items:end; }
+    .st-crew-photos img { width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center 25%; border-radius:14px; box-shadow:0 0 0 1px rgba(245,196,81,0.3), 0 18px 50px rgba(0,13,38,0.7); }
+    .st-crew-photos img:last-child { aspect-ratio:3/4.4; }
+    .st-crew h3 { font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:clamp(2.2rem,4vw,3rem); color:#fff; margin:0.3rem 0 0.2rem; }
+    .st-crew h3 em { font-style:italic; font-weight:500; color:#4fd8eb; }
+    .st-role { font-family:'Manrope',system-ui,sans-serif; font-size:0.8rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#f5c451; }
+    .st-tags { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1.2rem; }
+    .st-tags span { font-family:'Manrope',system-ui,sans-serif; font-size:0.78rem; font-weight:600; color:#e0f7fa; padding:0.45rem 0.9rem; border-radius:999px; border:1px solid rgba(79,216,235,0.3); }
     .st-cta { text-align:center; border-top:1px solid rgba(224,247,250,0.12); }
     .st-cta .btn-coral { display:inline-block; margin-top:2rem; }
   </style>
@@ -429,6 +439,23 @@
           <h3>Digital &amp; AI</h3>
           <p>AI characters, automation and digital experiences. Our own AI mermaid swims through this website.</p>
         </div>
+    </div>
+  </section>
+
+  <section class="st-wrap" style="border-top:1px solid rgba(224,247,250,0.12);">
+    <p class="st-eye reveal">Behind the lens</p>
+    <h2 class="reveal">The <em>crew</em>.</h2>
+    <div class="st-crew">
+      <div class="st-crew-photos reveal">
+        <img src="media/performers/nio/photo1.jpg" alt="Nio, underwater photographer and videographer, with his camera housing" loading="lazy" />
+        <img src="media/performers/nio/photo2.jpg" alt="Nio, Sirena Studio photographer and videographer" loading="lazy" />
+      </div>
+      <div class="reveal">
+        <span class="st-role">Photographer · Videographer</span>
+        <h3>Meet <em>Nio</em></h3>
+        <p class="st-sub">Nio shoots for Sirena in and out of the water: underwater photos, video and reels for shows, shoots and brand campaigns.</p>
+        <div class="st-tags"><span>Underwater photography</span><span>Videography</span><span>Reels &amp; content</span></div>
+      </div>
     </div>
   </section>
 
