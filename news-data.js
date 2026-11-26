@@ -66,8 +66,8 @@ window.NEWS = [
     type: 'Win',
     date: '2026-03',
     featured: false,
-    title: 'The Mermaid Who Can\'t Swim Takes Bronze in Korea',
-    excerpt: 'She calls herself the mermaid who can\'t swim. Chen placed third in Women\'s Solo at the 2026 Korea International Mermaid Open with her "Night Shanghai" routine.',
+    title: 'Night Shanghai Glamour: Chen Takes Bronze in Korea',
+    excerpt: 'TikTok star Mermaid Chen placed third in Women\'s Solo at the 2026 Korea International Mermaid Open with her "Night Shanghai" routine.',
     body: [
       'Mermaid Chen finished third at the 2026 Korea International Mermaid Open, bringing home bronze with a routine inspired by the glamour of old Shanghai nights.',
       'Chen trains in Hualien, on Taiwan\'s east coast, where she says resources are scarce and preparing for international competition is hard and costly. She thanked everyone behind her for letting her give it everything without worry.',
