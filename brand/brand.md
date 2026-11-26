@@ -2,7 +2,7 @@
 
 ## Identity
 - **Full Name:** Sirena Asia
-- **Tagline:** Asia's Premier Mermaid Collective
+- **Tagline:** Born in Asia. Performing Worldwide.
 - **What we do:** A collective of elite professional mermaid performers available for private events, corporate experiences, and live shows across Asia.
 - **Email:** info@sirenaasia.com
 
@@ -34,9 +34,10 @@ Sirena Asia speaks with quiet confidence — luxurious but not cold, fantastical
 2. Mermaid Ying
 3. Mermaid Minmin
 4. Mermaid Chen
-5. Mermaid Ronnie
-6. Mermaid Linda
-7. Mermaid Kita
+5. Mermaid Kita
+6. Mermaid Ronnie
+7. Mermaid SporTi
+8. Mermaid Linda
 
 ## Pages
 - Home: index.html
