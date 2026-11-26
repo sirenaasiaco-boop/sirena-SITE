@@ -35,7 +35,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" /><noscript></noscript>
   <style>
     :root {
       --navy:#0d1f45; --navy-deep:#030d1f; --navy-mid:#081428;
@@ -43,7 +43,7 @@
     }
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
     html { scroll-behavior:smooth; }
-    body { background:var(--navy-deep); color:var(--mist); font-family:'Outfit',sans-serif; overflow-x:clip; }
+    body { background:var(--navy-deep); color:var(--mist); font-family:'Manrope',system-ui,sans-serif; overflow-x:clip; }
     body::before {
       content:''; position:fixed; inset:0; z-index:1000; pointer-events:none; opacity:0.05;
       background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -51,16 +51,16 @@
 
     /* ─── NAV ─── */
     #navbar { position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(3,8,20,0.92);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(34,211,238,0.08); }
-    .nav-logo { height:40px;width:auto;object-fit:contain;filter:drop-shadow(0 0 14px rgba(79,216,235,0.35));transition:filter 0.3s ease; } .nav-logo:hover { filter:drop-shadow(0 0 20px rgba(79,216,235,0.6)); }#nav-links { display:flex;align-items:center;gap:2rem; }
-    .nav-link { font-family:'Outfit',sans-serif;font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(224,247,250,0.55);text-decoration:none;transition:color 0.2s; }
+    .nav-logo { height:52px;width:auto;object-fit:contain;filter:drop-shadow(0 0 14px rgba(79,216,235,0.35));transition:filter 0.3s ease; } .nav-logo:hover { filter:drop-shadow(0 0 20px rgba(79,216,235,0.6)); }#nav-links { display:flex;align-items:center;gap:2rem; }
+    .nav-link { font-family:'Manrope',system-ui,sans-serif;font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(224,247,250,0.55);text-decoration:none;transition:color 0.2s; }
     .nav-link:hover,.nav-link.active { color:var(--cyan-glow); }
-    .btn-book { font-family:'Outfit',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.6rem 1.6rem;background:var(--coral);color:#fff;border:none;cursor:pointer;text-decoration:none;transition:transform 0.2s,opacity 0.2s; }
+    .btn-book { font-family:'Manrope',system-ui,sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.6rem 1.6rem;background:var(--coral);color:#06121d;border:none;cursor:pointer;text-decoration:none;transition:transform 0.2s,opacity 0.2s; }
     .btn-book:hover { transform:translateY(-2px);opacity:0.88; }
     #burger { display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px; }
     .bl { display:block;width:22px;height:1.5px;background:#fff;transition:transform 0.25s,opacity 0.25s; }
     #mobile-menu { display:none;position:fixed;inset:0;z-index:99;background:rgba(3,8,20,0.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem; }
     #mobile-menu.open { display:flex; }
-    .mob-link { font-family:'Fraunces',serif;font-size:2rem;font-weight:700;color:rgba(224,247,250,0.85);text-decoration:none;transition:color 0.2s; }
+    .mob-link { font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;font-weight:700;color:rgba(224,247,250,0.85);text-decoration:none;transition:color 0.2s; }
     .mob-link:hover { color:var(--cyan); }
     @media(max-width:768px) { #navbar{padding:1.2rem 1.5rem;} #nav-links{display:none!important;} #burger{display:flex;} }
 
@@ -84,14 +84,14 @@
     }
     @media(max-width:768px) { .intro-grid { grid-template-columns:1fr; gap:2rem; } }
     .intro-label {
-      font-family:'Outfit',sans-serif; font-size:0.6rem; font-weight:600;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.6rem; font-weight:600;
       letter-spacing:0.25em; text-transform:uppercase;
       color:rgba(34,211,238,0.45); margin-bottom:1.4rem;
     }
     .intro-h1 {
-      font-family:'Fraunces',serif;
+      font-family:'Cormorant Garamond',Georgia,serif;
       font-size:clamp(4rem,10vw,8rem);
-      font-weight:900; line-height:0.88; letter-spacing:-0.03em; color:#fff;
+      font-weight:700; line-height:0.88; letter-spacing:-0.03em; color:#fff;
     }
     .intro-h1 em { font-style:italic; color:var(--cyan); }
     .intro-right { display:flex; flex-direction:column; gap:1.5rem; padding-bottom:0.5rem; }
@@ -105,11 +105,11 @@
     }
     .intro-stat { display:flex; flex-direction:column; gap:0.25rem; }
     .intro-stat-num {
-      font-family:'Fraunces',serif; font-size:2.2rem; font-weight:900;
+      font-family:'Cormorant Garamond',Georgia,serif; font-size:2.2rem; font-weight:700;
       color:#fff; line-height:1; letter-spacing:-0.03em;
     }
     .intro-stat-label {
-      font-family:'Outfit',sans-serif; font-size:0.55rem; font-weight:500;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.55rem; font-weight:500;
       letter-spacing:0.2em; text-transform:uppercase; color:rgba(34,211,238,0.4);
     }
 
@@ -192,7 +192,7 @@
     }
     .mag-ghost-n {
       position:absolute; bottom:0.8rem; left:1rem;
-      font-family:'Fraunces',serif; font-size:9rem; font-weight:900;
+      font-family:'Cormorant Garamond',Georgia,serif; font-size:9rem; font-weight:700;
       color:rgba(255,255,255,0.035); line-height:1; pointer-events:none;
       user-select:none; letter-spacing:-0.06em;
     }
@@ -204,7 +204,7 @@
     }
     .mag-series-tag {
       position:absolute; top:1.2rem; right:1.2rem;
-      font-family:'Outfit',sans-serif; font-size:0.46rem; font-weight:600;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.46rem; font-weight:600;
       letter-spacing:0.22em; text-transform:uppercase;
       color:rgba(255,255,255,0.4);
       writing-mode:vertical-rl; text-orientation:mixed;
@@ -230,13 +230,13 @@
       margin-bottom: 1.6rem;
     }
     .mag-issue-num {
-      font-family:'Fraunces',serif; font-size:3.5rem; font-weight:900;
+      font-family:'Cormorant Garamond',Georgia,serif; font-size:3.5rem; font-weight:700;
       color:rgba(255,255,255,0.04); line-height:1; letter-spacing:-0.04em;
       flex-shrink:0;
     }
     .mag-issue-meta { display:flex; flex-direction:column; gap:0.2rem; }
     .mag-issue-label {
-      font-family:'Outfit',sans-serif; font-size:0.52rem; font-weight:700;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.52rem; font-weight:700;
       letter-spacing:0.28em; text-transform:uppercase;
       color:rgba(0,188,212,0.85);
     }
@@ -244,9 +244,9 @@
       width:100%; height:1px; background:rgba(34,211,238,0.12);
     }
     .mag-name {
-      font-family:'Fraunces',serif;
+      font-family:'Cormorant Garamond',Georgia,serif;
       font-size:clamp(2rem,4.2vw,3.6rem);
-      font-weight:900; letter-spacing:-0.03em; color:#e0f7fa; line-height:0.9;
+      font-weight:700; letter-spacing:-0.03em; color:#e0f7fa; line-height:0.9;
       margin-bottom:0.55rem;
     }
     .mag-performer-title {
@@ -262,17 +262,17 @@
       margin-bottom: 1.2rem;
     }
     .mag-bio {
-      font-family:'Outfit',sans-serif; font-size:clamp(0.82rem,1.1vw,0.92rem);
+      font-family:'Manrope',system-ui,sans-serif; font-size:clamp(0.82rem,1.1vw,0.92rem);
       line-height:1.9; color:rgba(176,210,230,0.78);
     }
     .mag-bio b {
-      font-family:'Outfit',sans-serif; color:#ff6b9d; font-weight:700;
+      font-family:'Manrope',system-ui,sans-serif; color:#ff6b9d; font-weight:700;
       font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; font-style:normal;
       display:block; margin-top:0.9rem; margin-bottom:0.25rem;
     }
     .mag-skills { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.4rem; }
     .mag-skill {
-      font-family:'Outfit',sans-serif; font-size:0.55rem; font-weight:600;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.55rem; font-weight:600;
       letter-spacing:0.1em; text-transform:uppercase;
       color:rgba(34,211,238,0.7); background:rgba(34,211,238,0.05);
       border:1px solid rgba(34,211,238,0.18);
@@ -280,9 +280,9 @@
     }
     .mag-cta {
       align-self:flex-start;
-      font-family:'Outfit',sans-serif; font-size:0.7rem; font-weight:700;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.7rem; font-weight:700;
       letter-spacing:0.18em; text-transform:uppercase;
-      color:#fff; background:var(--coral);
+      color:#06121d; background:var(--coral);
       padding:0.95rem 2.2rem; text-decoration:none; display:inline-block;
       box-shadow:0 4px 20px rgba(251,113,133,0.4);
       transition:background 0.2s, transform 0.15s, box-shadow 0.2s;
@@ -314,7 +314,7 @@
       gap: 1rem;
     }
     .mag-arrow-btn {
-      font-family:'Outfit',sans-serif; font-size:0.68rem; font-weight:700;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.68rem; font-weight:700;
       letter-spacing:0.14em; text-transform:uppercase;
       color:#fff; background:rgba(34,211,238,0.12);
       border:1.5px solid rgba(34,211,238,0.5);
@@ -333,7 +333,7 @@
     }
     .mag-dot.active { background:var(--cyan); width:24px; border-radius:4px; }
     .mag-counter {
-      font-family:'Outfit',sans-serif; font-size:0.6rem; letter-spacing:0.15em;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.6rem; letter-spacing:0.15em;
       color:rgba(224,247,250,0.22);
     }
     .mag-counter span { color:rgba(34,211,238,0.5); }
@@ -416,19 +416,19 @@
 
     /* Left info column */
     .inq-label {
-      font-family:'Outfit',sans-serif; font-size:0.6rem; font-weight:600;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.6rem; font-weight:600;
       letter-spacing:0.24em; text-transform:uppercase;
       color:rgba(34,211,238,0.45); margin-bottom:1.2rem;
     }
     .inq-heading {
-      font-family:'Fraunces',serif;
+      font-family:'Cormorant Garamond',Georgia,serif;
       font-size:clamp(2.2rem,4vw,3.4rem);
-      font-weight:900; letter-spacing:-0.03em; color:#fff; line-height:0.95;
+      font-weight:700; letter-spacing:-0.03em; color:#fff; line-height:0.95;
       margin-bottom:1.4rem;
     }
     .inq-heading em { font-style:italic; color:var(--coral); }
     .inq-body {
-      font-family:'Outfit',sans-serif; font-size:0.88rem; font-weight:300;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.88rem; font-weight:400;
       line-height:1.78; color:rgba(224,247,250,0.38);
       margin-bottom:2.5rem; max-width:360px;
     }
@@ -439,7 +439,7 @@
       flex-shrink:0; margin-top:0.42rem;
     }
     .inq-bullet-body {
-      font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:300;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.78rem; font-weight:400;
       line-height:1.62; color:rgba(224,247,250,0.4);
     }
     .inq-bullet-body strong { font-weight:500; color:rgba(224,247,250,0.72); display:block; }
@@ -452,9 +452,9 @@
     }
     .btn-enquire {
       display:inline-flex; align-items:center; gap:0.5rem;
-      font-family:'Outfit',sans-serif; font-size:0.6rem; font-weight:600;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.6rem; font-weight:600;
       letter-spacing:0.2em; text-transform:uppercase;
-      color:#fff; background:var(--coral); border:none;
+      color:#06121d; background:var(--coral); border:none;
       padding:0.8rem 1.9rem; text-decoration:none; cursor:pointer;
       box-shadow:0 4px 20px rgba(251,113,133,0.28);
       transition:transform 0.2s,box-shadow 0.2s;
@@ -484,13 +484,13 @@
     }
     @keyframes onlinePulse { 0%,100%{opacity:1;} 50%{opacity:0.45;} }
     .chat-head-name {
-      font-family:'Outfit',sans-serif; font-size:0.62rem; font-weight:600;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.62rem; font-weight:600;
       letter-spacing:0.16em; text-transform:uppercase;
       color:rgba(224,247,250,0.68);
     }
     .chat-head-tag {
       margin-left:auto;
-      font-family:'Outfit',sans-serif; font-size:0.52rem; font-weight:300;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.52rem; font-weight:400;
       letter-spacing:0.1em; color:rgba(224,247,250,0.22);
     }
 
@@ -501,7 +501,7 @@
       border-bottom:1px solid rgba(34,211,238,0.05);
     }
     .sug {
-      font-family:'Outfit',sans-serif; font-size:0.52rem; font-weight:500;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.52rem; font-weight:500;
       letter-spacing:0.1em; text-transform:uppercase;
       color:rgba(34,211,238,0.48); border:1px solid rgba(34,211,238,0.1);
       background:transparent; padding:0.27rem 0.7rem; cursor:pointer;
@@ -523,20 +523,20 @@
     .cmsg-ava {
       width:24px; height:24px; border-radius:50%; flex-shrink:0;
       display:flex; align-items:center; justify-content:center;
-      font-size:0.6rem; font-weight:600; font-family:'Outfit',sans-serif;
+      font-size:0.6rem; font-weight:600; font-family:'Manrope',system-ui,sans-serif;
     }
     .cmsg.bot .cmsg-ava { background:rgba(34,211,238,0.08); border:1px solid rgba(34,211,238,0.18); color:var(--cyan); }
     .cmsg.user .cmsg-ava { background:rgba(251,113,133,0.08); border:1px solid rgba(251,113,133,0.18); color:var(--coral); }
     .cmsg-bubble {
       max-width:84%; padding:0.65rem 0.9rem;
-      font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:300; line-height:1.65;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.78rem; font-weight:400; line-height:1.65;
     }
     .cmsg.bot .cmsg-bubble { background:rgba(8,20,45,0.9); border:1px solid rgba(34,211,238,0.09); color:rgba(224,247,250,0.76); }
     .cmsg.user .cmsg-bubble { background:rgba(251,113,133,0.07); border:1px solid rgba(251,113,133,0.14); color:rgba(224,247,250,0.88); }
 
     /* Typing */
     .typing-msg { display:flex; gap:0.6rem; align-items:flex-end; }
-    .typing-ava { width:24px; height:24px; border-radius:50%; flex-shrink:0; background:rgba(34,211,238,0.08); border:1px solid rgba(34,211,238,0.18); display:flex; align-items:center; justify-content:center; font-size:0.6rem; color:var(--cyan); font-family:'Outfit',sans-serif; font-weight:600; }
+    .typing-ava { width:24px; height:24px; border-radius:50%; flex-shrink:0; background:rgba(34,211,238,0.08); border:1px solid rgba(34,211,238,0.18); display:flex; align-items:center; justify-content:center; font-size:0.6rem; color:var(--cyan); font-family:'Manrope',system-ui,sans-serif; font-weight:600; }
     .typing-bubble { padding:0.65rem 0.9rem; background:rgba(8,20,45,0.9); border:1px solid rgba(34,211,238,0.09); display:flex; gap:4px; align-items:center; }
     .tdot { width:5px; height:5px; border-radius:50%; background:rgba(34,211,238,0.3); animation:td 1.1s ease-in-out infinite; }
     .tdot:nth-child(2){animation-delay:0.18s;} .tdot:nth-child(3){animation-delay:0.36s;}
@@ -549,7 +549,7 @@
     #chat-input {
       flex:1; background:transparent; border:none;
       padding:0.9rem 1.1rem;
-      font-family:'Outfit',sans-serif; font-size:0.8rem; font-weight:300;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.8rem; font-weight:400;
       color:rgba(224,247,250,0.85); outline:none;
     }
     #chat-input::placeholder { color:rgba(224,247,250,0.18); }
@@ -572,11 +572,11 @@
       display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2.5rem;
     }
     .rising-label {
-      font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 600;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.6rem; font-weight: 600;
       letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,107,157,0.6);
     }
     .rising-title {
-      font-family: 'Cinzel', serif; font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-family: 'Cormorant Garamond',Georgia,serif; font-size: clamp(1.1rem, 2vw, 1.5rem);
       font-weight: 600; color: rgba(224,247,250,0.85); letter-spacing: 0.05em;
     }
     .rising-grid {
@@ -605,11 +605,11 @@
     }
     .rt-card-flag { margin-bottom: 0.3rem; }
     .rt-card-name {
-      font-family: 'Cinzel', serif; font-size: 0.72rem; font-weight: 600;
+      font-family: 'Cormorant Garamond',Georgia,serif; font-size: 0.72rem; font-weight: 600;
       color: rgba(224,247,250,0.92); letter-spacing: 0.05em; line-height: 1.3;
     }
     .rt-card-tag {
-      font-family: 'Outfit', sans-serif; font-size: 0.55rem; font-weight: 500;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.55rem; font-weight: 500;
       letter-spacing: 0.12em; text-transform: uppercase;
       color: rgba(34,211,238,0.6); margin-top: 0.2rem;
     }
@@ -624,16 +624,16 @@
     .footer-brand img { max-width:160px;width:auto;align-self:flex-start;mix-blend-mode:screen;opacity:0.85; }
     .footer-tagline { font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:rgba(224,247,250,0.35);line-height:1.6;max-width:220px; }
     .footer-nav-col { display:flex;flex-direction:column;gap:1.2rem; }
-    .footer-nav-heading { font-family:'Outfit',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(34,211,238,0.5);margin-bottom:0.3rem; }
+    .footer-nav-heading { font-family:'Manrope',system-ui,sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(34,211,238,0.5);margin-bottom:0.3rem; }
     .footer-links { display:flex;flex-direction:column;gap:0.75rem; }
-    .footer-link { font-family:'Outfit',sans-serif;font-size:0.72rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:rgba(224,247,250,0.35);text-decoration:none;transition:color 0.2s; }
+    .footer-link { font-family:'Manrope',system-ui,sans-serif;font-size:0.72rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:rgba(224,247,250,0.35);text-decoration:none;transition:color 0.2s; }
     .footer-link:hover { color:var(--cyan); }
     .footer-partner-col { display:flex;flex-direction:column;gap:0.6rem; }
     .footer-partner-name { font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:rgba(224,247,250,0.6); }
     .footer-partner-credits { list-style:none;padding:0;margin:0.2rem 0 0;display:flex;flex-direction:column;gap:0.35rem; }
-    .footer-partner-credits li { font-family:'Outfit',sans-serif;font-size:0.57rem;color:rgba(224,247,250,0.27);letter-spacing:0.04em;line-height:1.5; }
+    .footer-partner-credits li { font-family:'Manrope',system-ui,sans-serif;font-size:0.57rem;color:rgba(224,247,250,0.27);letter-spacing:0.04em;line-height:1.5; }
     .footer-contact-col { display:flex;flex-direction:column;gap:1rem;text-align:right; }
-    .footer-contact-label { font-family:'Outfit',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(34,211,238,0.5); }
+    .footer-contact-label { font-family:'Manrope',system-ui,sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(34,211,238,0.5); }
     .footer-contact-email { font-family:'Cormorant Garamond',serif;font-size:1rem;color:rgba(224,247,250,0.5);text-decoration:none;transition:color 0.2s; }
     .footer-contact-email:hover { color:var(--cyan); }
     .footer-social { display:flex;gap:1rem;justify-content:flex-end;margin-top:0.5rem; }
@@ -641,9 +641,9 @@
     .footer-social-link:hover { border-color:var(--cyan);color:var(--cyan); }
     .footer-divider { width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(34,211,238,0.12),transparent);margin-bottom:2rem; }
     .footer-bottom { display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem; }
-    .footer-copy { font-family:'Outfit',sans-serif;font-size:0.6rem;font-weight:300;letter-spacing:0.12em;text-transform:uppercase;color:rgba(224,247,250,0.18); }
+    .footer-copy { font-family:'Manrope',system-ui,sans-serif;font-size:0.6rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:rgba(224,247,250,0.18); }
     .footer-legal { display:flex;gap:1.5rem; }
-    .footer-legal-link { font-family:'Outfit',sans-serif;font-size:0.6rem;font-weight:300;letter-spacing:0.1em;text-transform:uppercase;color:rgba(224,247,250,0.15);text-decoration:none;transition:color 0.2s; }
+    .footer-legal-link { font-family:'Manrope',system-ui,sans-serif;font-size:0.6rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:rgba(224,247,250,0.15);text-decoration:none;transition:color 0.2s; }
     .footer-legal-link:hover { color:rgba(224,247,250,0.4); }
     @media(max-width:768px) { .footer-top{grid-template-columns:1fr;} .footer-contact-col{text-align:left;} .footer-social{justify-content:flex-start;} .footer-bottom{flex-direction:column;align-items:flex-start;} .footer-brand img{max-width:160px!important;} }
   </style>
@@ -661,7 +661,7 @@
 
   <nav id="navbar">
     <a href="index.html">
-      <img src="brand/logo/sirena-horizontal-white.png" alt="Sirena Asia" class="nav-logo" />
+      <img src="brand/logo/sirena-s-white.png" alt="Sirena Asia" class="nav-logo" />
     </a>
     <div id="nav-links">
       <a href="performers.html" class="nav-link active">Performers</a>
@@ -785,9 +785,9 @@
 
   <!-- ═══ GET IN TOUCH ═══ -->
   <section style="text-align:center;padding:5rem 2rem;background:var(--navy-deep);">
-    <p style="color:rgba(255,107,157,0.7);font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:1rem;">Contact</p>
-    <h2 style="font-family:'Cinzel',serif;color:#e8f4f8;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;margin-bottom:1.8rem;">Get in Touch</h2>
-    <a href="contact.html" style="display:inline-block;padding:0.9rem 2.8rem;background:transparent;border:1px solid rgba(255,107,157,0.4);color:#ff6b9d;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.12em;text-decoration:none;" onmouseover="this.style.borderColor='rgba(255,107,157,0.8)'" onmouseout="this.style.borderColor='rgba(255,107,157,0.4)'">Summon a Sirena &rarr;</a>
+    <p style="color:rgba(255,107,157,0.7);font-family:'Cormorant Garamond',Georgia,serif;font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:1rem;">Contact</p>
+    <h2 style="font-family:'Cormorant Garamond',Georgia,serif;color:#e8f4f8;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;margin-bottom:1.8rem;">Get in Touch</h2>
+    <a href="contact.html" style="display:inline-block;padding:0.9rem 2.8rem;background:transparent;border:1px solid rgba(255,107,157,0.4);color:#ff6b9d;font-family:'Cormorant Garamond',Georgia,serif;font-size:0.72rem;letter-spacing:0.12em;text-decoration:none;" onmouseover="this.style.borderColor='rgba(255,107,157,0.8)'" onmouseout="this.style.borderColor='rgba(255,107,157,0.4)'">Summon a Sirena &rarr;</a>
   </section>
 
   <!-- ═══ RISING TIDES ═══ -->
@@ -888,12 +888,12 @@
       slug: 'fan', num: '01', name: 'Mermaid Fan', flag: 'tw',
       bio: '<b>Competition &amp; Experience</b><br>· Team Silver Medalist, Asia Cup (2024)<br>· Medalist, Taiwan Open (Taiwan, 2025)<br>· Medalist, MFI Korea Open (South Korea, 2025)<br>· International Mermaid Performer, India (2025)<br><br><b>Specializations &amp; Certifications</b><br>· Mermaid Instructor, MFI (Mersoul Taiwan)<br>· Freediving Instructor, AIDA<br>· Advanced underwater performance training and technical conditioning<br><br><b>Network &amp; Reach</b><br>· Instagram: 11.5K+ Followers',
       skills: ['Asia Cup Silver 2024', 'MFI Instructor', 'AIDA Freediving', '11.5K Instagram'],
-      img: 'media/performers/fan/photo1.jpg',
+      img: 'media/performers/fan/hero.jpg',
       media: [
         { type: 'photo', src: 'media/performers/fan/photo1.jpg' },
         { type: 'photo', src: 'media/performers/fan/photo2.jpg' },
         { type: 'photo', src: 'media/performers/fan/photo3.jpg' },
-        { type: 'photo', src: 'media/performers/fan/photo4.jpg' },
+        { type: 'photo', src: 'media/performers/fan/hero.jpg' },
         { type: 'photo', src: 'media/performers/fan/photo5.jpg' },
         { type: 'photo', src: 'media/performers/fan/photo6.jpg' },
         { type: 'video', src: 'media/performers/fan/reel1.mp4' },
@@ -904,7 +904,7 @@
       slug: 'ying', num: '02', name: 'Mermaid Ying', flag: 'tw',
       bio: '<b>Competition &amp; Experience</b><br>· International aquatic athlete with competition background<br>· Team Medalist, MFI Korea Open (South Korea, 2025)<br>· Performer in cinematic aquarium productions<br>· International Mermaid Performer, India (2025)<br><br><b>Specializations &amp; Certifications</b><br>· PADI Mermaid Instructor<br>· Technical aquatic movement and control<br>· Talent coordination within international aquatic networks<br><br><b>Network &amp; Reach</b><br>· Instagram: 6.9K+ Followers',
       skills: ['Korea Open Medalist 2025', 'PADI Mermaid Instructor', 'Talent Coordinator', '6.9K Instagram'],
-      img: 'media/performers/ying/photo1.jpg',
+      img: 'media/performers/ying/photo3.jpg',
       media: [
         { type: 'photo', src: 'media/performers/ying/photo1.jpg' },
         { type: 'photo', src: 'media/performers/ying/photo2.jpg' },
@@ -928,7 +928,7 @@
       slug: 'chen', num: '04', name: 'Mermaid Chen', flag: 'tw',
       bio: '<b>Competition &amp; Experience</b><br>· Former Professional Mermaid, Farglory Ocean Park<br>· Widely recognized as "Princess of Atlantis" on TikTok<br>· TikTok Live performer with a strong presence in the aquatic community<br>· Specialist in commercial underwater and lifestyle photography<br>· Bronze Medalist, MFI Korea Open (South Korea, 2025)<br>· Team Silver Medalist, Taiwan Mermaid Competition (Taiwan, 2024)<br>· Silver Medalist, Hong Kong Mermaid Competition (Hong Kong, 2025)<br>· Team Champion, Hong Kong Mermaid Competition (Hong Kong, 2025)<br>· International Mermaid Performer, India (2025)<br><br><b>Specializations &amp; Certifications</b><br>· Master Mermaid Instructor, MFI MMI<br>· Junior Mermaid Instructor, MFI JMI<br>· Cinematic aquatic production and creative direction<br><br><b>Network &amp; Reach</b><br>· TikTok: 130K+ Followers<br>· Instagram: 16.6K+ Followers',
       skills: ['Master Mermaid Instructor', 'TikTok 130K', 'Instagram 16.6K', 'Korea Open Bronze 2025'],
-      img: 'media/performers/chen/photo1.jpg',
+      img: 'media/performers/chen/photo4.jpg',
       media: [
         { type: 'photo', src: 'media/performers/chen/photo1.jpg' },
         { type: 'photo', src: 'media/performers/chen/photo2.jpg' },
@@ -943,7 +943,7 @@
       slug: 'ronnie', num: '05', name: 'Mermaid Ronnie', flag: 'tw',
       bio: '<b>Competition &amp; Experience</b><br>· Silver Medalist, Taiwan Mermaid Competition (Taiwan, 2024)<br>· Silver Medalist, Asia Cup (2024)<br>· Mermaid Instructor, MFI<br>· Atlantis New Year Show (2024)<br>· Divecube, Aqua Festival (2024)<br>· Divecube, Mermaid Carnival (2025)<br>· International Mermaid Performer, India (2025)',
       skills: ['Asia Cup Silver 2024', 'Taiwan Comp Silver 2024', 'MFI Instructor', 'India 2025'],
-      img: 'media/performers/ronnie/photo1.jpg',
+      img: 'media/performers/ronnie/photo3.jpg',
       media: [
         { type: 'photo', src: 'media/performers/ronnie/photo1.jpg' },
         { type: 'photo', src: 'media/performers/ronnie/photo2.jpg' },
@@ -968,10 +968,10 @@
       slug: 'kita', num: '07', name: 'Mermaid Kita', flag: 'tw',
       bio: '<b>Competition &amp; Experience</b><br>· Former Professional Mermaid, Farglory Ocean Park<br>· Rookie Champion, Taiwan Freediving Competition (Taiwan, 2024)<br>· Silver Medalist, Taiwan Cup Freediving CWTB (Taiwan, 2026)<br>· International Mermaid Performer, India (2025)<br><br><b>Specializations &amp; Certifications</b><br>· Mermaid Instructor, MFI (Be Fish)<br>· Freediving Instructor, AIDA<br>· Lead educator for specialized aquatic training<br>· Advanced depth freediving and performance execution<br><br><b>Network &amp; Reach</b><br>· Instagram: 74K+ Followers',
       skills: ['CWTB Silver 2026', 'Freediving Instructor AIDA', 'MFI Instructor', '74K Instagram'],
-      img: 'media/performers/kita/photo1.jpg',
+      img: 'media/performers/kita/hero.jpg',
       media: [
         { type: 'photo', src: 'media/performers/kita/photo1.jpg' },
-        { type: 'photo', src: 'media/performers/kita/photo2.jpg' },
+        { type: 'photo', src: 'media/performers/kita/hero.jpg' },
         { type: 'photo', src: 'media/performers/kita/photo3.jpg' },
         { type: 'photo', src: 'media/performers/kita/photo4.jpg' },
       ],

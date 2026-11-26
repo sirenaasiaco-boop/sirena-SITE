@@ -96,8 +96,8 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,400&family=Outfit:wght@300;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,400&family=Outfit:wght@300;500&display=swap" rel="stylesheet" /></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <noscript></noscript>
 
   <style>
     :root {
@@ -112,7 +112,7 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { width: 100%; overflow-x: hidden; }
-    body { background: var(--navy-deep); color: var(--mist); font-family: 'Outfit', sans-serif; }
+    body { background: var(--navy-deep); color: var(--mist); font-family: 'Manrope',system-ui,sans-serif; }
 
     /* Subtle noise grain — lighter touch */
     body::before {
@@ -142,18 +142,18 @@
       -webkit-backdrop-filter: blur(20px);
       box-shadow: 0 1px 0 rgba(34,211,238,0.08);
     }
-    .nav-logo { height:40px;width:auto;object-fit:contain;filter:drop-shadow(0 0 14px rgba(79,216,235,0.35));transition:filter 0.3s ease; } .nav-logo:hover { filter:drop-shadow(0 0 20px rgba(79,216,235,0.6)); }
+    .nav-logo { height:52px;width:auto;object-fit:contain;filter:drop-shadow(0 0 14px rgba(79,216,235,0.35));transition:filter 0.3s ease; } .nav-logo:hover { filter:drop-shadow(0 0 20px rgba(79,216,235,0.6)); }
     .nav-link {
-      font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 500;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.72rem; font-weight: 500;
       letter-spacing: 0.1em; text-transform: uppercase;
       color: rgba(224,247,250,0.55); text-decoration: none;
       transition: color 0.2s ease;
     }
     .nav-link:hover { color: var(--cyan-glow); }
     .btn-book {
-      font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 600;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.72rem; font-weight: 600;
       letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 0.6rem 1.6rem; background: var(--coral); color: #fff;
+      padding: 0.6rem 1.6rem; background: var(--coral); color:#06121d;
       border: none; cursor: pointer; text-decoration: none;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       box-shadow: 0 4px 20px rgba(251,113,133,0.35);
@@ -171,7 +171,7 @@
     }
     #mobile-menu.open { display: flex; }
     .mob-link {
-      font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 700;
+      font-family: 'Cormorant Garamond',Georgia,serif; font-size: 2rem; font-weight: 700;
       letter-spacing: -0.01em;
       color: rgba(224,247,250,0.85); text-decoration: none; transition: color 0.2s ease;
     }
@@ -405,16 +405,16 @@
        SHARED SECTION ELEMENTS
     ════════════════════════════════════════ */
     .sec-label {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Manrope',system-ui,sans-serif;
       font-size: 0.65rem; font-weight: 500;
       letter-spacing: 0.28em; text-transform: uppercase;
       color: var(--cyan); opacity: 0.75;
       margin-bottom: 1.2rem;
     }
     .sec-heading {
-      font-family: 'Fraunces', serif;
+      font-family: 'Cormorant Garamond',Georgia,serif;
       font-size: clamp(2.8rem, 6vw, 5rem);
-      font-weight: 900;
+      font-weight:700;
       line-height: 0.95;
       letter-spacing: -0.03em;
       color: #fff;
@@ -425,8 +425,8 @@
       text-shadow: 0 0 60px rgba(34,211,238,0.3);
     }
     .sec-body {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 300;
+      font-family: 'Manrope',system-ui,sans-serif;
+      font-weight:400;
       font-size: clamp(1rem, 1.8vw, 1.25rem);
       line-height: 1.8;
       color: rgba(224,247,250,0.55);
@@ -532,17 +532,17 @@
       background: linear-gradient(0deg, rgba(0,8,20,0.97) 0%, rgba(0,13,38,0.6) 55%, transparent 100%);
     }
     .elite-num {
-      font-family: 'Outfit', sans-serif; font-size: 0.58rem; font-weight: 500;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.58rem; font-weight: 500;
       letter-spacing: 0.24em; text-transform: uppercase;
       color: rgba(34,211,238,0.5); margin-bottom: 0.3rem;
     }
     .elite-name {
-      font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 700;
+      font-family: 'Cormorant Garamond',Georgia,serif; font-size: 1.25rem; font-weight: 700;
       color: #fff; letter-spacing: -0.01em;
     }
     .elite-title {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 300; font-size: 0.88rem;
+      font-family: 'Manrope',system-ui,sans-serif;
+      font-weight:400; font-size: 0.88rem;
       color: rgba(34,211,238,0.6); margin-top: 0.2rem;
     }
 
@@ -566,13 +566,13 @@
       padding: 4rem clamp(1.5rem, 5vw, 5rem) 6rem;
     }
     .rising-label {
-      font-family: 'Outfit', sans-serif; font-size: 0.62rem; font-weight: 500;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.62rem; font-weight: 500;
       letter-spacing: 0.28em; text-transform: uppercase;
       color: var(--coral); opacity: 0.8; margin-bottom: 0.8rem;
     }
     .rising-heading {
-      font-family: 'Fraunces', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900;
+      font-family: 'Cormorant Garamond',Georgia,serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight:700;
       color: #fff; margin-bottom: 0.6rem; letter-spacing: -0.02em;
     }
     .rising-heading em {
@@ -580,12 +580,12 @@
       text-shadow: 0 0 60px rgba(34,211,238,0.3);
     }
     .rising-sub {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 300; font-size: 1rem;
+      font-family: 'Manrope',system-ui,sans-serif;
+      font-weight:400; font-size: 1rem;
       color: rgba(224,247,250,0.4); margin-bottom: 2rem;
     }
     .see-all-link {
-      font-family: 'Outfit', sans-serif; font-size: 0.7rem; font-weight: 500;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.7rem; font-weight: 500;
       letter-spacing: 0.16em; text-transform: uppercase;
       color: var(--cyan); text-decoration: none;
       border-bottom: 1px solid rgba(0,188,212,0.3);
@@ -650,13 +650,13 @@
       font-size: 1rem; color: var(--cyan);
     }
     .offer-title {
-      font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 600;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.8rem; font-weight: 600;
       letter-spacing: 0.1em; text-transform: uppercase;
       color: #fff; margin-bottom: 0.3rem;
     }
     .offer-desc {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 300; font-size: 0.95rem;
+      font-family: 'Manrope',system-ui,sans-serif;
+      font-weight:400; font-size: 0.95rem;
       color: rgba(224,247,250,0.45); line-height: 1.7;
     }
 
@@ -722,7 +722,7 @@
       position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
       padding: 2.5rem 0.8rem 0.7rem;
       background: linear-gradient(0deg, rgba(0,5,18,0.92), transparent);
-      font-family: 'Outfit', sans-serif; font-size: 0.5rem; font-weight: 600;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.5rem; font-weight: 600;
       letter-spacing: 0.24em; text-transform: uppercase;
       color: rgba(224,244,248,0.75);
       opacity: 0; transform: translateY(5px);
@@ -745,7 +745,7 @@
       padding: 0 0 clamp(4rem, 8vw, 7rem);
     }
     .btn-outline {
-      font-family: 'Outfit', sans-serif; font-size: 0.7rem; font-weight: 500;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.7rem; font-weight: 500;
       letter-spacing: 0.14em; text-transform: uppercase;
       padding: 0.9rem 2.6rem;
       border: 1px solid rgba(34,211,238,0.25);
@@ -781,15 +781,15 @@
       margin-bottom:1.4rem; letter-spacing:0.02em;
     }
     .comm-heading {
-      font-family:'Fraunces',serif;
+      font-family:'Cormorant Garamond',Georgia,serif;
       font-size:clamp(2.8rem,5.5vw,4.8rem);
-      font-weight:900; line-height:0.92; letter-spacing:-0.03em;
+      font-weight:700; line-height:0.92; letter-spacing:-0.03em;
       color:#fff; margin-bottom:1.4rem;
     }
     .comm-heading em { font-style:italic; color:var(--coral); }
     .comm-body {
-      font-family:'Outfit',sans-serif; font-size:clamp(0.9rem,1.5vw,1rem);
-      font-weight:300; line-height:1.82; color:rgba(224,247,250,0.45);
+      font-family:'Manrope',system-ui,sans-serif; font-size:clamp(0.9rem,1.5vw,1rem);
+      font-weight:400; line-height:1.82; color:rgba(224,247,250,0.45);
       max-width:420px; margin-bottom:2.8rem;
     }
     .comm-pillars { display:flex; flex-direction:column; gap:1.8rem; margin-bottom:2.8rem; }
@@ -800,12 +800,12 @@
       height:44px;
     }
     .comm-pillar-title {
-      font-family:'Outfit',sans-serif; font-size:0.72rem; font-weight:600;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.72rem; font-weight:600;
       letter-spacing:0.14em; text-transform:uppercase;
       color:rgba(255,107,157,0.8); margin-bottom:0.3rem;
     }
     .comm-pillar-desc {
-      font-family:'Outfit',sans-serif; font-size:0.82rem; font-weight:300;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.82rem; font-weight:400;
       line-height:1.65; color:rgba(224,247,250,0.42);
     }
     .comm-right { position:relative; }
@@ -816,16 +816,17 @@
       overflow:hidden; aspect-ratio:3/4;
     }
     .comm-img:first-child { grid-column:1/-1; aspect-ratio:16/9; }
+    .comm-img { border-radius:14px; box-shadow:0 8px 32px rgba(0,13,38,0.6); }
     .comm-img img {
       width:100%; height:100%; object-fit:cover; display:block;
-      filter:saturate(0.8) brightness(0.75);
+      filter:saturate(0.95) brightness(0.88);
       transition:filter 0.4s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1);
     }
-    .comm-img:hover img { filter:saturate(1) brightness(0.9); transform:scale(1.04); }
+    .comm-img:hover img { filter:saturate(1.05) brightness(1); transform:scale(1.04); }
     .comm-badge {
       position:absolute; bottom:-1rem; left:-1rem;
-      background:var(--coral); color:#fff;
-      font-family:'Outfit',sans-serif; font-size:0.58rem; font-weight:700;
+      background:var(--coral); color:#06121d;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.58rem; font-weight:700;
       letter-spacing:0.18em; text-transform:uppercase;
       padding:0.7rem 1.2rem;
       box-shadow:0 8px 32px rgba(255,107,157,0.4);
@@ -836,22 +837,22 @@
       margin-bottom: 2.8rem;
     }
     .comm-cert-label {
-      font-family:'Outfit',sans-serif; font-size:0.58rem; font-weight:700;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.58rem; font-weight:700;
       letter-spacing:0.22em; text-transform:uppercase;
       color:var(--cyan); margin-bottom:0.5rem;
     }
     .comm-cert-title {
-      font-family:'Fraunces',serif; font-size:1.25rem; font-weight:700;
+      font-family:'Cormorant Garamond',Georgia,serif; font-size:1.25rem; font-weight:700;
       color:#fff; letter-spacing:-0.01em; margin-bottom:0.55rem;
     }
     .comm-cert-desc {
-      font-family:'Outfit',sans-serif; font-size:0.82rem; font-weight:300;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.82rem; font-weight:400;
       line-height:1.7; color:rgba(224,247,250,0.45); margin-bottom:1rem;
       max-width:380px;
     }
     .btn-cert {
       display:inline-block;
-      font-family:'Outfit',sans-serif; font-size:0.65rem; font-weight:600;
+      font-family:'Manrope',system-ui,sans-serif; font-size:0.65rem; font-weight:600;
       letter-spacing:0.16em; text-transform:uppercase;
       color:var(--cyan); text-decoration:none;
       border:1px solid rgba(0,188,212,0.3); padding:0.65rem 1.4rem;
@@ -894,20 +895,20 @@
         rgba(0,188,212,0.07) 0%, transparent 70%);
     }
     .contact-big {
-      font-family: 'Fraunces', serif;
-      font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 900;
+      font-family: 'Cormorant Garamond',Georgia,serif;
+      font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight:700;
       line-height: 0.92; letter-spacing: -0.04em;
       color: #fff; margin: 1rem 0 1.8rem;
     }
     .contact-big span { color: var(--coral); font-style: italic; }
     .contact-sub {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 300; font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+      font-family: 'Manrope',system-ui,sans-serif;
+      font-weight:400; font-size: clamp(0.9rem, 1.4vw, 1.1rem);
       color: rgba(224,247,250,0.45); margin-bottom: 2.5rem;
       line-height: 1.8;
     }
     .contact-info {
-      font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 400;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.72rem; font-weight: 400;
       letter-spacing: 0.12em; color: rgba(224,247,250,0.3);
       text-transform: uppercase; margin-top: 2rem;
     }
@@ -921,9 +922,9 @@
       .contact-text { text-align: center; }
     }
     .btn-coral {
-      font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 600;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.75rem; font-weight: 600;
       letter-spacing: 0.14em; text-transform: uppercase;
-      padding: 1.1rem 3rem; background: var(--coral); color: #fff;
+      padding: 1.1rem 3rem; background: var(--coral); color:#06121d;
       text-decoration: none; display: inline-block; border: none; cursor: pointer;
       box-shadow: 0 6px 30px rgba(251,113,133,0.38);
       transition: transform 0.2s, box-shadow 0.2s;
@@ -934,7 +935,7 @@
        005 / NEWS + SHOP
     ════════════════════════════════════════ */
 
-    #home-tales .ht-badge { position:absolute; top:0.8rem; left:0.8rem; z-index:2; font-family:'Outfit',sans-serif; font-size:0.58rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; padding:0.32rem 0.65rem; background:#f5c451; color:#3a2a05; }
+    #home-tales .ht-badge { position:absolute; top:0.8rem; left:0.8rem; z-index:2; font-family:'Manrope',system-ui,sans-serif; font-size:0.58rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; padding:0.32rem 0.65rem; background:#f5c451; color:#3a2a05; }
     #home-tales .ht-badge.t-Contest { background:#fb7185; color:#3d0a17; } #home-tales .ht-badge.t-Promo { background:#22d3ee; color:#032a33; }
     #home-tales .ht-badge.t-Event { background:#1e3a7a; color:#dbe7ff; } #home-tales .ht-badge.t-Announcement { background:#e0f7fa; color:#0d1f45; }
     #home-tales .event-diptych { position:relative; }
@@ -969,20 +970,20 @@
     }
     .news-item:hover { border-bottom-color: rgba(0,188,212,0.35); }
     .news-date {
-      font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 500;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.6rem; font-weight: 500;
       letter-spacing: 0.22em; text-transform: uppercase;
       color: rgba(224,247,250,0.28);
     }
     .news-title {
-      font-family: 'Fraunces', serif; font-size: 1rem;
+      font-family: 'Cormorant Garamond',Georgia,serif; font-size: 1rem;
       font-weight: 700; letter-spacing: -0.01em;
       color: rgba(224,247,250,0.78);
       transition: color 0.2s;
     }
     .news-item:hover .news-title { color: #fff; }
     .news-excerpt {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 300; font-size: 0.9rem;
+      font-family: 'Manrope',system-ui,sans-serif;
+      font-weight:400; font-size: 0.9rem;
       color: rgba(224,247,250,0.35); line-height: 1.65;
     }
     /* Featured event block */
@@ -991,10 +992,10 @@
     .event-diptych img { width:100%; height:100%; display:block; object-fit:cover; transition:transform 0.5s ease, filter 0.4s ease; filter:brightness(0.88) saturate(0.9); }
     .event-feature:hover .event-diptych img { filter:brightness(1) saturate(1.05); transform:scale(1.02); }
     .event-caption { margin-top:1.1rem; display:flex; flex-direction:column; gap:0.35rem; }
-    .event-caption .news-date { font-family:'Outfit',sans-serif; font-size:0.6rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:rgba(224,247,250,0.28); }
-    .event-caption .news-title { font-family:'Fraunces',serif; font-size:1.05rem; font-weight:700; color:rgba(224,247,250,0.85); transition:color 0.2s; }
+    .event-caption .news-date { font-family:'Manrope',system-ui,sans-serif; font-size:0.6rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:rgba(224,247,250,0.28); }
+    .event-caption .news-title { font-family:'Cormorant Garamond',Georgia,serif; font-size:1.05rem; font-weight:700; color:rgba(224,247,250,0.85); transition:color 0.2s; }
     .event-feature:hover .event-caption .news-title { color:#fff; }
-    .event-caption .news-excerpt { font-family:'Outfit',sans-serif; font-weight:300; font-size:0.88rem; color:rgba(224,247,250,0.38); line-height:1.65; }
+    .event-caption .news-excerpt { font-family:'Manrope',system-ui,sans-serif; font-weight:400; font-size:0.88rem; color:rgba(224,247,250,0.38); line-height:1.65; }
 
 
 
@@ -1019,11 +1020,11 @@
       background: rgba(0,13,38,0.4);
     }
     .shop-item-name {
-      font-family: 'Fraunces', serif; font-size: 1rem;
+      font-family: 'Cormorant Garamond',Georgia,serif; font-size: 1rem;
       font-weight: 600; letter-spacing: 0.06em; color: #fff;
     }
     .shop-item-price {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Manrope',system-ui,sans-serif;
       font-style: italic; font-size: 1.1rem;
       color: var(--coral);
     }
@@ -1036,7 +1037,7 @@
       margin-top: 1.8rem;
     }
     .s-text {
-      font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 600;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.65rem; font-weight: 600;
       letter-spacing: 0.4em; text-transform: uppercase; color: rgba(255,255,255,0.85);
       text-shadow: 0 0 18px rgba(255,255,255,0.5), 0 0 40px rgba(255,255,255,0.2);
       transition: color 0.8s ease, text-shadow 0.8s ease;
@@ -1061,7 +1062,7 @@
       padding: 0; position: relative; z-index: 2; width: 100%;
     }
     .globe-label {
-      font-family: 'Outfit', sans-serif; font-size: 0.62rem; font-weight: 500;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.62rem; font-weight: 500;
       letter-spacing: 0.28em; text-transform: uppercase;
       color: var(--cyan); opacity: 0.65; margin-bottom: 1.2rem;
     }
@@ -1095,13 +1096,13 @@
     /* HUD labels */
     .tac-hud-top {
       position: absolute; top: 5px; left: 50%; transform: translateX(-50%);
-      font-family: 'Outfit', sans-serif; font-size: 0.38rem; font-weight: 700;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.38rem; font-weight: 700;
       letter-spacing: 0.28em; text-transform: uppercase;
       color: rgba(0,188,212,0.45); white-space: nowrap; z-index: 4; pointer-events: none;
     }
     .tac-hud-bot {
       position: absolute; bottom: 5px; right: 8px;
-      font-family: 'Outfit', sans-serif; font-size: 0.38rem; font-weight: 600;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.38rem; font-weight: 600;
       letter-spacing: 0.2em; text-transform: uppercase;
       color: rgba(0,188,212,0.35); z-index: 4; pointer-events: none;
     }
@@ -1172,7 +1173,7 @@
     /* Label */
     .tac-pin-label {
       position: absolute; top: 11px; left: 9px;
-      font-family: 'Outfit', sans-serif; font-size: 0.44rem; font-weight: 700;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.44rem; font-weight: 700;
       letter-spacing: 0.14em; text-transform: uppercase;
       color: rgba(255,255,255,0.9); white-space: nowrap;
       text-shadow: 0 1px 5px rgba(0,0,0,0.95);
@@ -1244,13 +1245,13 @@
     }
     .footer-nav-col { display: flex; flex-direction: column; gap: 1.2rem; }
     .footer-nav-heading {
-      font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 600;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.6rem; font-weight: 600;
       letter-spacing: 0.2em; text-transform: uppercase;
       color: rgba(34,211,238,0.5); margin-bottom: 0.3rem;
     }
     .footer-links { display: flex; flex-direction: column; gap: 0.75rem; }
     .footer-link {
-      font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 400;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.72rem; font-weight: 400;
       letter-spacing: 0.08em; text-transform: uppercase;
       color: rgba(224,247,250,0.35); text-decoration: none;
       transition: color 0.2s;
@@ -1259,10 +1260,10 @@
     .footer-partner-col { display: flex; flex-direction: column; gap: 0.6rem; }
     .footer-partner-name { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; color: rgba(224,247,250,0.6); }
     .footer-partner-credits { list-style: none; padding: 0; margin: 0.2rem 0 0; display: flex; flex-direction: column; gap: 0.35rem; }
-    .footer-partner-credits li { font-family: 'Outfit', sans-serif; font-size: 0.57rem; color: rgba(224,247,250,0.27); letter-spacing: 0.04em; line-height: 1.5; }
+    .footer-partner-credits li { font-family: 'Manrope',system-ui,sans-serif; font-size: 0.57rem; color: rgba(224,247,250,0.27); letter-spacing: 0.04em; line-height: 1.5; }
     .footer-contact-col { display: flex; flex-direction: column; gap: 1rem; text-align: right; }
     .footer-contact-label {
-      font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 600;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.6rem; font-weight: 600;
       letter-spacing: 0.2em; text-transform: uppercase;
       color: rgba(34,211,238,0.5);
     }
@@ -1291,13 +1292,13 @@
       flex-wrap: wrap; gap: 1rem;
     }
     .footer-copy {
-      font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 300;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.6rem; font-weight:400;
       letter-spacing: 0.12em; text-transform: uppercase;
       color: rgba(224,247,250,0.18);
     }
     .footer-legal { display: flex; gap: 1.5rem; }
     .footer-legal-link {
-      font-family: 'Outfit', sans-serif; font-size: 0.6rem; font-weight: 300;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.6rem; font-weight:400;
       letter-spacing: 0.1em; text-transform: uppercase;
       color: rgba(224,247,250,0.15); text-decoration: none;
       transition: color 0.2s;
@@ -1314,7 +1315,7 @@
        ENTER BUTTON (replaces Framer GlassyButton)
     ════════════════════════════════════════ */
     .enter-btn {
-      font-family: 'Outfit', sans-serif; font-size: 0.62rem; font-weight: 600;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.62rem; font-weight: 600;
       letter-spacing: 0.32em; text-transform: uppercase;
       color: rgba(224,247,250,0.82);
       background: rgba(0,18,50,0.45);
@@ -1342,7 +1343,7 @@
     }
     @media (prefers-reduced-motion: reduce) { .css-marquee-inner { animation: none; } }
     .css-marquee-inner span {
-      font-family: 'Cinzel', serif; font-size: clamp(0.7rem, 1.1vw, 0.9rem);
+      font-family: 'Cormorant Garamond',Georgia,serif; font-size: clamp(0.7rem, 1.1vw, 0.9rem);
       font-weight: 400; font-style: normal; letter-spacing: 0.38em; text-transform: uppercase;
       color: rgba(224,247,250,0.1); white-space: nowrap;
     }
@@ -1486,23 +1487,23 @@
       display: flex; flex-direction: column;
     }
     .modal-num {
-      font-family: 'Outfit', sans-serif; font-size: 0.55rem; font-weight: 500;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.55rem; font-weight: 500;
       letter-spacing: 0.3em; text-transform: uppercase;
       color: rgba(0,229,255,0.5); margin-bottom: 0.5rem;
     }
     .modal-name {
-      font-family: 'Fraunces', serif; font-size: clamp(1.6rem, 3vw, 2.4rem);
-      font-weight: 900; color: #fff; letter-spacing: -0.02em;
+      font-family: 'Cormorant Garamond',Georgia,serif; font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight:700; color: #fff; letter-spacing: -0.02em;
       line-height: 1.05; margin-bottom: 0.3rem;
     }
     .modal-bio {
-      font-family: 'Outfit', sans-serif; font-size: 0.88rem;
-      font-weight: 300; line-height: 1.7;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.88rem;
+      font-weight:400; line-height: 1.7;
       color: rgba(224,244,250,0.65); margin-bottom: 1.6rem; flex: 1;
     }
     .modal-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.8rem; }
     .modal-tag {
-      font-family: 'Outfit', sans-serif; font-size: 0.58rem;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.58rem;
       font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
       color: rgba(0,229,255,0.7);
       border: 1px solid rgba(0,229,255,0.2);
@@ -1510,7 +1511,7 @@
     }
     .modal-view-profile {
       align-self: flex-start;
-      font-family: 'Outfit', sans-serif; font-size: 0.62rem; font-weight: 600;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.62rem; font-weight: 600;
       letter-spacing: 0.2em; text-transform: uppercase;
       color: #000d26; background: var(--cyan);
       border: none; padding: 0.8rem 1.6rem; cursor: pointer;
@@ -1583,7 +1584,7 @@
     }
     .rv-hint {
       position: absolute; top: 0.5rem; right: 0.5rem; z-index: 4;
-      font-family: 'Outfit', sans-serif; font-size: 0.48rem;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.48rem;
       font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
       color: rgba(255,107,157,0.8); background: rgba(0,8,25,0.65);
       backdrop-filter: blur(4px); padding: 0.22rem 0.45rem;
@@ -1596,7 +1597,7 @@
     }
     .rv-flag { font-size: 1rem; display: block; margin-bottom: 0.2rem; }
     .rv-name {
-      font-family: 'Fraunces', serif; font-size: clamp(0.78rem, 2.2vw, 0.92rem);
+      font-family: 'Cormorant Garamond',Georgia,serif; font-size: clamp(0.78rem, 2.2vw, 0.92rem);
       font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 0.15rem;
     }
     .rv-title {
@@ -1610,7 +1611,7 @@
     .flip-card.playing .rv-title { opacity: 1; transform: translateY(0); }
     .rv-enquire {
       display: block; text-align: center;
-      font-family: 'Outfit', sans-serif; font-size: 0.52rem;
+      font-family: 'Manrope',system-ui,sans-serif; font-size: 0.52rem;
       font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--navy-deep); background: var(--cyan);
       padding: 0.45rem 0; text-decoration: none;
@@ -1801,7 +1802,7 @@
   ═══════════════════════════════════════════ -->
   <nav id="navbar">
     <a href="index.html">
-      <img src="brand/logo/sirena-horizontal-white.png" alt="Sirena Asia" class="nav-logo" />
+      <img src="brand/logo/sirena-s-white.png" alt="Sirena Asia" class="nav-logo" />
     </a>
     <div id="nav-links" style="display:flex;align-items:center;gap:2rem;">
       <a href="#s-collective" class="nav-link">Collective</a>
@@ -1883,7 +1884,7 @@
             <div class="c-spacer" id="c-spacer-l"></div>
 
             <div class="elite-card" data-id="fan">
-              <img src="media/performers/fan/photo1.jpg" alt="Mermaid Fan" loading="lazy" />
+              <img src="media/performers/fan/hero.jpg" alt="Mermaid Fan" loading="lazy" />
               <div class="elite-card-overlay">
                 
                 <p class="elite-name">Mermaid Fan</p>
@@ -1891,7 +1892,7 @@
             </div>
 
             <div class="elite-card" data-id="ying">
-              <img src="media/performers/ying/photo1.jpg" alt="Mermaid Ying" loading="lazy" />
+              <img src="media/performers/ying/photo3.jpg" alt="Mermaid Ying" loading="lazy" />
               <div class="elite-card-overlay">
                 
                 <p class="elite-name">Mermaid Ying</p>
@@ -1907,7 +1908,7 @@
             </div>
 
             <div class="elite-card" data-id="chen">
-              <img src="media/performers/chen/photo1.jpg" alt="Mermaid Chen" loading="lazy" />
+              <img src="media/performers/chen/photo4.jpg" alt="Mermaid Chen" loading="lazy" />
               <div class="elite-card-overlay">
                 
                 <p class="elite-name">Mermaid Chen</p>
@@ -1915,7 +1916,7 @@
             </div>
 
             <div class="elite-card" data-id="ronnie">
-              <img src="media/performers/ronnie/photo1.jpg" alt="Mermaid Ronnie" loading="lazy" />
+              <img src="media/performers/ronnie/photo3.jpg" alt="Mermaid Ronnie" loading="lazy" />
               <div class="elite-card-overlay">
                 
                 <p class="elite-name">Mermaid Ronnie</p>
@@ -1931,7 +1932,7 @@
             </div>
 
             <div class="elite-card" data-id="kita">
-              <img src="media/performers/kita/photo1.jpg" alt="Mermaid Kita" loading="lazy" />
+              <img src="media/performers/kita/hero.jpg" alt="Mermaid Kita" loading="lazy" />
               <div class="elite-card-overlay">
                 
                 <p class="elite-name">Mermaid Kita</p>
@@ -2216,13 +2217,19 @@
           <div class="comm-right rv d2">
             <div class="comm-imgs">
               <div class="comm-img">
-                <img src="media/gallery/photos/training/6.jpg" alt="Free mermaid training Bali" loading="lazy"/>
+                <img src="media/community/c1.jpg" alt="Free mermaid training underwater" loading="lazy"/>
               </div>
               <div class="comm-img">
-                <img src="media/gallery/photos/training/7.jpg" alt="Sirena community training" loading="lazy"/>
+                <img src="media/community/c2.jpg" alt="Snorkel and mermaid training session" loading="lazy"/>
               </div>
               <div class="comm-img">
-                <img src="media/gallery/photos/training/8.jpg" alt="Mermaid scholarship program" loading="lazy"/>
+                <img src="media/community/c3.jpg" alt="Sirena community training group" loading="lazy"/>
+              </div>
+              <div class="comm-img">
+                <img src="media/community/c4.jpg" alt="Practice day with the Sirena mermaids" loading="lazy"/>
+              </div>
+              <div class="comm-img">
+                <img src="media/community/c5.jpg" alt="Mermaids poolside after training" loading="lazy"/>
               </div>
             </div>
             <div class="comm-badge">Free · Open to all</div>
@@ -2664,11 +2671,11 @@
       fan:    { num:'01', name:'Mermaid Fan',    flag:'tw',
                 bio:'Team Silver Medalist at the Asia Cup (2024), with medals at the Taiwan Open and MFI Korea Open (2025). Mermaid and AIDA freediving instructor who performed internationally in India in 2025.',
                 tags:['Asia Cup Silver 2024','MFI Instructor','AIDA Freediving','11.5K Instagram'],
-                media:[{type:'photo',src:'media/performers/fan/photo1.jpg'},{type:'photo',src:'media/performers/fan/photo2.jpg'},{type:'photo',src:'media/performers/fan/photo3.jpg'}], contact:'Mermaid+Fan' },
+                media:[{type:'photo',src:'media/performers/fan/hero.jpg'},{type:'photo',src:'media/performers/fan/photo1.jpg'},{type:'photo',src:'media/performers/fan/photo2.jpg'},{type:'photo',src:'media/performers/fan/photo3.jpg'}], contact:'Mermaid+Fan' },
       ying:   { num:'02', name:'Mermaid Ying',   flag:'tw',
                 bio:'International aquatic athlete and Team Medalist at the MFI Korea Open (2025). PADI Mermaid Instructor, performer in cinematic aquarium productions, and talent coordinator within international aquatic networks.',
                 tags:['Korea Open Medalist 2025','PADI Mermaid Instructor','Talent Coordinator','6.9K Instagram'],
-                media:[{type:'photo',src:'media/performers/ying/photo1.jpg'},{type:'photo',src:'media/performers/ying/photo2.jpg'}], contact:'Mermaid+Ying' },
+                media:[{type:'photo',src:'media/performers/ying/photo3.jpg'},{type:'photo',src:'media/performers/ying/photo1.jpg'},{type:'photo',src:'media/performers/ying/photo2.jpg'}], contact:'Mermaid+Ying' },
       minmin: { num:'03', name:'Mermaid Minmin', flag:'tw',
                 bio:'Underwater dance artist specialising in choreography, flow and aquatic visual styling. Regional Lead Instructor for Southern Taiwan and Team Medalist at the MFI Korea Open (2025).',
                 tags:['Korea Open Medalist 2025','MFI Instructor','Regional Lead','100K Instagram'],
@@ -2676,11 +2683,11 @@
       chen:   { num:'04', name:'Mermaid Chen',   flag:'tw',
                 bio:'Master Mermaid Instructor and former professional mermaid at Farglory Ocean Park, known on TikTok as the "Princess of Atlantis". Team Champion and Silver Medalist at the Hong Kong Mermaid Competition (2025), and Bronze Medalist at the MFI Korea Open (2025).',
                 tags:['MFI Master Instructor','TikTok 130K','Instagram 16.6K','Korea Open Bronze'],
-                media:[{type:'photo',src:'media/performers/chen/photo1.jpg'},{type:'photo',src:'media/performers/chen/photo2.jpg'},{type:'photo',src:'media/performers/chen/photo3.jpeg'},{type:'photo',src:'media/performers/chen/photo4.jpg'},{type:'photo',src:'media/performers/chen/photo5.jpg'},{type:'photo',src:'media/performers/chen/photo6.jpg'}], contact:'Mermaid+Chen' },
+                media:[{type:'photo',src:'media/performers/chen/photo4.jpg'},{type:'photo',src:'media/performers/chen/photo1.jpg'},{type:'photo',src:'media/performers/chen/photo2.jpg'},{type:'photo',src:'media/performers/chen/photo3.jpeg'},{type:'photo',src:'media/performers/chen/photo5.jpg'},{type:'photo',src:'media/performers/chen/photo6.jpg'}], contact:'Mermaid+Chen' },
       ronnie: { num:'05', name:'Mermaid Ronnie', flag:'tw',
                 bio:'Silver Medalist at both the Taiwan Mermaid Competition and the Asia Cup (2024). Show experience includes the Atlantis New Year Show, Divecube Aqua Festival and Divecube Mermaid Carnival.',
                 tags:['Asia Cup Silver 2024','Taiwan Comp Silver 2024','MFI Instructor','India 2025'],
-                media:[{type:'photo',src:'media/performers/ronnie/photo1.jpg'},{type:'photo',src:'media/performers/ronnie/photo2.jpg'},{type:'photo',src:'media/performers/ronnie/photo3.jpg'},{type:'photo',src:'media/performers/ronnie/photo4.jpg'}], contact:'Mermaid+Ronnie' },
+                media:[{type:'photo',src:'media/performers/ronnie/photo3.jpg'},{type:'photo',src:'media/performers/ronnie/photo1.jpg'},{type:'photo',src:'media/performers/ronnie/photo2.jpg'},{type:'photo',src:'media/performers/ronnie/photo4.jpg'}], contact:'Mermaid+Ronnie' },
       sporti: { num:'06', name:'Mermaid SporTi', flag:'',
                 bio:'1st Runner-up at the IUPC 2026 Muse Mermaid Competition and 6th in the International Category at the CMAS Mermaids World Cup. PADI Mermaid Instructor, PADI Underwater Dance Instructor, AIDA3 freediver, rescue diver and certified lifeguard.',
                 tags:['IUPC 2026 1st Runner-up','PADI Mermaid Instructor','PADI Underwater Dance','AIDA3 Freediver'],
@@ -2688,7 +2695,7 @@
       kita:   { num:'07', name:'Mermaid Kita',   flag:'tw',
                 bio:'Former professional mermaid at Farglory Ocean Park and freediving athlete: Rookie Champion at the Taiwan Freediving Competition (2024) and Silver Medalist at the Taiwan Cup Freediving CWTB (2026). Mermaid and AIDA freediving instructor.',
                 tags:['CWTB Silver 2026','AIDA Freediving Instructor','MFI Instructor','74K Instagram'],
-                media:[{type:'photo',src:'media/performers/kita/photo1.jpg'},{type:'photo',src:'media/performers/kita/photo2.jpg'},{type:'photo',src:'media/performers/kita/photo3.jpg'},{type:'photo',src:'media/performers/kita/photo4.jpg'}], contact:'Mermaid+Kita' },
+                media:[{type:'photo',src:'media/performers/kita/hero.jpg'},{type:'photo',src:'media/performers/kita/photo1.jpg'},{type:'photo',src:'media/performers/kita/photo3.jpg'},{type:'photo',src:'media/performers/kita/photo4.jpg'}], contact:'Mermaid+Kita' },
     };
 
     // Profile modal — click ANY card (non-active ones center first, then open)
