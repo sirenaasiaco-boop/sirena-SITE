@@ -34,9 +34,10 @@ Sirena Asia speaks with quiet confidence — luxurious but not cold, fantastical
 2. Mermaid Ying
 3. Mermaid Minmin
 4. Mermaid Chen
-5. Mermaid Ronnie
-6. Mermaid SporTi
-7. Mermaid Kita
+5. Mermaid Kita
+6. Mermaid Ronnie
+7. Mermaid SporTi
+8. Mermaid Linda
 
 ## Pages
 - Home: index.html

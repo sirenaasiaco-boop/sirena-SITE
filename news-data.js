@@ -65,8 +65,8 @@ window.NEWS = [
     type: 'Win',
     date: '2026-03',
     featured: false,
-    title: 'Chen Takes Bronze at the 2026 Korea International Mermaid Open',
-    excerpt: 'Sirena Elite Chen placed third at the 2026 Korea International Mermaid Open with her "Night Shanghai" routine.',
+    title: 'The Mermaid Who Can\'t Swim Takes Bronze in Korea',
+    excerpt: 'She calls herself the mermaid who can\'t swim. Chen placed third in Women\'s Solo at the 2026 Korea International Mermaid Open with her "Night Shanghai" routine.',
     body: [
       'Mermaid Chen finished third at the 2026 Korea International Mermaid Open, bringing home bronze with a routine inspired by the glamour of old Shanghai nights.',
       'Chen trains in Hualien, on Taiwan\'s east coast, where she says resources are scarce and preparing for international competition is hard and costly. She thanked everyone behind her for letting her give it everything without worry.',
@@ -78,18 +78,20 @@ window.NEWS = [
   },
 
   {
-    slug: 'kita-cmas-mermaid-world-cup-2026-silver',
+    slug: 'kita-2026-the-year-nobody-saw-coming',
     type: 'Win',
     date: '2026-08-30',
     featured: true,
-    title: 'Kita Takes Silver at the First CMAS Mermaid World Cup',
-    excerpt: 'Representing Taiwan in her first world competition, Kita finished Women\'s All-Around Runner-up at the inaugural CMAS Mermaid World Cup in Hainan, China.',
+    title: 'The Year Nobody Saw Coming: Kita\'s 2026, From Champion to World No. 2',
+    excerpt: 'A champion in May, bronze in Hangzhou in July, silver at the first CMAS Mermaid World Cup in August. Two years after her first mermaid class, Kita is second in the world.',
     body: [
-      '"I wanted to prove the version of me nobody believed in." Kita learned mermaid in May 2024, with no dance background, and makes her own choreography, music, costumes, props and makeup.',
-      'Mermaid Kita is now second in the world. At the First World Underwater Federation (CMAS) Mermaid World Cup and 2026 China Mermaid Open in Lingshui, Hainan, she finished Women\'s All-Around Runner-up, taking home silver and a ¥12,000 prize.',
-      'The field brought together athletes from 12 countries and hundreds of competitors, split into skill and performance events. Kita reached the final in both and placed third in each: third in the Adult Women\'s Solo Mermaid Dance and third in the Adult Women\'s Solo Skill event, where she climbed from fifth in the preliminaries by adding 38 points. Those two podium finishes added up to silver overall.',
-      'It was her first world competition, and in her own words she became the first female athlete from Taiwan to finish in the top three at a world competition in China. Her favourite routine of the event was her Cruella character, rebuilt with new choreography and music for the deep pool.',
-      'The silver capped a breakout 2026 season that also brought a championship title in May and a bronze medal in Hangzhou in July. Her message after the podium: next year, she goes again.'
+      '"I wanted to prove the version of me nobody believed in." That is how Mermaid Kita opens the story of her 2026, and the results back her up.',
+      'May 2026: champion at the mermaid competition of Taiwan\'s National Museum of Marine Science and Technology. Her first title of the year.',
+      'July 2026: third place, and a bronze medal, at the mermaid competition in Hangzhou, China.',
+      'August 2026: silver at the first World Underwater Federation (CMAS) Mermaid World Cup in Lingshui, Hainan. Facing athletes from 12 countries, she placed third in both the Adult Women\'s Solo Mermaid Dance and the Adult Women\'s Solo Skill event, climbing from fifth in the skill preliminaries by adding 38 points. Together they made her Women\'s All-Around Runner-up, with a ¥12,000 prize, at her very first world competition. In her own words she became the first female athlete from Taiwan to finish top three at a world competition in China, with her Cruella character rebuilt for the deep pool.',
+      'Rewind two years. Kita learned mermaid in May 2024 and performed professionally until March 2025, then left to make the kind of shows she loves. In May 2025 she placed seventh at a mermaid competition, realised how much she still had to learn, and asked coach Afa Zhang to train her. A few sessions later, he became her teammate.',
+      'No dance background, no performing-arts school. Kita still builds every routine herself: choreography, music, costume, props and makeup. After each competition she studies what worked and changes what did not.',
+      'Her promise for 2027 is short: next year, again.'
     ],
     image: 'media/news/kita-cmas-mermaid-world-cup-2026.jpg',
     people: ['kita'],
@@ -101,10 +103,10 @@ window.NEWS = [
     type: 'Win',
     date: '2026-10-03',
     featured: false,
-    title: 'Ying, Minmin and Team South Taiwan Tropical Fish Take Team Gold',
-    excerpt: 'Team "South Taiwan Tropical Fish", with Sirena Elites Ying and Minmin, took first place in the team event with their Mulan routine.',
+    title: 'Mulan Rides South: Ying, Minmin and Their Merman Friend Strike Team Gold',
+    excerpt: 'Team "South Taiwan Tropical Fish", Sirena Elites Ying and Minmin with our friend, merman @legeageai_manigay, took first place in the team event with their Mulan routine.',
     body: [
-      'Sirena Elites Ying and Minmin are team champions. Competing as "South Taiwan Tropical Fish" with their teammate, a merman from the same southern crew, they took first place in the team event at the 2026 MFI Taiwan mermaid championship, staged at Farglory Ocean Park.',
+      'Sirena Elites Ying and Minmin are team champions. Competing as "South Taiwan Tropical Fish" with our friend, merman @legeageai_manigay, they took first place in the team event at the 2026 MFI Taiwan mermaid championship, staged at Farglory Ocean Park.',
       'Their Mulan-inspired routine was built the hard way: props they designed themselves, music edited over late nights, and practice sessions squeezed in around three busy schedules. In Minmin\'s words, they brought the championship back to the south, proof that talent can make up for scarce resources.',
       'All three are based in southern Taiwan, and they are now ambassadors inviting divers to train in Kaohsiung\'s 5-metre pool.'
     ],
@@ -118,16 +120,16 @@ window.NEWS = [
     type: 'Win',
     date: '2026-10',
     featured: false,
-    title: 'Ying Crowned Co-Champion at the 2026 MFI Taiwan Mermaid Championship',
+    title: 'Day of the Dead, Day of Gold: Ying Shares the MFI Taiwan Crown',
     excerpt: 'Out of around 30 competitors, Ying shared first place in the Female Mermaid division with a Día de los Muertos routine.',
     body: [
       'Mermaid Ying is a champion. At the 2026 MFI Taiwan Mermaid and Underwater Dancing Championship, the Female Mermaid division drew around 30 strong competitors, and the title was shared by two athletes. Ying was one of them.',
       'Her winning routine drew on Mexico\'s Día de los Muertos: marigold crown, sugar-skull makeup, a flower-lined hoop and a burst of bubbles above her head. Photographers at the event described it as a performance full of tension and striking visual style.',
-      'Ying also took to the water with a Mulan-inspired sword routine during the championship. A PADI Mermaid Instructor and Team Medalist at the MFI Korea Open (2025), she says she will keep carrying that love to the next stage.'
+      'Ying also took to the water with a Mulan-inspired sword routine during the championship, the routine that won team gold with Minmin and their merman friend @legeageai_manigay. A PADI Mermaid Instructor and Team Medalist at the MFI Korea Open (2025), she says she will keep carrying that love to the next stage.'
     ],
     image: 'media/news/ying-mfi-taiwan-championship-2026.jpg',
     people: ['ying'],
-    link: 'https://www.instagram.com/shuying__0513/'
+    link: 'https://www.instagram.com/shuying___0513/'
   },
 
   {
