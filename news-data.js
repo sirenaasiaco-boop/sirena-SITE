@@ -92,6 +92,22 @@ window.NEWS = [
     link: 'https://www.instagram.com/cloud_kita/'
   },
   {
+    slug: 'south-taiwan-tropical-fish-team-champion-mfi-taiwan-2026',
+    type: 'Win',
+    date: '2026-10-03',
+    featured: false,
+    title: 'Ying and Minmin Win Team Gold at the 2026 MFI Taiwan Championship',
+    excerpt: 'Team "South Taiwan Tropical Fish", with Sirena Elites Ying and Minmin, took first place in the team event with their Mulan routine.',
+    body: [
+      'Sirena Elites Ying and Minmin are team champions. Competing as "South Taiwan Tropical Fish" with teammate Manigay, they took first place in the team event at the 2026 MFI Taiwan mermaid championship, staged at Farglory Ocean Park.',
+      'Their Mulan-inspired routine was built the hard way: props they designed themselves, music edited over late nights, and practice sessions squeezed in around three busy schedules. In Minmin\'s words, they brought the championship back to the south, proof that talent can make up for scarce resources.',
+      'All three are based in southern Taiwan, and they are now ambassadors inviting divers to train in Kaohsiung\'s 5-metre pool.'
+    ],
+    image: null,
+    people: ['ying','minmin'],
+    link: 'https://www.instagram.com/minmin_girl_0107/'
+  },
+  {
     slug: 'ying-co-champion-mfi-taiwan-championship-2026',
     type: 'Win',
     date: '2026-10',
@@ -158,11 +174,11 @@ window.NEWS = [
     type: 'Win',
     date: '2025',
     featured: false,
-    title: 'Chen Takes Team Champion and Silver in Hong Kong',
-    excerpt: 'Master Mermaid Instructor Chen won Team Champion and an individual silver at the Hong Kong Mermaid Competition (2025).',
+    title: 'Chen Wins Doubles and Takes Solo Silver in Hong Kong',
+    excerpt: 'Master Mermaid Instructor Chen won the Doubles title and finished runner-up in Women\'s Solo at the Hong Kong Mermaid Competition (2025).',
     body: [
-      'Mermaid Chen came home from the Hong Kong Mermaid Competition in 2025 with two results: Team Champion and an individual Silver Medal.',
-      'The same season she also took Bronze at the MFI Korea Open. Known to her TikTok audience as the "Princess of Atlantis", Chen is a Master Mermaid Instructor and former professional mermaid at Farglory Ocean Park.'
+      'Mermaid Chen came home from the Hong Kong Mermaid Competition in 2025 with two results: Champion in Doubles and Runner-up in Women\'s Solo.',
+      'Known to her TikTok audience as the "Princess of Atlantis", Chen is a Master Mermaid Instructor and former professional mermaid at Farglory Ocean Park.'
     ],
     image: 'media/performers/chen/photo1.jpg',
     people: ['chen'],
@@ -188,15 +204,14 @@ window.NEWS = [
     type: 'Win',
     date: '2025',
     featured: false,
-    title: 'Team Sirena Medals at the MFI Korea Open',
-    excerpt: 'Ying and Minmin were Team Medalists, Chen took Bronze and Fan medalled at the MFI Korea Open in South Korea (2025).',
+    title: 'Ying and Minmin Medal at the MFI Korea Open',
+    excerpt: 'Ying and Minmin were Team Medalists at the MFI Korea Open in South Korea (2025).',
     body: [
       'The MFI Korea Open 2025 in South Korea was a big one for the Sirena family.',
-      'Ying and Minmin both came home as Team Medalists, Chen won Bronze, and Fan added another medal to her record.',
-      'Four Sirena mermaids, one podium story: proof of the depth of talent across our community.'
+      'Ying and Minmin both came home as Team Medalists, a podium the two South Taiwan mermaids would go on to top in 2026 as MFI Taiwan Team Champions.'
     ],
     image: 'media/performers/ying/photo1.jpg',
-    people: ['ying','minmin','chen','fan'],
+    people: ['ying','minmin'],
     link: null
   },
   {
