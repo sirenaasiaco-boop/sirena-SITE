@@ -1123,7 +1123,11 @@
     .reach-list { margin:0; font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:clamp(1.5rem,3vw,2.3rem); line-height:1.3; color:#fff; }
     .reach-list i { font-style:normal; color:#f5c451; padding:0 0.2em; }
     .reach-logos { display:grid; grid-template-columns:repeat(2,1fr); gap:0.8rem; }
-    @media (min-width:900px) { .reach-logos { grid-template-columns:repeat(4,1fr); } }
+    @media (min-width:900px) { .reach-logos { grid-template-columns:repeat(5,1fr); } }
+    .pt-logo { align-items:center; justify-content:center; text-align:center; min-height:150px; gap:0.8rem; transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease; }
+    .pt-logo img { width:auto; max-width:100%; object-fit:contain; opacity:0.9; transition:opacity .35s ease; }
+    .pt-logo:hover { transform:translateY(-3px); border-color:rgba(79,216,235,0.4); box-shadow:0 0 30px rgba(79,216,235,0.15); }
+    .pt-logo:hover img { opacity:1; }
     .pt { display:flex; flex-direction:column; gap:0.3rem; padding:1.2rem 1.3rem; border-radius:12px; background:#0b1d2e; border:1px solid rgba(224,247,250,0.12); }
     .pt b { font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:1.45rem; color:#fff; }
     .pt small { font-family:'Manrope',system-ui,sans-serif; font-size:0.75rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#93a8b8; }
@@ -2227,10 +2231,11 @@
           <div class="reach-partners rv d3">
             <p class="reach-k">Partners</p>
             <div class="reach-logos">
-              <span class="pt"><b>PADI</b><small>Certification</small></span>
-              <span class="pt"><b>PADI Mermaid</b><small>Mermaid programmes</small></span>
-              <span class="pt"><b>Merveille League</b><small>Malaysia</small></span>
-              <span class="pt"><b>My Water Journey</b><small>Hong Kong</small></span>
+              <span class="pt pt-logo"><img src="brand/partners/padi.png" alt="PADI" loading="lazy" style="height:86px" /><small>Certification</small></span>
+              <span class="pt pt-logo"><img src="brand/partners/padi-mermaid.png" alt="PADI Mermaid" loading="lazy" style="height:46px" /><small>Mermaid programmes</small></span>
+              <span class="pt pt-logo"><img src="brand/partners/merveille-league.png" alt="Merveille League Mermaid Society" loading="lazy" style="height:70px" /><small>Malaysia</small></span>
+              <span class="pt pt-logo"><b>My Water Journey</b><small>Hong Kong</small></span>
+              <span class="pt pt-logo"><img src="brand/partners/divers-down-white.png" alt="Divers Down" loading="lazy" style="height:70px" /><small>UAE</small></span>
             </div>
           </div>
           <div class="reach-support rv d4">
