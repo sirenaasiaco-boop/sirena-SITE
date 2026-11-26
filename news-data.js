@@ -41,6 +41,7 @@ window.NEWS = [
     people: [],
     link: null
   },
+
   {
     slug: 'first-mermaid-camp-malaysia-2026',
     poster: true,
@@ -58,6 +59,7 @@ window.NEWS = [
     people: [],
     link: null
   },
+
   {
     slug: 'chen-korea-international-mermaid-open-2026-bronze',
     type: 'Win',
@@ -68,12 +70,13 @@ window.NEWS = [
     body: [
       'Mermaid Chen finished third at the 2026 Korea International Mermaid Open, bringing home bronze with a routine inspired by the glamour of old Shanghai nights.',
       'Chen trains in Hualien, on Taiwan\'s east coast, where she says resources are scarce and preparing for international competition is hard and costly. She thanked everyone behind her for letting her give it everything without worry.',
-      'It adds to a competition record that includes Team Champion and Silver at the Hong Kong Mermaid Competition (2025).'
+      'It adds to a competition record that includes the Doubles title and Women\'s Solo runner-up at the Hong Kong Mermaid Competition (2025).'
     ],
     image: 'media/news/chen-korea-international-mermaid-open-2026.jpg',
     people: ['chen'],
     link: 'https://www.instagram.com/chenc0213/'
   },
+
   {
     slug: 'kita-cmas-mermaid-world-cup-2026-silver',
     type: 'Win',
@@ -91,6 +94,7 @@ window.NEWS = [
     people: ['kita'],
     link: 'https://www.instagram.com/cloud_kita/'
   },
+
   {
     slug: 'south-taiwan-tropical-fish-team-champion-mfi-taiwan-2026',
     type: 'Win',
@@ -107,6 +111,7 @@ window.NEWS = [
     people: ['ying','minmin'],
     link: 'https://www.instagram.com/minmin_girl_0107/'
   },
+
   {
     slug: 'ying-co-champion-mfi-taiwan-championship-2026',
     type: 'Win',
@@ -123,6 +128,7 @@ window.NEWS = [
     people: ['ying'],
     link: 'https://www.instagram.com/shuying__0513/'
   },
+
   {
     slug: 'founder-head-mermaid-diver',
     type: 'Announcement',
@@ -139,21 +145,7 @@ window.NEWS = [
     people: [],
     link: null
   },
-  {
-    slug: 'kita-taiwan-cup-cwtb-silver-2026',
-    type: 'Win',
-    date: '2026',
-    featured: false,
-    title: 'Kita Wins Silver at the Taiwan Cup Freediving CWTB',
-    excerpt: 'Sirena Elite Kita took silver in the CWTB discipline at the Taiwan Cup Freediving (2026).',
-    body: [
-      'Mermaid Kita added a freediving medal to her record, winning silver in the CWTB discipline at the Taiwan Cup Freediving in 2026.',
-      'A former professional mermaid at Farglory Ocean Park, Kita was also Rookie Champion at the Taiwan Freediving Competition in 2024. She teaches as both a mermaid instructor and an AIDA freediving instructor.'
-    ],
-    image: 'media/performers/kita/photo1.jpg',
-    people: ['kita'],
-    link: null
-  },
+
   {
     slug: 'braveeer-mergala-mermaid-island-getaway',
     type: 'Event',
@@ -168,82 +160,8 @@ window.NEWS = [
     image: 'News1.jpeg',
     people: [],
     link: null
-  },
-  {
-    slug: 'chen-hong-kong-mermaid-competition-2025',
-    type: 'Win',
-    date: '2025',
-    featured: false,
-    title: 'Chen Wins Doubles and Takes Solo Silver in Hong Kong',
-    excerpt: 'Master Mermaid Instructor Chen won the Doubles title and finished runner-up in Women\'s Solo at the Hong Kong Mermaid Competition (2025).',
-    body: [
-      'Mermaid Chen came home from the Hong Kong Mermaid Competition in 2025 with two results: Champion in Doubles and Runner-up in Women\'s Solo.',
-      'Known to her TikTok audience as the "Princess of Atlantis", Chen is a Master Mermaid Instructor and former professional mermaid at Farglory Ocean Park.'
-    ],
-    image: 'media/performers/chen/photo1.jpg',
-    people: ['chen'],
-    link: null
   }
-  ,{
-    slug: 'sirena-mermaids-perform-in-india-2025',
-    type: 'Event',
-    date: '2025',
-    featured: false,
-    title: 'Sirena Mermaids Take the Stage in India',
-    excerpt: 'Fan, Ying, Minmin, Chen, Ronnie and Kita performed as international mermaid performers in India in 2025.',
-    body: [
-      'In 2025, Sirena mermaids Fan, Ying, Minmin, Chen, Ronnie and Kita travelled to India as international mermaid performers.',
-      'India remains one of the community\'s strongest markets, with Sirena connecting performers to aquariums and venues across the country.'
-    ],
-    image: 'media/performers/minmin/photo1.jpg',
-    people: ['fan','ying','minmin','chen','ronnie','kita'],
-    link: null
-  },
-  {
-    slug: 'mfi-korea-open-2025-team-medals',
-    type: 'Win',
-    date: '2025',
-    featured: false,
-    title: 'Ying and Minmin Medal at the MFI Korea Open',
-    excerpt: 'Ying and Minmin were Team Medalists at the MFI Korea Open in South Korea (2025).',
-    body: [
-      'The MFI Korea Open 2025 in South Korea was a big one for the Sirena family.',
-      'Ying and Minmin both came home as Team Medalists, a podium the two South Taiwan mermaids would go on to top in 2026 as MFI Taiwan Team Champions.'
-    ],
-    image: 'media/performers/ying/photo1.jpg',
-    people: ['ying','minmin'],
-    link: null
-  },
-  {
-    slug: 'asia-cup-2024-silver',
-    type: 'Win',
-    date: '2024',
-    featured: false,
-    title: 'Fan and Ronnie Bring Home Silver from the Asia Cup',
-    excerpt: 'Fan was a Team Silver Medalist and Ronnie won Silver at the Asia Cup (2024).',
-    body: [
-      'At the 2024 Asia Cup, Mermaid Fan was part of the Team Silver Medal win, and Mermaid Ronnie also took Silver.',
-      'Ronnie capped the season with another Silver at the Taiwan Mermaid Competition (2024).'
-    ],
-    image: 'media/performers/fan/photo1.jpg',
-    people: ['fan','ronnie'],
-    link: null
-  },
-  {
-    slug: 'kita-rookie-champion-2024',
-    type: 'Win',
-    date: '2024',
-    featured: false,
-    title: 'Kita Crowned Rookie Champion in Freediving',
-    excerpt: 'Kita was named Rookie Champion at the Taiwan Freediving Competition (2024).',
-    body: [
-      'Mermaid Kita made her mark in competitive freediving as Rookie Champion at the Taiwan Freediving Competition in 2024.',
-      'Two years later she followed it with a Silver Medal at the Taiwan Cup Freediving CWTB (2026).'
-    ],
-    image: 'media/performers/kita/hero.jpg',
-    people: ['kita'],
-    link: null
-  }
+
 ];
 
 window.NEWS_TYPES = {
