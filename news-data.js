@@ -106,10 +106,10 @@ window.NEWS = [
     type: 'Win',
     date: '2026-10-03',
     featured: false,
-    title: 'Mulan Rides South: Ying, Minmin and Merman Jia-Xiang Strike Team Gold',
-    excerpt: 'Team "South Taiwan Tropical Fish", Sirena Elites Ying and Minmin with merman Pan Jia-Xiang (@legeageai_manigay) took first place in the team event with their Mulan routine.',
+    title: 'Mulan Rides South: Ying, Minmin and Merman 潘家祥 Strike Team Gold',
+    excerpt: 'Team "South Taiwan Tropical Fish", Sirena Elites Ying and Minmin with merman 潘家祥 (@legeageai_manigay) took first place in the team event with their Mulan routine.',
     body: [
-      'Sirena Elites Ying and Minmin are team champions. Competing as "South Taiwan Tropical Fish" with merman Pan Jia-Xiang (@legeageai_manigay), himself the 2025 Taiwan men\'s solo mermaid champion, they took first place in the team event at the 2026 MFI Taiwan mermaid championship, staged at Farglory Ocean Park.',
+      'Sirena Elites Ying and Minmin are team champions. Competing as "South Taiwan Tropical Fish" with merman 潘家祥 (@legeageai_manigay) they took first place in the team event at the 2026 MFI Taiwan mermaid championship, staged at Farglory Ocean Park.',
       'Their Mulan-inspired routine was built the hard way: props they designed themselves, music edited over late nights, and practice sessions squeezed in around three busy schedules. In Minmin\'s words, they brought the championship back to the south, proof that talent can make up for scarce resources.',
       'All three are based in southern Taiwan, and they are now ambassadors inviting divers to train in Kaohsiung\'s 5-metre pool.'
     ],
@@ -129,7 +129,7 @@ window.NEWS = [
     body: [
       'Mermaid Ying is a champion. At the 2026 MFI Taiwan Mermaid and Underwater Dancing Championship, the Female Mermaid division drew around 30 strong competitors, and the title was shared by two athletes. Ying was one of them.',
       'Her winning routine drew on Mexico\'s Día de los Muertos: marigold crown, sugar-skull makeup, a flower-lined hoop and a burst of bubbles above her head. Photographers at the event described it as a performance full of tension and striking visual style.',
-      'Ying also took to the water with a Mulan-inspired sword routine during the championship, the routine that won team gold with Minmin and merman Pan Jia-Xiang (@legeageai_manigay). A PADI Mermaid Instructor and Team Medalist at the MFI Korea Open (2025), she says she will keep carrying that love to the next stage.'
+      'Ying also took to the water with a Mulan-inspired sword routine during the championship, the routine that won team gold with Minmin and merman 潘家祥 (@legeageai_manigay). A PADI Mermaid Instructor and Team Medalist at the MFI Korea Open (2025), she says she will keep carrying that love to the next stage.'
     ],
     image: 'media/news/ying-mfi-taiwan-championship-2026.jpg',
     people: ['ying'],
