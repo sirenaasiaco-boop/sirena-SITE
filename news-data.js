@@ -109,7 +109,7 @@ window.NEWS = [
     title: 'Mulan Rides South: Ying, Minmin and Merman 潘家祥 Strike Team Gold',
     excerpt: 'Team "South Taiwan Tropical Fish", Sirena Elites Ying and Minmin with merman 潘家祥 (@legeageai_manigay) took first place in the team event with their Mulan routine.',
     body: [
-      'Sirena Elites Ying and Minmin are team champions. Competing as "South Taiwan Tropical Fish" with merman 潘家祥 (@legeageai_manigay), they took first place in the team event at the 2026 MFI Taiwan mermaid championship, staged at Farglory Ocean Park.',
+      'Sirena Elites Ying and Minmin are team champions. Competing as "South Taiwan Tropical Fish" with merman 潘家祥 (@legeageai_manigay), who also won the Underwater Dance Open title at the same championship, they took first place in the team event at the 2026 MFI Taiwan mermaid championship, staged at Farglory Ocean Park.',
       'Their Mulan-inspired routine was built the hard way: props they designed themselves, music edited over late nights, and practice sessions squeezed in around three busy schedules. In Minmin\'s words, they brought the championship back to the south, proof that talent can make up for scarce resources.',
       'All three are based in southern Taiwan, and they are now ambassadors inviting divers to train in Kaohsiung\'s 5-metre pool.'
     ],
