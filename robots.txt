@@ -226,4 +226,4 @@ Disallow: /
 User-agent: TeleportPro
 Disallow: /
 
-Sitemap: https://sirenaasia.com/sitemap.xml
+Sitemap: https://www.sirenaasia.com/sitemap.xml
