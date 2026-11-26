@@ -1084,7 +1084,9 @@
       .strips { flex-direction:column; height:auto; gap:6px; }
       .strip { flex:none; height:68px; transition:height .7s cubic-bezier(0.22,1,0.36,1); }
       .strip.on { height:420px; }
-      .strip-v { writing-mode:horizontal-tb; transform:translateY(50%); left:3.6rem; bottom:50%; font-size:1.5rem; }
+      .strip-v { writing-mode:horizontal-tb; transform:translateY(50%); left:auto; right:1.2rem; bottom:50%; font-size:1.5rem; text-shadow:0 2px 12px rgba(0,0,0,0.8); }
+      .strip::after { background:linear-gradient(90deg, transparent 45%, rgba(6,18,29,0.75)), linear-gradient(180deg, rgba(6,18,29,0.1) 30%, rgba(6,18,29,0.92)); }
+      .strip.on::after { background:linear-gradient(180deg, rgba(6,18,29,0.1) 30%, rgba(6,18,29,0.92)); }
       .strip-num { top:50%; left:1.2rem; transform:translateY(-50%); }
       .strip.on .strip-num { top:1rem; transform:none; }
     }
@@ -2035,49 +2037,49 @@
         <!-- Elite strips: dark until you reach them -->
         <div class="strips rv d3" id="elite-strips">
             <button class="strip" type="button" data-id="fan" aria-label="View Mermaid Fan's profile">
-              <img src="media/performers/fan/photo1.jpg" alt="Mermaid Fan" loading="lazy" />
+              <img src="media/performers/fan/photo1.jpg" alt="Mermaid Fan" style="object-position:52% 27%" loading="lazy" />
               <span class="strip-num">01</span>
               <span class="strip-v">Fan</span>
               <span class="strip-info"><span class="strip-tag">Asia Cup Team Silver</span><span class="strip-name">Mermaid <em>Fan</em></span><span class="strip-cta">View profile →</span></span>
             </button>
             <button class="strip" type="button" data-id="ying" aria-label="View Mermaid Ying's profile">
-              <img src="media/performers/ying/photo4.jpg" alt="Mermaid Ying" loading="lazy" />
+              <img src="media/performers/ying/photo4.jpg" alt="Mermaid Ying" style="object-position:55% 22%" loading="lazy" />
               <span class="strip-num">02</span>
               <span class="strip-v">Ying</span>
               <span class="strip-info"><span class="strip-tag">MFI Taiwan Co-Champion</span><span class="strip-name">Mermaid <em>Ying</em></span><span class="strip-cta">View profile →</span></span>
             </button>
             <button class="strip" type="button" data-id="minmin" aria-label="View Mermaid Minmin's profile">
-              <img src="media/performers/minmin/photo5.jpg" alt="Mermaid Minmin" style="object-position:center 92%" loading="lazy" />
+              <img src="media/performers/minmin/photo5-strip.jpg" alt="Mermaid Minmin" style="object-position:25% 55%" loading="lazy" />
               <span class="strip-num">03</span>
               <span class="strip-v">Minmin</span>
               <span class="strip-info"><span class="strip-tag">MFI Taiwan Team Champion</span><span class="strip-name">Mermaid <em>Minmin</em></span><span class="strip-cta">View profile →</span></span>
             </button>
             <button class="strip" type="button" data-id="chen" aria-label="View Mermaid Chen's profile">
-              <img src="media/performers/chen/photo2.jpg" alt="Mermaid Chen" loading="lazy" />
+              <img src="media/performers/chen/photo2.jpg" alt="Mermaid Chen" style="object-position:45% 22%" loading="lazy" />
               <span class="strip-num">04</span>
               <span class="strip-v">Chen</span>
               <span class="strip-info"><span class="strip-tag">TikTok Star · 130K</span><span class="strip-name">Mermaid <em>Chen</em></span><span class="strip-cta">View profile →</span></span>
             </button>
             <button class="strip" type="button" data-id="kita" aria-label="View Mermaid Kita's profile">
-              <img src="media/performers/kita/photo1.jpg" alt="Mermaid Kita" loading="lazy" />
+              <img src="media/performers/kita/photo1.jpg" alt="Mermaid Kita" style="object-position:37% 62%" loading="lazy" />
               <span class="strip-num">05</span>
               <span class="strip-v">Kita</span>
               <span class="strip-info"><span class="strip-tag">CMAS World Cup Silver</span><span class="strip-name">Mermaid <em>Kita</em></span><span class="strip-cta">View profile →</span></span>
             </button>
             <button class="strip" type="button" data-id="ronnie" aria-label="View Mermaid Ronnie's profile">
-              <img src="media/performers/ronnie/photo1.jpg" alt="Mermaid Ronnie" style="object-position:36% 30%" loading="lazy" />
+              <img src="media/performers/ronnie/photo1.jpg" alt="Mermaid Ronnie" style="object-position:36% 36%" loading="lazy" />
               <span class="strip-num">06</span>
               <span class="strip-v">Ronnie</span>
               <span class="strip-info"><span class="strip-tag">Asia Cup Silver</span><span class="strip-name">Mermaid <em>Ronnie</em></span><span class="strip-cta">View profile →</span></span>
             </button>
             <button class="strip" type="button" data-id="sporti" aria-label="View Mermaid SporTi's profile">
-              <img src="media/performers/sporti/photo4.jpg" alt="Mermaid SporTi" style="object-position:55% 40%" loading="lazy" />
+              <img src="media/performers/sporti/photo4.jpg" alt="Mermaid SporTi" style="object-position:50% 41%" loading="lazy" />
               <span class="strip-num">07</span>
               <span class="strip-v">SporTi</span>
               <span class="strip-info"><span class="strip-tag">IUPC 2026 1st Runner-up</span><span class="strip-name">Mermaid <em>SporTi</em></span><span class="strip-cta">View profile →</span></span>
             </button>
             <button class="strip" type="button" data-id="linda" aria-label="View Mermaid Linda's profile">
-              <img src="media/performers/linda/photo1.jpg" alt="Mermaid Linda" loading="lazy" />
+              <img src="media/performers/linda/photo1.jpg" alt="Mermaid Linda" style="object-position:37% 18%" loading="lazy" />
               <span class="strip-num">08</span>
               <span class="strip-v">Linda</span>
               <span class="strip-info"><span class="strip-tag">PADI Mermaid Instructor</span><span class="strip-name">Mermaid <em>Linda</em></span><span class="strip-cta">View profile →</span></span>
