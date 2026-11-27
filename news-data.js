@@ -39,7 +39,9 @@ window.NEWS = [
     ],
     image: 'media/news/first-mermaid-competition-malaysia-2026.jpg',
     people: [],
-    link: null
+    link: null,
+    join: 'https://www.instagram.com/merveille_league/',
+    joinLabel: 'Join: message Merveille League on Instagram'
   },
 
   {

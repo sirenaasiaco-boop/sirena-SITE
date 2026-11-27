@@ -662,7 +662,7 @@
         ${n.image ? `<img class="ut-story-img" src="${esc(n.image)}" alt="${esc(n.title)}" />` : '<div style="height:1.5rem"></div>'}
         <div class="ut-story-body">${(n.body||[n.excerpt]).map(p => `<p>${esc(p)}</p>`).join('')}</div>
         ${n.link ? `<a class="ut-story-link" href="${esc(n.link)}" target="_blank" rel="noopener">More details →</a>` : ''}
-        <p style="margin-top:2.5rem;"><a href="contact.html" class="btn-book" style="display:inline-block;">Book Sirena Mermaids</a></p>`;
+        ${n.join ? `<p style="margin-top:2.5rem;"><a href="${esc(n.join)}" target="_blank" rel="noopener" class="btn-book" style="display:inline-block;">${esc(n.joinLabel||'How to join')} →</a></p>` : (n.upcoming ? '' : `<p style="margin-top:2.5rem;"><a href="contact.html" class="btn-book" style="display:inline-block;">Book Sirena Mermaids</a></p>`)}`;
       story.classList.add('open'); story.scrollTop = 0; document.body.style.overflow = 'hidden';
       document.title = n.title + ' · Underwater Tales · Sirena Asia';
       document.getElementById('ut-story-close').focus();
