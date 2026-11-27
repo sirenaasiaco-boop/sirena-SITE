@@ -1060,6 +1060,7 @@
 
     /* ── Elite strips ── */
     .strip-num { display:none !important; }
+    .strip-v { font-family:'Manrope',system-ui,sans-serif !important; font-weight:500 !important; font-size:0.72rem !important; letter-spacing:0.32em !important; text-transform:uppercase; color:rgba(224,247,250,0.78) !important; text-shadow:none !important; }
     .strips { display:flex; gap:6px; height:clamp(460px,62vh,640px); margin:2.6rem clamp(1.25rem,5vw,5rem) 0; }
     .strip { position:relative; flex:1 1 0; min-width:0; padding:0; border:0; border-radius:14px; overflow:hidden; cursor:pointer; background:#081826; transition:flex-grow .7s cubic-bezier(0.22,1,0.36,1), box-shadow .5s ease; }
     .strip img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 30%; filter:grayscale(1) brightness(0.38) contrast(1.15); transform:scale(1.08); transition:filter .7s ease, transform 1s cubic-bezier(0.22,1,0.36,1); }
@@ -1085,7 +1086,7 @@
       .strips { flex-direction:column; height:auto; gap:6px; }
       .strip { flex:none; height:68px; transition:height .7s cubic-bezier(0.22,1,0.36,1); }
       .strip.on { height:420px; }
-      .strip-v { writing-mode:horizontal-tb; transform:translateY(50%); left:auto; right:1.2rem; bottom:50%; font-size:1.5rem; text-shadow:0 2px 12px rgba(0,0,0,0.8); }
+      .strip-v { writing-mode:horizontal-tb; transform:translateY(50%); left:auto; right:1.2rem; bottom:50%; }
       .strip::after { background:linear-gradient(90deg, transparent 45%, rgba(6,18,29,0.75)), linear-gradient(180deg, rgba(6,18,29,0.1) 30%, rgba(6,18,29,0.92)); }
       .strip.on::after { background:linear-gradient(180deg, rgba(6,18,29,0.1) 30%, rgba(6,18,29,0.92)); }
       .strip-num { top:50%; left:1.2rem; transform:translateY(-50%); }
