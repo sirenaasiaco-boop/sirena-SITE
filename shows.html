@@ -79,6 +79,28 @@
     .page-header h1 em { font-style:italic;color:var(--cyan); }
     .page-header p { font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:rgba(224,247,250,0.5);max-width:480px;margin:0 auto; }
 
+    .page-header.has-video { position:relative; overflow:hidden; isolation:isolate; min-height:clamp(420px,70vh,640px); display:flex; flex-direction:column; justify-content:center; }
+    .ph-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; opacity:0.55; }
+    .page-header.has-video::after { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg, rgba(3,13,31,0.55), rgba(3,13,31,0.35) 45%, rgba(3,13,31,0.95)); }
+    .page-header.has-video p { color:rgba(224,247,250,0.85); }
+    /* Reel wall */
+    .reel-wall { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0.9rem; }
+    @media (min-width:760px) { .reel-wall { grid-template-columns:repeat(4,minmax(0,1fr)); } }
+    .reel { position:relative; display:block; aspect-ratio:9/16; overflow:hidden; border-radius:16px; color:#fff; text-decoration:none; background:#0b1d2e; box-shadow:0 0 0 1px rgba(79,216,235,0.14), 0 18px 46px rgba(0,0,0,0.55); transition:transform .45s cubic-bezier(0.22,1,0.36,1), box-shadow .45s ease; }
+    .reel img { position:absolute; inset:-6%; width:112%; height:112%; object-fit:cover; animation:reelDrift 14s ease-in-out infinite alternate; }
+    .reel:nth-child(2n) img { animation-duration:17s; animation-direction:alternate-reverse; }
+    @keyframes reelDrift { from { transform:translate3d(-2%,-1%,0) scale(1); } to { transform:translate3d(2%,2%,0) scale(1.08); } }
+    .reel::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(3,13,31,0.05) 40%, rgba(3,13,31,0.92)); }
+    .reel-play { position:absolute; top:0.9rem; right:0.9rem; z-index:2; width:38px; height:38px; border-radius:50%; display:grid; place-items:center; background:rgba(255,255,255,0.14); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,0.35); transition:transform .35s ease, background-color .35s ease; }
+    .reel-cap { position:absolute; left:1rem; right:1rem; bottom:1rem; z-index:2; }
+    .reel-cap b { display:block; font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:1.45rem; line-height:1.05; }
+    .reel-cap span { display:block; margin-top:0.35rem; font-size:0.78rem; color:#4fd8eb; }
+    .reel:hover, .reel:focus-visible { transform:translateY(-6px); box-shadow:0 0 0 1px rgba(245,196,81,0.5), 0 26px 60px rgba(0,0,0,0.65), 0 0 40px rgba(79,216,235,0.15); }
+    .reel:hover .reel-play { transform:scale(1.12); background:rgba(255,107,157,0.85); }
+    .reel:focus-visible { outline:2px solid #f5c451; outline-offset:3px; }
+    .reel:active { transform:translateY(-2px); }
+    .reel-follow { display:flex; justify-content:center; margin-top:2rem; }
+    @media (prefers-reduced-motion: reduce) { .reel img { animation:none; } }
     /* ── CONTENT ── */
     .content-wrap { max-width:1200px;margin:0 auto;padding:0 clamp(2rem,5vw,5rem); }
     .section-block { padding:5rem 0; }
@@ -257,6 +279,7 @@
       <a href="gallery.html"    class="nav-link">Gallery</a>
       <a href="news.html"       class="nav-link">News</a>
       <a href="studio.html"       class="nav-link">Studio</a>
+      <a href="collab.html"       class="nav-link">Collab</a>
       <a href="contact.html"    class="btn-book">Get in Touch</a>
     </div>
     <button id="burger" aria-label="Menu">
@@ -269,14 +292,16 @@
     <a href="gallery.html"    class="mob-link">Gallery</a>
     <a href="news.html"       class="mob-link">News</a>
     <a href="studio.html"       class="mob-link">Studio</a>
+    <a href="collab.html" class="mob-link">Collab</a>
     <a href="contact.html"    class="mob-link" style="color:var(--coral);">Get in Touch</a>
   </div>
 
   <!-- PAGE HEADER -->
-  <div class="page-header">
+  <div class="page-header has-video">
+    <video class="ph-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="/bottom.mp4" type="video/mp4" /></video>
     <p class="sec-label">What We Do</p>
     <h1>Mermaid<br/><em>Shows</em></h1>
-    <p>We design immersive mermaid experiences for events of every scale, from intimate to epic.</p>
+    <p>Real mermaids, in your tank. Here's what they bring to the water.</p>
   </div>
 
   <!-- THE CRAFT -->
@@ -403,6 +428,58 @@
 
     <div class="divider"></div>
 
+    <!-- IN THE WATER: reel wall -->
+    <div class="section-block">
+      <p class="sec-label reveal d1" style="text-align:center;margin-bottom:1rem;">In the water</p>
+      <h2 class="section-heading reveal d2" style="text-align:center;margin-bottom:0.6rem;">Watch them <em>swim</em></h2>
+      <p class="section-body reveal d3" style="text-align:center;margin:0 auto 2.6rem;max-width:34rem;">Their shows live on Instagram. Tap a mermaid to watch her reels.</p>
+      <div class="reel-wall">
+        <a class="reel reveal d1" href="https://www.instagram.com/n_nfan.jj/" target="_blank" rel="noopener" aria-label="Watch Mermaid Fan on Instagram">
+          <img src="media/performers/fan/photo1.jpg" alt="Mermaid Fan performing underwater" loading="lazy" style="object-position:52% 27%" />
+          <span class="reel-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4l14 8-14 8z"/></svg></span>
+          <span class="reel-cap"><b>Mermaid Fan</b><span>Watch on Instagram @n_nfan.jj</span></span>
+        </a>
+        <a class="reel reveal d2" href="https://www.instagram.com/shuying___0513/" target="_blank" rel="noopener" aria-label="Watch Mermaid Ying on Instagram">
+          <img src="media/performers/ying/photo4.jpg" alt="Mermaid Ying performing underwater" loading="lazy" style="object-position:55% 22%" />
+          <span class="reel-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4l14 8-14 8z"/></svg></span>
+          <span class="reel-cap"><b>Mermaid Ying</b><span>Watch on Instagram @shuying___0513</span></span>
+        </a>
+        <a class="reel reveal d3" href="https://www.instagram.com/cloud_kita/" target="_blank" rel="noopener" aria-label="Watch Mermaid Kita on Instagram">
+          <img src="media/performers/kita/photo5.jpg" alt="Mermaid Kita performing underwater" loading="lazy" style="object-position:50% 30%" />
+          <span class="reel-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4l14 8-14 8z"/></svg></span>
+          <span class="reel-cap"><b>Mermaid Kita</b><span>Watch on Instagram @cloud_kita</span></span>
+        </a>
+        <a class="reel reveal d4" href="https://www.instagram.com/minmin_girl_0107/" target="_blank" rel="noopener" aria-label="Watch Mermaid Minmin on Instagram">
+          <img src="media/performers/minmin/photo3.jpg" alt="Mermaid Minmin performing underwater" loading="lazy" style="object-position:50% 40%" />
+          <span class="reel-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4l14 8-14 8z"/></svg></span>
+          <span class="reel-cap"><b>Mermaid Minmin</b><span>Watch on Instagram @minmin_girl_0107</span></span>
+        </a>
+        <a class="reel reveal d1" href="https://www.instagram.com/chenc0213/" target="_blank" rel="noopener" aria-label="Watch Mermaid Chen on Instagram">
+          <img src="media/performers/chen/photo2.jpg" alt="Mermaid Chen performing underwater" loading="lazy" style="object-position:45% 22%" />
+          <span class="reel-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4l14 8-14 8z"/></svg></span>
+          <span class="reel-cap"><b>Mermaid Chen</b><span>Watch on Instagram @chenc0213</span></span>
+        </a>
+        <a class="reel reveal d2" href="https://www.instagram.com/mywaterjourney/" target="_blank" rel="noopener" aria-label="Watch Mermaid SporTi on Instagram">
+          <img src="media/performers/sporti/photo4.jpg" alt="Mermaid SporTi performing underwater" loading="lazy" style="object-position:50% 41%" />
+          <span class="reel-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4l14 8-14 8z"/></svg></span>
+          <span class="reel-cap"><b>Mermaid SporTi</b><span>Watch on Instagram @mywaterjourney</span></span>
+        </a>
+        <a class="reel reveal d3" href="https://www.instagram.com/sirenaasia.co/" target="_blank" rel="noopener" aria-label="Watch Mermaid Ronnie on Instagram">
+          <img src="media/performers/ronnie/photo1.jpg" alt="Mermaid Ronnie performing underwater" loading="lazy" style="object-position:36% 36%" />
+          <span class="reel-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4l14 8-14 8z"/></svg></span>
+          <span class="reel-cap"><b>Mermaid Ronnie</b><span>Watch on Instagram @sirenaasia.co</span></span>
+        </a>
+        <a class="reel reveal d4" href="https://www.instagram.com/sirenaasia.co/" target="_blank" rel="noopener" aria-label="Watch Mermaid Linda on Instagram">
+          <img src="media/performers/linda/photo1.jpg" alt="Mermaid Linda performing underwater" loading="lazy" style="object-position:37% 18%" />
+          <span class="reel-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4l14 8-14 8z"/></svg></span>
+          <span class="reel-cap"><b>Mermaid Linda</b><span>Watch on Instagram @sirenaasia.co</span></span>
+        </a>
+      </div>
+      <div class="reel-follow reveal"><a href="https://www.instagram.com/sirenaasia.co/" target="_blank" rel="noopener" class="btn-coral">Follow @sirenaasia.co</a></div>
+    </div>
+
+    <div class="divider"></div>
+
     <!-- HOW TO BOOK -->
     <div class="section-block">
       <p class="sec-label reveal d1" style="text-align:center;margin-bottom:1rem;">The Process</p>
@@ -451,6 +528,7 @@
           <a href="gallery.html"    class="footer-link">Gallery</a>
           <a href="news.html"       class="footer-link">News</a>
           <a href="studio.html"       class="footer-link">Studio</a>
+          <a href="collab.html"     class="footer-link">Collab</a>
           <a href="contact.html"    class="footer-link">Contact</a>
         </nav>
       </div>
