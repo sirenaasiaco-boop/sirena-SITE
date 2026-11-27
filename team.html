@@ -192,7 +192,23 @@
     .pre-logo{width:160px;max-width:55vw;mix-blend-mode:screen;opacity:0;animation:preLogo 0.9s cubic-bezier(0.16,1,0.3,1) forwards 0.2s;}
     @keyframes preLogo{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
     .pre-gif{width:112px;height:112px;object-fit:contain;display:block;opacity:0;animation:preLogo 0.9s cubic-bezier(0.16,1,0.3,1) forwards 0.6s;}
-  </style></head>
+  </style><style id="sirena-polish">
+  /* Softer, mermaid-feel type: serif nav + labels, less tracked caps */
+  .nav-link { font-family:'Cormorant Garamond',Georgia,serif !important; font-size:1.14rem !important; font-weight:600 !important; letter-spacing:0.02em !important; text-transform:none !important; }
+  .sec-label, .st-eye, .reach-k, .rising-label, .mag-issue-label { font-family:'Cormorant Garamond',Georgia,serif !important; font-style:italic !important; font-weight:600 !important; font-size:1.08rem !important; letter-spacing:0.02em !important; text-transform:none !important; }
+  /* One clean, centered footer */
+  #site-footer { text-align:center; }
+  #site-footer .footer-top { display:flex !important; flex-direction:column !important; align-items:center !important; gap:1.6rem !important; grid-template-columns:none !important; }
+  #site-footer .footer-nav-col, #site-footer .footer-contact-col { display:flex; flex-direction:column; align-items:center; text-align:center; }
+  #site-footer .footer-links { display:flex !important; flex-wrap:wrap; justify-content:center; gap:0.4rem 1.6rem !important; flex-direction:row !important; }
+  #site-footer .footer-link { font-family:'Cormorant Garamond',Georgia,serif !important; font-size:1.15rem !important; font-weight:600 !important; letter-spacing:0.02em !important; text-transform:none !important; color:#c9d6df !important; }
+  #site-footer .footer-link:hover { color:#4fd8eb !important; }
+  #site-footer .footer-social { justify-content:center !important; }
+  #site-footer .footer-bottom { display:flex !important; flex-direction:column !important; align-items:center !important; text-align:center !important; }
+  #site-footer .footer-copy { text-transform:none !important; letter-spacing:0.04em !important; }
+  #site-footer .footer-contact-email { font-size:1.25rem; }
+</style>
+</head>
 <body>
   <div id="preloader" aria-hidden="true">
   </div>
@@ -393,16 +409,10 @@
     </div>
     <img src="brand/logo/sirena-s-white.png" alt="Sirena Asia" style="height:54px;width:auto;margin:1.3rem auto 0.8rem;display:block;" loading="lazy" />
     <p style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;font-size:1.35rem;color:#4fd8eb;margin:0;">Born in Asia. Performing Worldwide.</p>
-    <p style="font-family:'Manrope',system-ui,sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:#93a8b8;margin:0.6rem 0 0;">sirenaasia.com</p>
   </div>
   <footer id="site-footer">
     <div class="footer-top">
-      <div class="footer-brand">
-        <img src="brand/logo/sirena-s-white.png" alt="Sirena Asia" style="height:72px;width:auto;filter:drop-shadow(0 0 14px rgba(79,216,235,0.35));" loading="lazy" />
-        <p class="footer-tagline">Born in Asia. Performing Worldwide.</p>
-      </div>
       <div class="footer-nav-col">
-        <p class="footer-nav-heading">Explore</p>
         <nav class="footer-links">
           <a href="performers.html" class="footer-link">Performers</a>
           <a href="shows.html"      class="footer-link">Shows</a>
@@ -413,7 +423,6 @@
         </nav>
       </div>
       <div class="footer-contact-col">
-        <p class="footer-contact-label">Get in touch</p>
         <a href="mailto:info@sirenaasia.com" class="footer-contact-email">info@sirenaasia.com</a>
         <a href="contact.html" class="btn-coral" style="display:inline-block;margin-top:0.5rem;font-size:0.65rem;padding:0.55rem 1.3rem;">Request a Performance</a>
         <div class="footer-social">
@@ -431,12 +440,8 @@
     </div>
     <div class="footer-divider"></div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2026 Sirena Asia · Born in Asia. Performing Worldwide.</p>
+      <p class="footer-copy">© 2026 Sirena Asia</p>
       <p class="footer-copy" style="opacity:.75;margin-top:.4rem;">Photos and videos are used with each performer's consent. Please don't copy or reuse them without written permission from Sirena Asia.</p>
-      <div class="footer-legal">
-        <a href="#" class="footer-legal-link">Privacy Policy</a>
-        <a href="#" class="footer-legal-link">Terms of Use</a>
-      </div>
     </div>
   </footer>
 
